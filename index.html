@@ -3099,27 +3099,29 @@
         };
 
         /* -------------------------------------------------------------------
-         * 8B. LOW DEEP NEOCLASSICAL MEDITATIVE LOOPING MUSIC & RAY "WHOOOSH"
-         *     Pure Web Audio synthesis: deep bowed cello strings + felt piano
-         *     + warm concert-hall reverb (zero background noise)
+         * 8B. AUDIO ENGINE — ONLY TWO SOUNDS:
+         *     1. Background Music: "Cirrus" by Scott Buckley (assets/Cirrus.mp3)
+         *     2. Menu Whoosh Effect: Loud, crisp filtered whoosh on ray/menu motion
          * ----------------------------------------------------------------- */
         const soundToggleBtn = document.getElementById('soundToggleBtn');
         const soundIconOn = document.getElementById('soundIconOn');
         const soundIconOff = document.getElementById('soundIconOff');
+        const bgMusicAudio = document.getElementById('bgMusicAudio');
 
         let audioCtx = null;
-        let musicMasterGain = null;
-        let musicDryBus = null;
-        let musicReverbBus = null;
-        let musicLoopTimer = null;
-        let musicBarIndex = 0;
-        let musicRunning = false;
+        let cachedWhooshBuffer = null;
+        let mp3FadeTimer = null;
         let soundEnabled = true;
+        const CIRRUS_VOLUME = 0.26;
 
         try {
           const savedSound = localStorage.getItem('ee2027_sound');
           if (savedSound === 'off') soundEnabled = false;
         } catch (_) {}
+
+        if (bgMusicAudio) {
+          bgMusicAudio.volume = 0;
+        }
 
         function updateSoundButtonUI() {
           if (!soundToggleBtn) return;
@@ -3129,45 +3131,6 @@
           soundToggleBtn.className = soundEnabled
             ? 'inline-flex items-center gap-1.5 px-2.5 py-2 sm:px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-amber-300/35 text-amber-200 text-xs font-semibold backdrop-blur-sm transition-all'
             : 'inline-flex items-center gap-1.5 px-2.5 py-2 sm:px-3 rounded-xl bg-white/5 hover:bg-white/15 border border-white/15 text-slate-400 text-xs font-semibold backdrop-blur-sm transition-all';
-        }
-
-        function createPinkNoiseBuffer(ctx, durationSec) {
-          const length = Math.floor(ctx.sampleRate * durationSec);
-          const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
-          const data = buffer.getChannelData(0);
-          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
-          for (let i = 0; i < length; i++) {
-            const white = Math.random() * 2 - 1;
-            b0 = 0.99886 * b0 + white * 0.0555179;
-            b1 = 0.99332 * b1 + white * 0.0750759;
-            b2 = 0.96900 * b2 + white * 0.1538520;
-            b3 = 0.86650 * b3 + white * 0.3104856;
-            b4 = 0.55000 * b4 + white * 0.5329522;
-            b5 = -0.7616 * b5 - white * 0.0168980;
-            data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.045;
-            b6 = white * 0.115926;
-          }
-          return buffer;
-        }
-
-        // Warm 3.6s stereo concert-hall impulse response for neoclassical depth
-        function createHallReverbImpulse(ctx, durationSec) {
-          const rate = ctx.sampleRate;
-          const length = Math.floor(rate * durationSec);
-          const impulse = ctx.createBuffer(2, length, rate);
-          for (let ch = 0; ch < 2; ch++) {
-            const data = impulse.getChannelData(ch);
-            let lp = 0;
-            for (let i = 0; i < length; i++) {
-              const t = i / length;
-              const decay = Math.pow(1 - t, 2.8);
-              const sample = (Math.random() * 2 - 1) * decay;
-              // Gentle one-pole low-pass so hall reverb stays warm and dark
-              lp = lp * 0.86 + sample * 0.14;
-              data[i] = lp * 0.9;
-            }
-          }
-          return impulse;
         }
 
         function initAudioContext() {
@@ -3182,205 +3145,35 @@
           return audioCtx;
         }
 
-        function setupMusicBuses(ctx) {
-          if (musicMasterGain) return;
-          const now = ctx.currentTime;
-
-          musicMasterGain = ctx.createGain();
-          musicMasterGain.gain.setValueAtTime(0.0001, now);
-          musicMasterGain.connect(ctx.destination);
-
-          // Warm dry bus
-          musicDryBus = ctx.createGain();
-          musicDryBus.gain.setValueAtTime(0.62, now);
-          musicDryBus.connect(musicMasterGain);
-
-          // Lush concert-hall reverb bus
-          const convolver = ctx.createConvolver();
-          convolver.buffer = createHallReverbImpulse(ctx, 3.6);
-
-          const reverbFilter = ctx.createBiquadFilter();
-          reverbFilter.type = 'lowpass';
-          reverbFilter.frequency.setValueAtTime(1400, now);
-
-          musicReverbBus = ctx.createGain();
-          musicReverbBus.gain.setValueAtTime(0.55, now);
-
-          musicReverbBus.connect(convolver);
-          convolver.connect(reverbFilter);
-          reverbFilter.connect(musicMasterGain);
-        }
-
-        // Deep Bowed Cello / Low Chamber Strings Voice
-        function scheduleCelloVoice(ctx, freq, startTime, duration, volume) {
-          const filter = ctx.createBiquadFilter();
-          filter.type = 'lowpass';
-          filter.Q.setValueAtTime(1.1, startTime);
-          filter.frequency.setValueAtTime(220, startTime);
-          filter.frequency.linearRampToValueAtTime(520, startTime + duration * 0.42);
-          filter.frequency.linearRampToValueAtTime(260, startTime + duration);
-
-          const env = ctx.createGain();
-          env.gain.setValueAtTime(0.0001, startTime);
-          env.gain.linearRampToValueAtTime(volume, startTime + 1.8);
-          env.gain.setValueAtTime(volume * 0.92, startTime + duration - 2.0);
-          env.gain.exponentialRampToValueAtTime(0.0001, startTime + duration + 0.35);
-
-          // Warm detuned cello pair (triangle + gentle low-passed sawtooth)
-          const pair = [
-            { type: 'triangle', detune: -4, gain: 0.65 },
-            { type: 'sawtooth', detune: 4.5, gain: 0.35 }
-          ];
-
-          pair.forEach((p) => {
-            const osc = ctx.createOscillator();
-            const g = ctx.createGain();
-            osc.type = p.type;
-            osc.frequency.setValueAtTime(freq, startTime);
-            osc.detune.setValueAtTime(p.detune, startTime);
-            g.gain.setValueAtTime(p.gain, startTime);
-            osc.connect(g);
-            g.connect(filter);
-            osc.start(startTime);
-            osc.stop(startTime + duration + 0.5);
-          });
-
-          filter.connect(env);
-          env.connect(musicDryBus);
-          env.connect(musicReverbBus);
-        }
-
-        // Intimate Neoclassical Felt Piano Note
-        function scheduleFeltPianoNote(ctx, freq, startTime, velocity) {
-          const duration = 4.6;
-          const filter = ctx.createBiquadFilter();
-          filter.type = 'lowpass';
-          filter.Q.setValueAtTime(0.7, startTime);
-          filter.frequency.setValueAtTime(Math.min(1350, freq * 3.4), startTime);
-          filter.frequency.exponentialRampToValueAtTime(Math.max(240, freq * 1.15), startTime + 2.8);
-
-          const env = ctx.createGain();
-          env.gain.setValueAtTime(0.0001, startTime);
-          env.gain.linearRampToValueAtTime(velocity, startTime + 0.028);
-          env.gain.exponentialRampToValueAtTime(velocity * 0.42, startTime + 0.95);
-          env.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
-
-          // Warm felt-piano harmonic partials (fundamental + soft 2nd + delicate 3rd)
-          const harmonics = [
-            { mult: 1, gain: 0.72, type: 'sine' },
-            { mult: 2, gain: 0.22, type: 'sine' },
-            { mult: 3, gain: 0.06, type: 'triangle' }
-          ];
-
-          harmonics.forEach((h) => {
-            const osc = ctx.createOscillator();
-            const g = ctx.createGain();
-            osc.type = h.type;
-            osc.frequency.setValueAtTime(freq * h.mult, startTime);
-            g.gain.setValueAtTime(h.gain, startTime);
-            osc.connect(g);
-            g.connect(filter);
-            osc.start(startTime);
-            osc.stop(startTime + duration + 0.15);
-          });
-
-          filter.connect(env);
-          env.connect(musicDryBus);
-          env.connect(musicReverbBus);
-        }
-
-        // 4-Bar Meditative Neoclassical Loop in D Minor (6.0s per bar = 24s seamless cycle)
-        const BAR_DURATION = 6.0;
-        const neoclassicalBars = [
-          // Bar 1: Dm9 (deep, noble, grounded)
-          {
-            cellos: [
-              { freq: 73.42, vol: 0.22 },   // D2
-              { freq: 110.00, vol: 0.13 },  // A2
-              { freq: 146.83, vol: 0.11 },  // D3
-              { freq: 174.61, vol: 0.075 }  // F3
-            ],
-            piano: [
-              { offset: 0.15, freq: 146.83, vel: 0.13 }, // D3
-              { offset: 1.50, freq: 220.00, vel: 0.11 }, // A3
-              { offset: 2.95, freq: 329.63, vel: 0.10 }, // E4 (9th)
-              { offset: 4.50, freq: 261.63, vel: 0.08 }  // C4
-            ]
-          },
-          // Bar 2: Bbmaj7 (warm, reflective emotional swell)
-          {
-            cellos: [
-              { freq: 58.27, vol: 0.22 },   // Bb1
-              { freq: 116.54, vol: 0.15 },  // Bb2
-              { freq: 146.83, vol: 0.10 },  // D3
-              { freq: 174.61, vol: 0.085 }  // F3
-            ],
-            piano: [
-              { offset: 0.15, freq: 116.54, vel: 0.13 }, // Bb2
-              { offset: 1.55, freq: 174.61, vel: 0.10 }, // F3
-              { offset: 3.00, freq: 293.66, vel: 0.11 }, // D4
-              { offset: 4.55, freq: 220.00, vel: 0.09 }  // A3 (maj7)
-            ]
-          },
-          // Bar 3: Fadd9 (open, luminous, calm solar warmth)
-          {
-            cellos: [
-              { freq: 87.31, vol: 0.21 },   // F2
-              { freq: 130.81, vol: 0.14 },  // C3
-              { freq: 174.61, vol: 0.10 },  // F3
-              { freq: 220.00, vol: 0.065 }  // A3
-            ],
-            piano: [
-              { offset: 0.15, freq: 174.61, vel: 0.12 }, // F3
-              { offset: 1.50, freq: 261.63, vel: 0.10 }, // C4
-              { offset: 3.05, freq: 392.00, vel: 0.09 }, // G4 (add9)
-              { offset: 4.60, freq: 349.23, vel: 0.085 } // F4
-            ]
-          },
-          // Bar 4: Csus2 -> A7sus4 (gentle meditative cadence back to Dm9)
-          {
-            cellos: [
-              { freq: 65.41, vol: 0.22 },   // C2
-              { freq: 98.00, vol: 0.13 },   // G2
-              { freq: 130.81, vol: 0.11 },  // C3
-              { freq: 164.81, vol: 0.08 }   // E3
-            ],
-            piano: [
-              { offset: 0.15, freq: 130.81, vel: 0.13 }, // C3
-              { offset: 1.55, freq: 196.00, vel: 0.10 }, // G3
-              { offset: 3.05, freq: 329.63, vel: 0.105 }, // E4
-              { offset: 4.65, freq: 293.66, vel: 0.09 }  // D4
-            ]
+        // Full-scale normalized pink-noise buffer for rich, punchy menu whoosh
+        function getWhooshNoiseBuffer(ctx) {
+          if (cachedWhooshBuffer && cachedWhooshBuffer.sampleRate === ctx.sampleRate) {
+            return cachedWhooshBuffer;
           }
-        ];
-
-        function playNextNeoclassicalBar() {
-          if (!soundEnabled || !musicRunning || !audioCtx) return;
-          const now = audioCtx.currentTime + 0.05;
-          const bar = neoclassicalBars[musicBarIndex % neoclassicalBars.length];
-          musicBarIndex = (musicBarIndex + 1) % neoclassicalBars.length;
-
-          // Schedule deep overlapping cello strings for the full bar + smooth tail
-          bar.cellos.forEach((c) => {
-            scheduleCelloVoice(audioCtx, c.freq, now, BAR_DURATION + 1.4, c.vol);
-          });
-
-          // Schedule meditative felt piano motif across the bar
-          bar.piano.forEach((n) => {
-            scheduleFeltPianoNote(audioCtx, n.freq, now + n.offset, n.vel);
-          });
-        }
-
-        const bgMusicAudio = document.getElementById('bgMusicAudio');
-        let mp3FadeTimer = null;
-        let mp3Available = true;
-        const MP3_TARGET_VOLUME = 0.36;
-
-        if (bgMusicAudio) {
-          bgMusicAudio.volume = 0;
-          bgMusicAudio.addEventListener('error', () => {
-            mp3Available = false;
-          });
+          const durationSec = 0.95;
+          const length = Math.floor(ctx.sampleRate * durationSec);
+          const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+          let maxAbs = 0.001;
+          for (let i = 0; i < length; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            const val = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
+            b6 = white * 0.115926;
+            data[i] = val;
+            if (Math.abs(val) > maxAbs) maxAbs = Math.abs(val);
+          }
+          for (let i = 0; i < length; i++) {
+            data[i] = (data[i] / maxAbs) * 0.88;
+          }
+          cachedWhooshBuffer = buffer;
+          return buffer;
         }
 
         function fadeAudioElement(audioEl, targetVol, durationMs, pauseOnZero) {
@@ -3405,107 +3198,95 @@
           }, stepMs);
         }
 
-        function startSynthFallback() {
-          if (!soundEnabled) return;
-          const ctx = initAudioContext();
-          if (!ctx) return;
-          setupMusicBuses(ctx);
-
-          const now = ctx.currentTime;
-          musicMasterGain.gain.cancelScheduledValues(now);
-          musicMasterGain.gain.setValueAtTime(Math.max(0.0001, musicMasterGain.gain.value), now);
-          musicMasterGain.gain.exponentialRampToValueAtTime(0.42, now + 1.6);
-
-          if (!musicRunning) {
-            musicRunning = true;
-            playNextNeoclassicalBar();
-            musicLoopTimer = setInterval(playNextNeoclassicalBar, BAR_DURATION * 1000);
+        function startCirrusMusic() {
+          if (!soundEnabled || !bgMusicAudio) return;
+          const playPromise = bgMusicAudio.play();
+          if (playPromise && typeof playPromise.then === 'function') {
+            playPromise
+              .then(() => {
+                fadeAudioElement(bgMusicAudio, CIRRUS_VOLUME, 1200, false);
+              })
+              .catch(() => {});
           }
         }
 
-        function ensureNeoclassicalMusic() {
-          if (!soundEnabled) return;
-          // Prefer Scott Buckley's "Cirrus" MP3 when present in assets/
-          if (bgMusicAudio && mp3Available) {
-            const playPromise = bgMusicAudio.play();
-            if (playPromise && typeof playPromise.then === 'function') {
-              playPromise
-                .then(() => {
-                  fadeAudioElement(bgMusicAudio, MP3_TARGET_VOLUME, 1400, false);
-                })
-                .catch(() => {
-                  // Fallback gracefully to synthesized neoclassical loop if MP3 is missing/blocked
-                  startSynthFallback();
-                });
-              return;
-            }
-          }
-          startSynthFallback();
-        }
-
-        function muteNeoclassicalMusic() {
+        function stopCirrusMusic() {
           if (bgMusicAudio && !bgMusicAudio.paused) {
-            fadeAudioElement(bgMusicAudio, 0, 500, true);
+            fadeAudioElement(bgMusicAudio, 0, 450, true);
           }
-          if (musicLoopTimer) {
-            clearInterval(musicLoopTimer);
-            musicLoopTimer = null;
-          }
-          musicRunning = false;
-          if (!audioCtx || !musicMasterGain) return;
-          const now = audioCtx.currentTime;
-          musicMasterGain.gain.cancelScheduledValues(now);
-          musicMasterGain.gain.setValueAtTime(Math.max(0.0001, musicMasterGain.gain.value), now);
-          musicMasterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
         }
 
+        // Pure, loud, crisp dual-band cinematic whoosh (cuts clearly over Cirrus)
         function playSolarWhoosh() {
           if (!soundEnabled) return;
           try {
             const ctx = initAudioContext();
             if (!ctx) return;
-            ensureNeoclassicalMusic();
+            startCirrusMusic();
+
+            // Gently duck Cirrus slightly during the whoosh so it stands out crisply
+            if (bgMusicAudio && !bgMusicAudio.paused && bgMusicAudio.volume > 0.14) {
+              fadeAudioElement(bgMusicAudio, 0.14, 140, false);
+              setTimeout(() => {
+                if (soundEnabled && bgMusicAudio && !bgMusicAudio.paused) {
+                  fadeAudioElement(bgMusicAudio, CIRRUS_VOLUME, 520, false);
+                }
+              }, 480);
+            }
 
             const now = ctx.currentTime;
+            const noiseBuffer = getWhooshNoiseBuffer(ctx);
 
-            // Cinematic filtered pink-noise "whooosh" sweep synced to 0.9s ray spin
-            const noiseSrc = ctx.createBufferSource();
-            noiseSrc.buffer = createPinkNoiseBuffer(ctx, 0.95);
+            // Soft limiter/compressor for punchy loudness without distortion
+            const comp = ctx.createDynamicsCompressor();
+            comp.threshold.setValueAtTime(-10, now);
+            comp.knee.setValueAtTime(12, now);
+            comp.ratio.setValueAtTime(4, now);
+            comp.attack.setValueAtTime(0.005, now);
+            comp.release.setValueAtTime(0.15, now);
+            comp.connect(ctx.destination);
 
-            const bp = ctx.createBiquadFilter();
-            bp.type = 'bandpass';
-            bp.Q.setValueAtTime(2.6, now);
-            bp.frequency.setValueAtTime(160, now);
-            bp.frequency.exponentialRampToValueAtTime(1320, now + 0.30);
-            bp.frequency.exponentialRampToValueAtTime(220, now + 0.86);
+            // Layer 1: Warm low-mid wind body sweep
+            const srcLow = ctx.createBufferSource();
+            srcLow.buffer = noiseBuffer;
+            const bpLow = ctx.createBiquadFilter();
+            bpLow.type = 'bandpass';
+            bpLow.Q.setValueAtTime(1.5, now);
+            bpLow.frequency.setValueAtTime(140, now);
+            bpLow.frequency.exponentialRampToValueAtTime(860, now + 0.28);
+            bpLow.frequency.exponentialRampToValueAtTime(175, now + 0.85);
 
-            const noiseGain = ctx.createGain();
-            noiseGain.gain.setValueAtTime(0.0001, now);
-            noiseGain.gain.exponentialRampToValueAtTime(0.45, now + 0.25);
-            noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.88);
+            const gainLow = ctx.createGain();
+            gainLow.gain.setValueAtTime(0.0001, now);
+            gainLow.gain.exponentialRampToValueAtTime(0.95, now + 0.22);
+            gainLow.gain.exponentialRampToValueAtTime(0.0001, now + 0.88);
 
-            noiseSrc.connect(bp);
-            bp.connect(noiseGain);
-            noiseGain.connect(ctx.destination);
-            noiseSrc.start(now);
-            noiseSrc.stop(now + 0.92);
+            srcLow.connect(bpLow);
+            bpLow.connect(gainLow);
+            gainLow.connect(comp);
+            srcLow.start(now);
+            srcLow.stop(now + 0.92);
 
-            // Subtle D-minor harmonic shimmer tuned to the neoclassical soundtrack
-            const shimmerOsc = ctx.createOscillator();
-            const shimmerGain = ctx.createGain();
-            shimmerOsc.type = 'sine';
-            shimmerOsc.frequency.setValueAtTime(146.83, now);
-            shimmerOsc.frequency.exponentialRampToValueAtTime(220.00, now + 0.32);
-            shimmerOsc.frequency.exponentialRampToValueAtTime(174.61, now + 0.82);
+            // Layer 2: Crisp airy mid-high whoosh rush
+            const srcAir = ctx.createBufferSource();
+            srcAir.buffer = noiseBuffer;
+            const bpAir = ctx.createBiquadFilter();
+            bpAir.type = 'bandpass';
+            bpAir.Q.setValueAtTime(2.0, now);
+            bpAir.frequency.setValueAtTime(380, now);
+            bpAir.frequency.exponentialRampToValueAtTime(2300, now + 0.26);
+            bpAir.frequency.exponentialRampToValueAtTime(420, now + 0.82);
 
-            shimmerGain.gain.setValueAtTime(0.0001, now);
-            shimmerGain.gain.exponentialRampToValueAtTime(0.045, now + 0.22);
-            shimmerGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.84);
+            const gainAir = ctx.createGain();
+            gainAir.gain.setValueAtTime(0.0001, now);
+            gainAir.gain.exponentialRampToValueAtTime(0.75, now + 0.20);
+            gainAir.gain.exponentialRampToValueAtTime(0.0001, now + 0.84);
 
-            shimmerOsc.connect(shimmerGain);
-            shimmerGain.connect(ctx.destination);
-            shimmerOsc.start(now);
-            shimmerOsc.stop(now + 0.86);
+            srcAir.connect(bpAir);
+            bpAir.connect(gainAir);
+            gainAir.connect(comp);
+            srcAir.start(now);
+            srcAir.stop(now + 0.88);
           } catch (err) {
             console.error('Audio whoosh error:', err);
           }
@@ -3513,10 +3294,10 @@
 
         updateSoundButtonUI();
 
-        // Unlock neoclassical looping music cleanly on the visitor's first gesture
+        // Unlock Cirrus looping music cleanly on the visitor's first gesture
         function handleFirstGesture() {
           if (soundEnabled) {
-            ensureNeoclassicalMusic();
+            startCirrusMusic();
           }
           document.removeEventListener('pointerdown', handleFirstGesture);
           document.removeEventListener('keydown', handleFirstGesture);
@@ -3533,10 +3314,10 @@
             } catch (_) {}
             updateSoundButtonUI();
             if (soundEnabled) {
-              ensureNeoclassicalMusic();
+              startCirrusMusic();
               playSolarWhoosh();
             } else {
-              muteNeoclassicalMusic();
+              stopCirrusMusic();
             }
           });
         }
@@ -3582,9 +3363,8 @@
           }
         }
 
-        // Variant 1: Smooth 3D Parallax — Mobile Gyroscope Tilt & Subtle Desktop Cursor Follow
-        let targetTiltX = 0, targetTiltY = 0, curTiltX = 0, curTiltY = 0;
-        let pointerActive = false;
+        // Variant 1: Smooth 3D Parallax — Starts Immediately On Load + Mobile Gyroscope + Subtle Desktop Cursor
+        let sensorTiltX = 0, sensorTiltY = 0, curTiltX = 0, curTiltY = 0;
         let gyroActive = false;
         let gyroListenerAttached = false;
         let baseBeta = null;
@@ -3613,20 +3393,20 @@
             rawRoll = -e.beta;
           }
 
-          // Calibrate to the user's comfortable holding angle, then slowly re-center
+          // Calibrate to natural holding posture, then slowly re-center
           if (baseBeta === null || baseGamma === null) {
             baseBeta = rawPitch;
             baseGamma = rawRoll;
           } else {
-            baseBeta += (rawPitch - baseBeta) * 0.008;
-            baseGamma += (rawRoll - baseGamma) * 0.008;
+            baseBeta += (rawPitch - baseBeta) * 0.006;
+            baseGamma += (rawRoll - baseGamma) * 0.006;
           }
 
           const deltaPitch = rawPitch - baseBeta;
           const deltaRoll = rawRoll - baseGamma;
 
-          targetTiltY = clampNum(deltaRoll * 0.58, -14, 14);
-          targetTiltX = clampNum(-deltaPitch * 0.52, -12, 12);
+          sensorTiltY = clampNum(deltaRoll * 0.62, -14, 14);
+          sensorTiltX = clampNum(-deltaPitch * 0.55, -12, 12);
         }
 
         function attachGyroListener() {
@@ -3634,6 +3414,7 @@
           if ('DeviceOrientationEvent' in window) {
             gyroListenerAttached = true;
             window.addEventListener('deviceorientation', handleDeviceOrientation, { passive: true });
+            window.addEventListener('deviceorientationabsolute', handleDeviceOrientation, { passive: true });
           }
         }
 
@@ -3642,21 +3423,20 @@
           window.addEventListener('pointermove', (e) => {
             if (e.pointerType && e.pointerType !== 'mouse') return;
             if (gyroActive) return;
-            pointerActive = true;
             const nx = (e.clientX / window.innerWidth) * 2 - 1;
             const ny = (e.clientY / window.innerHeight) * 2 - 1;
-            targetTiltY = nx * 7.5;
-            targetTiltX = -ny * 6.5;
+            sensorTiltY = nx * 7.5;
+            sensorTiltX = -ny * 6.5;
           }, { passive: true });
 
           window.addEventListener('pointerleave', () => {
             if (!gyroActive) {
-              targetTiltX = 0;
-              targetTiltY = 0;
+              sensorTiltX = 0;
+              sensorTiltY = 0;
             }
           });
 
-          // Mobile: attach gyroscope directly (Android) or request on first tap (iOS 13+)
+          // Mobile: attach gyroscope directly on load (Android) or request cleanly on first tap (iOS 13+)
           if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
             const requestIosGyro = () => {
               DeviceOrientationEvent.requestPermission()
@@ -3702,12 +3482,13 @@
         function animateStageVisuals(t) {
           if (currentLevel !== 3) {
             if (!prefersReducedMotion && radialSolarNav) {
-              if (!pointerActive && !gyroActive) {
-                targetTiltX = Math.sin(t * 0.0007) * 3.5;
-                targetTiltY = Math.cos(t * 0.00055) * 4.2;
-              }
-              curTiltX += (targetTiltX - curTiltX) * 0.08;
-              curTiltY += (targetTiltY - curTiltY) * 0.08;
+              // Gentle autonomous 3D breathing starts immediately on page load; live gyro/cursor layers smoothly on top
+              const ambientX = Math.sin(t * 0.00085) * 4.2;
+              const ambientY = Math.cos(t * 0.00068) * 5.2;
+              const goalX = clampNum(ambientX + sensorTiltX, -15, 15);
+              const goalY = clampNum(ambientY + sensorTiltY, -16, 16);
+              curTiltX += (goalX - curTiltX) * 0.085;
+              curTiltY += (goalY - curTiltY) * 0.085;
               radialSolarNav.style.transform = `rotateX(${curTiltX.toFixed(2)}deg) rotateY(${curTiltY.toFixed(2)}deg)`;
             }
 
