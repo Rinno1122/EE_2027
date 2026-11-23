@@ -261,7 +261,7 @@
           </p>
 
           <!-- Primary Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-12">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
             <a
               href="#authors"
               class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-solar hover:bg-amber-600 text-white font-semibold text-base shadow-lg shadow-amber-950/30 transition-all"
@@ -281,32 +281,6 @@
               </svg>
               <span data-i18n="hero.ctaPrereg">Pre-Register Interest</span>
             </button>
-          </div>
-
-          <!-- Live Countdown Timer to October 27, 2027 -->
-          <div class="inline-block w-full sm:w-auto rounded-2xl bg-white/[0.07] border border-white/15 backdrop-blur-md p-4 sm:p-5">
-            <div class="flex items-center justify-between gap-4 mb-3">
-              <span class="text-xs font-semibold uppercase tracking-widest text-teal-300" data-i18n="hero.countdownLabel">Countdown to Opening Day</span>
-              <span class="text-xs text-slate-300">27 Oct 2027 (TBC)</span>
-            </div>
-            <div class="grid grid-cols-4 gap-2.5 sm:gap-4 text-center" aria-live="polite">
-              <div class="rounded-xl bg-navy-dark/70 border border-white/10 px-3 py-2.5 sm:px-5 sm:py-3">
-                <div id="cdDays" class="font-display text-2xl sm:text-3xl font-extrabold text-white tabular-nums">--</div>
-                <div class="text-[11px] uppercase tracking-wider text-slate-300 mt-0.5" data-i18n="hero.days">Days</div>
-              </div>
-              <div class="rounded-xl bg-navy-dark/70 border border-white/10 px-3 py-2.5 sm:px-5 sm:py-3">
-                <div id="cdHours" class="font-display text-2xl sm:text-3xl font-extrabold text-white tabular-nums">--</div>
-                <div class="text-[11px] uppercase tracking-wider text-slate-300 mt-0.5" data-i18n="hero.hours">Hours</div>
-              </div>
-              <div class="rounded-xl bg-navy-dark/70 border border-white/10 px-3 py-2.5 sm:px-5 sm:py-3">
-                <div id="cdMinutes" class="font-display text-2xl sm:text-3xl font-extrabold text-white tabular-nums">--</div>
-                <div class="text-[11px] uppercase tracking-wider text-slate-300 mt-0.5" data-i18n="hero.minutes">Minutes</div>
-              </div>
-              <div class="rounded-xl bg-navy-dark/70 border border-white/10 px-3 py-2.5 sm:px-5 sm:py-3">
-                <div id="cdSeconds" class="font-display text-2xl sm:text-3xl font-extrabold text-solar-light tabular-nums">--</div>
-                <div class="text-[11px] uppercase tracking-wider text-slate-300 mt-0.5" data-i18n="hero.seconds">Seconds</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1359,7 +1333,7 @@
   <div id="toastContainer" aria-live="polite" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-[calc(100%-2.5rem)] pointer-events-none"></div>
 
   <!-- ===================================================================== -->
-  <!-- APPLICATION JAVASCRIPT (BILINGUAL ENGINE, COUNTDOWN, UI & FORMS)      -->
+  <!-- APPLICATION JAVASCRIPT (BILINGUAL ENGINE, UI & FORMS)                 -->
   <!-- ===================================================================== -->
   <script>
     (function () {
@@ -1392,11 +1366,6 @@
           'hero.organizers': 'Organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).',
           'hero.ctaPapers': 'Call for Papers',
           'hero.ctaPrereg': 'Pre-Register Interest',
-          'hero.countdownLabel': 'Countdown to Opening Day',
-          'hero.days': 'Days',
-          'hero.hours': 'Hours',
-          'hero.minutes': 'Minutes',
-          'hero.seconds': 'Seconds',
 
           'about.eyebrow': 'About the Congress',
           'about.title': 'Advancing Clean Energy Engineering & Environmental Stewardship',
@@ -1611,11 +1580,6 @@
           'hero.organizers': 'U organizaciji Hrvatskog saveza za sunčevu energiju (HSSE) u suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH).',
           'hero.ctaPapers': 'Poziv za radove',
           'hero.ctaPrereg': 'Predbilježba interesa',
-          'hero.countdownLabel': 'Odbrojavanje do otvaranja',
-          'hero.days': 'Dana',
-          'hero.hours': 'Sati',
-          'hero.minutes': 'Minuta',
-          'hero.seconds': 'Sekundi',
 
           'about.eyebrow': 'O kongresu',
           'about.title': 'Unaprjeđenje čistih energetskih tehnologija i zaštite okoliša',
@@ -1881,39 +1845,6 @@
       }
 
       /* ---------------------------------------------------------------------
-       * 3. LIVE COUNTDOWN TIMER TO OCTOBER 27, 2027 (09:00 CET)
-       * ------------------------------------------------------------------- */
-      function startCountdown() {
-        const targetTime = new Date('2027-10-27T09:00:00+02:00').getTime();
-        const elDays = document.getElementById('cdDays');
-        const elHours = document.getElementById('cdHours');
-        const elMinutes = document.getElementById('cdMinutes');
-        const elSeconds = document.getElementById('cdSeconds');
-
-        function updateTimer() {
-          try {
-            const now = Date.now();
-            const diff = Math.max(0, targetTime - now);
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-            const seconds = Math.floor((diff / 1000) % 60);
-
-            if (elDays) elDays.textContent = String(days);
-            if (elHours) elHours.textContent = String(hours).padStart(2, '0');
-            if (elMinutes) elMinutes.textContent = String(minutes).padStart(2, '0');
-            if (elSeconds) elSeconds.textContent = String(seconds).padStart(2, '0');
-          } catch (err) {
-            console.error('Countdown error:', err);
-          }
-        }
-
-        updateTimer();
-        setInterval(updateTimer, 1000);
-      }
-
-      /* ---------------------------------------------------------------------
        * 4. CLIPBOARD HELPER (Uses document.execCommand for iframe compatibility)
        * ------------------------------------------------------------------- */
       function copyTextToClipboard(text) {
@@ -2008,9 +1939,6 @@
         } catch (_) {
           applyLanguage('en');
         }
-
-        // Start Countdown
-        startCountdown();
 
         // Language Toggle Buttons
         document.querySelectorAll('.lang-btn').forEach((btn) => {
