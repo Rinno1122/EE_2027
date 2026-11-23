@@ -3582,18 +3582,96 @@
           }
         }
 
-        // Variant 1: Smooth 3D mouse/idle parallax tilt
+        // Variant 1: Smooth 3D Parallax — Mobile Gyroscope Tilt & Subtle Desktop Cursor Follow
         let targetTiltX = 0, targetTiltY = 0, curTiltX = 0, curTiltY = 0;
         let pointerActive = false;
+        let gyroActive = false;
+        let gyroListenerAttached = false;
+        let baseBeta = null;
+        let baseGamma = null;
+
+        function clampNum(v, min, max) {
+          return Math.max(min, Math.min(max, v));
+        }
+
+        function handleDeviceOrientation(e) {
+          if (e.beta === null || e.gamma === null) return;
+          gyroActive = true;
+
+          // Adjust tilt axes if phone is rotated to landscape
+          const angle = (window.screen && window.screen.orientation && typeof window.screen.orientation.angle === 'number')
+            ? window.screen.orientation.angle
+            : (typeof window.orientation === 'number' ? window.orientation : 0);
+
+          let rawPitch = e.beta;
+          let rawRoll = e.gamma;
+          if (angle === 90) {
+            rawPitch = -e.gamma;
+            rawRoll = e.beta;
+          } else if (angle === -90 || angle === 270) {
+            rawPitch = e.gamma;
+            rawRoll = -e.beta;
+          }
+
+          // Calibrate to the user's comfortable holding angle, then slowly re-center
+          if (baseBeta === null || baseGamma === null) {
+            baseBeta = rawPitch;
+            baseGamma = rawRoll;
+          } else {
+            baseBeta += (rawPitch - baseBeta) * 0.008;
+            baseGamma += (rawRoll - baseGamma) * 0.008;
+          }
+
+          const deltaPitch = rawPitch - baseBeta;
+          const deltaRoll = rawRoll - baseGamma;
+
+          targetTiltY = clampNum(deltaRoll * 0.58, -14, 14);
+          targetTiltX = clampNum(-deltaPitch * 0.52, -12, 12);
+        }
+
+        function attachGyroListener() {
+          if (gyroListenerAttached || prefersReducedMotion) return;
+          if ('DeviceOrientationEvent' in window) {
+            gyroListenerAttached = true;
+            window.addEventListener('deviceorientation', handleDeviceOrientation, { passive: true });
+          }
+        }
 
         if (!prefersReducedMotion) {
+          // Desktop: subtly follow mouse cursor movement
           window.addEventListener('pointermove', (e) => {
+            if (e.pointerType && e.pointerType !== 'mouse') return;
+            if (gyroActive) return;
             pointerActive = true;
             const nx = (e.clientX / window.innerWidth) * 2 - 1;
             const ny = (e.clientY / window.innerHeight) * 2 - 1;
-            targetTiltY = nx * 15;
-            targetTiltX = -ny * 13;
+            targetTiltY = nx * 7.5;
+            targetTiltX = -ny * 6.5;
           }, { passive: true });
+
+          window.addEventListener('pointerleave', () => {
+            if (!gyroActive) {
+              targetTiltX = 0;
+              targetTiltY = 0;
+            }
+          });
+
+          // Mobile: attach gyroscope directly (Android) or request on first tap (iOS 13+)
+          if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+            const requestIosGyro = () => {
+              DeviceOrientationEvent.requestPermission()
+                .then((state) => {
+                  if (state === 'granted') attachGyroListener();
+                })
+                .catch(() => {});
+              document.removeEventListener('pointerdown', requestIosGyro);
+              document.removeEventListener('touchend', requestIosGyro);
+            };
+            document.addEventListener('pointerdown', requestIosGyro, { passive: true });
+            document.addEventListener('touchend', requestIosGyro, { passive: true });
+          } else {
+            attachGyroListener();
+          }
         }
 
         // Variant 4: 60fps 3D cosmic solar-dust & starfield canvas
@@ -3624,12 +3702,12 @@
         function animateStageVisuals(t) {
           if (currentLevel !== 3) {
             if (!prefersReducedMotion && radialSolarNav) {
-              if (!pointerActive) {
-                targetTiltX = Math.sin(t * 0.0007) * 4.5;
-                targetTiltY = Math.cos(t * 0.00055) * 5.5;
+              if (!pointerActive && !gyroActive) {
+                targetTiltX = Math.sin(t * 0.0007) * 3.5;
+                targetTiltY = Math.cos(t * 0.00055) * 4.2;
               }
-              curTiltX += (targetTiltX - curTiltX) * 0.075;
-              curTiltY += (targetTiltY - curTiltY) * 0.075;
+              curTiltX += (targetTiltX - curTiltX) * 0.08;
+              curTiltY += (targetTiltY - curTiltY) * 0.08;
               radialSolarNav.style.transform = `rotateX(${curTiltX.toFixed(2)}deg) rotateY(${curTiltY.toFixed(2)}deg)`;
             }
 
