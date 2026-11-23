@@ -120,14 +120,15 @@
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav aria-label="Primary Navigation" class="hidden xl:flex items-center gap-1">
-          <a href="#about" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors" data-i18n="nav.about">About</a>
-          <a href="#topics" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors" data-i18n="nav.topics">Topics</a>
-          <a href="#dates" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors" data-i18n="nav.dates">Dates</a>
-          <a href="#authors" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors" data-i18n="nav.authors">Authors</a>
-          <a href="#registration" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors" data-i18n="nav.registration">Registration</a>
-          <a href="#venue" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors" data-i18n="nav.venue">Venue</a>
-          <a href="#contact" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors" data-i18n="nav.contact">Contact</a>
+        <nav aria-label="Primary Navigation" class="hidden xl:flex items-center gap-0.5">
+          <a href="#about" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.about">About</a>
+          <a href="#topics" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.topics">Topics</a>
+          <a href="#dates" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.dates">Dates</a>
+          <a href="#authors" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.authors">Authors</a>
+          <a href="#registration" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.registration">Registration</a>
+          <a href="#venue" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.venue">Venue</a>
+          <a href="#archive" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.archive">Previous Conferences</a>
+          <a href="#contact" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.contact">Contact</a>
         </nav>
 
         <!-- Right Controls: Language Switcher + CTA + Mobile Menu Button -->
@@ -192,6 +193,7 @@
         <a href="#registration" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.registration">Registration</a>
         <a href="#committees" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.committees">Committees</a>
         <a href="#venue" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.venue">Venue</a>
+        <a href="#archive" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.archive">Previous Conferences</a>
         <a href="#contact" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.contact">Contact</a>
         <div class="pt-3 mt-2 border-t border-slate-100">
           <button
@@ -360,6 +362,17 @@
                     <span data-i18n="about.hPoint3">Revitalized for 2027 with modern peer-review standards, digital proceedings, and emerging net-zero tracks.</span>
                   </li>
                 </ul>
+                <div class="mt-6 pt-5 border-t border-white/10">
+                  <a
+                    href="#archive"
+                    class="inline-flex items-center gap-2 text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors"
+                  >
+                    <span data-i18n="about.archiveLink">Explore Previous Conferences &amp; HSSE Archive</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -1134,6 +1147,316 @@
       </div>
     </section>
 
+    <!-- =================================================================== -->
+    <!-- PREVIOUS CONFERENCES & HSSE ARCHIVE SECTION                         -->
+    <!-- =================================================================== -->
+    <section id="archive" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div class="max-w-3xl">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-tealbrand mb-2" data-i18n="archive.eyebrow">
+              Historical Archive
+            </span>
+            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-navy tracking-tight mb-3" data-i18n="archive.title">
+              Previous Conferences
+            </h2>
+            <p class="text-slate-600 text-base leading-relaxed" data-i18n="archive.subtitle">
+              Explore archived editions of the International Congress Energy and the Environment in Opatija, preserved from the former Croatian Solar Energy Association website (www.hsse.hr) via the Internet Archive.
+            </p>
+          </div>
+          <div class="shrink-0">
+            <a
+              href="https://web.archive.org/web/*/www.hsse.hr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-navy hover:bg-navy-light text-white text-sm font-semibold shadow-sm transition-colors"
+            >
+              <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <span data-i18n="archive.browseAll">Browse Full HSSE Web Archive</span>
+              <svg class="w-3.5 h-3.5 opacity-80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Past Congress Editions Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+
+          <!-- 2018 — 26th Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-tealbrand/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2018</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-tealbrand/10 text-tealbrand text-xs font-bold" data-i18n="archive.ed26">26th Edition</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2018">Energy and the Environment 2018</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2018">October 2018 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+              <a
+                href="https://web.archive.org/web/*/www.hsse.hr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.openWayback">HSSE Web Archive</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2016 — 25th Jubilee Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-solar/50 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2016</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-solar-soft text-solar text-xs font-bold" data-i18n="archive.ed25">25th Jubilee</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2016">Energy and the Environment 2016</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2016">Oct 26–28, 2016 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              <a
+                href="https://web.archive.org/web/20160908105600/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2016"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewEn">Archive (EN)</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <a
+                href="https://web.archive.org/web/20160802051512/http://www.hsse.hr/cms/index.php/ENERGIJA_I_OKOLI%C5%A0_2016"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewHr">Archive (HR)</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2014 — 24th Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-tealbrand/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2014</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold" data-i18n="archive.ed24">24th Edition</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2014">Energy and the Environment 2014</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2014">Oct 21–24, 2014 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-3">
+              <a
+                href="https://web.archive.org/web/20160910213343/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2014"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewEn">Archive (EN)</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <a
+                href="https://web.archive.org/web/20160802052029/http://www.hsse.hr/cms/index.php/ENERGIJA_I_OKOLI%C5%A0_2014"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewHr">Archive (HR)</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2012 — 23rd Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-tealbrand/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2012</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold" data-i18n="archive.ed23">23rd Edition</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2012">Energy and the Environment 2012</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2012">October 2012 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+              <a
+                href="https://web.archive.org/web/20160802003708/http://www.hsse.hr/cms/index.php/ENERGIJA_I_OKOLI%C5%A0_2012"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewPage">View Archived Page</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2010 — 22nd Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-tealbrand/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2010</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold" data-i18n="archive.ed22">22nd Edition</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2010">Energy and the Environment 2010</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2010">October 2010 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+              <a
+                href="https://web.archive.org/web/20160910212810/http://www.hsse.hr/eearhiva/ee2010/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewPage">View Archived Page</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2008 — 21st Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-tealbrand/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2008</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold" data-i18n="archive.ed21">21st Edition</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2008">Energy and the Environment 2008</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2008">October 2008 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+              <a
+                href="https://web.archive.org/web/20160910213353/http://www.hsse.hr/eearhiva/ee2008/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewPage">View Archived Page</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2006 — 20th Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-tealbrand/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2006</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold" data-i18n="archive.ed20">20th Edition</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2006">Energy and the Environment 2006</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2006">Oct 25–27, 2006 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+              <a
+                href="https://web.archive.org/web/20160910213109/http://www.hsse.hr/eearhiva/ee2006/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewPage">View Archived Page</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2004 — 19th Congress -->
+          <article class="rounded-2xl bg-white border border-slate-200/90 p-5 shadow-sm hover:shadow-md hover:border-tealbrand/40 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-display text-2xl font-extrabold text-navy">2004</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold" data-i18n="archive.ed19">19th Edition</span>
+              </div>
+              <h3 class="font-display font-bold text-navy text-base mb-1" data-i18n="archive.name2004">Energy and the Environment 2004</h3>
+              <p class="text-xs text-slate-500 mb-4" data-i18n="archive.meta2004">October 2004 • Opatija, Croatia</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+              <a
+                href="https://web.archive.org/web/20160910212736/http://www.hsse.hr/eearhiva/ee2004/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs font-semibold text-tealbrand hover:text-navy transition-colors"
+              >
+                <span data-i18n="archive.viewPage">View Archived Page</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Earlier Heritage & Wayback Machine Index Callout -->
+        <div class="rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0 text-solar">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-navy text-base sm:text-lg mb-1" data-i18n="archive.calloutTitle">
+                Historical HSSE Portal &amp; Earlier Symposia (1978–2002)
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed max-w-2xl" data-i18n="archive.calloutDesc">
+                Access additional historical snapshots, archived news, and earlier editions of the Opatija solar and energy congresses captured from www.hsse.hr on the Wayback Machine.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href="https://web.archive.org/web/20160802051246/http://www.hsse.hr/cms/index.php/Home"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy text-xs sm:text-sm font-semibold transition-colors"
+            >
+              <span data-i18n="archive.hsseHome">Archived HSSE Homepage</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <a
+              href="https://web.archive.org/web/*/www.hsse.hr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-tealbrand hover:bg-teal-800 text-white text-xs sm:text-sm font-semibold transition-colors"
+            >
+              <span data-i18n="archive.waybackCalendar">All Wayback Snapshots</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <!-- ===================================================================== -->
@@ -1186,6 +1509,20 @@
             <li><a href="#about" class="hover:text-white transition-colors" data-i18n="nav.about">About</a></li>
             <li><a href="#topics" class="hover:text-white transition-colors" data-i18n="nav.topics">Topics</a></li>
             <li><a href="#authors" class="hover:text-white transition-colors" data-i18n="nav.authors">Authors</a></li>
+            <li><a href="#archive" class="hover:text-white transition-colors" data-i18n="nav.archive">Previous Conferences</a></li>
+            <li>
+              <a
+                href="https://web.archive.org/web/*/www.hsse.hr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white transition-colors inline-flex items-center gap-1"
+              >
+                <span data-i18n="footer.hsseArchive">HSSE Web Archive</span>
+                <svg class="w-3 h-3 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </li>
             <li>
               <button type="button" data-open-privacy class="hover:text-white transition-colors text-left" data-i18n="footer.privacy">
                 Privacy Policy (GDPR)
@@ -1357,6 +1694,7 @@
           'nav.registration': 'Registration',
           'nav.committees': 'Committees',
           'nav.venue': 'Venue',
+          'nav.archive': 'Previous Conferences',
           'nav.contact': 'Contact',
           'nav.cta': 'Submit / Register',
 
@@ -1381,6 +1719,7 @@
           'about.hPoint1': 'Rooted in early Opatija solar symposia (1978) and the pioneering journal Sunčeva energija.',
           'about.hPoint2': "Longstanding scientific cooperation with RITEH's Department of Thermodynamics and Energy Engineering.",
           'about.hPoint3': 'Revitalized for 2027 with modern peer-review standards, digital proceedings, and emerging net-zero tracks.',
+          'about.archiveLink': 'Explore Previous Conferences & HSSE Archive',
 
           'topics.eyebrow': 'Scientific Tracks',
           'topics.title': 'Conference Topics',
@@ -1507,12 +1846,50 @@
           'venue.ljuDesc': 'Slovenia hub • ~1h 45m drive',
           'venue.zagDesc': "Croatia's primary international hub • Direct A6 motorway (~2h drive or regular bus)",
 
+          'archive.eyebrow': 'Historical Archive',
+          'archive.title': 'Previous Conferences',
+          'archive.subtitle': 'Explore archived editions of the International Congress Energy and the Environment in Opatija, preserved from the former Croatian Solar Energy Association website (www.hsse.hr) via the Internet Archive.',
+          'archive.browseAll': 'Browse Full HSSE Web Archive',
+          'archive.ed26': '26th Edition',
+          'archive.name2018': 'Energy and the Environment 2018',
+          'archive.meta2018': 'October 2018 • Opatija, Croatia',
+          'archive.openWayback': 'HSSE Web Archive',
+          'archive.ed25': '25th Jubilee',
+          'archive.name2016': 'Energy and the Environment 2016',
+          'archive.meta2016': 'Oct 26–28, 2016 • Opatija, Croatia',
+          'archive.viewEn': 'Archive (EN)',
+          'archive.viewHr': 'Archive (HR)',
+          'archive.ed24': '24th Edition',
+          'archive.name2014': 'Energy and the Environment 2014',
+          'archive.meta2014': 'Oct 21–24, 2014 • Opatija, Croatia',
+          'archive.ed23': '23rd Edition',
+          'archive.name2012': 'Energy and the Environment 2012',
+          'archive.meta2012': 'October 2012 • Opatija, Croatia',
+          'archive.viewPage': 'View Archived Page',
+          'archive.ed22': '22nd Edition',
+          'archive.name2010': 'Energy and the Environment 2010',
+          'archive.meta2010': 'October 2010 • Opatija, Croatia',
+          'archive.ed21': '21st Edition',
+          'archive.name2008': 'Energy and the Environment 2008',
+          'archive.meta2008': 'October 2008 • Opatija, Croatia',
+          'archive.ed20': '20th Edition',
+          'archive.name2006': 'Energy and the Environment 2006',
+          'archive.meta2006': 'Oct 25–27, 2006 • Opatija, Croatia',
+          'archive.ed19': '19th Edition',
+          'archive.name2004': 'Energy and the Environment 2004',
+          'archive.meta2004': 'October 2004 • Opatija, Croatia',
+          'archive.calloutTitle': 'Historical HSSE Portal & Earlier Symposia (1978–2002)',
+          'archive.calloutDesc': 'Access additional historical snapshots, archived news, and earlier editions of the Opatija solar and energy congresses captured from www.hsse.hr on the Wayback Machine.',
+          'archive.hsseHome': 'Archived HSSE Homepage',
+          'archive.waybackCalendar': 'All Wayback Snapshots',
+
           'footer.title': 'Energy and the Environment 2027',
           'footer.orgName': 'Croatian Solar Energy Association (HSSE) — In cooperation with the Faculty of Engineering, University of Rijeka (RITEH)',
           'footer.contactTitle': 'Congress Secretariat',
           'footer.copy': 'Copy',
           'footer.emailNote': 'Placeholder secretariat addresses — update before launch.',
           'footer.linksTitle': 'Quick Links',
+          'footer.hsseArchive': 'HSSE Web Archive',
           'footer.privacy': 'Privacy Policy (GDPR)',
           'footer.top': '↑ Back to Top',
           'footer.copyright': '© 2027 Croatian Solar Energy Association (HSSE) — Draft Conference Prototype.',
@@ -1571,6 +1948,7 @@
           'nav.registration': 'Kotizacije',
           'nav.committees': 'Odbori',
           'nav.venue': 'Lokacija',
+          'nav.archive': 'Prethodni kongresi',
           'nav.contact': 'Kontakt',
           'nav.cta': 'Prijava / Radovi',
 
@@ -1595,6 +1973,7 @@
           'about.hPoint1': 'Utemeljen na ranim opatijskim simpozijima o sunčevoj energiji (1978.) i časopisu Sunčeva energija.',
           'about.hPoint2': 'Dugogodišnja znanstvena suradnja sa Zavodom za termodinamiku i energetiku RITEH-a.',
           'about.hPoint3': 'Obnovljen za 2027. uz suvremene standarde recenzije, digitalni zbornik i nove klimatski neutralne teme.',
+          'about.archiveLink': 'Istražite prethodne kongrese i arhivu HSSE-a',
 
           'topics.eyebrow': 'Znanstvene sekcije',
           'topics.title': 'Teme kongresa',
@@ -1721,12 +2100,50 @@
           'venue.ljuDesc': 'Središte Slovenije • ~1h 45m vožnje',
           'venue.zagDesc': 'Glavna hrvatska zračna luka • Izravna autocesta A6 (~2h vožnje ili redovne autobusne linije)',
 
+          'archive.eyebrow': 'Povijesna arhiva',
+          'archive.title': 'Prethodni kongresi',
+          'archive.subtitle': 'Istražite arhivirana izdanja međunarodnog kongresa Energija i okoliš u Opatiji, sačuvana s nekadašnjih mrežnih stranica Hrvatskog saveza za sunčevu energiju (www.hsse.hr) putem Internet Archivea.',
+          'archive.browseAll': 'Pregledaj cijelu web arhivu HSSE-a',
+          'archive.ed26': '26. izdanje',
+          'archive.name2018': 'Energija i okoliš 2018',
+          'archive.meta2018': 'Listopad 2018. • Opatija, Hrvatska',
+          'archive.openWayback': 'Web arhiva HSSE-a',
+          'archive.ed25': '25. jubilarno',
+          'archive.name2016': 'Energija i okoliš 2016',
+          'archive.meta2016': '26.–28. listopada 2016. • Opatija, Hrvatska',
+          'archive.viewEn': 'Arhiva (EN)',
+          'archive.viewHr': 'Arhiva (HR)',
+          'archive.ed24': '24. izdanje',
+          'archive.name2014': 'Energija i okoliš 2014',
+          'archive.meta2014': '21.–24. listopada 2014. • Opatija, Hrvatska',
+          'archive.ed23': '23. izdanje',
+          'archive.name2012': 'Energija i okoliš 2012',
+          'archive.meta2012': 'Listopad 2012. • Opatija, Hrvatska',
+          'archive.viewPage': 'Otvori arhiviranu stranicu',
+          'archive.ed22': '22. izdanje',
+          'archive.name2010': 'Energija i okoliš 2010',
+          'archive.meta2010': 'Listopad 2010. • Opatija, Hrvatska',
+          'archive.ed21': '21. izdanje',
+          'archive.name2008': 'Energija i okoliš 2008',
+          'archive.meta2008': 'Listopad 2008. • Opatija, Hrvatska',
+          'archive.ed20': '20. izdanje',
+          'archive.name2006': 'Energija i okoliš 2006',
+          'archive.meta2006': '25.–27. listopada 2006. • Opatija, Hrvatska',
+          'archive.ed19': '19. izdanje',
+          'archive.name2004': 'Energija i okoliš 2004',
+          'archive.meta2004': 'Listopad 2004. • Opatija, Hrvatska',
+          'archive.calloutTitle': 'Povijesni portal HSSE-a i raniji simpoziji (1978.–2002.)',
+          'archive.calloutDesc': 'Pristupite dodatnim povijesnim snimkama, arhivi vijesti i ranijim izdanjima opatijskih kongresa o energiji i okolišu sačuvanim s adrese www.hsse.hr na Wayback Machineu.',
+          'archive.hsseHome': 'Arhivirana naslovnica HSSE-a',
+          'archive.waybackCalendar': 'Sve Wayback snimke',
+
           'footer.title': 'Energija i okoliš 2027',
           'footer.orgName': 'Hrvatski savez za sunčevu energiju (HSSE) — U suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH)',
           'footer.contactTitle': 'Tajništvo kongresa',
           'footer.copy': 'Kopiraj',
           'footer.emailNote': 'Probne adrese tajništva — ažurirati prije objave.',
           'footer.linksTitle': 'Brze poveznice',
+          'footer.hsseArchive': 'Web arhiva HSSE-a',
           'footer.privacy': 'Politika privatnosti (GDPR)',
           'footer.top': '↑ Povratak na vrh',
           'footer.copyright': '© 2027 Hrvatski savez za sunčevu energiju (HSSE) — Radna verzija stranice.',
