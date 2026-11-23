@@ -146,8 +146,8 @@
             id="soundToggleBtn"
             type="button"
             aria-pressed="true"
-            aria-label="Toggle ambient space sound"
-            title="Ambient space sound & solar ray whoosh"
+            aria-label="Toggle background music and sound effects"
+            title="Neoclassical meditative music & solar ray whoosh"
             class="inline-flex items-center gap-1.5 px-2.5 py-2 sm:px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-amber-300/35 text-amber-200 text-xs font-semibold backdrop-blur-sm transition-all"
           >
             <svg id="soundIconOn" class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -2786,16 +2786,21 @@
         };
 
         /* -------------------------------------------------------------------
-         * 8B. SOLAR SYSTEM AMBIENT SPACE AUDIO & RAY ROTATION "WHOOOSH"
-         *     Synthesized natively via Web Audio API (zero external audio files)
+         * 8B. LOW DEEP NEOCLASSICAL MEDITATIVE LOOPING MUSIC & RAY "WHOOOSH"
+         *     Pure Web Audio synthesis: deep bowed cello strings + felt piano
+         *     + warm concert-hall reverb (zero background noise)
          * ----------------------------------------------------------------- */
         const soundToggleBtn = document.getElementById('soundToggleBtn');
         const soundIconOn = document.getElementById('soundIconOn');
         const soundIconOff = document.getElementById('soundIconOff');
 
         let audioCtx = null;
-        let ambienceMasterGain = null;
-        let ambienceRunning = false;
+        let musicMasterGain = null;
+        let musicDryBus = null;
+        let musicReverbBus = null;
+        let musicLoopTimer = null;
+        let musicBarIndex = 0;
+        let musicRunning = false;
         let soundEnabled = true;
 
         try {
@@ -2832,6 +2837,26 @@
           return buffer;
         }
 
+        // Warm 3.6s stereo concert-hall impulse response for neoclassical depth
+        function createHallReverbImpulse(ctx, durationSec) {
+          const rate = ctx.sampleRate;
+          const length = Math.floor(rate * durationSec);
+          const impulse = ctx.createBuffer(2, length, rate);
+          for (let ch = 0; ch < 2; ch++) {
+            const data = impulse.getChannelData(ch);
+            let lp = 0;
+            for (let i = 0; i < length; i++) {
+              const t = i / length;
+              const decay = Math.pow(1 - t, 2.8);
+              const sample = (Math.random() * 2 - 1) * decay;
+              // Gentle one-pole low-pass so hall reverb stays warm and dark
+              lp = lp * 0.86 + sample * 0.14;
+              data[i] = lp * 0.9;
+            }
+          }
+          return impulse;
+        }
+
         function initAudioContext() {
           const AudioCtor = window.AudioContext || window.webkitAudioContext;
           if (!AudioCtor) return null;
@@ -2844,97 +2869,224 @@
           return audioCtx;
         }
 
-        function ensureSpaceAmbience() {
+        function setupMusicBuses(ctx) {
+          if (musicMasterGain) return;
+          const now = ctx.currentTime;
+
+          musicMasterGain = ctx.createGain();
+          musicMasterGain.gain.setValueAtTime(0.0001, now);
+          musicMasterGain.connect(ctx.destination);
+
+          // Warm dry bus
+          musicDryBus = ctx.createGain();
+          musicDryBus.gain.setValueAtTime(0.62, now);
+          musicDryBus.connect(musicMasterGain);
+
+          // Lush concert-hall reverb bus
+          const convolver = ctx.createConvolver();
+          convolver.buffer = createHallReverbImpulse(ctx, 3.6);
+
+          const reverbFilter = ctx.createBiquadFilter();
+          reverbFilter.type = 'lowpass';
+          reverbFilter.frequency.setValueAtTime(1400, now);
+
+          musicReverbBus = ctx.createGain();
+          musicReverbBus.gain.setValueAtTime(0.55, now);
+
+          musicReverbBus.connect(convolver);
+          convolver.connect(reverbFilter);
+          reverbFilter.connect(musicMasterGain);
+        }
+
+        // Deep Bowed Cello / Low Chamber Strings Voice
+        function scheduleCelloVoice(ctx, freq, startTime, duration, volume) {
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.Q.setValueAtTime(1.1, startTime);
+          filter.frequency.setValueAtTime(220, startTime);
+          filter.frequency.linearRampToValueAtTime(520, startTime + duration * 0.42);
+          filter.frequency.linearRampToValueAtTime(260, startTime + duration);
+
+          const env = ctx.createGain();
+          env.gain.setValueAtTime(0.0001, startTime);
+          env.gain.linearRampToValueAtTime(volume, startTime + 1.8);
+          env.gain.setValueAtTime(volume * 0.92, startTime + duration - 2.0);
+          env.gain.exponentialRampToValueAtTime(0.0001, startTime + duration + 0.35);
+
+          // Warm detuned cello pair (triangle + gentle low-passed sawtooth)
+          const pair = [
+            { type: 'triangle', detune: -4, gain: 0.65 },
+            { type: 'sawtooth', detune: 4.5, gain: 0.35 }
+          ];
+
+          pair.forEach((p) => {
+            const osc = ctx.createOscillator();
+            const g = ctx.createGain();
+            osc.type = p.type;
+            osc.frequency.setValueAtTime(freq, startTime);
+            osc.detune.setValueAtTime(p.detune, startTime);
+            g.gain.setValueAtTime(p.gain, startTime);
+            osc.connect(g);
+            g.connect(filter);
+            osc.start(startTime);
+            osc.stop(startTime + duration + 0.5);
+          });
+
+          filter.connect(env);
+          env.connect(musicDryBus);
+          env.connect(musicReverbBus);
+        }
+
+        // Intimate Neoclassical Felt Piano Note
+        function scheduleFeltPianoNote(ctx, freq, startTime, velocity) {
+          const duration = 4.6;
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.Q.setValueAtTime(0.7, startTime);
+          filter.frequency.setValueAtTime(Math.min(1350, freq * 3.4), startTime);
+          filter.frequency.exponentialRampToValueAtTime(Math.max(240, freq * 1.15), startTime + 2.8);
+
+          const env = ctx.createGain();
+          env.gain.setValueAtTime(0.0001, startTime);
+          env.gain.linearRampToValueAtTime(velocity, startTime + 0.028);
+          env.gain.exponentialRampToValueAtTime(velocity * 0.42, startTime + 0.95);
+          env.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+          // Warm felt-piano harmonic partials (fundamental + soft 2nd + delicate 3rd)
+          const harmonics = [
+            { mult: 1, gain: 0.72, type: 'sine' },
+            { mult: 2, gain: 0.22, type: 'sine' },
+            { mult: 3, gain: 0.06, type: 'triangle' }
+          ];
+
+          harmonics.forEach((h) => {
+            const osc = ctx.createOscillator();
+            const g = ctx.createGain();
+            osc.type = h.type;
+            osc.frequency.setValueAtTime(freq * h.mult, startTime);
+            g.gain.setValueAtTime(h.gain, startTime);
+            osc.connect(g);
+            g.connect(filter);
+            osc.start(startTime);
+            osc.stop(startTime + duration + 0.15);
+          });
+
+          filter.connect(env);
+          env.connect(musicDryBus);
+          env.connect(musicReverbBus);
+        }
+
+        // 4-Bar Meditative Neoclassical Loop in D Minor (6.0s per bar = 24s seamless cycle)
+        const BAR_DURATION = 6.0;
+        const neoclassicalBars = [
+          // Bar 1: Dm9 (deep, noble, grounded)
+          {
+            cellos: [
+              { freq: 73.42, vol: 0.22 },   // D2
+              { freq: 110.00, vol: 0.13 },  // A2
+              { freq: 146.83, vol: 0.11 },  // D3
+              { freq: 174.61, vol: 0.075 }  // F3
+            ],
+            piano: [
+              { offset: 0.15, freq: 146.83, vel: 0.13 }, // D3
+              { offset: 1.50, freq: 220.00, vel: 0.11 }, // A3
+              { offset: 2.95, freq: 329.63, vel: 0.10 }, // E4 (9th)
+              { offset: 4.50, freq: 261.63, vel: 0.08 }  // C4
+            ]
+          },
+          // Bar 2: Bbmaj7 (warm, reflective emotional swell)
+          {
+            cellos: [
+              { freq: 58.27, vol: 0.22 },   // Bb1
+              { freq: 116.54, vol: 0.15 },  // Bb2
+              { freq: 146.83, vol: 0.10 },  // D3
+              { freq: 174.61, vol: 0.085 }  // F3
+            ],
+            piano: [
+              { offset: 0.15, freq: 116.54, vel: 0.13 }, // Bb2
+              { offset: 1.55, freq: 174.61, vel: 0.10 }, // F3
+              { offset: 3.00, freq: 293.66, vel: 0.11 }, // D4
+              { offset: 4.55, freq: 220.00, vel: 0.09 }  // A3 (maj7)
+            ]
+          },
+          // Bar 3: Fadd9 (open, luminous, calm solar warmth)
+          {
+            cellos: [
+              { freq: 87.31, vol: 0.21 },   // F2
+              { freq: 130.81, vol: 0.14 },  // C3
+              { freq: 174.61, vol: 0.10 },  // F3
+              { freq: 220.00, vol: 0.065 }  // A3
+            ],
+            piano: [
+              { offset: 0.15, freq: 174.61, vel: 0.12 }, // F3
+              { offset: 1.50, freq: 261.63, vel: 0.10 }, // C4
+              { offset: 3.05, freq: 392.00, vel: 0.09 }, // G4 (add9)
+              { offset: 4.60, freq: 349.23, vel: 0.085 } // F4
+            ]
+          },
+          // Bar 4: Csus2 -> A7sus4 (gentle meditative cadence back to Dm9)
+          {
+            cellos: [
+              { freq: 65.41, vol: 0.22 },   // C2
+              { freq: 98.00, vol: 0.13 },   // G2
+              { freq: 130.81, vol: 0.11 },  // C3
+              { freq: 164.81, vol: 0.08 }   // E3
+            ],
+            piano: [
+              { offset: 0.15, freq: 130.81, vel: 0.13 }, // C3
+              { offset: 1.55, freq: 196.00, vel: 0.10 }, // G3
+              { offset: 3.05, freq: 329.63, vel: 0.105 }, // E4
+              { offset: 4.65, freq: 293.66, vel: 0.09 }  // D4
+            ]
+          }
+        ];
+
+        function playNextNeoclassicalBar() {
+          if (!soundEnabled || !musicRunning || !audioCtx) return;
+          const now = audioCtx.currentTime + 0.05;
+          const bar = neoclassicalBars[musicBarIndex % neoclassicalBars.length];
+          musicBarIndex = (musicBarIndex + 1) % neoclassicalBars.length;
+
+          // Schedule deep overlapping cello strings for the full bar + smooth tail
+          bar.cellos.forEach((c) => {
+            scheduleCelloVoice(audioCtx, c.freq, now, BAR_DURATION + 1.4, c.vol);
+          });
+
+          // Schedule meditative felt piano motif across the bar
+          bar.piano.forEach((n) => {
+            scheduleFeltPianoNote(audioCtx, n.freq, now + n.offset, n.vel);
+          });
+        }
+
+        function ensureNeoclassicalMusic() {
           if (!soundEnabled) return;
           const ctx = initAudioContext();
           if (!ctx) return;
+          setupMusicBuses(ctx);
 
-          if (!ambienceRunning) {
-            ambienceRunning = true;
-            const now = ctx.currentTime;
+          const now = ctx.currentTime;
+          musicMasterGain.gain.cancelScheduledValues(now);
+          musicMasterGain.gain.setValueAtTime(Math.max(0.0001, musicMasterGain.gain.value), now);
+          musicMasterGain.gain.exponentialRampToValueAtTime(0.42, now + 1.6);
 
-            ambienceMasterGain = ctx.createGain();
-            ambienceMasterGain.gain.setValueAtTime(0.0001, now);
-            ambienceMasterGain.gain.exponentialRampToValueAtTime(0.20, now + 2.0);
-            ambienceMasterGain.connect(ctx.destination);
-
-            // Warm breathing low-pass filter for cosmic solar-system drone
-            const padFilter = ctx.createBiquadFilter();
-            padFilter.type = 'lowpass';
-            padFilter.frequency.setValueAtTime(260, now);
-            padFilter.Q.setValueAtTime(1.5, now);
-            padFilter.connect(ambienceMasterGain);
-
-            // Slow 16-second cosmic breathing LFO
-            const lfo = ctx.createOscillator();
-            const lfoGain = ctx.createGain();
-            lfo.type = 'sine';
-            lfo.frequency.setValueAtTime(0.062, now);
-            lfoGain.gain.setValueAtTime(135, now);
-            lfo.connect(lfoGain);
-            lfoGain.connect(padFilter.frequency);
-            lfo.start(now);
-
-            // Deep solar harmonic chord (A1, E2, A2 detuned pair, E3, A3)
-            const voices = [
-              { freq: 55.0, type: 'sine', gain: 0.24 },
-              { freq: 82.41, type: 'sine', gain: 0.13 },
-              { freq: 110.0, type: 'sine', gain: 0.11 },
-              { freq: 110.38, type: 'sine', gain: 0.10 },
-              { freq: 164.81, type: 'triangle', gain: 0.045 },
-              { freq: 220.0, type: 'sine', gain: 0.025 }
-            ];
-
-            voices.forEach((v) => {
-              const osc = ctx.createOscillator();
-              const g = ctx.createGain();
-              osc.type = v.type;
-              osc.frequency.setValueAtTime(v.freq, now);
-              g.gain.setValueAtTime(v.gain, now);
-              osc.connect(g);
-              g.connect(padFilter);
-              osc.start(now);
-            });
-
-            // Subtle cosmic solar wind bed (looped pink noise)
-            const windSource = ctx.createBufferSource();
-            windSource.buffer = createPinkNoiseBuffer(ctx, 5.0);
-            windSource.loop = true;
-
-            const windFilter = ctx.createBiquadFilter();
-            windFilter.type = 'bandpass';
-            windFilter.frequency.setValueAtTime(240, now);
-            windFilter.Q.setValueAtTime(0.9, now);
-
-            const windLfo = ctx.createOscillator();
-            const windLfoGain = ctx.createGain();
-            windLfo.frequency.setValueAtTime(0.04, now);
-            windLfoGain.gain.setValueAtTime(90, now);
-            windLfo.connect(windLfoGain);
-            windLfoGain.connect(windFilter.frequency);
-            windLfo.start(now);
-
-            const windGain = ctx.createGain();
-            windGain.gain.setValueAtTime(0.18, now);
-
-            windSource.connect(windFilter);
-            windFilter.connect(windGain);
-            windGain.connect(ambienceMasterGain);
-            windSource.start(now);
-          } else if (ambienceMasterGain) {
-            const now = ctx.currentTime;
-            ambienceMasterGain.gain.cancelScheduledValues(now);
-            ambienceMasterGain.gain.setValueAtTime(Math.max(0.0001, ambienceMasterGain.gain.value), now);
-            ambienceMasterGain.gain.exponentialRampToValueAtTime(0.20, now + 0.8);
+          if (!musicRunning) {
+            musicRunning = true;
+            playNextNeoclassicalBar();
+            musicLoopTimer = setInterval(playNextNeoclassicalBar, BAR_DURATION * 1000);
           }
         }
 
-        function muteSpaceAmbience() {
-          if (!audioCtx || !ambienceMasterGain) return;
+        function muteNeoclassicalMusic() {
+          if (musicLoopTimer) {
+            clearInterval(musicLoopTimer);
+            musicLoopTimer = null;
+          }
+          musicRunning = false;
+          if (!audioCtx || !musicMasterGain) return;
           const now = audioCtx.currentTime;
-          ambienceMasterGain.gain.cancelScheduledValues(now);
-          ambienceMasterGain.gain.setValueAtTime(Math.max(0.0001, ambienceMasterGain.gain.value), now);
-          ambienceMasterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+          musicMasterGain.gain.cancelScheduledValues(now);
+          musicMasterGain.gain.setValueAtTime(Math.max(0.0001, musicMasterGain.gain.value), now);
+          musicMasterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
         }
 
         function playSolarWhoosh() {
@@ -2942,7 +3094,7 @@
           try {
             const ctx = initAudioContext();
             if (!ctx) return;
-            ensureSpaceAmbience();
+            ensureNeoclassicalMusic();
 
             const now = ctx.currentTime;
 
@@ -2954,12 +3106,12 @@
             bp.type = 'bandpass';
             bp.Q.setValueAtTime(2.6, now);
             bp.frequency.setValueAtTime(160, now);
-            bp.frequency.exponentialRampToValueAtTime(1380, now + 0.30);
-            bp.frequency.exponentialRampToValueAtTime(230, now + 0.86);
+            bp.frequency.exponentialRampToValueAtTime(1320, now + 0.30);
+            bp.frequency.exponentialRampToValueAtTime(220, now + 0.86);
 
             const noiseGain = ctx.createGain();
             noiseGain.gain.setValueAtTime(0.0001, now);
-            noiseGain.gain.exponentialRampToValueAtTime(0.55, now + 0.25);
+            noiseGain.gain.exponentialRampToValueAtTime(0.45, now + 0.25);
             noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.88);
 
             noiseSrc.connect(bp);
@@ -2968,13 +3120,13 @@
             noiseSrc.start(now);
             noiseSrc.stop(now + 0.92);
 
-            // Subtle warm solar harmonic glide accompanying the whoosh
+            // Subtle D-minor harmonic shimmer tuned to the neoclassical soundtrack
             const shimmerOsc = ctx.createOscillator();
             const shimmerGain = ctx.createGain();
             shimmerOsc.type = 'sine';
-            shimmerOsc.frequency.setValueAtTime(164.81, now);
-            shimmerOsc.frequency.exponentialRampToValueAtTime(246.94, now + 0.32);
-            shimmerOsc.frequency.exponentialRampToValueAtTime(196.0, now + 0.82);
+            shimmerOsc.frequency.setValueAtTime(146.83, now);
+            shimmerOsc.frequency.exponentialRampToValueAtTime(220.00, now + 0.32);
+            shimmerOsc.frequency.exponentialRampToValueAtTime(174.61, now + 0.82);
 
             shimmerGain.gain.setValueAtTime(0.0001, now);
             shimmerGain.gain.exponentialRampToValueAtTime(0.045, now + 0.22);
@@ -2991,10 +3143,10 @@
 
         updateSoundButtonUI();
 
-        // Unlock ambient space sound cleanly on the visitor's first gesture
+        // Unlock neoclassical looping music cleanly on the visitor's first gesture
         function handleFirstGesture() {
           if (soundEnabled) {
-            ensureSpaceAmbience();
+            ensureNeoclassicalMusic();
           }
           document.removeEventListener('pointerdown', handleFirstGesture);
           document.removeEventListener('keydown', handleFirstGesture);
@@ -3011,10 +3163,10 @@
             } catch (_) {}
             updateSoundButtonUI();
             if (soundEnabled) {
-              ensureSpaceAmbience();
+              ensureNeoclassicalMusic();
               playSolarWhoosh();
             } else {
-              muteSpaceAmbience();
+              muteNeoclassicalMusic();
             }
           });
         }
