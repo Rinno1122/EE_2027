@@ -68,63 +68,63 @@
       to { transform: rotate(360deg); }
     }
     .animate-slow-orbit {
-      animation: slowOrbit 90s linear infinite;
+      animation: slowOrbit 110s linear infinite;
+    }
+    .solar-rays-rotator {
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
     }
     .radial-menu-node {
       position: absolute;
       transform: translate(-50%, -50%);
-      transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease, opacity 0.28s ease;
     }
     .radial-menu-node:hover,
     .radial-menu-node:focus-visible {
-      transform: translate(-50%, -50%) scale(1.07);
+      transform: translate(-50%, -50%) scale(1.08);
+      z-index: 25;
+    }
+    .radial-node-active {
+      background-color: #D97706 !important;
+      border-color: #FEF3C7 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 0 24px rgba(245, 158, 11, 0.55) !important;
+    }
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.45); }
+      70% { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
+    }
+    .sub-highlight {
+      animation: pulseRing 1.1s ease-out;
     }
     @media (prefers-reduced-motion: reduce) {
       .animate-slow-orbit {
         animation: none;
       }
+      .solar-rays-rotator {
+        transition: none;
+      }
     }
   </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden selection:bg-solar-soft selection:text-navy">
+<body class="bg-navy text-slate-800 antialiased overflow-x-hidden selection:bg-solar-soft selection:text-navy min-h-screen flex flex-col">
 
   <!-- ===================================================================== -->
-  <!-- DISMISSIBLE DRAFT PROTOTYPE TOP BANNER                                -->
+  <!-- MINIMAL STICKY TOP MENU BAR (LANGUAGE + TOP-RIGHT DROPDOWN ONLY)      -->
   <!-- ===================================================================== -->
-  <div id="draftBanner" role="region" aria-label="Draft website notice" class="bg-amber-50 border-b border-amber-200 text-amber-950 text-xs sm:text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2.5">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-solar text-white shrink-0" data-i18n="banner.badge">
-          DRAFT PROTOTYPE
-        </span>
-        <p class="leading-snug" data-i18n="banner.text">
-          Preview version for GitHub Pages. Dates, fees, venue confirmation, and committee lists contain placeholders to be finalized before official launch.
-        </p>
-      </div>
-      <button
-        id="dismissBannerBtn"
-        type="button"
-        aria-label="Dismiss draft notice"
-        class="p-1.5 rounded-lg text-amber-900/70 hover:text-amber-950 hover:bg-amber-200/60 transition-colors shrink-0"
-      >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- ===================================================================== -->
-  <!-- STICKY TOP NAVIGATION BAR                                             -->
-  <!-- ===================================================================== -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+  <header class="sticky top-0 z-40 bg-navy/90 backdrop-blur-md border-b border-white/10 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20 gap-3">
 
-        <!-- Brand Logo (Official Vitruvian Man & Sun Ray Congress Symbol) -->
-        <a href="#top" class="flex items-center gap-3 group shrink-0 focus:outline-none focus:ring-2 focus:ring-solar rounded-xl p-1 -ml-1">
-          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white ring-2 ring-navy/15 group-hover:ring-solar/60 flex items-center justify-center shadow-sm overflow-hidden transition-all p-0.5">
+        <!-- Brand Logo (Returns to Solo Vitruvian Home) -->
+        <button
+          type="button"
+          data-nav-page="home"
+          class="flex items-center gap-3 group shrink-0 text-left focus:outline-none focus:ring-2 focus:ring-solar rounded-xl p-1 -ml-1"
+        >
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white ring-2 ring-amber-300/40 group-hover:ring-solar flex items-center justify-center shadow-sm overflow-hidden transition-all p-0.5">
             <img
               src="assets/ee-vitruvian-sun.svg"
               alt="Energy and the Environment Vitruvian Man Sun Emblem"
@@ -134,326 +134,213 @@
             />
           </div>
           <div class="leading-tight">
-            <span class="block font-display font-extrabold text-navy text-base sm:text-lg tracking-tight" data-i18n="nav.brandTitle">EE 2027</span>
-            <span class="block text-[11px] sm:text-xs font-medium text-slate-500" data-i18n="nav.brandSub">Opatija • Croatia</span>
+            <span class="block font-display font-extrabold text-white text-base sm:text-lg tracking-tight" data-i18n="nav.brandTitle">EE 2027</span>
+            <span class="block text-[11px] sm:text-xs font-medium text-amber-200/80" data-i18n="nav.brandSub">Opatija • Croatia</span>
           </div>
-        </a>
+        </button>
 
-        <!-- Desktop Navigation Links -->
-        <nav aria-label="Primary Navigation" class="hidden xl:flex items-center gap-0.5">
-          <a href="#about" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.about">About</a>
-          <a href="#topics" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.topics">Topics</a>
-          <a href="#dates" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.dates">Dates</a>
-          <a href="#authors" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.authors">Authors</a>
-          <a href="#registration" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.registration">Registration</a>
-          <a href="#venue" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.venue">Venue</a>
-          <a href="#archive" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.archive">Previous Conferences</a>
-          <a href="#contact" class="px-2.5 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy hover:bg-slate-100 transition-colors whitespace-nowrap" data-i18n="nav.contact">Contact</a>
-        </nav>
-
-        <!-- Right Controls: Language Switcher + CTA + Mobile Menu Button -->
-        <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Right Controls: Language Selection + Top-Right Dropdown Menu -->
+        <div class="relative flex items-center gap-2.5 sm:gap-3">
           <!-- Bilingual EN / HR Toggle -->
-          <div class="inline-flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200" role="group" aria-label="Language switcher">
+          <div class="inline-flex items-center rounded-xl bg-white/10 p-1 border border-white/15" role="group" aria-label="Language switcher">
             <button
               type="button"
               data-lang-btn="en"
-              class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-navy text-white shadow-sm"
+              class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-solar text-white shadow-sm"
             >
               EN
             </button>
             <button
               type="button"
               data-lang-btn="hr"
-              class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-navy"
+              class="lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-200 hover:text-white"
             >
               HR
             </button>
           </div>
 
-          <!-- Primary CTA Button (Desktop & Tablet) -->
+          <!-- Top-Right Dropdown Menu Trigger (All Screen Sizes) -->
           <button
-            type="button"
-            data-open-prereg
-            class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-solar hover:bg-amber-700 text-white text-sm font-semibold shadow-sm hover:shadow transition-all"
-          >
-            <span data-i18n="nav.cta">Submit / Register</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </button>
-
-          <!-- Mobile Hamburger Button -->
-          <button
-            id="mobileMenuBtn"
+            id="topDropdownBtn"
             type="button"
             aria-expanded="false"
-            aria-controls="mobileMenu"
-            aria-label="Toggle navigation menu"
-            class="xl:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 border border-slate-200 transition-colors"
+            aria-controls="topDropdownMenu"
+            aria-haspopup="true"
+            class="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-semibold backdrop-blur-sm transition-all"
           >
-            <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <span data-i18n="nav.menuBtn">Menu</span>
+            <svg id="dropdownChevron" class="w-4 h-4 text-amber-300 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobileMenu" class="hidden xl:hidden bg-white border-t border-slate-200 shadow-lg">
-      <nav aria-label="Mobile Navigation" class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
-        <a href="#about" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.about">About</a>
-        <a href="#topics" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.topics">Topics</a>
-        <a href="#dates" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.dates">Dates</a>
-        <a href="#authors" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.authors">Authors</a>
-        <a href="#registration" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.registration">Registration</a>
-        <a href="#committees" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.committees">Committees</a>
-        <a href="#venue" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.venue">Venue</a>
-        <a href="#archive" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.archive">Previous Conferences</a>
-        <a href="#contact" class="mobile-nav-link px-3 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-navy" data-i18n="nav.contact">Contact</a>
-        <div class="pt-3 mt-2 border-t border-slate-100">
-          <button
-            type="button"
-            data-open-prereg
-            class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-solar hover:bg-amber-700 text-white font-semibold shadow-sm transition-colors"
+          <!-- Top-Right Dropdown Panel -->
+          <div
+            id="topDropdownMenu"
+            role="menu"
+            class="hidden absolute right-0 top-[calc(100%+0.65rem)] w-64 sm:w-72 rounded-2xl bg-navy-dark/95 backdrop-blur-xl border border-amber-300/25 shadow-2xl shadow-black/50 p-2 z-50 animate-fade-in"
           >
-            <span data-i18n="nav.cta">Submit / Register</span>
-          </button>
+            <nav aria-label="Conference Menu" class="flex flex-col gap-0.5">
+              <button type="button" role="menuitem" data-nav-page="home" class="dropdown-nav-item w-full text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold text-amber-300 hover:bg-white/10 transition-colors flex items-center justify-between">
+                <span data-i18n="nav.home">Home (Symbol)</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-solar-light"></span>
+              </button>
+              <div class="my-1 border-t border-white/10"></div>
+              <button type="button" role="menuitem" data-nav-page="about" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.about">About</button>
+              <button type="button" role="menuitem" data-nav-page="topics" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.topics">Topics</button>
+              <button type="button" role="menuitem" data-nav-page="dates" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.dates">Dates</button>
+              <button type="button" role="menuitem" data-nav-page="authors" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.authors">Authors</button>
+              <button type="button" role="menuitem" data-nav-page="registration" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.registration">Registration</button>
+              <button type="button" role="menuitem" data-nav-page="committees" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.committees">Committees</button>
+              <button type="button" role="menuitem" data-nav-page="venue" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.venue">Venue</button>
+              <button type="button" role="menuitem" data-nav-page="archive" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.archive">Previous Conferences</button>
+              <button type="button" role="menuitem" data-nav-page="contact" class="dropdown-nav-item w-full text-left px-3.5 py-2 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-white transition-colors" data-i18n="nav.contact">Contact</button>
+              <div class="pt-2 mt-1.5 border-t border-white/10">
+                <button
+                  type="button"
+                  data-open-prereg
+                  class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-solar hover:bg-amber-600 text-white text-sm font-semibold shadow-sm transition-colors"
+                >
+                  <span data-i18n="nav.cta">Submit / Register</span>
+                </button>
+              </div>
+            </nav>
+          </div>
         </div>
-      </nav>
+
+      </div>
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" class="flex-1">
 
     <!-- =================================================================== -->
-    <!-- HERO SECTION                                                        -->
+    <!-- INTERACTIVE VITRUVIAN MAN & ROTATING SOLAR RAYS STAGE               -->
+    <!-- Solo full-screen hub on Home; radial sub-menu header on every page  -->
     <!-- =================================================================== -->
-    <section class="relative overflow-hidden bg-navy text-white">
-      <!-- Subtle Self-Contained SVG Adriatic Waves & Solar Geometry Background -->
+    <section
+      id="vitruvianStage"
+      class="relative overflow-hidden bg-navy text-white min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center transition-all duration-500"
+    >
+      <!-- Ambient Deep Navy Solar Glow & Subtle Adriatic Wave Backdrop -->
       <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-        <svg class="w-full h-full opacity-25" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-full opacity-35" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 820" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <radialGradient id="solarGlow" cx="76%" cy="48%" r="48%">
-              <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.6" />
-              <stop offset="55%" stop-color="#D97706" stop-opacity="0.16" />
+            <radialGradient id="stageSolarGlow" cx="50%" cy="50%" r="46%">
+              <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.45" />
+              <stop offset="55%" stop-color="#D97706" stop-opacity="0.12" />
               <stop offset="100%" stop-color="#0B2545" stop-opacity="0" />
             </radialGradient>
-            <radialGradient id="tealGlow" cx="15%" cy="85%" r="45%">
-              <stop offset="0%" stop-color="#0F766E" stop-opacity="0.65" />
+            <radialGradient id="stageTealGlow" cx="15%" cy="88%" r="45%">
+              <stop offset="0%" stop-color="#0F766E" stop-opacity="0.55" />
               <stop offset="100%" stop-color="#0B2545" stop-opacity="0" />
             </radialGradient>
           </defs>
-          <rect width="1440" height="760" fill="url(#solarGlow)" />
-          <rect width="1440" height="760" fill="url(#tealGlow)" />
-          <!-- Geometric Adriatic Wave Contours -->
-          <path d="M-40 580C180 510 380 650 640 585C900 520 1140 640 1480 545" stroke="#14B8A6" stroke-opacity="0.35" stroke-width="1.8" />
-          <path d="M-40 625C200 560 410 695 670 630C930 565 1170 675 1480 595" stroke="#38BDF8" stroke-opacity="0.25" stroke-width="1.4" />
-          <path d="M-40 675C220 615 440 735 710 675C980 615 1190 715 1480 645" stroke="#14B8A6" stroke-opacity="0.2" stroke-width="1.2" />
+          <rect width="1440" height="820" fill="url(#stageSolarGlow)" />
+          <rect width="1440" height="820" fill="url(#stageTealGlow)" />
+          <path d="M-40 650C180 585 380 715 640 655C900 595 1140 705 1480 615" stroke="#14B8A6" stroke-opacity="0.28" stroke-width="1.6" />
+          <path d="M-40 700C200 635 410 760 670 700C930 640 1170 745 1480 670" stroke="#38BDF8" stroke-opacity="0.2" stroke-width="1.2" />
         </svg>
-
-        <!-- Large Atmospheric Vitruvian Man & Sun Ray Background Watermark -->
-        <img
-          src="assets/ee-vitruvian-sun-watermark.svg"
-          alt=""
-          class="absolute -left-24 -top-20 w-[620px] sm:w-[760px] h-auto opacity-[0.07] mix-blend-screen pointer-events-none select-none"
-        />
       </div>
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex flex-col items-center">
 
-          <!-- Left Column: Congress Title, Details & Primary Actions -->
-          <div class="lg:col-span-6">
-            <!-- Edition Badge -->
-            <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-amber-300 text-xs sm:text-sm font-semibold tracking-wide mb-6">
-              <span class="w-2 h-2 rounded-full bg-solar-light animate-pulse"></span>
-              <span data-i18n="hero.badge">27th Edition • Heritage Since 1978 • ISES National Section</span>
-            </div>
-
-            <!-- Main Congress Title -->
-            <h1 class="font-display text-3xl sm:text-5xl xl:text-[3.4rem] font-extrabold tracking-tight text-white leading-[1.1] mb-5" data-i18n="hero.title">
-              Energy and the Environment 2027
-            </h1>
-
-            <!-- Subtitle & Organizers -->
-            <p class="text-lg sm:text-xl text-slate-200 font-medium leading-relaxed mb-3" data-i18n="hero.subtitle">
-              27th International Scientific &amp; Professional Congress • October 27–29, 2027 (TBC) • Opatija, Croatia
-            </p>
-            <p class="text-sm sm:text-base text-slate-300/90 leading-relaxed max-w-2xl mb-8" data-i18n="hero.organizers">
-              Organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).
-            </p>
-
-            <!-- Primary Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
-              <a
-                href="#authors"
-                class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-solar hover:bg-amber-600 text-white font-semibold text-base shadow-lg shadow-amber-950/30 transition-all"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <span data-i18n="hero.ctaPapers">Call for Papers</span>
-              </a>
-              <button
-                type="button"
-                data-open-prereg
-                class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold text-base backdrop-blur-sm transition-all"
-              >
-                <svg class="w-5 h-5 text-teal-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                </svg>
-                <span data-i18n="hero.ctaPrereg">Pre-Register Interest</span>
-              </button>
-            </div>
+        <!-- Sub-Page Top Bar (Hidden on Starting Home Page) -->
+        <div id="subpageTopBar" class="hidden w-full flex flex-wrap items-center justify-between gap-3 mb-4">
+          <button
+            type="button"
+            data-nav-page="home"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-amber-200 hover:text-white text-xs sm:text-sm font-semibold backdrop-blur-sm transition-all"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span data-i18n="stage.backHome">Main Menu</span>
+          </button>
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-solar/20 border border-amber-300/35 text-amber-200 text-xs sm:text-sm font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-solar-light"></span>
+            <span id="activePageBadge">About</span>
           </div>
-
-          <!-- Right Column: High-Resolution Vitruvian Man Sun Symbol with Radial Conference Menu -->
-          <div class="lg:col-span-6 flex flex-col items-center justify-center">
-            <nav
-              aria-label="Radial Conference Navigation"
-              class="relative w-[min(92vw,470px)] sm:w-[490px] aspect-square mx-auto select-none"
-            >
-              <!-- Decorative Solar Orbit Rings & 8 Spoke Guides -->
-              <svg
-                class="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 500 500"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <!-- Subtle Rotating Outer Solar Ring -->
-                <g class="animate-slow-orbit" style="transform-origin: 250px 250px;">
-                  <circle cx="250" cy="250" r="206" stroke="#F59E0B" stroke-opacity="0.22" stroke-width="1.2" stroke-dasharray="4 8" />
-                </g>
-                <!-- Static Primary Orbit Ring -->
-                <circle cx="250" cy="250" r="192" stroke="#FDE68A" stroke-opacity="0.28" stroke-width="1" />
-                <!-- 8 Radial Spokes from Emblem Rim to Orbit Nodes -->
-                <line x1="250" y1="126" x2="250" y2="58" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <line x1="338" y1="162" x2="386" y2="114" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <line x1="374" y1="250" x2="442" y2="250" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <line x1="338" y1="338" x2="386" y2="386" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <line x1="250" y1="374" x2="250" y2="442" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <line x1="162" y1="338" x2="114" y2="386" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <line x1="126" y1="250" x2="58" y2="250" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <line x1="162" y1="162" x2="114" y2="114" stroke="#FDE68A" stroke-opacity="0.32" stroke-width="1" />
-                <!-- Glowing Anchor Dots on Orbit Ring -->
-                <circle cx="250" cy="58" r="3.5" fill="#F59E0B" />
-                <circle cx="386" cy="114" r="3.5" fill="#F59E0B" />
-                <circle cx="442" cy="250" r="3.5" fill="#F59E0B" />
-                <circle cx="386" cy="386" r="3.5" fill="#F59E0B" />
-                <circle cx="250" cy="442" r="3.5" fill="#F59E0B" />
-                <circle cx="114" cy="386" r="3.5" fill="#F59E0B" />
-                <circle cx="58" cy="250" r="3.5" fill="#F59E0B" />
-                <circle cx="114" cy="114" r="3.5" fill="#F59E0B" />
-              </svg>
-
-              <!-- Center High-Resolution Vitruvian Man & 24-Ray Sun Emblem -->
-              <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[51%] aspect-square rounded-full flex items-center justify-center drop-shadow-[0_0_32px_rgba(245,158,11,0.38)]">
-                <img
-                  src="assets/ee-vitruvian-sun-hero.svg"
-                  alt="Energy and the Environment 2027 Conference Symbol — Leonardo da Vinci Vitruvian Man with Sun Rays"
-                  class="w-full h-full object-contain"
-                  width="512"
-                  height="512"
-                />
-              </div>
-
-              <!-- 8 Radial Conference Menu Options Orbiting the Symbol -->
-              <!-- 12:00 (Top) -->
-              <a
-                href="#about"
-                style="left: 50%; top: 7%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.about"
-              >
-                About
-              </a>
-
-              <!-- 1:30 (Top-Right) -->
-              <a
-                href="#topics"
-                style="left: 81%; top: 19%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.topics"
-              >
-                Topics
-              </a>
-
-              <!-- 3:00 (Right) -->
-              <a
-                href="#dates"
-                style="left: 91%; top: 50%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.dates"
-              >
-                Dates
-              </a>
-
-              <!-- 4:30 (Bottom-Right) -->
-              <a
-                href="#authors"
-                style="left: 81%; top: 81%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.authors"
-              >
-                Authors
-              </a>
-
-              <!-- 6:00 (Bottom) -->
-              <a
-                href="#archive"
-                style="left: 50%; top: 93%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.archive"
-              >
-                Previous Conferences
-              </a>
-
-              <!-- 7:30 (Bottom-Left) -->
-              <a
-                href="#registration"
-                style="left: 19%; top: 81%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.registration"
-              >
-                Registration
-              </a>
-
-              <!-- 9:00 (Left) -->
-              <a
-                href="#venue"
-                style="left: 9%; top: 50%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.venue"
-              >
-                Venue
-              </a>
-
-              <!-- 10:30 (Top-Left) -->
-              <a
-                href="#contact"
-                style="left: 19%; top: 19%;"
-                class="radial-menu-node px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/45 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-navy-dark/60 whitespace-nowrap"
-                data-i18n="nav.contact"
-              >
-                Contact
-              </a>
-            </nav>
-          </div>
-
         </div>
+
+        <!-- Subtle Congress Title on Starting Home Page -->
+        <div id="homeTitleHeader" class="text-center mb-3 sm:mb-4 max-w-2xl">
+          <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-amber-300/90 mb-1" data-i18n="hero.badge">
+            27th Edition • Heritage Since 1978 • ISES National Section
+          </p>
+          <h1 class="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-white" data-i18n="hero.title">
+            Energy and the Environment 2027
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1" data-i18n="stage.homeHint">
+            October 27–29, 2027 (TBC) • Opatija, Croatia — Select a solar ray to explore
+          </p>
+        </div>
+
+        <!-- THE VITRUVIAN MAN & ROTATING SOLAR RAYS RADIAL MENU -->
+        <nav
+          id="radialSolarNav"
+          aria-label="Vitruvian Solar Conference Menu"
+          class="relative w-[min(92vw,520px)] sm:w-[540px] aspect-square mx-auto select-none transition-all duration-500"
+        >
+          <!-- Dynamic Solar Spoke Guides (Redrawn for 8 main rays or active sub-menu rays) -->
+          <svg
+            id="radialSpokesSvg"
+            class="absolute inset-0 w-full h-full pointer-events-none"
+            viewBox="0 0 500 500"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <g class="animate-slow-orbit" style="transform-origin: 250px 250px;">
+              <circle cx="250" cy="250" r="208" stroke="#F59E0B" stroke-opacity="0.22" stroke-width="1.2" stroke-dasharray="4 8" />
+            </g>
+            <circle cx="250" cy="250" r="192" stroke="#FDE68A" stroke-opacity="0.26" stroke-width="1" />
+            <g id="dynamicSpokesGroup"></g>
+          </svg>
+
+          <!-- Centerpiece Medallion: Separable Rotating 24-Ray Sunburst + Stationary Vitruvian Man -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[52%] aspect-square rounded-full flex items-center justify-center drop-shadow-[0_0_38px_rgba(245,158,11,0.42)]">
+            <!-- Deep Navy Inner Medallion Base -->
+            <div class="absolute inset-[5%] rounded-full bg-gradient-to-b from-[#133763]/95 via-[#0B2545]/95 to-[#071930]/98"></div>
+
+            <!-- Layer 1 (Back): Rotating 24-Ray Golden Sunburst -->
+            <img
+              id="solarRaysLayer"
+              src="assets/ee-sunburst-rays.svg"
+              alt=""
+              aria-hidden="true"
+              class="solar-rays-rotator absolute inset-0 w-full h-full object-contain pointer-events-none"
+              style="transform: rotate(0deg);"
+              width="512"
+              height="512"
+            />
+
+            <!-- Layer 2 (Front): Stationary Leonardo da Vinci Vitruvian Man + Circle & Square -->
+            <img
+              src="assets/ee-vitruvian-figure.svg"
+              alt="Energy and the Environment 2027 Conference Symbol — Leonardo da Vinci Vitruvian Man with Sun Rays"
+              class="relative z-10 w-full h-full object-contain pointer-events-none"
+              width="512"
+              height="512"
+            />
+          </div>
+
+          <!-- Dynamic Radial Menu / Sub-Menu Nodes Placed at the Ends of the Solar Rays -->
+          <div id="radialMenuNodes" class="absolute inset-0"></div>
+        </nav>
+
+        <!-- Sub-page helper caption (Hidden on Home) -->
+        <p id="subpageRayHint" class="hidden text-xs text-amber-200/75 mt-2 text-center" data-i18n="stage.subHint">
+          Click any sub-option at the end of the solar rays to navigate or filter this section
+        </p>
+
       </div>
     </section>
 
     <!-- =================================================================== -->
     <!-- ABOUT & HERITAGE SECTION                                            -->
     <!-- =================================================================== -->
-    <section id="about" class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+    <section id="about" data-page-section="about" class="hidden py-14 sm:py-20 bg-white border-b border-slate-200/80 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
@@ -557,7 +444,7 @@
     <!-- =================================================================== -->
     <!-- CONFERENCE TOPICS (8 FILTERABLE CARDS WITH CUSTOM SVG ICONS)        -->
     <!-- =================================================================== -->
-    <section id="topics" class="py-16 sm:py-24 bg-slate-50">
+    <section id="topics" data-page-section="topics" class="hidden py-14 sm:py-20 bg-slate-50 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div class="max-w-2xl">
@@ -684,7 +571,7 @@
     <!-- =================================================================== -->
     <!-- IMPORTANT DATES SECTION (VISUAL TIMELINE + ICS EXPORT)              -->
     <!-- =================================================================== -->
-    <section id="dates" class="py-16 sm:py-24 bg-white border-y border-slate-200/80">
+    <section id="dates" data-page-section="dates" class="hidden py-14 sm:py-20 bg-white border-y border-slate-200/80 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
@@ -781,7 +668,7 @@
     <!-- =================================================================== -->
     <!-- FOR AUTHORS & PAPER SUBMISSION SECTION                              -->
     <!-- =================================================================== -->
-    <section id="authors" class="py-16 sm:py-24 bg-slate-50">
+    <section id="authors" data-page-section="authors" class="hidden py-14 sm:py-20 bg-slate-50 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
@@ -909,7 +796,7 @@
     <!-- =================================================================== -->
     <!-- REGISTRATION & FEES SECTION                                         -->
     <!-- =================================================================== -->
-    <section id="registration" class="py-16 sm:py-24 bg-white border-y border-slate-200/80">
+    <section id="registration" data-page-section="registration" class="hidden py-14 sm:py-20 bg-white border-y border-slate-200/80 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-10">
           <div class="flex flex-wrap items-center gap-2.5 mb-2">
@@ -1029,7 +916,7 @@
     <!-- =================================================================== -->
     <!-- COMMITTEES SECTION (3-TAB INTERFACE WITH PLACEHOLDER SLOTS)         -->
     <!-- =================================================================== -->
-    <section id="committees" class="py-16 sm:py-24 bg-slate-50">
+    <section id="committees" data-page-section="committees" class="hidden py-14 sm:py-20 bg-slate-50 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-8">
           <span class="inline-block text-xs font-bold uppercase tracking-widest text-tealbrand mb-2" data-i18n="comm.eyebrow">Governance</span>
@@ -1170,7 +1057,7 @@
     <!-- =================================================================== -->
     <!-- VENUE & TRAVEL (OPATIJA, CROATIA)                                   -->
     <!-- =================================================================== -->
-    <section id="venue" class="py-16 sm:py-24 bg-white border-t border-slate-200/80">
+    <section id="venue" data-page-section="venue" class="hidden py-14 sm:py-20 bg-white border-t border-slate-200/80 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-10">
           <span class="inline-block text-xs font-bold uppercase tracking-widest text-tealbrand mb-2" data-i18n="venue.eyebrow">Location &amp; Logistics</span>
@@ -1323,7 +1210,7 @@
     <!-- =================================================================== -->
     <!-- PREVIOUS CONFERENCES & HSSE ARCHIVE SECTION                         -->
     <!-- =================================================================== -->
-    <section id="archive" class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/80">
+    <section id="archive" data-page-section="archive" class="hidden py-14 sm:py-20 bg-slate-50 border-t border-slate-200/80 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Section Header -->
@@ -1635,7 +1522,7 @@
   <!-- ===================================================================== -->
   <!-- FOOTER & CONTACT SECTION                                              -->
   <!-- ===================================================================== -->
-  <footer id="contact" class="bg-navy text-slate-300 border-t border-white/10">
+  <footer id="contact" data-page-section="contact" class="hidden bg-navy text-slate-300 border-t border-white/10 animate-fade-in">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
 
@@ -1863,6 +1750,8 @@
           'banner.text': 'Preview version for GitHub Pages. Dates, fees, venue confirmation, and committee lists contain placeholders to be finalized before official launch.',
           'nav.brandTitle': 'EE 2027',
           'nav.brandSub': 'Opatija • Croatia',
+          'nav.menuBtn': 'Menu',
+          'nav.home': 'Home (Symbol)',
           'nav.about': 'About',
           'nav.topics': 'Topics',
           'nav.dates': 'Dates',
@@ -1880,6 +1769,56 @@
           'hero.organizers': 'Organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).',
           'hero.ctaPapers': 'Call for Papers',
           'hero.ctaPrereg': 'Pre-Register Interest',
+
+          'stage.backHome': 'Main Menu',
+          'stage.homeHint': 'October 27–29, 2027 (TBC) • Opatija, Croatia — Select a solar ray to explore',
+          'stage.subHint': 'Select any sub-option at the end of the solar rays',
+
+          'sub.about.overview': 'Mission & Scope',
+          'sub.about.heritage': 'HSSE Heritage',
+          'sub.about.committees': 'Committees',
+          'sub.about.prereg': 'Pre-Register',
+
+          'sub.topics.all': 'All Topics (8)',
+          'sub.topics.renewables': 'Renewables',
+          'sub.topics.systems': 'Systems & Grids',
+          'sub.topics.environment': 'Policy & Env.',
+
+          'sub.dates.abstracts': 'Call & Abstracts',
+          'sub.dates.papers': 'Full Papers',
+          'sub.dates.congress': 'Congress Days',
+          'sub.dates.ics': 'Save .ics Calendar',
+
+          'sub.authors.portal': 'Submission Portal',
+          'sub.authors.docx': 'Word Template',
+          'sub.authors.latex': 'LaTeX Template',
+          'sub.authors.guide': 'Author Guidelines',
+
+          'sub.reg.fees': 'Fee Tiers',
+          'sub.reg.included': 'What Is Included',
+          'sub.reg.prereg': 'Pre-Register Now',
+          'sub.reg.payment': 'Payment Info',
+
+          'sub.comm.organizing': 'Organizing Committee',
+          'sub.comm.scientific': 'Scientific Committee',
+          'sub.comm.honorary': 'Honorary & Patrons',
+
+          'sub.venue.opatija': 'Opatija Venue',
+          'sub.venue.airports': 'Airports & Travel',
+          'sub.venue.maps': 'Google Maps ↗',
+          'sub.venue.hotels': 'Accommodation',
+
+          'sub.archive.2016': 'EE 2016 (25th) ↗',
+          'sub.archive.2014': 'EE 2014 (24th) ↗',
+          'sub.archive.2012': 'EE 2012 (23rd) ↗',
+          'sub.archive.all': 'Full HSSE Archive ↗',
+          'sub.archive.2010': 'EE 2010 (22nd) ↗',
+          'sub.archive.early': 'EE 2004–2008',
+
+          'sub.contact.secretariat': 'Secretariat',
+          'sub.contact.copy': 'Copy Email',
+          'sub.contact.prereg': 'Pre-Register',
+          'sub.contact.privacy': 'Privacy (GDPR)',
 
           'about.eyebrow': 'About the Congress',
           'about.title': 'Advancing Clean Energy Engineering & Environmental Stewardship',
@@ -2117,6 +2056,8 @@
           'banner.text': 'Ogledna verzija za GitHub Pages. Datumi, kotizacije, potvrda lokacije i sastav odbora sadrže probne podatke koje treba ažurirati prije službene objave.',
           'nav.brandTitle': 'EO 2027',
           'nav.brandSub': 'Opatija • Hrvatska',
+          'nav.menuBtn': 'Izbornik',
+          'nav.home': 'Početna (Simbol)',
           'nav.about': 'O kongresu',
           'nav.topics': 'Teme',
           'nav.dates': 'Datumi',
@@ -2134,6 +2075,56 @@
           'hero.organizers': 'U organizaciji Hrvatskog saveza za sunčevu energiju (HSSE) u suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH).',
           'hero.ctaPapers': 'Poziv za radove',
           'hero.ctaPrereg': 'Predbilježba interesa',
+
+          'stage.backHome': 'Glavni izbornik',
+          'stage.homeHint': '27.–29. listopada 2027. (okvirno) • Opatija, Hrvatska — Odaberite sunčevu zraku',
+          'stage.subHint': 'Odaberite podizbornik na kraju sunčevih zraka',
+
+          'sub.about.overview': 'Misija i pregled',
+          'sub.about.heritage': 'Nasljeđe HSSE-a',
+          'sub.about.committees': 'Odbori',
+          'sub.about.prereg': 'Predbilježba',
+
+          'sub.topics.all': 'Sve teme (8)',
+          'sub.topics.renewables': 'Obnovljivi izvori',
+          'sub.topics.systems': 'Sustavi i mreže',
+          'sub.topics.environment': 'Politika i okoliš',
+
+          'sub.dates.abstracts': 'Poziv i sažetci',
+          'sub.dates.papers': 'Cjeloviti radovi',
+          'sub.dates.congress': 'Dani kongresa',
+          'sub.dates.ics': 'Spremi .ics kalendar',
+
+          'sub.authors.portal': 'Portal za prijavu',
+          'sub.authors.docx': 'Word predložak',
+          'sub.authors.latex': 'LaTeX predložak',
+          'sub.authors.guide': 'Upute za autore',
+
+          'sub.reg.fees': 'Kotizacije',
+          'sub.reg.included': 'Što je uključeno',
+          'sub.reg.prereg': 'Predbilježi se',
+          'sub.reg.payment': 'Upute za plaćanje',
+
+          'sub.comm.organizing': 'Organizacijski odbor',
+          'sub.comm.scientific': 'Znanstveni odbor',
+          'sub.comm.honorary': 'Počasni odbor',
+
+          'sub.venue.opatija': 'Lokacija Opatija',
+          'sub.venue.airports': 'Zračne luke',
+          'sub.venue.maps': 'Google karte ↗',
+          'sub.venue.hotels': 'Smještaj',
+
+          'sub.archive.2016': 'EO 2016 (25.) ↗',
+          'sub.archive.2014': 'EO 2014 (24.) ↗',
+          'sub.archive.2012': 'EO 2012 (23.) ↗',
+          'sub.archive.all': 'Cijela arhiva HSSE-a ↗',
+          'sub.archive.2010': 'EO 2010 (22.) ↗',
+          'sub.archive.early': 'EO 2004.–2008.',
+
+          'sub.contact.secretariat': 'Tajništvo',
+          'sub.contact.copy': 'Kopiraj e-mail',
+          'sub.contact.prereg': 'Predbilježba',
+          'sub.contact.privacy': 'Privatnost (GDPR)',
 
           'about.eyebrow': 'O kongresu',
           'about.title': 'Unaprjeđenje čistih energetskih tehnologija i zaštite okoliša',
@@ -2366,6 +2357,10 @@
       };
 
       let currentLang = 'en';
+      let currentPage = 'home';
+      let solarRotationDeg = 0;
+      let activeSubIndex = -1;
+      let onLanguageChangedCallback = null;
 
       /**
        * Applies the selected language ('en' or 'hr') across all tagged DOM elements.
@@ -2384,13 +2379,17 @@
             }
           });
 
-          // Update language switcher button styles
+          // Update language switcher button styles (Dark Navy Header)
           document.querySelectorAll('.lang-btn').forEach((btn) => {
             const isActive = btn.getAttribute('data-lang-btn') === lang;
             btn.className = isActive
-              ? 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-navy text-white shadow-sm'
-              : 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-navy';
+              ? 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-solar text-white shadow-sm'
+              : 'lang-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-200 hover:text-white';
           });
+
+          if (typeof onLanguageChangedCallback === 'function') {
+            onLanguageChangedCallback();
+          }
 
           try {
             localStorage.setItem('ee2027_lang', lang);
@@ -2540,81 +2539,378 @@
           });
         });
 
-        // Dismiss Draft Top Banner
-        const dismissBannerBtn = document.getElementById('dismissBannerBtn');
-        const draftBanner = document.getElementById('draftBanner');
-        if (dismissBannerBtn && draftBanner) {
-          dismissBannerBtn.addEventListener('click', () => {
-            draftBanner.classList.add('hidden');
-          });
-        }
+        // Top-Right Dropdown Menu Toggle (All Screen Sizes)
+        const topDropdownBtn = document.getElementById('topDropdownBtn');
+        const topDropdownMenu = document.getElementById('topDropdownMenu');
+        const dropdownChevron = document.getElementById('dropdownChevron');
 
-        // Mobile Hamburger Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const iconOpen = document.getElementById('menuIconOpen');
-        const iconClose = document.getElementById('menuIconClose');
-
-        function toggleMobileMenu(forceClose) {
-          if (!mobileMenu || !mobileMenuBtn) return;
-          const willOpen = forceClose ? false : mobileMenu.classList.contains('hidden');
-          mobileMenu.classList.toggle('hidden', !willOpen);
-          mobileMenuBtn.setAttribute('aria-expanded', String(willOpen));
-          if (iconOpen && iconClose) {
-            iconOpen.classList.toggle('hidden', willOpen);
-            iconClose.classList.toggle('hidden', !willOpen);
+        function toggleTopDropdown(forceClose) {
+          if (!topDropdownMenu || !topDropdownBtn) return;
+          const willOpen = forceClose ? false : topDropdownMenu.classList.contains('hidden');
+          topDropdownMenu.classList.toggle('hidden', !willOpen);
+          topDropdownBtn.setAttribute('aria-expanded', String(willOpen));
+          if (dropdownChevron) {
+            dropdownChevron.classList.toggle('rotate-180', willOpen);
           }
         }
 
-        if (mobileMenuBtn) {
-          mobileMenuBtn.addEventListener('click', () => toggleMobileMenu(false));
+        if (topDropdownBtn) {
+          topDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleTopDropdown(false);
+          });
         }
-        document.querySelectorAll('.mobile-nav-link').forEach((link) => {
-          link.addEventListener('click', () => toggleMobileMenu(true));
+
+        document.addEventListener('click', (e) => {
+          if (
+            topDropdownMenu &&
+            !topDropdownMenu.classList.contains('hidden') &&
+            !topDropdownMenu.contains(e.target) &&
+            !topDropdownBtn.contains(e.target)
+          ) {
+            toggleTopDropdown(true);
+          }
         });
 
-        // Topic Filter Pills
+        // Topic Filter Pills (Exposed helper for radial sub-menu rays)
         const filterBtns = document.querySelectorAll('.topic-filter-btn');
         const topicCards = document.querySelectorAll('.topic-card');
+        function applyTopicFilter(filter) {
+          filterBtns.forEach((b) => {
+            const active = b.getAttribute('data-topic-filter') === filter;
+            b.className = active
+              ? 'topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-navy text-white shadow-sm transition-all'
+              : 'topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all';
+          });
+          topicCards.forEach((card) => {
+            const cat = card.getAttribute('data-topic-cat');
+            const show = filter === 'all' || cat === filter;
+            card.classList.toggle('hidden', !show);
+          });
+        }
         filterBtns.forEach((btn) => {
           btn.addEventListener('click', () => {
-            const filter = btn.getAttribute('data-topic-filter');
-            filterBtns.forEach((b) => {
-              const active = b === btn;
-              b.className = active
-                ? 'topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-navy text-white shadow-sm transition-all'
-                : 'topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all';
-            });
-
-            topicCards.forEach((card) => {
-              const cat = card.getAttribute('data-topic-cat');
-              const show = filter === 'all' || cat === filter;
-              card.classList.toggle('hidden', !show);
-            });
+            applyTopicFilter(btn.getAttribute('data-topic-filter'));
           });
         });
 
-        // Committee Tabs
+        // Committee Tabs (Exposed helper for radial sub-menu rays)
         const commBtns = document.querySelectorAll('.comm-tab-btn');
         const commPanels = document.querySelectorAll('.comm-panel');
+        function applyCommitteeTab(target) {
+          commBtns.forEach((b) => {
+            const active = b.getAttribute('data-comm-tab') === target;
+            b.setAttribute('aria-selected', String(active));
+            b.className = active
+              ? 'comm-tab-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-navy text-white shadow-sm transition-all'
+              : 'comm-tab-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all';
+          });
+          commPanels.forEach((panel) => {
+            const isMatch = panel.id === `panel-${target}`;
+            panel.classList.toggle('hidden', !isMatch);
+            panel.classList.toggle('grid', isMatch);
+          });
+        }
         commBtns.forEach((btn) => {
           btn.addEventListener('click', () => {
-            const target = btn.getAttribute('data-comm-tab');
-            commBtns.forEach((b) => {
-              const active = b === btn;
-              b.setAttribute('aria-selected', String(active));
-              b.className = active
-                ? 'comm-tab-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-navy text-white shadow-sm transition-all'
-                : 'comm-tab-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all';
-            });
-
-            commPanels.forEach((panel) => {
-              const isMatch = panel.id === `panel-${target}`;
-              panel.classList.toggle('hidden', !isMatch);
-              panel.classList.toggle('grid', isMatch);
-            });
+            applyCommitteeTab(btn.getAttribute('data-comm-tab'));
           });
         });
+
+        /* -------------------------------------------------------------------
+         * 8. VITRUVIAN SOLAR ROUTER & ROTATING RAYS SUB-MENU ENGINE
+         * ----------------------------------------------------------------- */
+        const vitruvianStage = document.getElementById('vitruvianStage');
+        const radialSolarNav = document.getElementById('radialSolarNav');
+        const solarRaysLayer = document.getElementById('solarRaysLayer');
+        const dynamicSpokesGroup = document.getElementById('dynamicSpokesGroup');
+        const radialMenuNodes = document.getElementById('radialMenuNodes');
+        const homeTitleHeader = document.getElementById('homeTitleHeader');
+        const subpageTopBar = document.getElementById('subpageTopBar');
+        const subpageRayHint = document.getElementById('subpageRayHint');
+        const activePageBadge = document.getElementById('activePageBadge');
+        const pageSections = document.querySelectorAll('[data-page-section]');
+
+        const validPages = new Set([
+          'home', 'about', 'topics', 'dates', 'authors',
+          'registration', 'committees', 'venue', 'archive', 'contact'
+        ]);
+
+        const pageTitleKey = {
+          about: 'nav.about',
+          topics: 'nav.topics',
+          dates: 'nav.dates',
+          authors: 'nav.authors',
+          registration: 'nav.registration',
+          committees: 'nav.committees',
+          venue: 'nav.venue',
+          archive: 'nav.archive',
+          contact: 'nav.contact'
+        };
+
+        // Main radial menu (Starting Home Page)
+        const homeRadialItems = [
+          { page: 'about', labelKey: 'nav.about', angle: 0, left: 50, top: 7 },
+          { page: 'topics', labelKey: 'nav.topics', angle: 45, left: 81, top: 19 },
+          { page: 'dates', labelKey: 'nav.dates', angle: 90, left: 91, top: 50 },
+          { page: 'authors', labelKey: 'nav.authors', angle: 135, left: 81, top: 81 },
+          { page: 'archive', labelKey: 'nav.archive', angle: 180, left: 50, top: 93 },
+          { page: 'registration', labelKey: 'nav.registration', angle: 225, left: 19, top: 81 },
+          { page: 'venue', labelKey: 'nav.venue', angle: 270, left: 9, top: 50 },
+          { page: 'contact', labelKey: 'nav.contact', angle: 315, left: 19, top: 19 }
+        ];
+
+        // Sub-menu options placed at the end of the solar rays on each opened page
+        const subMenuConfig = {
+          about: [
+            { labelKey: 'sub.about.overview', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#about .lg\\:col-span-7') },
+            { labelKey: 'sub.about.heritage', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#about .lg\\:col-span-5') },
+            { labelKey: 'sub.about.committees', angle: 180, left: 50, top: 93, action: () => navigateToPage('committees', { spin: true }) },
+            { labelKey: 'sub.about.prereg', angle: 270, left: 13, top: 50, action: () => openModal('preregModal') }
+          ],
+          topics: [
+            { labelKey: 'sub.topics.all', angle: 0, left: 50, top: 7, action: () => { applyTopicFilter('all'); focusSectionBlock('#topics'); } },
+            { labelKey: 'sub.topics.renewables', angle: 90, left: 87, top: 50, action: () => { applyTopicFilter('renewables'); focusSectionBlock('#topics'); } },
+            { labelKey: 'sub.topics.systems', angle: 180, left: 50, top: 93, action: () => { applyTopicFilter('systems'); focusSectionBlock('#topics'); } },
+            { labelKey: 'sub.topics.environment', angle: 270, left: 13, top: 50, action: () => { applyTopicFilter('environment'); focusSectionBlock('#topics'); } }
+          ],
+          dates: [
+            { labelKey: 'sub.dates.abstracts', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#dates') },
+            { labelKey: 'sub.dates.papers', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#dates') },
+            { labelKey: 'sub.dates.congress', angle: 180, left: 50, top: 93, action: () => focusSectionBlock('#dates') },
+            { labelKey: 'sub.dates.ics', angle: 270, left: 14, top: 50, action: () => downloadCalendarFile() }
+          ],
+          authors: [
+            { labelKey: 'sub.authors.portal', angle: 0, left: 50, top: 7, action: () => showToast(translations[currentLang].toastPortal) },
+            { labelKey: 'sub.authors.docx', angle: 90, left: 87, top: 50, action: () => showToast(translations[currentLang].toastDocx) },
+            { labelKey: 'sub.authors.latex', angle: 180, left: 50, top: 93, action: () => showToast(translations[currentLang].toastLatex) },
+            { labelKey: 'sub.authors.guide', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#authors') }
+          ],
+          registration: [
+            { labelKey: 'sub.reg.fees', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#registration') },
+            { labelKey: 'sub.reg.included', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#registration') },
+            { labelKey: 'sub.reg.prereg', angle: 180, left: 50, top: 93, action: () => openModal('preregModal') },
+            { labelKey: 'sub.reg.payment', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#registration') }
+          ],
+          committees: [
+            { labelKey: 'sub.comm.organizing', angle: 0, left: 50, top: 7, action: () => { applyCommitteeTab('organizing'); focusSectionBlock('#committees'); } },
+            { labelKey: 'sub.comm.scientific', angle: 120, left: 82, top: 77, action: () => { applyCommitteeTab('scientific'); focusSectionBlock('#committees'); } },
+            { labelKey: 'sub.comm.honorary', angle: 240, left: 18, top: 77, action: () => { applyCommitteeTab('honorary'); focusSectionBlock('#committees'); } }
+          ],
+          venue: [
+            { labelKey: 'sub.venue.opatija', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#venue .lg\\:col-span-5') },
+            { labelKey: 'sub.venue.airports', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-7') },
+            { labelKey: 'sub.venue.maps', angle: 180, left: 50, top: 93, href: 'https://maps.google.com/?q=Opatija,+Croatia' },
+            { labelKey: 'sub.venue.hotels', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-5') }
+          ],
+          archive: [
+            { labelKey: 'sub.archive.2016', angle: 0, left: 50, top: 7, href: 'https://web.archive.org/web/20160908105600/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2016' },
+            { labelKey: 'sub.archive.2014', angle: 60, left: 84, top: 27, href: 'https://web.archive.org/web/20160910213343/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2014' },
+            { labelKey: 'sub.archive.2012', angle: 120, left: 84, top: 73, href: 'https://web.archive.org/web/20160802003708/http://www.hsse.hr/cms/index.php/ENERGIJA_I_OKOLI%C5%A0_2012' },
+            { labelKey: 'sub.archive.all', angle: 180, left: 50, top: 93, href: 'https://web.archive.org/web/*/www.hsse.hr/' },
+            { labelKey: 'sub.archive.2010', angle: 240, left: 16, top: 73, href: 'https://web.archive.org/web/20160910212810/http://www.hsse.hr/eearhiva/ee2010/' },
+            { labelKey: 'sub.archive.early', angle: 300, left: 16, top: 27, action: () => focusSectionBlock('#archive') }
+          ],
+          contact: [
+            { labelKey: 'sub.contact.secretariat', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#contact') },
+            { labelKey: 'sub.contact.copy', angle: 90, left: 87, top: 50, action: () => copyTextToClipboard('ee2027@riteh.hr') },
+            { labelKey: 'sub.contact.prereg', angle: 180, left: 50, top: 93, action: () => openModal('preregModal') },
+            { labelKey: 'sub.contact.privacy', angle: 270, left: 14, top: 50, action: () => openModal('privacyModal') }
+          ]
+        };
+
+        function spinSolarRays(stepDeg) {
+          if (!solarRaysLayer) return;
+          solarRotationDeg += (stepDeg || 75);
+          solarRaysLayer.style.transform = `rotate(${solarRotationDeg}deg)`;
+        }
+
+        function focusSectionBlock(selector) {
+          const el = document.querySelector(selector);
+          if (!el) return;
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          el.classList.remove('sub-highlight');
+          void el.offsetWidth;
+          el.classList.add('sub-highlight');
+        }
+
+        function renderRadialMenu(pageId) {
+          if (!radialMenuNodes || !dynamicSpokesGroup) return;
+          const dict = translations[currentLang] || translations.en;
+          const items = pageId === 'home' ? homeRadialItems : (subMenuConfig[pageId] || []);
+
+          // Draw crisp golden solar spokes from Vitruvian rim (r=128) to orbital ring (r=192)
+          const svgNS = 'http://www.w3.org/2000/svg';
+          dynamicSpokesGroup.innerHTML = '';
+          items.forEach((item) => {
+            const rad = ((item.angle - 90) * Math.PI) / 180;
+            const x1 = 250 + 128 * Math.cos(rad);
+            const y1 = 250 + 128 * Math.sin(rad);
+            const x2 = 250 + 192 * Math.cos(rad);
+            const y2 = 250 + 192 * Math.sin(rad);
+
+            const line = document.createElementNS(svgNS, 'line');
+            line.setAttribute('x1', x1.toFixed(1));
+            line.setAttribute('y1', y1.toFixed(1));
+            line.setAttribute('x2', x2.toFixed(1));
+            line.setAttribute('y2', y2.toFixed(1));
+            line.setAttribute('stroke', '#FDE68A');
+            line.setAttribute('stroke-opacity', '0.42');
+            line.setAttribute('stroke-width', '1.25');
+            dynamicSpokesGroup.appendChild(line);
+
+            const dot = document.createElementNS(svgNS, 'circle');
+            dot.setAttribute('cx', x2.toFixed(1));
+            dot.setAttribute('cy', y2.toFixed(1));
+            dot.setAttribute('r', '4');
+            dot.setAttribute('fill', '#F59E0B');
+            dynamicSpokesGroup.appendChild(dot);
+          });
+
+          // Render interactive radial pills at the end of each solar ray
+          radialMenuNodes.innerHTML = '';
+          items.forEach((item, idx) => {
+            const label = dict[item.labelKey] || item.labelKey;
+            const isExternal = Boolean(item.href);
+            const el = document.createElement(isExternal ? 'a' : 'button');
+            if (isExternal) {
+              el.href = item.href;
+              el.target = '_blank';
+              el.rel = 'noopener noreferrer';
+            } else {
+              el.type = 'button';
+            }
+
+            el.style.left = `${item.left}%`;
+            el.style.top = `${item.top}%`;
+            const isActiveSub = pageId !== 'home' && idx === activeSubIndex;
+            el.className = `radial-menu-node px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/50 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-black/45 whitespace-nowrap cursor-pointer${isActiveSub ? ' radial-node-active' : ''}`;
+            el.textContent = label;
+
+            el.addEventListener('click', () => {
+              spinSolarRays(75);
+              if (pageId === 'home') {
+                navigateToPage(item.page, { spin: false });
+              } else {
+                activeSubIndex = idx;
+                radialMenuNodes.querySelectorAll('.radial-menu-node').forEach((n, i) => {
+                  n.classList.toggle('radial-node-active', i === idx);
+                });
+                if (typeof item.action === 'function') {
+                  item.action();
+                }
+              }
+            });
+
+            radialMenuNodes.appendChild(el);
+          });
+        }
+
+        function updateActivePageLabels() {
+          const dict = translations[currentLang] || translations.en;
+          if (activePageBadge && currentPage !== 'home') {
+            const key = pageTitleKey[currentPage];
+            activePageBadge.textContent = (key && dict[key]) ? dict[key] : currentPage;
+          }
+          renderRadialMenu(currentPage);
+        }
+
+        onLanguageChangedCallback = updateActivePageLabels;
+
+        function navigateToPage(pageId, opts) {
+          const target = validPages.has(pageId) ? pageId : 'home';
+          const options = opts || {};
+          const shouldSpin = options.spin !== false;
+          const shouldUpdateHash = options.pushHash !== false;
+
+          toggleTopDropdown(true);
+          if (shouldSpin) {
+            spinSolarRays(75);
+          }
+
+          currentPage = target;
+          activeSubIndex = -1;
+          const isHome = target === 'home';
+
+          // Toggle Solo Starting Stage vs Sub-Page Header Stage
+          if (vitruvianStage) {
+            vitruvianStage.classList.toggle('min-h-[calc(100vh-4rem)]', isHome);
+            vitruvianStage.classList.toggle('sm:min-h-[calc(100vh-5rem)]', isHome);
+            vitruvianStage.classList.toggle('justify-center', isHome);
+            vitruvianStage.classList.toggle('border-b', !isHome);
+            vitruvianStage.classList.toggle('border-white/10', !isHome);
+          }
+          if (radialSolarNav) {
+            radialSolarNav.className = isHome
+              ? 'relative w-[min(92vw,520px)] sm:w-[540px] aspect-square mx-auto select-none transition-all duration-500'
+              : 'relative w-[min(90vw,410px)] sm:w-[440px] aspect-square mx-auto select-none transition-all duration-500';
+          }
+          if (homeTitleHeader) homeTitleHeader.classList.toggle('hidden', !isHome);
+          if (subpageTopBar) subpageTopBar.classList.toggle('hidden', isHome);
+          if (subpageRayHint) subpageRayHint.classList.toggle('hidden', isHome);
+
+          // Show ONLY the selected page section (none on solo home)
+          pageSections.forEach((sec) => {
+            const secId = sec.getAttribute('data-page-section');
+            sec.classList.toggle('hidden', secId !== target);
+          });
+
+          // Highlight active item in top-right dropdown
+          document.querySelectorAll('.dropdown-nav-item').forEach((btn) => {
+            const isCurrent = btn.getAttribute('data-nav-page') === target;
+            btn.classList.toggle('bg-solar/25', isCurrent);
+            btn.classList.toggle('text-amber-200', isCurrent);
+          });
+
+          updateActivePageLabels();
+
+          if (shouldUpdateHash) {
+            try {
+              const newHash = isHome ? '' : `#${target}`;
+              if (window.location.hash !== newHash) {
+                history.pushState(null, '', newHash || window.location.pathname + window.location.search);
+              }
+            } catch (_) {
+              // Ignore history errors in sandboxed iframes
+            }
+          }
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Bind all [data-nav-page] buttons (brand logo, dropdown items, back to main menu)
+        document.querySelectorAll('[data-nav-page]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            navigateToPage(btn.getAttribute('data-nav-page'), { spin: true });
+          });
+        });
+
+        // Route internal section links (e.g., About Heritage card & Footer Quick Links)
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href').slice(1);
+            if (targetId === 'top') {
+              e.preventDefault();
+              navigateToPage('home', { spin: true });
+            } else if (validPages.has(targetId)) {
+              e.preventDefault();
+              navigateToPage(targetId, { spin: true });
+            }
+          });
+        });
+
+        // Support browser Back / Forward navigation
+        window.addEventListener('hashchange', () => {
+          const h = (window.location.hash || '').replace('#', '');
+          const next = validPages.has(h) ? h : 'home';
+          if (next !== currentPage) {
+            navigateToPage(next, { spin: true, pushHash: false });
+          }
+        });
+
+        // Initialize view from URL hash (defaults to solo Vitruvian Home)
+        const initialHash = (window.location.hash || '').replace('#', '');
+        navigateToPage(validPages.has(initialHash) ? initialHash : 'home', { spin: false, pushHash: false });
 
         // Author Placeholder Buttons (Portal / Word / LaTeX)
         document.querySelectorAll('[data-placeholder-action]').forEach((btn) => {
@@ -2643,7 +2939,7 @@
         // Modal Open Triggers
         document.querySelectorAll('[data-open-prereg]').forEach((btn) => {
           btn.addEventListener('click', () => {
-            toggleMobileMenu(true);
+            toggleTopDropdown(true);
             openModal('preregModal');
           });
         });
@@ -2666,9 +2962,10 @@
           }
         });
 
-        // Escape key closes open modals
+        // Escape key closes open modals & top-right dropdown
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape') {
+            toggleTopDropdown(true);
             closeModal('privacyModal');
             closeModal('preregModal');
           }
