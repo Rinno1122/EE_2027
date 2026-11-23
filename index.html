@@ -353,6 +353,11 @@
           Click any sub-option at the end of the solar rays to navigate or filter this section
         </p>
 
+        <!-- Subtle CC-BY 4.0 Music Attribution -->
+        <p class="text-[11px] text-slate-400/75 mt-3 text-center">
+          ♪ <a href="https://www.scottbuckley.com.au/library/cirrus/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 underline underline-offset-2">&ldquo;Cirrus&rdquo; by Scott Buckley</a> (CC-BY 4.0)
+        </p>
+
       </div>
     </section>
 
@@ -1655,10 +1660,16 @@
 
       <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
         <p data-i18n="footer.copyright">© 2027 Croatian Solar Energy Association (HSSE) — Draft Conference Prototype.</p>
-        <p data-i18n="footer.hostedNote">Static single-file build ready for GitHub Pages.</p>
+        <p class="text-center sm:text-right">
+          Music: <a href="https://www.scottbuckley.com.au/library/cirrus/" target="_blank" rel="noopener noreferrer" class="text-amber-300/90 hover:text-amber-200 underline underline-offset-2">&ldquo;Cirrus&rdquo; by Scott Buckley</a>
+          &ndash; released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline underline-offset-2">CC-BY 4.0</a>
+        </p>
       </div>
     </div>
   </footer>
+
+  <!-- Looping Background Track: "Cirrus" by Scott Buckley (CC-BY 4.0) -->
+  <audio id="bgMusicAudio" src="assets/cirrus-scott-buckley.mp3" loop preload="auto"></audio>
 
   <!-- ===================================================================== -->
   <!-- MODAL 1: INTERACTIVE PRE-REGISTRATION / MAILING LIST FORM             -->
@@ -3058,7 +3069,41 @@
           });
         }
 
-        function ensureNeoclassicalMusic() {
+        const bgMusicAudio = document.getElementById('bgMusicAudio');
+        let mp3FadeTimer = null;
+        let mp3Available = true;
+        const MP3_TARGET_VOLUME = 0.36;
+
+        if (bgMusicAudio) {
+          bgMusicAudio.volume = 0;
+          bgMusicAudio.addEventListener('error', () => {
+            mp3Available = false;
+          });
+        }
+
+        function fadeAudioElement(audioEl, targetVol, durationMs, pauseOnZero) {
+          if (!audioEl) return;
+          if (mp3FadeTimer) clearInterval(mp3FadeTimer);
+          const steps = 20;
+          const stepMs = Math.max(16, Math.round(durationMs / steps));
+          const startVol = audioEl.volume;
+          const delta = (targetVol - startVol) / steps;
+          let step = 0;
+          mp3FadeTimer = setInterval(() => {
+            step += 1;
+            const next = step >= steps ? targetVol : Math.max(0, Math.min(1, startVol + delta * step));
+            audioEl.volume = next;
+            if (step >= steps) {
+              clearInterval(mp3FadeTimer);
+              mp3FadeTimer = null;
+              if (pauseOnZero && targetVol <= 0.001) {
+                audioEl.pause();
+              }
+            }
+          }, stepMs);
+        }
+
+        function startSynthFallback() {
           if (!soundEnabled) return;
           const ctx = initAudioContext();
           if (!ctx) return;
@@ -3076,7 +3121,30 @@
           }
         }
 
+        function ensureNeoclassicalMusic() {
+          if (!soundEnabled) return;
+          // Prefer Scott Buckley's "Cirrus" MP3 when present in assets/
+          if (bgMusicAudio && mp3Available) {
+            const playPromise = bgMusicAudio.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+              playPromise
+                .then(() => {
+                  fadeAudioElement(bgMusicAudio, MP3_TARGET_VOLUME, 1400, false);
+                })
+                .catch(() => {
+                  // Fallback gracefully to synthesized neoclassical loop if MP3 is missing/blocked
+                  startSynthFallback();
+                });
+              return;
+            }
+          }
+          startSynthFallback();
+        }
+
         function muteNeoclassicalMusic() {
+          if (bgMusicAudio && !bgMusicAudio.paused) {
+            fadeAudioElement(bgMusicAudio, 0, 500, true);
+          }
           if (musicLoopTimer) {
             clearInterval(musicLoopTimer);
             musicLoopTimer = null;
