@@ -3216,7 +3216,7 @@
           }
         }
 
-        // Pure, loud, crisp dual-band cinematic whoosh (cuts clearly over Cirrus)
+        // Pure, balanced dual-band cinematic whoosh (30% softer, crisp over Cirrus)
         function playSolarWhoosh() {
           if (!soundEnabled) return;
           try {
@@ -3224,20 +3224,20 @@
             if (!ctx) return;
             startCirrusMusic();
 
-            // Gently duck Cirrus slightly during the whoosh so it stands out crisply
-            if (bgMusicAudio && !bgMusicAudio.paused && bgMusicAudio.volume > 0.14) {
-              fadeAudioElement(bgMusicAudio, 0.14, 140, false);
+            // Gently duck Cirrus slightly during the whoosh so it stands out cleanly
+            if (bgMusicAudio && !bgMusicAudio.paused && bgMusicAudio.volume > 0.18) {
+              fadeAudioElement(bgMusicAudio, 0.18, 140, false);
               setTimeout(() => {
                 if (soundEnabled && bgMusicAudio && !bgMusicAudio.paused) {
-                  fadeAudioElement(bgMusicAudio, CIRRUS_VOLUME, 520, false);
+                  fadeAudioElement(bgMusicAudio, CIRRUS_VOLUME, 500, false);
                 }
-              }, 480);
+              }, 460);
             }
 
             const now = ctx.currentTime;
             const noiseBuffer = getWhooshNoiseBuffer(ctx);
 
-            // Soft limiter/compressor for punchy loudness without distortion
+            // Soft limiter/compressor for clean playback without distortion
             const comp = ctx.createDynamicsCompressor();
             comp.threshold.setValueAtTime(-10, now);
             comp.knee.setValueAtTime(12, now);
@@ -3246,7 +3246,7 @@
             comp.release.setValueAtTime(0.15, now);
             comp.connect(ctx.destination);
 
-            // Layer 1: Warm low-mid wind body sweep
+            // Layer 1: Warm low-mid wind body sweep (reduced 30%)
             const srcLow = ctx.createBufferSource();
             srcLow.buffer = noiseBuffer;
             const bpLow = ctx.createBiquadFilter();
@@ -3258,7 +3258,7 @@
 
             const gainLow = ctx.createGain();
             gainLow.gain.setValueAtTime(0.0001, now);
-            gainLow.gain.exponentialRampToValueAtTime(0.95, now + 0.22);
+            gainLow.gain.exponentialRampToValueAtTime(0.66, now + 0.22);
             gainLow.gain.exponentialRampToValueAtTime(0.0001, now + 0.88);
 
             srcLow.connect(bpLow);
@@ -3267,7 +3267,7 @@
             srcLow.start(now);
             srcLow.stop(now + 0.92);
 
-            // Layer 2: Crisp airy mid-high whoosh rush
+            // Layer 2: Crisp airy mid-high whoosh rush (reduced 30%)
             const srcAir = ctx.createBufferSource();
             srcAir.buffer = noiseBuffer;
             const bpAir = ctx.createBiquadFilter();
@@ -3279,7 +3279,7 @@
 
             const gainAir = ctx.createGain();
             gainAir.gain.setValueAtTime(0.0001, now);
-            gainAir.gain.exponentialRampToValueAtTime(0.75, now + 0.20);
+            gainAir.gain.exponentialRampToValueAtTime(0.52, now + 0.20);
             gainAir.gain.exponentialRampToValueAtTime(0.0001, now + 0.84);
 
             srcAir.connect(bpAir);
@@ -3294,15 +3294,26 @@
 
         updateSoundButtonUI();
 
-        // Unlock Cirrus looping music cleanly on the visitor's first gesture
+        // Attempt to start Cirrus automatically on page open (works whenever browser policy permits)
+        if (soundEnabled) {
+          startCirrusMusic();
+        }
+
+        // Fallback unlock on the very first touch/click/key anywhere on the page if browser blocked autoplay
         function handleFirstGesture() {
-          if (soundEnabled) {
+          if (soundEnabled && bgMusicAudio && bgMusicAudio.paused) {
             startCirrusMusic();
           }
-          document.removeEventListener('pointerdown', handleFirstGesture);
-          document.removeEventListener('keydown', handleFirstGesture);
+          if (bgMusicAudio && !bgMusicAudio.paused) {
+            document.removeEventListener('pointerdown', handleFirstGesture);
+            document.removeEventListener('touchstart', handleFirstGesture);
+            document.removeEventListener('click', handleFirstGesture);
+            document.removeEventListener('keydown', handleFirstGesture);
+          }
         }
         document.addEventListener('pointerdown', handleFirstGesture, { passive: true });
+        document.addEventListener('touchstart', handleFirstGesture, { passive: true });
+        document.addEventListener('click', handleFirstGesture, { passive: true });
         document.addEventListener('keydown', handleFirstGesture, { passive: true });
 
         if (soundToggleBtn) {
@@ -3482,13 +3493,14 @@
         function animateStageVisuals(t) {
           if (currentLevel !== 3) {
             if (!prefersReducedMotion && radialSolarNav) {
-              // Gentle autonomous 3D breathing starts immediately on page load; live gyro/cursor layers smoothly on top
-              const ambientX = Math.sin(t * 0.00085) * 4.2;
-              const ambientY = Math.cos(t * 0.00068) * 5.2;
+              // Strong, expressive 3D parallax right from page load; smoothly hands off to live gyro/cursor
+              const ambientScale = gyroActive ? 0.25 : 1.0;
+              const ambientX = (Math.sin(t * 0.00095) * 9.0 + Math.sin(t * 0.00043) * 2.2) * ambientScale;
+              const ambientY = (Math.cos(t * 0.00078) * 11.2 + Math.cos(t * 0.00037) * 2.5) * ambientScale;
               const goalX = clampNum(ambientX + sensorTiltX, -15, 15);
               const goalY = clampNum(ambientY + sensorTiltY, -16, 16);
-              curTiltX += (goalX - curTiltX) * 0.085;
-              curTiltY += (goalY - curTiltY) * 0.085;
+              curTiltX += (goalX - curTiltX) * 0.095;
+              curTiltY += (goalY - curTiltY) * 0.095;
               radialSolarNav.style.transform = `rotateX(${curTiltX.toFixed(2)}deg) rotateY(${curTiltY.toFixed(2)}deg)`;
             }
 
