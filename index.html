@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Energy and the Environment 2027 | 27th International Congress — Opatija, Croatia</title>
-  <meta name="description" content="27th International Scientific & Professional Congress Energy and the Environment 2027 (Energija i okoliš 2027), organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH)." />
+  <title>Energy and the Environment 2027 | 27th International Congress — Rijeka, Croatia</title>
+  <meta name="description" content="27th International Scientific & Professional Congress Energy and the Environment 2027 (Energija i okoliš 2027), held at InnovaLab, University of Rijeka Campus, organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH)." />
 
   <!-- Google Fonts: Inter & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -135,12 +135,31 @@
           </div>
           <div class="leading-tight">
             <span class="block font-display font-extrabold text-white text-base sm:text-lg tracking-tight" data-i18n="nav.brandTitle">EE 2027</span>
-            <span class="block text-[11px] sm:text-xs font-medium text-amber-200/80" data-i18n="nav.brandSub">Opatija • Croatia</span>
+            <span class="block text-[11px] sm:text-xs font-medium text-amber-200/80" data-i18n="nav.brandSub">Rijeka • Croatia</span>
           </div>
         </button>
 
-        <!-- Right Controls: Language Selection + Top-Right Dropdown Menu -->
-        <div class="relative flex items-center gap-2.5 sm:gap-3">
+        <!-- Right Controls: Sound Toggle + Language Selection + Top-Right Dropdown Menu -->
+        <div class="relative flex items-center gap-2 sm:gap-3">
+          <!-- Ambient Solar Space Sound Toggle -->
+          <button
+            id="soundToggleBtn"
+            type="button"
+            aria-pressed="true"
+            aria-label="Toggle ambient space sound"
+            title="Ambient space sound & solar ray whoosh"
+            class="inline-flex items-center gap-1.5 px-2.5 py-2 sm:px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-amber-300/35 text-amber-200 text-xs font-semibold backdrop-blur-sm transition-all"
+          >
+            <svg id="soundIconOn" class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+            <svg id="soundIconOff" class="w-4 h-4 text-slate-400 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+            </svg>
+            <span class="hidden sm:inline" data-i18n="nav.sound">Sound</span>
+          </button>
+
           <!-- Bilingual EN / HR Toggle -->
           <div class="inline-flex items-center rounded-xl bg-white/10 p-1 border border-white/15" role="group" aria-label="Language switcher">
             <button
@@ -266,13 +285,13 @@
         <!-- Subtle Congress Title on Starting Home Page -->
         <div id="homeTitleHeader" class="text-center mb-3 sm:mb-4 max-w-2xl">
           <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-amber-300/90 mb-1" data-i18n="hero.badge">
-            27th Edition • Heritage Since 1978 • ISES National Section
+            27th Edition • Since 1978
           </p>
           <h1 class="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-white" data-i18n="hero.title">
             Energy and the Environment 2027
           </h1>
           <p class="text-xs sm:text-sm text-slate-300 mt-1" data-i18n="stage.homeHint">
-            October 27–29, 2027 (TBC) • Opatija, Croatia — Select a solar ray to explore
+            October 27–29, 2027 (TBC) • InnovaLab, Rijeka, Croatia — Select a solar ray to explore
           </p>
         </div>
 
@@ -356,22 +375,22 @@
               The 27th International Congress Energy and the Environment 2027 brings together researchers, energy engineers, industry innovators, utility leaders, and policymakers from across Europe and beyond to exchange peer-reviewed advances in solar technologies, renewable energy systems, energy efficiency, and environmental protection.
             </p>
             <p class="text-slate-600 text-base leading-relaxed mb-8" data-i18n="about.p2">
-              Set along the historic Kvarner Bay in Opatija, the congress fosters dialogue between academic research and real-world engineering deployment—accelerating regional decarbonization, resilient grids, and sustainable urban and industrial energy transitions.
+              Hosted at InnovaLab on the University of Rijeka Campus overlooking Kvarner Bay, the congress fosters dialogue between academic research and real-world engineering deployment—accelerating regional decarbonization, resilient grids, and sustainable urban and industrial energy transitions.
             </p>
 
             <!-- Quick Highlights Strip -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <div class="font-display text-2xl font-extrabold text-navy">1978</div>
-                <div class="text-xs font-medium text-slate-500 mt-1" data-i18n="about.stat1">Opatija Symposia Roots</div>
+                <div class="text-xs font-medium text-slate-500 mt-1" data-i18n="about.stat1">Since 1978</div>
               </div>
               <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <div class="font-display text-2xl font-extrabold text-solar">27th</div>
                 <div class="text-xs font-medium text-slate-500 mt-1" data-i18n="about.stat2">International Edition</div>
               </div>
               <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                <div class="font-display text-2xl font-extrabold text-tealbrand">ISES</div>
-                <div class="text-xs font-medium text-slate-500 mt-1" data-i18n="about.stat3">Croatian National Section</div>
+                <div class="font-display text-2xl font-extrabold text-tealbrand">HSSE</div>
+                <div class="text-xs font-medium text-slate-500 mt-1" data-i18n="about.stat3">Croatian Solar Energy Assoc.</div>
               </div>
               <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <div class="font-display text-2xl font-extrabold text-navy">EN/HR</div>
@@ -390,7 +409,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span data-i18n="about.heritageTag">Nearly Five Decades of Tradition</span>
+                    <span data-i18n="about.heritageTag">Since 1978</span>
                   </div>
                   <div class="w-14 h-14 rounded-full bg-white ring-2 ring-amber-300/60 shadow-lg p-1 shrink-0">
                     <img
@@ -403,10 +422,10 @@
                   </div>
                 </div>
                 <h3 class="font-display text-xl sm:text-2xl font-bold mb-4" data-i18n="about.heritageTitle">
-                  HSSE &amp; The Opatija Congress Legacy
+                  HSSE &amp; Congress Since 1978
                 </h3>
                 <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5" data-i18n="about.heritageBody">
-                  Founded in Rijeka in 1983, the Croatian Solar Energy Association (HSSE) serves as the Croatian National Section of the International Solar Energy Society (ISES). Working closely with the Faculty of Engineering, University of Rijeka (RITEH), HSSE built one of Southeast Europe's most enduring biennial scientific forums on renewable energy and environmental engineering.
+                  Founded in Rijeka in 1983, the Croatian Solar Energy Association (HSSE) works closely with the Faculty of Engineering, University of Rijeka (RITEH) to organize one of Southeast Europe's most enduring biennial scientific forums on renewable energy and environmental engineering.
                 </p>
                 <ul class="space-y-3 text-sm text-slate-200">
                   <li class="flex items-start gap-2.5">
@@ -657,7 +676,7 @@
               <span class="text-xs font-bold text-amber-300 uppercase tracking-wider" data-i18n="dates.mainEventTag">Main Event (TBC)</span>
             </div>
             <div class="font-display text-xl font-extrabold text-white mb-1" data-i18n="dates.d6Date">October 27–29, 2027</div>
-            <h3 class="font-semibold text-amber-300 mb-1" data-i18n="dates.d6Title">Congress in Opatija, Croatia</h3>
+            <h3 class="font-semibold text-amber-300 mb-1" data-i18n="dates.d6Title">Congress in Rijeka, Croatia</h3>
             <p class="text-sm text-slate-300" data-i18n="dates.d6Desc">Three days of plenary lectures, technical tracks, workshops, and networking.</p>
           </div>
 
@@ -714,7 +733,7 @@
                 <div class="w-9 h-9 rounded-xl bg-tealbrand text-white font-display font-bold flex items-center justify-center shrink-0">4</div>
                 <div>
                   <h3 class="font-display font-bold text-navy text-base" data-i18n="authors.s4Title">Publication &amp; Presentation</h3>
-                  <p class="text-sm text-slate-600 mt-0.5" data-i18n="authors.s4Desc">Submit camera-ready files and register at least one author to present orally or via poster in Opatija and appear in the ISBN/DOI proceedings.</p>
+                  <p class="text-sm text-slate-600 mt-0.5" data-i18n="authors.s4Desc">Submit camera-ready files and register at least one author to present orally or via poster in Rijeka and appear in the ISBN/DOI proceedings.</p>
                 </div>
               </div>
             </div>
@@ -834,7 +853,7 @@
                   </tr>
                   <tr class="hover:bg-slate-50 transition-colors">
                     <td class="py-4 px-5">
-                      <div class="font-semibold text-navy" data-i18n="reg.cat2">HSSE / ISES Member</div>
+                      <div class="font-semibold text-navy" data-i18n="reg.cat2">HSSE Member</div>
                       <div class="text-xs text-slate-500" data-i18n="reg.cat2Sub">Valid membership ID required</div>
                     </td>
                     <td class="py-4 px-5 text-right font-display font-bold text-tealbrand">€300</td>
@@ -891,7 +910,7 @@
                 </li>
                 <li class="flex items-start gap-2.5">
                   <svg class="w-5 h-5 text-tealbrand shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  <span data-i18n="reg.inc4">Welcome cocktail &amp; Opatija Gala Dinner</span>
+                  <span data-i18n="reg.inc4">Welcome cocktail &amp; Rijeka Gala Dinner</span>
                 </li>
                 <li class="flex items-start gap-2.5">
                   <svg class="w-5 h-5 text-tealbrand shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -1024,7 +1043,7 @@
           <div class="bg-white rounded-2xl p-5 border border-dashed border-slate-300">
             <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">Austria / Germany</span>
             <h3 class="font-display font-bold text-slate-700 text-base">[Prof. Name Surname]</h3>
-            <p class="text-sm text-slate-500 mt-1">TU Graz / ISES Europe Partner — TBC</p>
+            <p class="text-sm text-slate-500 mt-1">TU Graz / European Academic Partner — TBC</p>
           </div>
           <div class="bg-white rounded-2xl p-5 border border-dashed border-slate-300">
             <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">International</span>
@@ -1042,97 +1061,134 @@
           </div>
           <div class="bg-white rounded-2xl p-5 border border-dashed border-slate-300">
             <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2" data-i18n="comm.roleHon">Honorary Member</span>
-            <h3 class="font-display font-bold text-slate-700 text-base">[ISES Representative]</h3>
-            <p class="text-sm text-slate-500 mt-1">International Solar Energy Society (ISES)</p>
+            <h3 class="font-display font-bold text-slate-700 text-base">[University of Rijeka Representative]</h3>
+            <p class="text-sm text-slate-500 mt-1">University of Rijeka (UNIRI)</p>
           </div>
           <div class="bg-white rounded-2xl p-5 border border-dashed border-slate-300">
             <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2" data-i18n="comm.roleHon">Honorary Member</span>
             <h3 class="font-display font-bold text-slate-700 text-base">[Regional &amp; City Patrons]</h3>
-            <p class="text-sm text-slate-500 mt-1">Primorje-Gorski Kotar County / City of Opatija (TBC)</p>
+            <p class="text-sm text-slate-500 mt-1">Primorje-Gorski Kotar County / City of Rijeka (TBC)</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =================================================================== -->
-    <!-- VENUE & TRAVEL (OPATIJA, CROATIA)                                   -->
+    <!-- VENUE & TRAVEL (INNOVALAB, UNIVERSITY OF RIJEKA CAMPUS)             -->
     <!-- =================================================================== -->
     <section id="venue" data-page-section="venue" class="hidden py-14 sm:py-20 bg-white border-t border-slate-200/80 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-10">
           <span class="inline-block text-xs font-bold uppercase tracking-widest text-tealbrand mb-2" data-i18n="venue.eyebrow">Location &amp; Logistics</span>
           <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-navy tracking-tight" data-i18n="venue.title">
-            Venue &amp; Travel — Opatija, Croatia
+            Venue &amp; Travel — Rijeka, Croatia
           </h2>
           <p class="text-slate-600 mt-3 text-base" data-i18n="venue.subtitle">
-            Located on the picturesque Kvarner Riviera just minutes from Rijeka, Opatija is easily accessible by air, motorway, and rail from Central Europe and the Adriatic region.
+            Hosted at InnovaLab on the University of Rijeka Campus (Trsat), overlooking the Kvarner Bay and easily accessible by air, motorway, and rail from Central Europe and the Adriatic region.
           </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <!-- Venue Card -->
-          <div class="lg:col-span-5">
-            <div class="rounded-3xl bg-slate-50 border border-slate-200 overflow-hidden h-full flex flex-col">
-              <!-- Custom Inline SVG Coastal Opatija Banner (No external broken images) -->
-              <div class="bg-navy p-6 relative overflow-hidden">
-                <svg class="w-full h-36" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <!-- Sunset Glow -->
-                  <circle cx="315" cy="42" r="24" fill="#F59E0B" fill-opacity="0.9" />
-                  <circle cx="315" cy="42" r="42" fill="#F59E0B" fill-opacity="0.18" />
-                  <!-- Učka Mountain Silhouette -->
-                  <path d="M0 102L75 52L140 76L215 36L310 88L400 66V115H0V102Z" fill="#133763" />
-                  <!-- Waterfront Promenade / Pavilion Silhouette -->
-                  <rect x="64" y="84" width="48" height="22" rx="2" fill="#E2E8F0" fill-opacity="0.18" />
-                  <rect x="122" y="76" width="66" height="30" rx="2" fill="#E2E8F0" fill-opacity="0.24" />
-                  <path d="M120 76L155 62L190 76H120Z" fill="#F59E0B" fill-opacity="0.45" />
-                  <!-- Adriatic Sea Waves -->
-                  <rect y="106" width="400" height="34" fill="#0F766E" fill-opacity="0.45" />
-                  <path d="M0 116C45 108 90 124 135 116C180 108 225 124 270 116C315 108 360 124 400 116" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.65" />
-                  <path d="M0 128C45 121 90 135 135 128C180 121 225 135 270 128C315 121 360 135 400 128" stroke="#14B8A6" stroke-width="1.6" stroke-opacity="0.5" />
-                </svg>
-                <div class="absolute bottom-4 left-6">
-                  <span class="inline-block px-2.5 py-1 rounded-lg bg-navy/85 backdrop-blur-sm text-amber-300 text-xs font-bold border border-white/15" data-i18n="venue.tbcTag">Venue Confirmation TBC</span>
+          <!-- InnovaLab Venue Card with Official Photos -->
+          <div class="lg:col-span-6">
+            <div class="rounded-3xl bg-slate-50 border border-slate-200 overflow-hidden h-full flex flex-col shadow-sm">
+              <!-- Main Official Exterior Photo -->
+              <div class="relative aspect-[16/10] bg-navy overflow-hidden">
+                <img
+                  src="assets/innovalab-exterior.jpg"
+                  alt="InnovaLab Pavilion exterior at University of Rijeka Campus Trsat"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/75 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-5 right-5 flex items-end justify-between gap-2">
+                  <span class="inline-block px-3 py-1 rounded-lg bg-navy/85 backdrop-blur-sm text-amber-300 text-xs font-bold border border-white/15" data-i18n="venue.tbcTag">
+                    InnovaLab • University of Rijeka Campus
+                  </span>
+                </div>
+              </div>
+
+              <!-- Official Interior Photo Strip -->
+              <div class="grid grid-cols-2 gap-2 p-2 bg-slate-100 border-b border-slate-200">
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-200">
+                  <img
+                    src="assets/innovalab-hall.jpg"
+                    alt="InnovaLab main conference hall and campus view"
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="aspect-[16/10] rounded-xl overflow-hidden bg-slate-200">
+                  <img
+                    src="assets/innovalab-interior.jpg"
+                    alt="InnovaLab modular presentation and lecture space"
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
                 </div>
               </div>
 
               <div class="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 class="font-display text-xl font-bold text-navy mb-2" data-i18n="venue.cardTitle">
-                    Opatija Convention Centre / Grand Hotel Adriatic (TBC)
+                  <h3 class="font-display text-xl font-bold text-navy mb-1" data-i18n="venue.cardTitle">
+                    InnovaLab — University of Rijeka Campus (Trsat)
                   </h3>
-                  <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="venue.cardDesc">
-                    Continuing the congress's longstanding Opatija tradition, sessions and the gala dinner are planned in Opatija's waterfront convention district, with preferential accommodation blocks for delegates.
+                  <p class="text-xs font-semibold text-tealbrand mb-3" data-i18n="venue.address">
+                    Radmile Matejčić 10 (StepRi Annex), 51000 Rijeka, Croatia
                   </p>
-                  <div class="text-xs text-slate-500 space-y-1.5 mb-6">
-                    <div class="flex items-center gap-2">
-                      <span class="w-1.5 h-1.5 rounded-full bg-tealbrand"></span>
-                      <span data-i18n="venue.highway">Motorway access via A6 (Zagreb), A7 (Rijeka/Trieste), &amp; A8 (Istria)</span>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="venue.cardDesc">
+                    A contemporary 154 m² timber-and-glass multipurpose innovation pavilion (up to 80 seats) adjacent to the StepRi Science and Technology Park. Flexible acoustic curtains adapt the space for plenary lectures, parallel sessions, workshops, and exhibitions.
+                  </p>
+                  <div class="text-xs text-slate-600 space-y-2 mb-5">
+                    <div class="flex items-start gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-tealbrand mt-1.5 shrink-0"></span>
+                      <span data-i18n="venue.specs">Step-free accessible • Dual HDMI-A projectors, PA &amp; wireless microphones, WiFi, kitchenette, and covered outdoor terrace</span>
                     </div>
-                    <div class="flex items-center gap-2">
-                      <span class="w-1.5 h-1.5 rounded-full bg-solar"></span>
-                      <span data-i18n="venue.hotels">Negotiated congress hotel booking codes to be announced</span>
+                    <div class="flex items-start gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-solar mt-1.5 shrink-0"></span>
+                      <span data-i18n="venue.highway">Direct motorway access via A6 (Zagreb), A7 (Trieste/Ljubljana), and A8 (Istria) • Campus parking available</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-navy mt-1.5 shrink-0"></span>
+                      <span data-i18n="venue.hotels">Preferred Rijeka city &amp; Trsat accommodation recommendations to be announced</span>
                     </div>
                   </div>
                 </div>
 
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Opatija+Croatia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white hover:bg-slate-100 text-navy border border-slate-200 font-semibold text-sm transition-colors"
-                >
-                  <svg class="w-4 h-4 text-tealbrand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span data-i18n="venue.mapBtn">View Opatija on Google Maps</span>
-                </a>
+                <div class="space-y-2.5">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=InnovaLab+Radmile+Matejcic+10+Rijeka+Croatia"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-navy hover:bg-navy-light text-white font-semibold text-xs sm:text-sm transition-colors"
+                    >
+                      <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <span data-i18n="venue.mapBtn">View InnovaLab on Maps</span>
+                    </a>
+                    <a
+                      href="https://uniri.hr/znanost-i-istrazivanje/innovalab/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white hover:bg-slate-100 text-navy border border-slate-200 font-semibold text-xs sm:text-sm transition-colors"
+                    >
+                      <span data-i18n="venue.officialBtn">UNIRI InnovaLab Page</span>
+                      <svg class="w-3.5 h-3.5 text-tealbrand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                  <p class="text-[11px] text-slate-400 text-right" data-i18n="venue.photoCredit">Photos: University of Rijeka (UNIRI) — InnovaLab</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Nearby Airports Distance Cards -->
-          <div class="lg:col-span-7">
+          <!-- Nearby Airports Distance Cards (to Rijeka Campus Trsat) -->
+          <div class="lg:col-span-6">
             <h3 class="font-display font-bold text-navy text-lg mb-4" data-i18n="venue.airportsTitle">Nearest International Airports</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
@@ -1142,10 +1198,10 @@
                     <span class="px-2 py-0.5 rounded-md bg-navy text-white text-xs font-bold tracking-wider">RJK</span>
                     <h4 class="font-display font-bold text-navy">Rijeka / Krk</h4>
                   </div>
-                  <p class="text-xs text-slate-500 mt-1" data-i18n="venue.rjkDesc">Closest airport • ~45 min drive</p>
+                  <p class="text-xs text-slate-500 mt-1" data-i18n="venue.rjkDesc">Closest airport • ~25–30 min drive</p>
                 </div>
                 <div class="text-right shrink-0">
-                  <div class="font-display text-xl font-extrabold text-tealbrand">~40 km</div>
+                  <div class="font-display text-xl font-extrabold text-tealbrand">~25 km</div>
                 </div>
               </div>
 
@@ -1158,7 +1214,7 @@
                   <p class="text-xs text-slate-500 mt-1" data-i18n="venue.puyDesc">Istria motorway • ~1h 20m drive</p>
                 </div>
                 <div class="text-right shrink-0">
-                  <div class="font-display text-xl font-extrabold text-navy">~100 km</div>
+                  <div class="font-display text-xl font-extrabold text-navy">~105 km</div>
                 </div>
               </div>
 
@@ -1171,7 +1227,7 @@
                   <p class="text-xs text-slate-500 mt-1" data-i18n="venue.trsDesc">Italy border • ~1h 30m drive</p>
                 </div>
                 <div class="text-right shrink-0">
-                  <div class="font-display text-xl font-extrabold text-navy">~110 km</div>
+                  <div class="font-display text-xl font-extrabold text-navy">~115 km</div>
                 </div>
               </div>
 
@@ -1181,10 +1237,10 @@
                     <span class="px-2 py-0.5 rounded-md bg-navy text-white text-xs font-bold tracking-wider">LJU</span>
                     <h4 class="font-display font-bold text-navy">Ljubljana (SI)</h4>
                   </div>
-                  <p class="text-xs text-slate-500 mt-1" data-i18n="venue.ljuDesc">Slovenia hub • ~1h 45m drive</p>
+                  <p class="text-xs text-slate-500 mt-1" data-i18n="venue.ljuDesc">Slovenia hub • ~1h 40m drive</p>
                 </div>
                 <div class="text-right shrink-0">
-                  <div class="font-display text-xl font-extrabold text-navy">~130 km</div>
+                  <div class="font-display text-xl font-extrabold text-navy">~125 km</div>
                 </div>
               </div>
 
@@ -1194,10 +1250,10 @@
                     <span class="px-2 py-0.5 rounded-md bg-solar text-white text-xs font-bold tracking-wider">ZAG</span>
                     <h4 class="font-display font-bold text-navy">Zagreb (Franjo Tuđman International)</h4>
                   </div>
-                  <p class="text-xs text-slate-500 mt-1" data-i18n="venue.zagDesc">Croatia's primary international hub • Direct A6 motorway (~2h drive or regular bus)</p>
+                  <p class="text-xs text-slate-500 mt-1" data-i18n="venue.zagDesc">Croatia's primary international hub • Direct A6 motorway (~1h 45m drive or regular bus)</p>
                 </div>
                 <div class="text-right shrink-0">
-                  <div class="font-display text-xl font-extrabold text-navy">~180 km</div>
+                  <div class="font-display text-xl font-extrabold text-navy">~165 km</div>
                 </div>
               </div>
 
@@ -1745,11 +1801,12 @@
        * ------------------------------------------------------------------- */
       const translations = {
         en: {
-          pageTitle: 'Energy and the Environment 2027 | 27th International Congress — Opatija, Croatia',
+          pageTitle: 'Energy and the Environment 2027 | 27th International Congress — Rijeka, Croatia',
           'banner.badge': 'DRAFT PROTOTYPE',
           'banner.text': 'Preview version for GitHub Pages. Dates, fees, venue confirmation, and committee lists contain placeholders to be finalized before official launch.',
           'nav.brandTitle': 'EE 2027',
-          'nav.brandSub': 'Opatija • Croatia',
+          'nav.brandSub': 'Rijeka • Croatia',
+          'nav.sound': 'Sound',
           'nav.menuBtn': 'Menu',
           'nav.home': 'Home (Symbol)',
           'nav.about': 'About',
@@ -1763,19 +1820,19 @@
           'nav.contact': 'Contact',
           'nav.cta': 'Submit / Register',
 
-          'hero.badge': '27th Edition • Heritage Since 1978 • ISES National Section',
+          'hero.badge': '27th Edition • Since 1978',
           'hero.title': 'Energy and the Environment 2027',
-          'hero.subtitle': '27th International Scientific & Professional Congress • October 27–29, 2027 (TBC) • Opatija, Croatia',
+          'hero.subtitle': '27th International Scientific & Professional Congress • October 27–29, 2027 (TBC) • Rijeka, Croatia',
           'hero.organizers': 'Organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).',
           'hero.ctaPapers': 'Call for Papers',
           'hero.ctaPrereg': 'Pre-Register Interest',
 
           'stage.backHome': 'Main Menu',
-          'stage.homeHint': 'October 27–29, 2027 (TBC) • Opatija, Croatia — Select a solar ray to explore',
+          'stage.homeHint': 'October 27–29, 2027 (TBC) • InnovaLab, Rijeka, Croatia — Select a solar ray to explore',
           'stage.subHint': 'Select any sub-option at the end of the solar rays',
 
           'sub.about.overview': 'Mission & Scope',
-          'sub.about.heritage': 'HSSE Heritage',
+          'sub.about.heritage': 'HSSE Since 1978',
           'sub.about.committees': 'Committees',
           'sub.about.prereg': 'Pre-Register',
 
@@ -1803,7 +1860,7 @@
           'sub.comm.scientific': 'Scientific Committee',
           'sub.comm.honorary': 'Honorary & Patrons',
 
-          'sub.venue.opatija': 'Opatija Venue',
+          'sub.venue.opatija': 'InnovaLab Campus',
           'sub.venue.airports': 'Airports & Travel',
           'sub.venue.maps': 'Google Maps ↗',
           'sub.venue.hotels': 'Accommodation',
@@ -1823,14 +1880,14 @@
           'about.eyebrow': 'About the Congress',
           'about.title': 'Advancing Clean Energy Engineering & Environmental Stewardship',
           'about.p1': 'The 27th International Congress Energy and the Environment 2027 brings together researchers, energy engineers, industry innovators, utility leaders, and policymakers from across Europe and beyond to exchange peer-reviewed advances in solar technologies, renewable energy systems, energy efficiency, and environmental protection.',
-          'about.p2': 'Set along the historic Kvarner Bay in Opatija, the congress fosters dialogue between academic research and real-world engineering deployment—accelerating regional decarbonization, resilient grids, and sustainable urban and industrial energy transitions.',
-          'about.stat1': 'Opatija Symposia Roots',
+          'about.p2': 'Hosted at InnovaLab on the University of Rijeka Campus overlooking Kvarner Bay, the congress fosters dialogue between academic research and real-world engineering deployment—accelerating regional decarbonization, resilient grids, and sustainable urban and industrial energy transitions.',
+          'about.stat1': 'Since 1978',
           'about.stat2': 'International Edition',
-          'about.stat3': 'Croatian National Section',
+          'about.stat3': 'Croatian Solar Energy Assoc.',
           'about.stat4': 'International Proceedings',
-          'about.heritageTag': 'Nearly Five Decades of Tradition',
-          'about.heritageTitle': 'HSSE & The Opatija Congress Legacy',
-          'about.heritageBody': "Founded in Rijeka in 1983, the Croatian Solar Energy Association (HSSE) serves as the Croatian National Section of the International Solar Energy Society (ISES). Working closely with the Faculty of Engineering, University of Rijeka (RITEH), HSSE built one of Southeast Europe's most enduring biennial scientific forums on renewable energy and environmental engineering.",
+          'about.heritageTag': 'Since 1978',
+          'about.heritageTitle': 'HSSE & Congress Since 1978',
+          'about.heritageBody': "Founded in Rijeka in 1983, the Croatian Solar Energy Association (HSSE) works closely with the Faculty of Engineering, University of Rijeka (RITEH) to organize one of Southeast Europe's most enduring biennial scientific forums on renewable energy and environmental engineering.",
           'about.hPoint1': 'Rooted in early Opatija solar symposia (1978) and the pioneering journal Sunčeva energija.',
           'about.hPoint2': "Longstanding scientific cooperation with RITEH's Department of Thermodynamics and Energy Engineering.",
           'about.hPoint3': 'Revitalized for 2027 with modern peer-review standards, digital proceedings, and emerging net-zero tracks.',
@@ -1882,7 +1939,7 @@
           'dates.d5Title': 'Early-Bird Registration',
           'dates.d5Desc': 'Deadline for discounted early-bird fee and presenting author registration.',
           'dates.d6Date': 'October 27–29, 2027',
-          'dates.d6Title': 'Congress in Opatija, Croatia',
+          'dates.d6Title': 'Congress in Rijeka, Croatia',
           'dates.d6Desc': 'Three days of plenary lectures, technical tracks, workshops, and networking.',
 
           'authors.eyebrow': 'For Authors',
@@ -1895,7 +1952,7 @@
           'authors.s3Title': 'Double-Blind Peer Review',
           'authors.s3Desc': 'Each manuscript is evaluated by at least two independent reviewers for scientific originality, technical rigor, and clarity.',
           'authors.s4Title': 'Publication & Presentation',
-          'authors.s4Desc': 'Submit camera-ready files and register at least one author to present orally or via poster in Opatija and appear in the ISBN/DOI proceedings.',
+          'authors.s4Desc': 'Submit camera-ready files and register at least one author to present orally or via poster in Rijeka and appear in the ISBN/DOI proceedings.',
           'authors.boxTitle': 'Submission Portal & Templates',
           'authors.boxDesc': 'Use the links below once the submission system and manuscript templates are published. Selected extended papers may be invited to partner journal special issues (TBC).',
           'authors.btnPortal': 'Submission Portal (CMT / EasyChair)',
@@ -1915,7 +1972,7 @@
           'reg.colRegular': 'Regular / On-Site',
           'reg.cat1': 'Regular Participant',
           'reg.cat1Sub': 'Academia, industry, public institutions',
-          'reg.cat2': 'HSSE / ISES Member',
+          'reg.cat2': 'HSSE Member',
           'reg.cat2Sub': 'Valid membership ID required',
           'reg.cat3': 'PhD Candidates & Students',
           'reg.cat3Sub': 'Valid student status confirmation required',
@@ -1927,7 +1984,7 @@
           'reg.inc1': 'Admission to all plenary and technical sessions',
           'reg.inc2': 'Digital Congress Proceedings & delegate kit',
           'reg.inc3': 'Coffee breaks & daily congress lunches',
-          'reg.inc4': 'Welcome cocktail & Opatija Gala Dinner',
+          'reg.inc4': 'Welcome cocktail & Rijeka Gala Dinner',
           'reg.inc5': 'Official Certificate of Attendance / Presentation',
           'reg.ctaBtn': 'Pre-Register for Updates',
 
@@ -1946,20 +2003,24 @@
           'comm.roleHon': 'Honorary Member',
 
           'venue.eyebrow': 'Location & Logistics',
-          'venue.title': 'Venue & Travel — Opatija, Croatia',
-          'venue.subtitle': 'Located on the picturesque Kvarner Riviera just minutes from Rijeka, Opatija is easily accessible by air, motorway, and rail from Central Europe and the Adriatic region.',
-          'venue.tbcTag': 'Venue Confirmation TBC',
-          'venue.cardTitle': 'Opatija Convention Centre / Grand Hotel Adriatic (TBC)',
-          'venue.cardDesc': "Continuing the congress's longstanding Opatija tradition, sessions and the gala dinner are planned in Opatija's waterfront convention district, with preferential accommodation blocks for delegates.",
-          'venue.highway': 'Motorway access via A6 (Zagreb), A7 (Rijeka/Trieste), & A8 (Istria)',
-          'venue.hotels': 'Negotiated congress hotel booking codes to be announced',
-          'venue.mapBtn': 'View Opatija on Google Maps',
+          'venue.title': 'Venue & Travel — Rijeka, Croatia',
+          'venue.subtitle': 'Hosted at InnovaLab on the University of Rijeka Campus (Trsat), overlooking the Kvarner Bay and easily accessible by air, motorway, and rail from Central Europe and the Adriatic region.',
+          'venue.tbcTag': 'InnovaLab • University of Rijeka Campus',
+          'venue.cardTitle': 'InnovaLab — University of Rijeka Campus (Trsat)',
+          'venue.address': 'Radmile Matejčić 10 (StepRi Annex), 51000 Rijeka, Croatia',
+          'venue.cardDesc': 'A contemporary 154 m² timber-and-glass multipurpose innovation pavilion (up to 80 seats) adjacent to the StepRi Science and Technology Park. Flexible acoustic curtains adapt the space for plenary lectures, parallel sessions, workshops, and exhibitions.',
+          'venue.specs': 'Step-free accessible • Dual HDMI-A projectors, PA & wireless microphones, WiFi, kitchenette, and covered outdoor terrace',
+          'venue.highway': 'Direct motorway access via A6 (Zagreb), A7 (Trieste/Ljubljana), and A8 (Istria) • Campus parking available',
+          'venue.hotels': 'Preferred Rijeka city & Trsat accommodation recommendations to be announced',
+          'venue.mapBtn': 'View InnovaLab on Maps',
+          'venue.officialBtn': 'UNIRI InnovaLab Page',
+          'venue.photoCredit': 'Photos: University of Rijeka (UNIRI) — InnovaLab',
           'venue.airportsTitle': 'Nearest International Airports',
-          'venue.rjkDesc': 'Closest airport • ~45 min drive',
+          'venue.rjkDesc': 'Closest airport • ~25–30 min drive',
           'venue.puyDesc': 'Istria motorway • ~1h 20m drive',
           'venue.trsDesc': 'Italy border • ~1h 30m drive',
-          'venue.ljuDesc': 'Slovenia hub • ~1h 45m drive',
-          'venue.zagDesc': "Croatia's primary international hub • Direct A6 motorway (~2h drive or regular bus)",
+          'venue.ljuDesc': 'Slovenia hub • ~1h 40m drive',
+          'venue.zagDesc': "Croatia's primary international hub • Direct A6 motorway (~1h 45m drive or regular bus)",
 
           'archive.eyebrow': 'Historical Archive',
           'archive.title': 'Previous Conferences',
@@ -2051,11 +2112,12 @@
         },
 
         hr: {
-          pageTitle: 'Energija i okoliš 2027 | 27. međunarodni kongres — Opatija, Hrvatska',
+          pageTitle: 'Energija i okoliš 2027 | 27. međunarodni kongres — Rijeka, Hrvatska',
           'banner.badge': 'RADNA VERZIJA',
           'banner.text': 'Ogledna verzija za GitHub Pages. Datumi, kotizacije, potvrda lokacije i sastav odbora sadrže probne podatke koje treba ažurirati prije službene objave.',
           'nav.brandTitle': 'EO 2027',
-          'nav.brandSub': 'Opatija • Hrvatska',
+          'nav.brandSub': 'Rijeka • Hrvatska',
+          'nav.sound': 'Zvuk',
           'nav.menuBtn': 'Izbornik',
           'nav.home': 'Početna (Simbol)',
           'nav.about': 'O kongresu',
@@ -2069,19 +2131,19 @@
           'nav.contact': 'Kontakt',
           'nav.cta': 'Prijava / Radovi',
 
-          'hero.badge': '27. izdanje • Tradicija od 1978. • Hrvatska sekcija ISES-a',
+          'hero.badge': '27. izdanje • Od 1978.',
           'hero.title': 'Energija i okoliš 2027',
-          'hero.subtitle': '27. međunarodni znanstveno-stručni kongres • 27.–29. listopada 2027. (okvirno) • Opatija, Hrvatska',
+          'hero.subtitle': '27. međunarodni znanstveno-stručni kongres • 27.–29. listopada 2027. (okvirno) • Rijeka, Hrvatska',
           'hero.organizers': 'U organizaciji Hrvatskog saveza za sunčevu energiju (HSSE) u suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH).',
           'hero.ctaPapers': 'Poziv za radove',
           'hero.ctaPrereg': 'Predbilježba interesa',
 
           'stage.backHome': 'Glavni izbornik',
-          'stage.homeHint': '27.–29. listopada 2027. (okvirno) • Opatija, Hrvatska — Odaberite sunčevu zraku',
+          'stage.homeHint': '27.–29. listopada 2027. (okvirno) • InnovaLab, Rijeka, Hrvatska — Odaberite sunčevu zraku',
           'stage.subHint': 'Odaberite podizbornik na kraju sunčevih zraka',
 
           'sub.about.overview': 'Misija i pregled',
-          'sub.about.heritage': 'Nasljeđe HSSE-a',
+          'sub.about.heritage': 'HSSE od 1978.',
           'sub.about.committees': 'Odbori',
           'sub.about.prereg': 'Predbilježba',
 
@@ -2109,7 +2171,7 @@
           'sub.comm.scientific': 'Znanstveni odbor',
           'sub.comm.honorary': 'Počasni odbor',
 
-          'sub.venue.opatija': 'Lokacija Opatija',
+          'sub.venue.opatija': 'InnovaLab Kampus',
           'sub.venue.airports': 'Zračne luke',
           'sub.venue.maps': 'Google karte ↗',
           'sub.venue.hotels': 'Smještaj',
@@ -2129,14 +2191,14 @@
           'about.eyebrow': 'O kongresu',
           'about.title': 'Unaprjeđenje čistih energetskih tehnologija i zaštite okoliša',
           'about.p1': '27. međunarodni kongres Energija i okoliš 2027 okuplja znanstvenike, inženjere energetike, predstavnike industrije, elektroprivreda i donositelje politika iz Europe i šire radi razmjene recenziranih spoznaja u području sunčeve energije, obnovljivih izvora, energetske učinkovitosti i zaštite okoliša.',
-          'about.p2': 'Smješten uz Kvarnerski zaljev u Opatiji, kongres potiče dijalog između akademskih istraživanja i inženjerske prakse — ubrzavajući regionalnu dekarbonizaciju, otporne elektroenergetske mreže te održivu energetsku tranziciju gradova i industrije.',
-          'about.stat1': 'Počeci opatijskih simpozija',
+          'about.p2': 'Održava se u paviljonu InnovaLab na Kampusu Sveučilišta u Rijeci s pogledom na Kvarnerski zaljev, potičući dijalog između akademskih istraživanja i inženjerske prakse — ubrzavajući regionalnu dekarbonizaciju, otporne elektroenergetske mreže i održivu energetsku tranziciju.',
+          'about.stat1': 'Od 1978. godine',
           'about.stat2': 'Međunarodno izdanje',
-          'about.stat3': 'Nacionalna sekcija ISES-a',
+          'about.stat3': 'Hrvatski savez za sunčevu energiju',
           'about.stat4': 'Međunarodni zbornik',
-          'about.heritageTag': 'Gotovo pet desetljeća tradicije',
-          'about.heritageTitle': 'HSSE i nasljeđe opatijskog kongresa',
-          'about.heritageBody': 'Osnovan u Rijeci 1983. godine, Hrvatski savez za sunčevu energiju (HSSE) djeluje kao hrvatska nacionalna sekcija Međunarodnog društva za sunčevu energiju (ISES). U uskoj suradnji s Tehničkim fakultetom u Rijeci (RITEH), HSSE je izgradio jedan od najdugovječnijih bijenalnih znanstvenih skupova o obnovljivim izvorima energije u regiji.',
+          'about.heritageTag': 'Od 1978.',
+          'about.heritageTitle': 'HSSE i kongres od 1978.',
+          'about.heritageBody': 'Osnovan u Rijeci 1983. godine, Hrvatski savez za sunčevu energiju (HSSE) u uskoj suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH) organizira jedan od najdugovječnijih bijenalnih znanstvenih skupova o obnovljivim izvorima energije i zaštiti okoliša u regiji.',
           'about.hPoint1': 'Utemeljen na ranim opatijskim simpozijima o sunčevoj energiji (1978.) i časopisu Sunčeva energija.',
           'about.hPoint2': 'Dugogodišnja znanstvena suradnja sa Zavodom za termodinamiku i energetiku RITEH-a.',
           'about.hPoint3': 'Obnovljen za 2027. uz suvremene standarde recenzije, digitalni zbornik i nove klimatski neutralne teme.',
@@ -2188,7 +2250,7 @@
           'dates.d5Title': 'Rana kotizacija (Early-Bird)',
           'dates.d5Desc': 'Rok za povlaštenu kotizaciju i obveznu registraciju autora izlagača.',
           'dates.d6Date': '27.–29. listopada 2027.',
-          'dates.d6Title': 'Kongres u Opatiji, Hrvatska',
+          'dates.d6Title': 'Kongres u Rijeci, Hrvatska',
           'dates.d6Desc': 'Tri dana plenarnih predavanja, znanstvenih sekcija, radionica i umrežavanja.',
 
           'authors.eyebrow': 'Za autore',
@@ -2201,7 +2263,7 @@
           'authors.s3Title': 'Dvostruko slijepa recenzija',
           'authors.s3Desc': 'Svaki rad ocjenjuju najmanje dva neovisna recenzenta prema znanstvenoj izvornosti i tehničkoj kvaliteti.',
           'authors.s4Title': 'Objava i izlaganje',
-          'authors.s4Desc': 'Predajte konačnu verziju rada i registrirajte najmanje jednog autora za usmeno ili postersko izlaganje u Opatiji.',
+          'authors.s4Desc': 'Predajte konačnu verziju rada i registrirajte najmanje jednog autora za usmeno ili postersko izlaganje u Rijeci.',
           'authors.boxTitle': 'Portal za prijavu i predlošci',
           'authors.boxDesc': 'Koristite poveznice u nastavku po otvaranju sustava za prijavu. Odabrani prošireni radovi mogu biti pozvani u posebna izdanja partnerskih časopisa (TBC).',
           'authors.btnPortal': 'Portal za prijavu (CMT / EasyChair)',
@@ -2221,7 +2283,7 @@
           'reg.colRegular': 'Redovna / Na licu mjesta',
           'reg.cat1': 'Redovni sudionik',
           'reg.cat1Sub': 'Akademska zajednica, industrija, javne ustanove',
-          'reg.cat2': 'Član HSSE / ISES',
+          'reg.cat2': 'Član HSSE-a',
           'reg.cat2Sub': 'Potrebna važeća potvrda članstva',
           'reg.cat3': 'Doktorandi i studenti',
           'reg.cat3Sub': 'Potrebna važeća potvrda studentskog statusa',
@@ -2233,7 +2295,7 @@
           'reg.inc1': 'Pristup svim plenarnim i tematskim sekcijama',
           'reg.inc2': 'Digitalni zbornik radova i kongresni materijali',
           'reg.inc3': 'Pauze za kavu i dnevni kongresni ručkovi',
-          'reg.inc4': 'Koktel dobrodošlice i svečana večera u Opatiji',
+          'reg.inc4': 'Koktel dobrodošlice i svečana večera u Rijeci',
           'reg.inc5': 'Službena potvrda o sudjelovanju / izlaganju',
           'reg.ctaBtn': 'Predbilježi se za obavijesti',
 
@@ -2252,20 +2314,24 @@
           'comm.roleHon': 'Počasni član',
 
           'venue.eyebrow': 'Lokacija i putovanje',
-          'venue.title': 'Lokacija i dolazak — Opatija, Hrvatska',
-          'venue.subtitle': 'Smještena na slikovitoj Kvarnerskoj rivijeri nadomak Rijeke, Opatija je izvrsno povezana zračnim lukama, autocestama i željeznicom sa srednjom Europom.',
-          'venue.tbcTag': 'Potvrda lokacije u tijeku',
-          'venue.cardTitle': 'Kongresni centar Opatija / Grand Hotel Adriatic (TBC)',
-          'venue.cardDesc': 'Nastavljajući dugogodišnju opatijsku tradiciju kongresa, predavanja i svečana večera planiraju se u kongresnoj zoni uz more, uz povlaštene cijene smještaja za sudionike.',
-          'venue.highway': 'Pristup autocestama A6 (Zagreb), A7 (Rijeka/Trst) i A8 (Istra)',
-          'venue.hotels': 'Kodovi za povlašteni hotelski smještaj bit će naknadno objavljeni',
-          'venue.mapBtn': 'Prikaži Opatiju na Google kartama',
+          'venue.title': 'Lokacija i dolazak — Rijeka, Hrvatska',
+          'venue.subtitle': 'Kongres se održava u inovacijskom paviljonu InnovaLab na Kampusu Sveučilišta u Rijeci (Trsat), s pogledom na Kvarnerski zaljev i izvrsnom prometnom povezanošću.',
+          'venue.tbcTag': 'InnovaLab • Kampus Sveučilišta u Rijeci',
+          'venue.cardTitle': 'InnovaLab — Kampus Sveučilišta u Rijeci (Trsat)',
+          'venue.address': 'Radmile Matejčić 10 (aneks StepRi), 51000 Rijeka, Hrvatska',
+          'venue.cardDesc': 'Suvremeni polivalentni drveno-stakleni paviljon površine 154 m² (do 80 sjedećih mjesta) uz Znanstveno-tehnologijski park StepRi. Modularne akustične zavjese omogućuju prilagodbu prostora za plenarna predavanja, paralelne sekcije, radionice i izložbe.',
+          'venue.specs': 'Prilagođeno osobama s invaliditetom • Dva HDMI-A projektora, razglas i bežični mikrofoni, WiFi, čajna kuhinja i natkrivena terasa',
+          'venue.highway': 'Izravan pristup autocestama A6 (Zagreb), A7 (Trst/Ljubljana) i A8 (Istra) • Osiguran parking na Kampusu',
+          'venue.hotels': 'Preporuke i povlaštene cijene smještaja u Rijeci i na Trsatu bit će naknadno objavljene',
+          'venue.mapBtn': 'Prikaži InnovaLab na karti',
+          'venue.officialBtn': 'UNIRI InnovaLab stranica',
+          'venue.photoCredit': 'Fotografije: Sveučilište u Rijeci (UNIRI) — InnovaLab',
           'venue.airportsTitle': 'Najbliže međunarodne zračne luke',
-          'venue.rjkDesc': 'Najbliža zračna luka • ~45 min vožnje',
+          'venue.rjkDesc': 'Najbliža zračna luka • ~25–30 min vožnje',
           'venue.puyDesc': 'Istarski ipsilon • ~1h 20m vožnje',
           'venue.trsDesc': 'Granica s Italijom • ~1h 30m vožnje',
-          'venue.ljuDesc': 'Središte Slovenije • ~1h 45m vožnje',
-          'venue.zagDesc': 'Glavna hrvatska zračna luka • Izravna autocesta A6 (~2h vožnje ili redovne autobusne linije)',
+          'venue.ljuDesc': 'Središte Slovenije • ~1h 40m vožnje',
+          'venue.zagDesc': 'Glavna hrvatska zračna luka • Izravna autocesta A6 (~1h 45m vožnje ili redovne autobusne linije)',
 
           'archive.eyebrow': 'Povijesna arhiva',
           'archive.title': 'Prethodni kongresi',
@@ -2466,12 +2532,12 @@
             'VERSION:2.0',
             'PRODID:-//HSSE//Energy and the Environment 2027//EN',
             'BEGIN:VEVENT',
-            'UID:ee2027-opatija@hsse.hr',
+            'UID:ee2027-rijeka@hsse.hr',
             'DTSTAMP:20261123T120000Z',
             'DTSTART;VALUE=DATE:20271027',
             'DTEND;VALUE=DATE:20271030',
             'SUMMARY:27th International Congress Energy and the Environment 2027 (TBC)',
-            'LOCATION:Opatija, Croatia',
+            'LOCATION:InnovaLab, University of Rijeka Campus, Radmile Matejčić 10, Rijeka, Croatia',
             'DESCRIPTION:Organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH). Tentative dates.',
             'END:VEVENT',
             'END:VCALENDAR'
@@ -2698,10 +2764,10 @@
             { labelKey: 'sub.comm.honorary', angle: 240, left: 18, top: 77, action: () => { applyCommitteeTab('honorary'); focusSectionBlock('#committees'); } }
           ],
           venue: [
-            { labelKey: 'sub.venue.opatija', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#venue .lg\\:col-span-5') },
-            { labelKey: 'sub.venue.airports', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-7') },
-            { labelKey: 'sub.venue.maps', angle: 180, left: 50, top: 93, href: 'https://maps.google.com/?q=Opatija,+Croatia' },
-            { labelKey: 'sub.venue.hotels', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-5') }
+            { labelKey: 'sub.venue.opatija', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#venue .lg\\:col-span-6:first-child') },
+            { labelKey: 'sub.venue.airports', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-6:last-child') },
+            { labelKey: 'sub.venue.maps', angle: 180, left: 50, top: 93, href: 'https://www.google.com/maps/search/?api=1&query=InnovaLab+Radmile+Matejcic+10+Rijeka+Croatia' },
+            { labelKey: 'sub.venue.hotels', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-6:first-child') }
           ],
           archive: [
             { labelKey: 'sub.archive.2016', angle: 0, left: 50, top: 7, href: 'https://web.archive.org/web/20160908105600/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2016' },
@@ -2719,10 +2785,245 @@
           ]
         };
 
+        /* -------------------------------------------------------------------
+         * 8B. SOLAR SYSTEM AMBIENT SPACE AUDIO & RAY ROTATION "WHOOOSH"
+         *     Synthesized natively via Web Audio API (zero external audio files)
+         * ----------------------------------------------------------------- */
+        const soundToggleBtn = document.getElementById('soundToggleBtn');
+        const soundIconOn = document.getElementById('soundIconOn');
+        const soundIconOff = document.getElementById('soundIconOff');
+
+        let audioCtx = null;
+        let ambienceMasterGain = null;
+        let ambienceRunning = false;
+        let soundEnabled = true;
+
+        try {
+          const savedSound = localStorage.getItem('ee2027_sound');
+          if (savedSound === 'off') soundEnabled = false;
+        } catch (_) {}
+
+        function updateSoundButtonUI() {
+          if (!soundToggleBtn) return;
+          soundToggleBtn.setAttribute('aria-pressed', String(soundEnabled));
+          if (soundIconOn) soundIconOn.classList.toggle('hidden', !soundEnabled);
+          if (soundIconOff) soundIconOff.classList.toggle('hidden', soundEnabled);
+          soundToggleBtn.className = soundEnabled
+            ? 'inline-flex items-center gap-1.5 px-2.5 py-2 sm:px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-amber-300/35 text-amber-200 text-xs font-semibold backdrop-blur-sm transition-all'
+            : 'inline-flex items-center gap-1.5 px-2.5 py-2 sm:px-3 rounded-xl bg-white/5 hover:bg-white/15 border border-white/15 text-slate-400 text-xs font-semibold backdrop-blur-sm transition-all';
+        }
+
+        function createPinkNoiseBuffer(ctx, durationSec) {
+          const length = Math.floor(ctx.sampleRate * durationSec);
+          const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+          for (let i = 0; i < length; i++) {
+            const white = Math.random() * 2 - 1;
+            b0 = 0.99886 * b0 + white * 0.0555179;
+            b1 = 0.99332 * b1 + white * 0.0750759;
+            b2 = 0.96900 * b2 + white * 0.1538520;
+            b3 = 0.86650 * b3 + white * 0.3104856;
+            b4 = 0.55000 * b4 + white * 0.5329522;
+            b5 = -0.7616 * b5 - white * 0.0168980;
+            data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.045;
+            b6 = white * 0.115926;
+          }
+          return buffer;
+        }
+
+        function initAudioContext() {
+          const AudioCtor = window.AudioContext || window.webkitAudioContext;
+          if (!AudioCtor) return null;
+          if (!audioCtx) {
+            audioCtx = new AudioCtor();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume().catch(() => {});
+          }
+          return audioCtx;
+        }
+
+        function ensureSpaceAmbience() {
+          if (!soundEnabled) return;
+          const ctx = initAudioContext();
+          if (!ctx) return;
+
+          if (!ambienceRunning) {
+            ambienceRunning = true;
+            const now = ctx.currentTime;
+
+            ambienceMasterGain = ctx.createGain();
+            ambienceMasterGain.gain.setValueAtTime(0.0001, now);
+            ambienceMasterGain.gain.exponentialRampToValueAtTime(0.20, now + 2.0);
+            ambienceMasterGain.connect(ctx.destination);
+
+            // Warm breathing low-pass filter for cosmic solar-system drone
+            const padFilter = ctx.createBiquadFilter();
+            padFilter.type = 'lowpass';
+            padFilter.frequency.setValueAtTime(260, now);
+            padFilter.Q.setValueAtTime(1.5, now);
+            padFilter.connect(ambienceMasterGain);
+
+            // Slow 16-second cosmic breathing LFO
+            const lfo = ctx.createOscillator();
+            const lfoGain = ctx.createGain();
+            lfo.type = 'sine';
+            lfo.frequency.setValueAtTime(0.062, now);
+            lfoGain.gain.setValueAtTime(135, now);
+            lfo.connect(lfoGain);
+            lfoGain.connect(padFilter.frequency);
+            lfo.start(now);
+
+            // Deep solar harmonic chord (A1, E2, A2 detuned pair, E3, A3)
+            const voices = [
+              { freq: 55.0, type: 'sine', gain: 0.24 },
+              { freq: 82.41, type: 'sine', gain: 0.13 },
+              { freq: 110.0, type: 'sine', gain: 0.11 },
+              { freq: 110.38, type: 'sine', gain: 0.10 },
+              { freq: 164.81, type: 'triangle', gain: 0.045 },
+              { freq: 220.0, type: 'sine', gain: 0.025 }
+            ];
+
+            voices.forEach((v) => {
+              const osc = ctx.createOscillator();
+              const g = ctx.createGain();
+              osc.type = v.type;
+              osc.frequency.setValueAtTime(v.freq, now);
+              g.gain.setValueAtTime(v.gain, now);
+              osc.connect(g);
+              g.connect(padFilter);
+              osc.start(now);
+            });
+
+            // Subtle cosmic solar wind bed (looped pink noise)
+            const windSource = ctx.createBufferSource();
+            windSource.buffer = createPinkNoiseBuffer(ctx, 5.0);
+            windSource.loop = true;
+
+            const windFilter = ctx.createBiquadFilter();
+            windFilter.type = 'bandpass';
+            windFilter.frequency.setValueAtTime(240, now);
+            windFilter.Q.setValueAtTime(0.9, now);
+
+            const windLfo = ctx.createOscillator();
+            const windLfoGain = ctx.createGain();
+            windLfo.frequency.setValueAtTime(0.04, now);
+            windLfoGain.gain.setValueAtTime(90, now);
+            windLfo.connect(windLfoGain);
+            windLfoGain.connect(windFilter.frequency);
+            windLfo.start(now);
+
+            const windGain = ctx.createGain();
+            windGain.gain.setValueAtTime(0.18, now);
+
+            windSource.connect(windFilter);
+            windFilter.connect(windGain);
+            windGain.connect(ambienceMasterGain);
+            windSource.start(now);
+          } else if (ambienceMasterGain) {
+            const now = ctx.currentTime;
+            ambienceMasterGain.gain.cancelScheduledValues(now);
+            ambienceMasterGain.gain.setValueAtTime(Math.max(0.0001, ambienceMasterGain.gain.value), now);
+            ambienceMasterGain.gain.exponentialRampToValueAtTime(0.20, now + 0.8);
+          }
+        }
+
+        function muteSpaceAmbience() {
+          if (!audioCtx || !ambienceMasterGain) return;
+          const now = audioCtx.currentTime;
+          ambienceMasterGain.gain.cancelScheduledValues(now);
+          ambienceMasterGain.gain.setValueAtTime(Math.max(0.0001, ambienceMasterGain.gain.value), now);
+          ambienceMasterGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+        }
+
+        function playSolarWhoosh() {
+          if (!soundEnabled) return;
+          try {
+            const ctx = initAudioContext();
+            if (!ctx) return;
+            ensureSpaceAmbience();
+
+            const now = ctx.currentTime;
+
+            // Cinematic filtered pink-noise "whooosh" sweep synced to 0.9s ray spin
+            const noiseSrc = ctx.createBufferSource();
+            noiseSrc.buffer = createPinkNoiseBuffer(ctx, 0.95);
+
+            const bp = ctx.createBiquadFilter();
+            bp.type = 'bandpass';
+            bp.Q.setValueAtTime(2.6, now);
+            bp.frequency.setValueAtTime(160, now);
+            bp.frequency.exponentialRampToValueAtTime(1380, now + 0.30);
+            bp.frequency.exponentialRampToValueAtTime(230, now + 0.86);
+
+            const noiseGain = ctx.createGain();
+            noiseGain.gain.setValueAtTime(0.0001, now);
+            noiseGain.gain.exponentialRampToValueAtTime(0.55, now + 0.25);
+            noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.88);
+
+            noiseSrc.connect(bp);
+            bp.connect(noiseGain);
+            noiseGain.connect(ctx.destination);
+            noiseSrc.start(now);
+            noiseSrc.stop(now + 0.92);
+
+            // Subtle warm solar harmonic glide accompanying the whoosh
+            const shimmerOsc = ctx.createOscillator();
+            const shimmerGain = ctx.createGain();
+            shimmerOsc.type = 'sine';
+            shimmerOsc.frequency.setValueAtTime(164.81, now);
+            shimmerOsc.frequency.exponentialRampToValueAtTime(246.94, now + 0.32);
+            shimmerOsc.frequency.exponentialRampToValueAtTime(196.0, now + 0.82);
+
+            shimmerGain.gain.setValueAtTime(0.0001, now);
+            shimmerGain.gain.exponentialRampToValueAtTime(0.045, now + 0.22);
+            shimmerGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.84);
+
+            shimmerOsc.connect(shimmerGain);
+            shimmerGain.connect(ctx.destination);
+            shimmerOsc.start(now);
+            shimmerOsc.stop(now + 0.86);
+          } catch (err) {
+            console.error('Audio whoosh error:', err);
+          }
+        }
+
+        updateSoundButtonUI();
+
+        // Unlock ambient space sound cleanly on the visitor's first gesture
+        function handleFirstGesture() {
+          if (soundEnabled) {
+            ensureSpaceAmbience();
+          }
+          document.removeEventListener('pointerdown', handleFirstGesture);
+          document.removeEventListener('keydown', handleFirstGesture);
+        }
+        document.addEventListener('pointerdown', handleFirstGesture, { passive: true });
+        document.addEventListener('keydown', handleFirstGesture, { passive: true });
+
+        if (soundToggleBtn) {
+          soundToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            soundEnabled = !soundEnabled;
+            try {
+              localStorage.setItem('ee2027_sound', soundEnabled ? 'on' : 'off');
+            } catch (_) {}
+            updateSoundButtonUI();
+            if (soundEnabled) {
+              ensureSpaceAmbience();
+              playSolarWhoosh();
+            } else {
+              muteSpaceAmbience();
+            }
+          });
+        }
+
         function spinSolarRays(stepDeg) {
           if (!solarRaysLayer) return;
           solarRotationDeg += (stepDeg || 75);
           solarRaysLayer.style.transform = `rotate(${solarRotationDeg}deg)`;
+          playSolarWhoosh();
         }
 
         function focusSectionBlock(selector) {
