@@ -349,17 +349,45 @@
         </nav>
 
         <!-- Sub-page helper caption (Hidden on Home) -->
-        <p id="subpageRayHint" class="hidden text-xs text-amber-200/75 mt-2 text-center" data-i18n="stage.subHint">
-          Click any sub-option at the end of the solar rays to navigate or filter this section
-        </p>
-
-        <!-- Subtle CC-BY 4.0 Music Attribution -->
-        <p class="text-[11px] text-slate-400/75 mt-3 text-center">
-          ♪ <a href="https://www.scottbuckley.com.au/library/cirrus/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-200 underline underline-offset-2">&ldquo;Cirrus&rdquo; by Scott Buckley</a> (CC-BY 4.0)
+        <p id="subpageRayHint" class="hidden text-xs text-amber-200/75 mt-3 text-center" data-i18n="stage.subHint">
+          Select any sub-option at the end of the solar rays
         </p>
 
       </div>
     </section>
+
+    <!-- =================================================================== -->
+    <!-- LEVEL 3 CONTENT PAGE BREADCRUMB / BACK BAR (NO VITRUVIAN MAN)       -->
+    <!-- =================================================================== -->
+    <div id="level3TopBar" class="hidden bg-navy border-b border-white/10 text-white animate-fade-in">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <button
+            id="level3BackBtn"
+            type="button"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-amber-200 hover:text-white text-xs sm:text-sm font-semibold transition-all"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span id="level3BackLabel">Back</span>
+          </button>
+          <button
+            type="button"
+            data-nav-page="home"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/15 text-slate-300 hover:text-white text-xs font-medium transition-all"
+            data-i18n="stage.backHome"
+          >
+            Main Menu
+          </button>
+        </div>
+        <div class="inline-flex items-center gap-2 text-xs sm:text-sm">
+          <span id="level3ParentCrumb" class="text-slate-300 font-medium">About</span>
+          <span class="text-amber-400/70">/</span>
+          <span id="level3SubCrumb" class="text-amber-300 font-bold">Overview</span>
+        </div>
+      </div>
+    </div>
 
     <!-- =================================================================== -->
     <!-- ABOUT & HERITAGE SECTION                                            -->
@@ -461,6 +489,103 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- ABOUT -> ACKNOWLEDGMENTS (MUSIC, VISUAL & INSTITUTIONAL CREDITS)    -->
+    <!-- =================================================================== -->
+    <section id="acknowledgments" data-page-section="acknowledgments" class="hidden py-14 sm:py-20 bg-white border-b border-slate-200/80 animate-fade-in">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-10">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-tealbrand mb-2" data-i18n="ack.eyebrow">
+            About • Credits &amp; Licenses
+          </span>
+          <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-navy tracking-tight mb-3" data-i18n="ack.title">
+            Acknowledgments
+          </h2>
+          <p class="text-slate-600 text-base leading-relaxed" data-i18n="ack.subtitle">
+            We gratefully acknowledge the institutional partners, artists, and open-licensed works that support Energy and the Environment 2027 and this congress website.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Background Music Attribution (Scott Buckley — Cirrus CC-BY 4.0) -->
+          <div class="rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-7 flex flex-col justify-between">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold mb-4" data-i18n="ack.musicTag">
+                Background Music
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">
+                &ldquo;Cirrus&rdquo; by Scott Buckley
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="ack.musicBody">
+                Background soundtrack: &ldquo;Cirrus&rdquo; by Scott Buckley &ndash; released under CC-BY 4.0 (Creative Commons Attribution 4.0 International).
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200/80 text-xs font-semibold">
+              <a
+                href="https://www.scottbuckley.com.au/library/cirrus/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-tealbrand hover:text-navy underline underline-offset-2"
+              >
+                www.scottbuckley.com.au/library/cirrus/
+              </a>
+              <span class="text-slate-300">•</span>
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-slate-600 hover:text-navy underline underline-offset-2"
+              >
+                CC-BY 4.0 License
+              </a>
+            </div>
+          </div>
+
+          <!-- Venue Photography & Institutional Credits -->
+          <div class="rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-7 flex flex-col justify-between">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tealbrand/10 text-tealbrand text-xs font-bold mb-4" data-i18n="ack.venueTag">
+                Venue &amp; Organizers
+              </div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2" data-i18n="ack.venueTitle">
+                University of Rijeka (UNIRI) &amp; HSSE
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="ack.venueBody">
+                InnovaLab venue photography courtesy of the University of Rijeka (UNIRI). Congress organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200/80 text-xs font-semibold">
+              <a
+                href="https://uniri.hr/znanost-i-istrazivanje/innovalab/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-tealbrand hover:text-navy underline underline-offset-2"
+              >
+                uniri.hr — InnovaLab
+              </a>
+            </div>
+          </div>
+
+          <!-- Conference Symbol Attribution -->
+          <div class="md:col-span-2 rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-full bg-white ring-2 ring-navy/10 p-1 shrink-0">
+                <img src="assets/ee-vitruvian-sun.svg" alt="Conference Vitruvian Man Sun Symbol" class="w-full h-full object-contain" />
+              </div>
+              <div>
+                <h3 class="font-display text-lg font-bold text-navy mb-1" data-i18n="ack.symbolTitle">
+                  Congress Symbol — Vitruvian Man &amp; Sun Rays
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed" data-i18n="ack.symbolBody">
+                  Inspired by the traditional HSSE Energy and the Environment emblem combining Leonardo da Vinci's Vitruvian Man (c. 1490) with a 24-ray solar crown. Vector tracing adapted via Wikimedia Commons (CC BY-SA 4.0).
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -592,6 +717,7 @@
       </div>
     </section>
 
+
     <!-- =================================================================== -->
     <!-- IMPORTANT DATES SECTION (VISUAL TIMELINE + ICS EXPORT)              -->
     <!-- =================================================================== -->
@@ -688,6 +814,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- =================================================================== -->
     <!-- FOR AUTHORS & PAPER SUBMISSION SECTION                              -->
@@ -817,6 +944,7 @@
       </div>
     </section>
 
+
     <!-- =================================================================== -->
     <!-- REGISTRATION & FEES SECTION                                         -->
     <!-- =================================================================== -->
@@ -936,6 +1064,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- =================================================================== -->
     <!-- COMMITTEES SECTION (3-TAB INTERFACE WITH PLACEHOLDER SLOTS)         -->
@@ -1077,6 +1206,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- =================================================================== -->
     <!-- VENUE & TRAVEL (INNOVALAB, UNIVERSITY OF RIJEKA CAMPUS)             -->
@@ -1267,6 +1397,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- =================================================================== -->
     <!-- PREVIOUS CONFERENCES & HSSE ARCHIVE SECTION                         -->
@@ -1660,10 +1791,7 @@
 
       <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
         <p data-i18n="footer.copyright">© 2027 Croatian Solar Energy Association (HSSE) — Draft Conference Prototype.</p>
-        <p class="text-center sm:text-right">
-          Music: <a href="https://www.scottbuckley.com.au/library/cirrus/" target="_blank" rel="noopener noreferrer" class="text-amber-300/90 hover:text-amber-200 underline underline-offset-2">&ldquo;Cirrus&rdquo; by Scott Buckley</a>
-          &ndash; released under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="hover:text-white underline underline-offset-2">CC-BY 4.0</a>
-        </p>
+        <p data-i18n="footer.hostedNote">Static single-file build ready for GitHub Pages.</p>
       </div>
     </div>
   </footer>
@@ -1839,12 +1967,14 @@
           'hero.ctaPrereg': 'Pre-Register Interest',
 
           'stage.backHome': 'Main Menu',
+          'stage.backTo': 'Back to',
           'stage.homeHint': 'October 27–29, 2027 (TBC) • InnovaLab, Rijeka, Croatia — Select a solar ray to explore',
           'stage.subHint': 'Select any sub-option at the end of the solar rays',
 
           'sub.about.overview': 'Mission & Scope',
           'sub.about.heritage': 'HSSE Since 1978',
           'sub.about.committees': 'Committees',
+          'sub.about.ack': 'Acknowledgments',
           'sub.about.prereg': 'Pre-Register',
 
           'sub.topics.all': 'All Topics (8)',
@@ -1876,6 +2006,7 @@
           'sub.venue.maps': 'Google Maps ↗',
           'sub.venue.hotels': 'Accommodation',
 
+          'sub.archive.overview': 'All Past Editions',
           'sub.archive.2016': 'EE 2016 (25th) ↗',
           'sub.archive.2014': 'EE 2014 (24th) ↗',
           'sub.archive.2012': 'EE 2012 (23rd) ↗',
@@ -1903,6 +2034,17 @@
           'about.hPoint2': "Longstanding scientific cooperation with RITEH's Department of Thermodynamics and Energy Engineering.",
           'about.hPoint3': 'Revitalized for 2027 with modern peer-review standards, digital proceedings, and emerging net-zero tracks.',
           'about.archiveLink': 'Explore Previous Conferences & HSSE Archive',
+
+          'ack.eyebrow': 'About • Credits & Licenses',
+          'ack.title': 'Acknowledgments',
+          'ack.subtitle': 'We gratefully acknowledge the institutional partners, artists, and open-licensed works that support Energy and the Environment 2027 and this congress website.',
+          'ack.musicTag': 'Background Music',
+          'ack.musicBody': 'Background soundtrack: "Cirrus" by Scott Buckley – released under CC-BY 4.0 (Creative Commons Attribution 4.0 International).',
+          'ack.venueTag': 'Venue & Organizers',
+          'ack.venueTitle': 'University of Rijeka (UNIRI) & HSSE',
+          'ack.venueBody': 'InnovaLab venue photography courtesy of the University of Rijeka (UNIRI). Congress organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).',
+          'ack.symbolTitle': 'Congress Symbol — Vitruvian Man & Sun Rays',
+          'ack.symbolBody': "Inspired by the traditional HSSE Energy and the Environment emblem combining Leonardo da Vinci's Vitruvian Man (c. 1490) with a 24-ray solar crown. Vector tracing adapted via Wikimedia Commons (CC BY-SA 4.0).",
 
           'topics.eyebrow': 'Scientific Tracks',
           'topics.title': 'Conference Topics',
@@ -2150,12 +2292,14 @@
           'hero.ctaPrereg': 'Predbilježba interesa',
 
           'stage.backHome': 'Glavni izbornik',
+          'stage.backTo': 'Natrag na',
           'stage.homeHint': '27.–29. listopada 2027. (okvirno) • InnovaLab, Rijeka, Hrvatska — Odaberite sunčevu zraku',
           'stage.subHint': 'Odaberite podizbornik na kraju sunčevih zraka',
 
           'sub.about.overview': 'Misija i pregled',
           'sub.about.heritage': 'HSSE od 1978.',
           'sub.about.committees': 'Odbori',
+          'sub.about.ack': 'Zahvale',
           'sub.about.prereg': 'Predbilježba',
 
           'sub.topics.all': 'Sve teme (8)',
@@ -2187,6 +2331,7 @@
           'sub.venue.maps': 'Google karte ↗',
           'sub.venue.hotels': 'Smještaj',
 
+          'sub.archive.overview': 'Sva prošla izdanja',
           'sub.archive.2016': 'EO 2016 (25.) ↗',
           'sub.archive.2014': 'EO 2014 (24.) ↗',
           'sub.archive.2012': 'EO 2012 (23.) ↗',
@@ -2214,6 +2359,17 @@
           'about.hPoint2': 'Dugogodišnja znanstvena suradnja sa Zavodom za termodinamiku i energetiku RITEH-a.',
           'about.hPoint3': 'Obnovljen za 2027. uz suvremene standarde recenzije, digitalni zbornik i nove klimatski neutralne teme.',
           'about.archiveLink': 'Istražite prethodne kongrese i arhivu HSSE-a',
+
+          'ack.eyebrow': 'O kongresu • Zahvale i licence',
+          'ack.title': 'Zahvale',
+          'ack.subtitle': 'Zahvaljujemo partnerskim institucijama, autorima i projektima otvorenih licenci koji podržavaju kongres Energija i okoliš 2027 i ovu mrežnu stranicu.',
+          'ack.musicTag': 'Pozadinska glazba',
+          'ack.musicBody': 'Pozadinska glazba: "Cirrus" autora Scotta Buckleyja – objavljeno pod licencom CC-BY 4.0 (Creative Commons Attribution 4.0 International).',
+          'ack.venueTag': 'Lokacija i organizatori',
+          'ack.venueTitle': 'Sveučilište u Rijeci (UNIRI) i HSSE',
+          'ack.venueBody': 'Fotografije paviljona InnovaLab ustupljene su ljubaznošću Sveučilišta u Rijeci (UNIRI). Kongres organizira Hrvatski savez za sunčevu energiju (HSSE) u suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH).',
+          'ack.symbolTitle': 'Simbol kongresa — Vitruvijev čovjek i sunčeve zrake',
+          'ack.symbolBody': 'Nadahnut tradicionalnim znakom kongresa Energija i okoliš koji spaja Vitruvijevog čovjeka Leonarda da Vincija (oko 1490.) sa sunčevom krunom od 24 zrake. Vektorska obrada prilagođena putem Wikimedia Commonsa (CC BY-SA 4.0).',
 
           'topics.eyebrow': 'Znanstvene sekcije',
           'topics.title': 'Teme kongresa',
@@ -2706,7 +2862,16 @@
         const subpageTopBar = document.getElementById('subpageTopBar');
         const subpageRayHint = document.getElementById('subpageRayHint');
         const activePageBadge = document.getElementById('activePageBadge');
+        const level3TopBar = document.getElementById('level3TopBar');
+        const level3BackBtn = document.getElementById('level3BackBtn');
+        const level3BackLabel = document.getElementById('level3BackLabel');
+        const level3ParentCrumb = document.getElementById('level3ParentCrumb');
+        const level3SubCrumb = document.getElementById('level3SubCrumb');
         const pageSections = document.querySelectorAll('[data-page-section]');
+
+        let currentLevel = 1; // 1 = Solo Home, 2 = Solo Vitruvian Sub-Menu, 3 = Content Page (No Vitruvian)
+        let currentSubItem = null;
+        let level3TransitionTimer = null;
 
         const validPages = new Set([
           'home', 'about', 'topics', 'dates', 'authors',
@@ -2725,7 +2890,7 @@
           contact: 'nav.contact'
         };
 
-        // Main radial menu (Starting Home Page)
+        // Level 1: Main radial menu (Starting Home Page — Vitruvian Man Alone)
         const homeRadialItems = [
           { page: 'about', labelKey: 'nav.about', angle: 0, left: 50, top: 7 },
           { page: 'topics', labelKey: 'nav.topics', angle: 45, left: 81, top: 19 },
@@ -2737,62 +2902,64 @@
           { page: 'contact', labelKey: 'nav.contact', angle: 315, left: 19, top: 19 }
         ];
 
-        // Sub-menu options placed at the end of the solar rays on each opened page
+        // Level 2: Sub-menu options placed at the end of the solar rays (Vitruvian Man Alone)
+        // Choosing an item opens its Level 3 content page (without the Vitruvian Man)
         const subMenuConfig = {
           about: [
-            { labelKey: 'sub.about.overview', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#about .lg\\:col-span-7') },
-            { labelKey: 'sub.about.heritage', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#about .lg\\:col-span-5') },
-            { labelKey: 'sub.about.committees', angle: 180, left: 50, top: 93, action: () => navigateToPage('committees', { spin: true }) },
-            { labelKey: 'sub.about.prereg', angle: 270, left: 13, top: 50, action: () => openModal('preregModal') }
+            { id: 'overview', labelKey: 'sub.about.overview', angle: 0, left: 50, top: 7, section: 'about', focus: '#about .lg\\:col-span-7' },
+            { id: 'since1978', labelKey: 'sub.about.heritage', angle: 72, left: 86, top: 35, section: 'about', focus: '#about .lg\\:col-span-5' },
+            { id: 'committees', labelKey: 'sub.about.committees', angle: 144, left: 76, top: 84, action: () => navigateToPage('committees', { spin: false }) },
+            { id: 'acknowledgments', labelKey: 'sub.about.ack', angle: 216, left: 24, top: 84, section: 'acknowledgments' },
+            { id: 'prereg', labelKey: 'sub.about.prereg', angle: 288, left: 14, top: 35, action: () => openModal('preregModal') }
           ],
           topics: [
-            { labelKey: 'sub.topics.all', angle: 0, left: 50, top: 7, action: () => { applyTopicFilter('all'); focusSectionBlock('#topics'); } },
-            { labelKey: 'sub.topics.renewables', angle: 90, left: 87, top: 50, action: () => { applyTopicFilter('renewables'); focusSectionBlock('#topics'); } },
-            { labelKey: 'sub.topics.systems', angle: 180, left: 50, top: 93, action: () => { applyTopicFilter('systems'); focusSectionBlock('#topics'); } },
-            { labelKey: 'sub.topics.environment', angle: 270, left: 13, top: 50, action: () => { applyTopicFilter('environment'); focusSectionBlock('#topics'); } }
+            { id: 'all', labelKey: 'sub.topics.all', angle: 0, left: 50, top: 7, section: 'topics', onEnter: () => applyTopicFilter('all') },
+            { id: 'renewables', labelKey: 'sub.topics.renewables', angle: 90, left: 87, top: 50, section: 'topics', onEnter: () => applyTopicFilter('renewables') },
+            { id: 'systems', labelKey: 'sub.topics.systems', angle: 180, left: 50, top: 93, section: 'topics', onEnter: () => applyTopicFilter('systems') },
+            { id: 'environment', labelKey: 'sub.topics.environment', angle: 270, left: 13, top: 50, section: 'topics', onEnter: () => applyTopicFilter('environment') }
           ],
           dates: [
-            { labelKey: 'sub.dates.abstracts', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#dates') },
-            { labelKey: 'sub.dates.papers', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#dates') },
-            { labelKey: 'sub.dates.congress', angle: 180, left: 50, top: 93, action: () => focusSectionBlock('#dates') },
-            { labelKey: 'sub.dates.ics', angle: 270, left: 14, top: 50, action: () => downloadCalendarFile() }
+            { id: 'abstracts', labelKey: 'sub.dates.abstracts', angle: 0, left: 50, top: 7, section: 'dates' },
+            { id: 'papers', labelKey: 'sub.dates.papers', angle: 90, left: 87, top: 50, section: 'dates' },
+            { id: 'congress', labelKey: 'sub.dates.congress', angle: 180, left: 50, top: 93, section: 'dates' },
+            { id: 'ics', labelKey: 'sub.dates.ics', angle: 270, left: 14, top: 50, action: () => downloadCalendarFile() }
           ],
           authors: [
-            { labelKey: 'sub.authors.portal', angle: 0, left: 50, top: 7, action: () => showToast(translations[currentLang].toastPortal) },
-            { labelKey: 'sub.authors.docx', angle: 90, left: 87, top: 50, action: () => showToast(translations[currentLang].toastDocx) },
-            { labelKey: 'sub.authors.latex', angle: 180, left: 50, top: 93, action: () => showToast(translations[currentLang].toastLatex) },
-            { labelKey: 'sub.authors.guide', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#authors') }
+            { id: 'guidelines', labelKey: 'sub.authors.guide', angle: 0, left: 50, top: 7, section: 'authors' },
+            { id: 'portal', labelKey: 'sub.authors.portal', angle: 90, left: 87, top: 50, section: 'authors', onEnter: () => showToast(translations[currentLang].toastPortal) },
+            { id: 'docx', labelKey: 'sub.authors.docx', angle: 180, left: 50, top: 93, section: 'authors', onEnter: () => showToast(translations[currentLang].toastDocx) },
+            { id: 'latex', labelKey: 'sub.authors.latex', angle: 270, left: 14, top: 50, section: 'authors', onEnter: () => showToast(translations[currentLang].toastLatex) }
           ],
           registration: [
-            { labelKey: 'sub.reg.fees', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#registration') },
-            { labelKey: 'sub.reg.included', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#registration') },
-            { labelKey: 'sub.reg.prereg', angle: 180, left: 50, top: 93, action: () => openModal('preregModal') },
-            { labelKey: 'sub.reg.payment', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#registration') }
+            { id: 'fees', labelKey: 'sub.reg.fees', angle: 0, left: 50, top: 7, section: 'registration' },
+            { id: 'included', labelKey: 'sub.reg.included', angle: 90, left: 87, top: 50, section: 'registration' },
+            { id: 'prereg', labelKey: 'sub.reg.prereg', angle: 180, left: 50, top: 93, action: () => openModal('preregModal') },
+            { id: 'payment', labelKey: 'sub.reg.payment', angle: 270, left: 14, top: 50, section: 'registration' }
           ],
           committees: [
-            { labelKey: 'sub.comm.organizing', angle: 0, left: 50, top: 7, action: () => { applyCommitteeTab('organizing'); focusSectionBlock('#committees'); } },
-            { labelKey: 'sub.comm.scientific', angle: 120, left: 82, top: 77, action: () => { applyCommitteeTab('scientific'); focusSectionBlock('#committees'); } },
-            { labelKey: 'sub.comm.honorary', angle: 240, left: 18, top: 77, action: () => { applyCommitteeTab('honorary'); focusSectionBlock('#committees'); } }
+            { id: 'organizing', labelKey: 'sub.comm.organizing', angle: 0, left: 50, top: 7, section: 'committees', onEnter: () => applyCommitteeTab('organizing') },
+            { id: 'scientific', labelKey: 'sub.comm.scientific', angle: 120, left: 82, top: 77, section: 'committees', onEnter: () => applyCommitteeTab('scientific') },
+            { id: 'honorary', labelKey: 'sub.comm.honorary', angle: 240, left: 18, top: 77, section: 'committees', onEnter: () => applyCommitteeTab('honorary') }
           ],
           venue: [
-            { labelKey: 'sub.venue.opatija', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#venue .lg\\:col-span-6:first-child') },
-            { labelKey: 'sub.venue.airports', angle: 90, left: 87, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-6:last-child') },
-            { labelKey: 'sub.venue.maps', angle: 180, left: 50, top: 93, href: 'https://www.google.com/maps/search/?api=1&query=InnovaLab+Radmile+Matejcic+10+Rijeka+Croatia' },
-            { labelKey: 'sub.venue.hotels', angle: 270, left: 14, top: 50, action: () => focusSectionBlock('#venue .lg\\:col-span-6:first-child') }
+            { id: 'innovalab', labelKey: 'sub.venue.opatija', angle: 0, left: 50, top: 7, section: 'venue', focus: '#venue .lg\\:col-span-6:first-child' },
+            { id: 'airports', labelKey: 'sub.venue.airports', angle: 90, left: 87, top: 50, section: 'venue', focus: '#venue .lg\\:col-span-6:last-child' },
+            { id: 'maps', labelKey: 'sub.venue.maps', angle: 180, left: 50, top: 93, href: 'https://www.google.com/maps/search/?api=1&query=InnovaLab+Radmile+Matejcic+10+Rijeka+Croatia' },
+            { id: 'accommodation', labelKey: 'sub.venue.hotels', angle: 270, left: 14, top: 50, section: 'venue' }
           ],
           archive: [
-            { labelKey: 'sub.archive.2016', angle: 0, left: 50, top: 7, href: 'https://web.archive.org/web/20160908105600/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2016' },
-            { labelKey: 'sub.archive.2014', angle: 60, left: 84, top: 27, href: 'https://web.archive.org/web/20160910213343/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2014' },
-            { labelKey: 'sub.archive.2012', angle: 120, left: 84, top: 73, href: 'https://web.archive.org/web/20160802003708/http://www.hsse.hr/cms/index.php/ENERGIJA_I_OKOLI%C5%A0_2012' },
-            { labelKey: 'sub.archive.all', angle: 180, left: 50, top: 93, href: 'https://web.archive.org/web/*/www.hsse.hr/' },
-            { labelKey: 'sub.archive.2010', angle: 240, left: 16, top: 73, href: 'https://web.archive.org/web/20160910212810/http://www.hsse.hr/eearhiva/ee2010/' },
-            { labelKey: 'sub.archive.early', angle: 300, left: 16, top: 27, action: () => focusSectionBlock('#archive') }
+            { id: 'all-editions', labelKey: 'sub.archive.overview', angle: 0, left: 50, top: 7, section: 'archive' },
+            { id: 'ee2016', labelKey: 'sub.archive.2016', angle: 60, left: 84, top: 27, href: 'https://web.archive.org/web/20160908105600/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2016' },
+            { id: 'ee2014', labelKey: 'sub.archive.2014', angle: 120, left: 84, top: 73, href: 'https://web.archive.org/web/20160910213343/http://www.hsse.hr/cms/index.php/ENERGY_AND_THE_ENV._2014' },
+            { id: 'wayback', labelKey: 'sub.archive.all', angle: 180, left: 50, top: 93, href: 'https://web.archive.org/web/*/www.hsse.hr/' },
+            { id: 'ee2012', labelKey: 'sub.archive.2012', angle: 240, left: 16, top: 73, href: 'https://web.archive.org/web/20160802003708/http://www.hsse.hr/cms/index.php/ENERGIJA_I_OKOLI%C5%A0_2012' },
+            { id: 'early', labelKey: 'sub.archive.early', angle: 300, left: 16, top: 27, section: 'archive' }
           ],
           contact: [
-            { labelKey: 'sub.contact.secretariat', angle: 0, left: 50, top: 7, action: () => focusSectionBlock('#contact') },
-            { labelKey: 'sub.contact.copy', angle: 90, left: 87, top: 50, action: () => copyTextToClipboard('ee2027@riteh.hr') },
-            { labelKey: 'sub.contact.prereg', angle: 180, left: 50, top: 93, action: () => openModal('preregModal') },
-            { labelKey: 'sub.contact.privacy', angle: 270, left: 14, top: 50, action: () => openModal('privacyModal') }
+            { id: 'secretariat', labelKey: 'sub.contact.secretariat', angle: 0, left: 50, top: 7, section: 'contact' },
+            { id: 'copy', labelKey: 'sub.contact.copy', angle: 90, left: 87, top: 50, action: () => copyTextToClipboard('ee2027@riteh.hr') },
+            { id: 'prereg', labelKey: 'sub.contact.prereg', angle: 180, left: 50, top: 93, action: () => openModal('preregModal') },
+            { id: 'privacy', labelKey: 'sub.contact.privacy', angle: 270, left: 14, top: 50, action: () => openModal('privacyModal') }
           ]
         };
 
@@ -3312,14 +3479,17 @@
               spinSolarRays(75);
               if (pageId === 'home') {
                 navigateToPage(item.page, { spin: false });
-              } else {
+              } else if (item.section) {
                 activeSubIndex = idx;
                 radialMenuNodes.querySelectorAll('.radial-menu-node').forEach((n, i) => {
                   n.classList.toggle('radial-node-active', i === idx);
                 });
-                if (typeof item.action === 'function') {
-                  item.action();
-                }
+                if (level3TransitionTimer) clearTimeout(level3TransitionTimer);
+                level3TransitionTimer = setTimeout(() => {
+                  openLevel3(pageId, item, { pushHash: true });
+                }, 260);
+              } else if (typeof item.action === 'function') {
+                item.action();
               }
             });
 
@@ -3333,12 +3503,28 @@
             const key = pageTitleKey[currentPage];
             activePageBadge.textContent = (key && dict[key]) ? dict[key] : currentPage;
           }
-          renderRadialMenu(currentPage);
+          if (currentLevel === 3 && currentSubItem) {
+            const parentKey = pageTitleKey[currentPage];
+            const parentText = (parentKey && dict[parentKey]) ? dict[parentKey] : currentPage;
+            const subText = dict[currentSubItem.labelKey] || currentSubItem.id;
+            const backPrefix = dict['stage.backTo'] || 'Back to';
+            if (level3BackLabel) level3BackLabel.textContent = `${backPrefix} ${parentText}`;
+            if (level3ParentCrumb) level3ParentCrumb.textContent = parentText;
+            if (level3SubCrumb) level3SubCrumb.textContent = subText;
+          }
+          if (currentLevel !== 3) {
+            renderRadialMenu(currentPage);
+          }
         }
 
         onLanguageChangedCallback = updateActivePageLabels;
 
+        // Opens Level 1 (Home: Solo Vitruvian) or Level 2 (Section Sub-Menu: Solo Vitruvian, NO text below)
         function navigateToPage(pageId, opts) {
+          if (level3TransitionTimer) {
+            clearTimeout(level3TransitionTimer);
+            level3TransitionTimer = null;
+          }
           const target = validPages.has(pageId) ? pageId : 'home';
           const options = opts || {};
           const shouldSpin = options.spin !== false;
@@ -3350,30 +3536,28 @@
           }
 
           currentPage = target;
+          currentSubItem = null;
           activeSubIndex = -1;
           const isHome = target === 'home';
+          currentLevel = isHome ? 1 : 2;
 
-          // Toggle Solo Starting Stage vs Sub-Page Header Stage
+          // Level 1 & Level 2: Show Vitruvian Man ALONE (full-screen, no content below)
           if (vitruvianStage) {
-            vitruvianStage.classList.toggle('min-h-[calc(100vh-4rem)]', isHome);
-            vitruvianStage.classList.toggle('sm:min-h-[calc(100vh-5rem)]', isHome);
-            vitruvianStage.classList.toggle('justify-center', isHome);
-            vitruvianStage.classList.toggle('border-b', !isHome);
-            vitruvianStage.classList.toggle('border-white/10', !isHome);
+            vitruvianStage.classList.remove('hidden');
+            vitruvianStage.classList.add('min-h-[calc(100vh-4rem)]', 'sm:min-h-[calc(100vh-5rem)]', 'justify-center');
+            vitruvianStage.classList.remove('border-b', 'border-white/10');
           }
           if (radialSolarNav) {
-            radialSolarNav.className = isHome
-              ? 'relative w-[min(92vw,520px)] sm:w-[540px] aspect-square mx-auto select-none transition-all duration-500'
-              : 'relative w-[min(90vw,410px)] sm:w-[440px] aspect-square mx-auto select-none transition-all duration-500';
+            radialSolarNav.className = 'relative w-[min(92vw,520px)] sm:w-[540px] aspect-square mx-auto select-none transition-all duration-500';
           }
+          if (level3TopBar) level3TopBar.classList.add('hidden');
           if (homeTitleHeader) homeTitleHeader.classList.toggle('hidden', !isHome);
           if (subpageTopBar) subpageTopBar.classList.toggle('hidden', isHome);
           if (subpageRayHint) subpageRayHint.classList.toggle('hidden', isHome);
 
-          // Show ONLY the selected page section (none on solo home)
+          // Hide ALL Level 3 content sections on Level 1 & Level 2
           pageSections.forEach((sec) => {
-            const secId = sec.getAttribute('data-page-section');
-            sec.classList.toggle('hidden', secId !== target);
+            sec.classList.add('hidden');
           });
 
           // Highlight active item in top-right dropdown
@@ -3391,12 +3575,68 @@
               if (window.location.hash !== newHash) {
                 history.pushState(null, '', newHash || window.location.pathname + window.location.search);
               }
-            } catch (_) {
-              // Ignore history errors in sandboxed iframes
-            }
+            } catch (_) {}
           }
 
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Opens Level 3 (Dedicated Content Page WITHOUT the Vitruvian Man)
+        function openLevel3(parentPage, subItem, opts) {
+          if (level3TransitionTimer) {
+            clearTimeout(level3TransitionTimer);
+            level3TransitionTimer = null;
+          }
+          const options = opts || {};
+          const shouldUpdateHash = options.pushHash !== false;
+
+          toggleTopDropdown(true);
+          currentPage = parentPage;
+          currentSubItem = subItem;
+          currentLevel = 3;
+
+          // Hide Vitruvian Man completely on Level 3; show clean breadcrumb bar & chosen content section
+          if (vitruvianStage) vitruvianStage.classList.add('hidden');
+          if (level3TopBar) level3TopBar.classList.remove('hidden');
+
+          pageSections.forEach((sec) => {
+            const secId = sec.getAttribute('data-page-section');
+            sec.classList.toggle('hidden', secId !== subItem.section);
+          });
+
+          // Highlight parent section in top-right dropdown
+          document.querySelectorAll('.dropdown-nav-item').forEach((btn) => {
+            const isCurrent = btn.getAttribute('data-nav-page') === parentPage;
+            btn.classList.toggle('bg-solar/25', isCurrent);
+            btn.classList.toggle('text-amber-200', isCurrent);
+          });
+
+          if (typeof subItem.onEnter === 'function') {
+            subItem.onEnter();
+          }
+
+          updateActivePageLabels();
+
+          if (shouldUpdateHash) {
+            try {
+              const newHash = `#${parentPage}/${subItem.id}`;
+              if (window.location.hash !== newHash) {
+                history.pushState(null, '', newHash);
+              }
+            } catch (_) {}
+          }
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (subItem.focus) {
+            setTimeout(() => focusSectionBlock(subItem.focus), 180);
+          }
+        }
+
+        // Level 3 "← Back to [Section]" button returns to Level 2 Vitruvian Sub-Menu
+        if (level3BackBtn) {
+          level3BackBtn.addEventListener('click', () => {
+            navigateToPage(currentPage || 'home', { spin: true });
+          });
         }
 
         // Bind all [data-nav-page] buttons (brand logo, dropdown items, back to main menu)
@@ -3406,7 +3646,7 @@
           });
         });
 
-        // Route internal section links (e.g., About Heritage card & Footer Quick Links)
+        // Route internal section links (e.g., About card & Footer Quick Links)
         document.querySelectorAll('a[href^="#"]').forEach((link) => {
           link.addEventListener('click', (e) => {
             const targetId = link.getAttribute('href').slice(1);
@@ -3420,18 +3660,34 @@
           });
         });
 
-        // Support browser Back / Forward navigation
-        window.addEventListener('hashchange', () => {
-          const h = (window.location.hash || '').replace('#', '');
-          const next = validPages.has(h) ? h : 'home';
-          if (next !== currentPage) {
-            navigateToPage(next, { spin: true, pushHash: false });
+        // Resolve hash across all 3 levels ("" -> Level 1, "#about" -> Level 2, "#about/acknowledgments" -> Level 3)
+        function routeFromHash(spinOnChange) {
+          const raw = (window.location.hash || '').replace(/^#/, '');
+          if (!raw) {
+            navigateToPage('home', { spin: spinOnChange, pushHash: false });
+            return;
           }
-        });
+          const parts = raw.split('/');
+          const page = parts[0];
+          const subId = parts[1];
+          if (!validPages.has(page) || page === 'home') {
+            navigateToPage('home', { spin: spinOnChange, pushHash: false });
+            return;
+          }
+          if (subId && subMenuConfig[page]) {
+            const match = subMenuConfig[page].find((item) => item.id === subId && item.section);
+            if (match) {
+              openLevel3(page, match, { pushHash: false });
+              return;
+            }
+          }
+          navigateToPage(page, { spin: spinOnChange, pushHash: false });
+        }
 
-        // Initialize view from URL hash (defaults to solo Vitruvian Home)
-        const initialHash = (window.location.hash || '').replace('#', '');
-        navigateToPage(validPages.has(initialHash) ? initialHash : 'home', { spin: false, pushHash: false });
+        window.addEventListener('hashchange', () => routeFromHash(true));
+
+        // Initialize view from URL hash (defaults to Level 1 solo Vitruvian Home)
+        routeFromHash(false);
 
         // Author Placeholder Buttons (Portal / Word / LaTeX)
         document.querySelectorAll('[data-placeholder-action]').forEach((btn) => {
