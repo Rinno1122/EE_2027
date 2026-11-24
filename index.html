@@ -180,9 +180,39 @@
       animation: rayPulseDash 0.85s linear infinite;
     }
 
-    /* Variant 4: Deep Observatory Radial Vignette */
+    /* Variant 4: Deep Observatory Radial Vignette & Strict Single-Page Lock (Level 1 & 2) */
     #vitruvianStage {
       background: radial-gradient(circle at 50% 48%, #102F58 0%, #091D39 46%, #030A17 100%);
+    }
+    html.vitruvian-locked,
+    body.vitruvian-locked {
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden !important;
+    }
+    .vitruvian-stage-full {
+      height: calc(100vh - 4rem);
+      height: calc(100dvh - 4rem);
+    }
+    @media (min-width: 640px) {
+      .vitruvian-stage-full {
+        height: calc(100vh - 5rem);
+        height: calc(100dvh - 5rem);
+      }
+    }
+    .radial-nav-fit {
+      width: min(88vw, 520px, calc(100vh - 14.5rem));
+      width: min(88vw, 520px, calc(100dvh - 14.5rem));
+    }
+    .radial-nav-fit-sub {
+      width: min(88vw, 500px, calc(100vh - 16rem));
+      width: min(88vw, 500px, calc(100dvh - 16rem));
+    }
+    @media (min-width: 1024px) {
+      .radial-nav-fit-sub {
+        width: min(86vw, 520px, calc(100vh - 13.5rem));
+        width: min(86vw, 520px, calc(100dvh - 13.5rem));
+      }
     }
 
     @keyframes pulseRing {
@@ -336,7 +366,7 @@
     <!-- =================================================================== -->
     <section
       id="vitruvianStage"
-      class="relative overflow-hidden bg-navy text-white min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col items-center justify-center transition-all duration-500"
+      class="vitruvian-stage-full relative overflow-hidden bg-navy text-white flex flex-col items-center justify-center transition-all duration-500"
     >
       <!-- Variant 4: 60fps 3D Cosmic Solar Dust & Observatory Starfield Canvas -->
       <canvas id="cosmicCanvas" class="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true"></canvas>
@@ -362,39 +392,39 @@
         </svg>
       </div>
 
-      <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex flex-col items-center">
+      <div class="relative z-10 w-full h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex flex-col items-center justify-center">
 
-        <!-- Sub-Page Top Bar (Hidden on Starting Home Page) -->
-        <div id="subpageTopBar" class="hidden w-full flex flex-wrap items-center justify-between gap-3 mb-4">
+        <!-- Sub-Page Top Bar (Hidden on Level 1 Home; pinned neatly on Level 2) -->
+        <div id="subpageTopBar" class="hidden w-full lg:absolute lg:top-4 lg:left-6 lg:right-6 lg:w-auto flex items-center justify-between gap-3 mb-1.5 lg:mb-0 z-20">
           <button
             type="button"
             data-nav-page="home"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-amber-200 hover:text-white text-xs sm:text-sm font-semibold backdrop-blur-sm transition-all"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-amber-200 hover:text-white text-xs sm:text-sm font-semibold backdrop-blur-sm transition-all"
           >
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             <span data-i18n="stage.backHome">Main Menu</span>
           </button>
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-solar/20 border border-amber-300/35 text-amber-200 text-xs sm:text-sm font-bold tracking-wide">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-solar/20 border border-amber-300/35 text-amber-200 text-xs sm:text-sm font-bold tracking-wide">
             <span class="w-2 h-2 rounded-full bg-solar-light"></span>
             <span id="activePageBadge">About</span>
           </div>
         </div>
 
-        <!-- Congress Title & 50th Anniversary Celebration on Starting Home Page -->
-        <div id="homeTitleHeader" class="text-center mb-3 sm:mb-4 max-w-2xl">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/25 via-solar/35 to-amber-500/25 border border-amber-300/65 shadow-[0_0_24px_rgba(245,158,11,0.34)] mb-2">
+        <!-- Congress Title & 50th Anniversary Celebration (Shown on Both Level 1 & Level 2) -->
+        <div id="homeTitleHeader" class="text-center mb-2 sm:mb-3 max-w-2xl shrink-0">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-500/25 via-solar/35 to-amber-500/25 border border-amber-300/65 shadow-[0_0_24px_rgba(245,158,11,0.34)] mb-1.5">
             <span class="inline-block w-2 h-2 rounded-full bg-amber-300 shadow-[0_0_8px_#FDE047]"></span>
-            <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.18em] text-amber-200" data-i18n="hero.badge">
+            <span class="text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.18em] text-amber-200" data-i18n="hero.badge">
               50th Anniversary (1977–2027) • 26th Edition
             </span>
             <span class="inline-block w-2 h-2 rounded-full bg-amber-300 shadow-[0_0_8px_#FDE047]"></span>
           </div>
-          <h1 class="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-white" data-i18n="hero.title">
+          <h1 class="font-display text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight" data-i18n="hero.title">
             Energy and the Environment 2027
           </h1>
-          <p class="text-xs sm:text-sm text-slate-200/90 mt-1" data-i18n="stage.homeHint">
+          <p id="homeDateHint" class="text-[11px] sm:text-sm text-slate-200/90 mt-1" data-i18n="stage.homeHint">
             50 Years Since the 1977 First Symposium • October 22, 2027 • InnovaLab, Rijeka, Croatia
           </p>
         </div>
@@ -404,7 +434,7 @@
           <nav
             id="radialSolarNav"
             aria-label="Vitruvian Solar Conference Menu"
-            class="relative w-[min(92vw,520px)] sm:w-[540px] aspect-square mx-auto select-none"
+            class="radial-nav-fit relative aspect-square mx-auto select-none"
           >
             <!-- Variant 1: Deep Ambient Solar Corona Layer (-55px Z) -->
             <div class="layer-corona absolute inset-[12%] rounded-full bg-amber-500/20 blur-3xl pointer-events-none" aria-hidden="true"></div>
@@ -486,11 +516,6 @@
             <div id="radialMenuNodes" class="absolute inset-0"></div>
           </nav>
         </div>
-
-        <!-- Sub-page helper caption (Hidden on Home) -->
-        <p id="subpageRayHint" class="hidden text-xs text-amber-200/75 mt-3 text-center" data-i18n="stage.subHint">
-          Select any sub-option at the end of the solar rays
-        </p>
 
       </div>
     </section>
@@ -4913,7 +4938,7 @@
         const radialMenuNodes = document.getElementById('radialMenuNodes');
         const homeTitleHeader = document.getElementById('homeTitleHeader');
         const subpageTopBar = document.getElementById('subpageTopBar');
-        const subpageRayHint = document.getElementById('subpageRayHint');
+        const homeDateHint = document.getElementById('homeDateHint');
         const activePageBadge = document.getElementById('activePageBadge');
         const level3TopBar = document.getElementById('level3TopBar');
         const level3BackBtn = document.getElementById('level3BackBtn');
@@ -5652,19 +5677,19 @@
           const isHome = target === 'home';
           currentLevel = isHome ? 1 : 2;
 
-          // Level 1 & Level 2: Show Vitruvian Man ALONE (full-screen, no content below)
+          // Level 1 & Level 2: Force single-page full-viewport Vitruvian stage (zero vertical scrollbar)
+          document.documentElement.classList.add('vitruvian-locked');
+          document.body.classList.add('vitruvian-locked');
           if (vitruvianStage) {
             vitruvianStage.classList.remove('hidden');
-            vitruvianStage.classList.add('min-h-[calc(100vh-4rem)]', 'sm:min-h-[calc(100vh-5rem)]', 'justify-center');
-            vitruvianStage.classList.remove('border-b', 'border-white/10');
           }
           if (radialSolarNav) {
-            radialSolarNav.className = 'relative w-[min(92vw,520px)] sm:w-[540px] aspect-square mx-auto select-none';
+            radialSolarNav.className = `${isHome ? 'radial-nav-fit' : 'radial-nav-fit-sub'} relative aspect-square mx-auto select-none`;
           }
           if (level3TopBar) level3TopBar.classList.add('hidden');
-          if (homeTitleHeader) homeTitleHeader.classList.toggle('hidden', !isHome);
+          if (homeTitleHeader) homeTitleHeader.classList.remove('hidden');
+          if (homeDateHint) homeDateHint.classList.toggle('hidden', !isHome);
           if (subpageTopBar) subpageTopBar.classList.toggle('hidden', isHome);
-          if (subpageRayHint) subpageRayHint.classList.toggle('hidden', isHome);
 
           // Hide ALL Level 3 content sections on Level 1 & Level 2
           pageSections.forEach((sec) => {
@@ -5706,6 +5731,9 @@
           currentSubItem = subItem;
           currentLevel = 3;
 
+          // Release single-page lock on Level 3 so content pages scroll normally
+          document.documentElement.classList.remove('vitruvian-locked');
+          document.body.classList.remove('vitruvian-locked');
           // Hide Vitruvian Man completely on Level 3; show clean breadcrumb bar & chosen content section
           if (vitruvianStage) vitruvianStage.classList.add('hidden');
           if (level3TopBar) level3TopBar.classList.remove('hidden');
