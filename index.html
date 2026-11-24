@@ -395,7 +395,7 @@
             Energy and the Environment 2027
           </h1>
           <p class="text-xs sm:text-sm text-slate-200/90 mt-1" data-i18n="stage.homeHint">
-            50 Years Since the 1977 First Symposium • Oct 27–29, 2027 (TBC) • InnovaLab, Rijeka, Croatia
+            50 Years Since the 1977 First Symposium • October 15, 2027 • InnovaLab, Rijeka, Croatia
           </p>
         </div>
 
@@ -1107,97 +1107,157 @@
 
 
     <!-- =================================================================== -->
-    <!-- IMPORTANT DATES SECTION (VISUAL TIMELINE + ICS EXPORT)              -->
+    <!-- IMPORTANT DATES SECTION (ALL 11 MILESTONES + ICS EXPORT)            -->
     <!-- =================================================================== -->
     <section id="dates" data-page-section="dates" class="hidden py-14 sm:py-20 bg-white border-y border-slate-200/80 animate-fade-in">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <div class="flex flex-wrap items-center gap-2.5 mb-2">
               <span class="text-xs font-bold uppercase tracking-widest text-tealbrand" data-i18n="dates.eyebrow">Schedule &amp; Deadlines</span>
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-200" data-i18n="dates.tentativeBadge">Tentative / Draft</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-200" data-i18n="dates.yearBadge">2027 Official Timeline</span>
             </div>
             <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-navy tracking-tight" data-i18n="dates.title">
-              Important Dates
+              Important Dates (2027)
             </h2>
+            <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl" data-i18n="dates.subtitle">
+              All key submission, registration, program, and publication deadlines leading up to the conference in Rijeka on Friday, October 15, 2027.
+            </p>
           </div>
 
           <!-- Client-Side .ics Calendar Reminder Button -->
           <button
             id="downloadIcsBtn"
             type="button"
-            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy text-sm font-semibold border border-slate-200 transition-colors self-start sm:self-auto"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-navy hover:bg-navy-light text-white text-sm font-semibold shadow-sm transition-colors self-start sm:self-auto shrink-0"
           >
-            <svg class="w-4 h-4 text-tealbrand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span data-i18n="dates.addCalendar">Save Congress Dates (.ics)</span>
+            <span data-i18n="dates.addCalendar">Save Conference Date (.ics)</span>
           </button>
         </div>
 
-        <!-- 6-Milestone Timeline Grid -->
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter dates by category">
+          <button type="button" data-date-filter="all" class="date-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-navy text-white shadow-sm transition-all" data-i18n="dates.filterAll">All Dates (11)</button>
+          <button type="button" data-date-filter="papers" class="date-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-50 text-slate-600 border border-slate-200 hover:border-navy/40 transition-all" data-i18n="dates.filterPapers">Abstracts, Papers &amp; Proceedings</button>
+          <button type="button" data-date-filter="fees" class="date-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-50 text-slate-600 border border-slate-200 hover:border-navy/40 transition-all" data-i18n="dates.filterFees">Registration Fees</button>
+          <button type="button" data-date-filter="event" class="date-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-50 text-slate-600 border border-slate-200 hover:border-navy/40 transition-all" data-i18n="dates.filterEvent">Program &amp; Event</button>
+        </div>
+
+        <!-- Complete 11-Milestone Chronological Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-          <div class="relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/30 transition-colors">
+          <!-- 01: June 15 — Abstracts -->
+          <article id="date-01" data-date-cat="papers" class="date-card relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/35 transition-colors">
             <div class="flex items-center justify-between mb-3">
               <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-navy text-white text-xs font-bold">01</span>
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider" data-i18n="dates.draftTag">Tentative</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-sky-100 text-sky-900" data-i18n="dates.catAbstracts">ABSTRACTS</span>
             </div>
-            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d1Date">February 15, 2027</div>
-            <h3 class="font-semibold text-slate-900 mb-1" data-i18n="dates.d1Title">Abstract Submission Deadline</h3>
-            <p class="text-sm text-slate-600" data-i18n="dates.d1Desc">Submit structured abstracts (250–350 words) via the online portal.</p>
-          </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d1Date">June 15, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d1Title">Abstract submission deadline</h3>
+          </article>
 
-          <div class="relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/30 transition-colors">
+          <!-- 02: July 10 — Abstracts -->
+          <article id="date-02" data-date-cat="papers" class="date-card relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/35 transition-colors">
             <div class="flex items-center justify-between mb-3">
               <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-navy text-white text-xs font-bold">02</span>
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider" data-i18n="dates.draftTag">Tentative</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-sky-100 text-sky-900" data-i18n="dates.catAbstracts">ABSTRACTS</span>
             </div>
-            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d2Date">April 15, 2027</div>
-            <h3 class="font-semibold text-slate-900 mb-1" data-i18n="dates.d2Title">Abstract Acceptance Notification</h3>
-            <p class="text-sm text-slate-600" data-i18n="dates.d2Desc">Authors notified of preliminary acceptance and invited to submit full manuscripts.</p>
-          </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d2Date">July 10, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d2Title">Abstract acceptance notification</h3>
+          </article>
 
-          <div class="relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/30 transition-colors">
+          <!-- 03: July 20 — Early Bird Registration (€185) -->
+          <article id="date-03" data-date-cat="fees" class="date-card relative rounded-2xl p-6 bg-amber-50/60 border border-amber-200 hover:border-solar transition-colors">
             <div class="flex items-center justify-between mb-3">
-              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-navy text-white text-xs font-bold">03</span>
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider" data-i18n="dates.draftTag">Tentative</span>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-solar text-white text-xs font-bold">03</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900" data-i18n="dates.catFees">REGISTRATION</span>
             </div>
-            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d3Date">June 30, 2027</div>
-            <h3 class="font-semibold text-slate-900 mb-1" data-i18n="dates.d3Title">Full Paper Submission</h3>
-            <p class="text-sm text-slate-600" data-i18n="dates.d3Desc">Full manuscript upload formatted according to the official congress template.</p>
-          </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d3Date">July 20, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d3Title">Early Bird registration deadline (€185)</h3>
+          </article>
 
-          <div class="relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/30 transition-colors">
+          <!-- 04: September 10 — Full Papers (Round 1) -->
+          <article id="date-04" data-date-cat="papers" class="date-card relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/35 transition-colors">
             <div class="flex items-center justify-between mb-3">
               <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-navy text-white text-xs font-bold">04</span>
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider" data-i18n="dates.draftTag">Tentative</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-teal-100 text-teal-900" data-i18n="dates.catPapers">PAPERS</span>
             </div>
-            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d4Date">August 15, 2027</div>
-            <h3 class="font-semibold text-slate-900 mb-1" data-i18n="dates.d4Title">Peer-Review Notification</h3>
-            <p class="text-sm text-slate-600" data-i18n="dates.d4Desc">Double-blind review feedback sent to authors for camera-ready finalization.</p>
-          </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d4Date">September 10, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d4Title">Full paper submission deadline (Round 1)</h3>
+          </article>
 
-          <div class="relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/30 transition-colors">
+          <!-- 05: September 20 — Publication / Poster Only Fee (€135) -->
+          <article id="date-05" data-date-cat="fees" class="date-card relative rounded-2xl p-6 bg-amber-50/60 border border-amber-200 hover:border-solar transition-colors">
             <div class="flex items-center justify-between mb-3">
-              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-tealbrand text-white text-xs font-bold">05</span>
-              <span class="text-xs font-semibold text-tealbrand uppercase tracking-wider" data-i18n="dates.draftTag">Tentative</span>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-solar text-white text-xs font-bold">05</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900" data-i18n="dates.catFees">REGISTRATION</span>
             </div>
-            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d5Date">September 15, 2027</div>
-            <h3 class="font-semibold text-slate-900 mb-1" data-i18n="dates.d5Title">Early-Bird Registration</h3>
-            <p class="text-sm text-slate-600" data-i18n="dates.d5Desc">Deadline for discounted early-bird fee and presenting author registration.</p>
-          </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d5Date">September 20, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d5Title">"Publication / Poster Only" fee deadline (€135)</h3>
+          </article>
 
-          <!-- Highlighted Congress Dates Card -->
-          <div class="relative rounded-2xl p-6 bg-navy text-white border border-navy shadow-lg">
+          <!-- 06: September 24 — Preliminary Program -->
+          <article id="date-06" data-date-cat="event" class="date-card relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/35 transition-colors">
             <div class="flex items-center justify-between mb-3">
-              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-solar text-white text-xs font-bold">06</span>
-              <span class="text-xs font-bold text-amber-300 uppercase tracking-wider" data-i18n="dates.mainEventTag">Main Event (TBC)</span>
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-tealbrand text-white text-xs font-bold">06</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-100 text-indigo-900" data-i18n="dates.catProgram">PROGRAM</span>
             </div>
-            <div class="font-display text-xl font-extrabold text-white mb-1" data-i18n="dates.d6Date">October 27–29, 2027</div>
-            <h3 class="font-semibold text-amber-300 mb-1" data-i18n="dates.d6Title">Congress in Rijeka, Croatia</h3>
-            <p class="text-sm text-slate-300" data-i18n="dates.d6Desc">Three days of plenary lectures, technical tracks, workshops, and networking.</p>
-          </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d6Date">September 24, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d6Title">Preliminary program announcement</h3>
+          </article>
+
+          <!-- 07: October 5 — Final Regular (€245) & Student (€35) Fee -->
+          <article id="date-07" data-date-cat="fees" class="date-card relative rounded-2xl p-6 bg-amber-50/60 border border-amber-200 hover:border-solar transition-colors">
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-solar text-white text-xs font-bold">07</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900" data-i18n="dates.catFees">REGISTRATION</span>
+            </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d7Date">October 5, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d7Title">Final deadline for Regular (€245) and Student (€35) registration</h3>
+          </article>
+
+          <!-- 08: October 8 — Final Program & Book of Abstracts -->
+          <article id="date-08" data-date-cat="event" class="date-card relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/35 transition-colors">
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-tealbrand text-white text-xs font-bold">08</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-100 text-indigo-900" data-i18n="dates.catProgram">PROGRAM</span>
+            </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d8Date">October 8, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d8Title">Final program &amp; digital Book of Abstracts</h3>
+          </article>
+
+          <!-- 09: October 15 (Friday) — MAIN EVENT IN RIJEKA -->
+          <article id="date-09" data-date-cat="event" class="date-card relative rounded-2xl p-6 bg-navy text-white border-2 border-amber-400/80 shadow-xl">
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-solar text-white text-xs font-extrabold">09</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-solar/25 text-amber-300 border border-amber-300/40" data-i18n="dates.catEvent">MAIN EVENT</span>
+            </div>
+            <div class="font-display text-xl font-extrabold text-white mb-1" data-i18n="dates.d9Date">October 15, 2027 (Friday)</div>
+            <h3 class="font-display font-extrabold text-amber-300 tracking-wide uppercase text-sm sm:text-base" data-i18n="dates.d9Title">CONFERENCE IN RIJEKA</h3>
+          </article>
+
+          <!-- 10: November 5 — Revised Full Papers -->
+          <article id="date-10" data-date-cat="papers" class="date-card relative rounded-2xl p-6 bg-slate-50 border border-slate-200 hover:border-navy/35 transition-colors">
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-navy text-white text-xs font-bold">10</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-teal-100 text-teal-900" data-i18n="dates.catPapers">PAPERS</span>
+            </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d10Date">November 5, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d10Title">Final deadline for revised full papers</h3>
+          </article>
+
+          <!-- 11: December 1 — Digital Proceedings (ISBN) -->
+          <article id="date-11" data-date-cat="papers" class="date-card relative rounded-2xl p-6 bg-teal-50/70 border border-teal-200 hover:border-tealbrand transition-colors md:col-span-2 lg:col-span-2">
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-tealbrand text-white text-xs font-bold">11</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-teal-100 text-teal-900" data-i18n="dates.catProceedings">PROCEEDINGS</span>
+            </div>
+            <div class="font-display text-xl font-extrabold text-navy mb-1" data-i18n="dates.d11Date">December 1, 2027</div>
+            <h3 class="font-semibold text-slate-900" data-i18n="dates.d11Title">Publication of the digital Congress Proceedings (ISBN)</h3>
+          </article>
 
         </div>
       </div>
@@ -2552,14 +2612,14 @@
 
           'hero.badge': '50th Anniversary (1977–2027) • 26th Edition',
           'hero.title': 'Energy and the Environment 2027',
-          'hero.subtitle': '50th Anniversary (1977–2027) • 26th International Congress • October 27–29, 2027 (TBC) • Rijeka, Croatia',
+          'hero.subtitle': '50th Anniversary (1977–2027) • 26th International Congress • October 15, 2027 (Friday) • Rijeka, Croatia',
           'hero.organizers': 'Organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).',
           'hero.ctaPapers': 'Call for Papers',
           'hero.ctaPrereg': 'Pre-Register Interest',
 
           'stage.backHome': 'Main Menu',
           'stage.backTo': 'Back to',
-          'stage.homeHint': '50 Years Since the 1977 First Symposium • Oct 27–29, 2027 (TBC) • InnovaLab, Rijeka, Croatia',
+          'stage.homeHint': '50 Years Since the 1977 First Symposium • October 15, 2027 • InnovaLab, Rijeka, Croatia',
           'stage.subHint': 'Select any sub-option at the end of the solar rays',
 
           'sub.about.overview': 'Mission & Scope',
@@ -2586,10 +2646,12 @@
           'sub.topics.t09': '09 AI & Digital Twins',
           'sub.topics.t10': '10 Green Mobility',
 
-          'sub.dates.abstracts': 'Call & Abstracts',
-          'sub.dates.papers': 'Full Papers',
-          'sub.dates.congress': 'Congress Days',
-          'sub.dates.ics': 'Save .ics Calendar',
+          'sub.dates.all': 'All Dates (11)',
+          'sub.dates.abstracts': 'Jun 15 • Abstracts',
+          'sub.dates.earlybird': 'Jul 20 • Early Bird',
+          'sub.dates.papers': 'Sep 10 • Full Papers',
+          'sub.dates.congress': 'Oct 15 • Conference Day',
+          'sub.dates.ics': 'Save .ics (Oct 15)',
 
           'sub.authors.portal': 'Submission Portal',
           'sub.authors.docx': 'Word Template',
@@ -2725,29 +2787,42 @@
           'topics.t10Title': '10 • Green Transport & E-Mobility',
 
           'dates.eyebrow': 'Schedule & Deadlines',
-          'dates.tentativeBadge': 'Tentative / Draft',
-          'dates.title': 'Important Dates',
-          'dates.addCalendar': 'Save Congress Dates (.ics)',
-          'dates.draftTag': 'Tentative',
-          'dates.mainEventTag': 'Main Event (TBC)',
-          'dates.d1Date': 'February 15, 2027',
-          'dates.d1Title': 'Abstract Submission Deadline',
-          'dates.d1Desc': 'Submit structured abstracts (250–350 words) via the online portal.',
-          'dates.d2Date': 'April 15, 2027',
-          'dates.d2Title': 'Abstract Acceptance Notification',
-          'dates.d2Desc': 'Authors notified of preliminary acceptance and invited to submit full manuscripts.',
-          'dates.d3Date': 'June 30, 2027',
-          'dates.d3Title': 'Full Paper Submission',
-          'dates.d3Desc': 'Full manuscript upload formatted according to the official congress template.',
-          'dates.d4Date': 'August 15, 2027',
-          'dates.d4Title': 'Peer-Review Notification',
-          'dates.d4Desc': 'Double-blind review feedback sent to authors for camera-ready finalization.',
-          'dates.d5Date': 'September 15, 2027',
-          'dates.d5Title': 'Early-Bird Registration',
-          'dates.d5Desc': 'Deadline for discounted early-bird fee and presenting author registration.',
-          'dates.d6Date': 'October 27–29, 2027',
-          'dates.d6Title': 'Congress in Rijeka, Croatia',
-          'dates.d6Desc': 'Three days of plenary lectures, technical tracks, workshops, and networking.',
+          'dates.yearBadge': '2027 Official Timeline',
+          'dates.title': 'Important Dates (2027)',
+          'dates.subtitle': 'All key submission, registration, program, and publication deadlines leading up to the conference in Rijeka on Friday, October 15, 2027.',
+          'dates.addCalendar': 'Save Conference Date (.ics)',
+          'dates.filterAll': 'All Dates (11)',
+          'dates.filterPapers': 'Abstracts, Papers & Proceedings',
+          'dates.filterFees': 'Registration Fees',
+          'dates.filterEvent': 'Program & Event',
+          'dates.catAbstracts': 'ABSTRACTS',
+          'dates.catFees': 'REGISTRATION',
+          'dates.catPapers': 'PAPERS',
+          'dates.catProgram': 'PROGRAM',
+          'dates.catEvent': 'MAIN EVENT',
+          'dates.catProceedings': 'PROCEEDINGS',
+          'dates.d1Date': 'June 15, 2027',
+          'dates.d1Title': 'Abstract submission deadline',
+          'dates.d2Date': 'July 10, 2027',
+          'dates.d2Title': 'Abstract acceptance notification',
+          'dates.d3Date': 'July 20, 2027',
+          'dates.d3Title': 'Early Bird registration deadline (€185)',
+          'dates.d4Date': 'September 10, 2027',
+          'dates.d4Title': 'Full paper submission deadline (Round 1)',
+          'dates.d5Date': 'September 20, 2027',
+          'dates.d5Title': '"Publication / Poster Only" fee deadline (€135)',
+          'dates.d6Date': 'September 24, 2027',
+          'dates.d6Title': 'Preliminary program announcement',
+          'dates.d7Date': 'October 5, 2027',
+          'dates.d7Title': 'Final deadline for Regular (€245) and Student (€35) registration',
+          'dates.d8Date': 'October 8, 2027',
+          'dates.d8Title': 'Final program & digital Book of Abstracts',
+          'dates.d9Date': 'October 15, 2027 (Friday)',
+          'dates.d9Title': 'CONFERENCE IN RIJEKA',
+          'dates.d10Date': 'November 5, 2027',
+          'dates.d10Title': 'Final deadline for revised full papers',
+          'dates.d11Date': 'December 1, 2027',
+          'dates.d11Title': 'Publication of the digital Congress Proceedings (ISBN)',
 
           'authors.eyebrow': 'For Authors',
           'authors.title': 'Paper Submission & Proceedings',
@@ -2917,7 +2992,7 @@
           toastDocx: 'Placeholder download: Upload your formatted Word template (e.g., assets/EE2027_Template.docx) to GitHub and link it here.',
           toastLatex: 'Placeholder download: Upload your LaTeX template bundle (e.g., assets/EE2027_LaTeX.zip) to GitHub and link it here.',
           toastCopied: 'Email address copied to clipboard:',
-          toastIcs: 'Calendar reminder (.ics) downloaded for Oct 27–29, 2027.',
+          toastIcs: 'Calendar reminder (.ics) downloaded for Friday, October 15, 2027.',
           errFillAll: 'Please enter your full name, institution, and a valid email address.',
           errGdpr: 'Please accept the GDPR privacy consent checkbox to proceed.'
         },
@@ -2945,14 +3020,14 @@
 
           'hero.badge': '50. obljetnica (1977.–2027.) • 26. izdanje',
           'hero.title': 'Energija i okoliš 2027',
-          'hero.subtitle': '50. obljetnica (1977.–2027.) • 26. međunarodni kongres • 27.–29. listopada 2027. (okvirno) • Rijeka, Hrvatska',
+          'hero.subtitle': '50. obljetnica (1977.–2027.) • 26. međunarodni kongres • 15. listopada 2027. (petak) • Rijeka, Hrvatska',
           'hero.organizers': 'U organizaciji Hrvatskog saveza za sunčevu energiju (HSSE) u suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH).',
           'hero.ctaPapers': 'Poziv za radove',
           'hero.ctaPrereg': 'Predbilježba interesa',
 
           'stage.backHome': 'Glavni izbornik',
           'stage.backTo': 'Natrag na',
-          'stage.homeHint': '50 godina od prvog simpozija 1977. • 27.–29. listopada 2027. (okvirno) • InnovaLab, Rijeka, Hrvatska',
+          'stage.homeHint': '50 godina od prvog simpozija 1977. • 15. listopada 2027. • InnovaLab, Rijeka, Hrvatska',
           'stage.subHint': 'Odaberite podizbornik na kraju sunčevih zraka',
 
           'sub.about.overview': 'Misija i pregled',
@@ -2979,10 +3054,12 @@
           'sub.topics.t09': '09 AI i digitalni blizanci',
           'sub.topics.t10': '10 Zeleni promet',
 
-          'sub.dates.abstracts': 'Poziv i sažetci',
-          'sub.dates.papers': 'Cjeloviti radovi',
-          'sub.dates.congress': 'Dani kongresa',
-          'sub.dates.ics': 'Spremi .ics kalendar',
+          'sub.dates.all': 'Svi datumi (11)',
+          'sub.dates.abstracts': '15. lipnja • Sažeci',
+          'sub.dates.earlybird': '20. srpnja • Early Bird',
+          'sub.dates.papers': '10. rujna • Radovi',
+          'sub.dates.congress': '15. listopada • Konferencija',
+          'sub.dates.ics': 'Spremi .ics (15. 10.)',
 
           'sub.authors.portal': 'Portal za prijavu',
           'sub.authors.docx': 'Word predložak',
@@ -3118,29 +3195,42 @@
           'topics.t10Title': '10 • Zeleni promet i e-mobilnost',
 
           'dates.eyebrow': 'Raspored i rokovi',
-          'dates.tentativeBadge': 'Okvirni datumi / Nacrt',
-          'dates.title': 'Važni datumi',
-          'dates.addCalendar': 'Spremi datume (.ics)',
-          'dates.draftTag': 'Okvirno',
-          'dates.mainEventTag': 'Glavni skup (TBC)',
-          'dates.d1Date': '15. veljače 2027.',
-          'dates.d1Title': 'Rok za predaju sažetaka',
-          'dates.d1Desc': 'Predaja strukturiranih sažetaka (250–350 riječi) putem mrežnog portala.',
-          'dates.d2Date': '15. travnja 2027.',
+          'dates.yearBadge': 'Službeni kalendar 2027.',
+          'dates.title': 'Važni datumi (2027.)',
+          'dates.subtitle': 'Svi rokovi za prijavu sažetaka, kotizacije, cjelovite radove, program i zbornik radova uoči konferencije u Rijeci u petak, 15. listopada 2027.',
+          'dates.addCalendar': 'Spremi datum konferencije (.ics)',
+          'dates.filterAll': 'Svi datumi (11)',
+          'dates.filterPapers': 'Sažeci, radovi i zbornik',
+          'dates.filterFees': 'Kotizacije',
+          'dates.filterEvent': 'Program i događaj',
+          'dates.catAbstracts': 'SAŽECI',
+          'dates.catFees': 'KOTIZACIJA',
+          'dates.catPapers': 'RADOVI',
+          'dates.catProgram': 'PROGRAM',
+          'dates.catEvent': 'DOGAĐAJ',
+          'dates.catProceedings': 'ZBORNIK',
+          'dates.d1Date': '15. lipnja 2027.',
+          'dates.d1Title': 'Rok za slanje sažetaka',
+          'dates.d2Date': '10. srpnja 2027.',
           'dates.d2Title': 'Obavijest o prihvaćanju sažetaka',
-          'dates.d2Desc': 'Obavijest autorima o prihvaćanju sažetka i poziv za predaju cjelovitih radova.',
-          'dates.d3Date': '30. lipnja 2027.',
-          'dates.d3Title': 'Predaja cjelovitih radova',
-          'dates.d3Desc': 'Učitavanje cjelovitog rada oblikovanog prema službenom predlošku kongresa.',
-          'dates.d4Date': '15. kolovoza 2027.',
-          'dates.d4Title': 'Obavijest o recenziji',
-          'dates.d4Desc': 'Slanje rezultata dvostruko slijepe recenzije za pripremu konačne verzije rada.',
-          'dates.d5Date': '15. rujna 2027.',
-          'dates.d5Title': 'Rana kotizacija (Early-Bird)',
-          'dates.d5Desc': 'Rok za povlaštenu kotizaciju i obveznu registraciju autora izlagača.',
-          'dates.d6Date': '27.–29. listopada 2027.',
-          'dates.d6Title': 'Kongres u Rijeci, Hrvatska',
-          'dates.d6Desc': 'Tri dana plenarnih predavanja, znanstvenih sekcija, radionica i umrežavanja.',
+          'dates.d3Date': '20. srpnja 2027.',
+          'dates.d3Title': 'Rok za Early Bird kotizaciju (185 €)',
+          'dates.d4Date': '10. rujna 2027.',
+          'dates.d4Title': 'Rok za slanje cjelovitih radova (1. krug)',
+          'dates.d5Date': '20. rujna 2027.',
+          'dates.d5Title': 'Rok za kotizaciju „Samo objava / poster“ (135 €)',
+          'dates.d6Date': '24. rujna 2027.',
+          'dates.d6Title': 'Objava preliminarnog programa',
+          'dates.d7Date': '5. listopada 2027.',
+          'dates.d7Title': 'Krajnji rok za Punu (245 €) i Studentsku (35 €) kotizaciju',
+          'dates.d8Date': '8. listopada 2027.',
+          'dates.d8Title': 'Konačni program i digitalna Knjiga sažetaka',
+          'dates.d9Date': '15. listopada 2027. (petak)',
+          'dates.d9Title': 'ODRŽAVANJE KONFERENCIJE U RIJECI',
+          'dates.d10Date': '5. studenoga 2027.',
+          'dates.d10Title': 'Konačni rok za ispravljene cjelovite radove',
+          'dates.d11Date': '1. prosinca 2027.',
+          'dates.d11Title': 'Izdavanje digitalnog Zbornika radova (ISBN)',
 
           'authors.eyebrow': 'Za autore',
           'authors.title': 'Prijava radova i zbornik',
@@ -3309,7 +3399,7 @@
           toastDocx: 'Probno preuzimanje: Učitajte svoj Word predložak (npr. assets/EE2027_Template.docx) na GitHub i povežite ga ovdje.',
           toastLatex: 'Probno preuzimanje: Učitajte svoj LaTeX paket (npr. assets/EE2027_LaTeX.zip) na GitHub i povežite ga ovdje.',
           toastCopied: 'E-mail adresa kopirana u međuspremnik:',
-          toastIcs: 'Podsjetnik za kalendar (.ics) preuzet za 27.–29. listopada 2027.',
+          toastIcs: 'Podsjetnik za kalendar (.ics) preuzet za petak, 15. listopada 2027.',
           errFillAll: 'Molimo unesite ime i prezime, ustanovu te ispravnu e-mail adresu.',
           errGdpr: 'Molimo označite privolu za obradu osobnih podataka (GDPR).'
         }
@@ -3427,11 +3517,11 @@
             'BEGIN:VEVENT',
             'UID:ee2027-rijeka@hsse.hr',
             'DTSTAMP:20261123T120000Z',
-            'DTSTART;VALUE=DATE:20271027',
-            'DTEND;VALUE=DATE:20271030',
-            'SUMMARY:26th International Congress Energy and the Environment 2027 (TBC)',
+            'DTSTART;VALUE=DATE:20271015',
+            'DTEND;VALUE=DATE:20271016',
+            'SUMMARY:Energy and the Environment 2027 — 50th Anniversary (26th Congress)',
             'LOCATION:InnovaLab, University of Rijeka Campus, Radmile Matejčić 10, Rijeka, Croatia',
-            'DESCRIPTION:Organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH). Tentative dates.',
+            'DESCRIPTION:50th Anniversary (1977-2027) International Congress Energy and the Environment, organized by HSSE and RITEH (University of Rijeka).',
             'END:VEVENT',
             'END:VCALENDAR'
           ].join('\r\n');
@@ -4101,6 +4191,27 @@
             openModal('preregModal');
           });
         }
+
+        // Date Category Filter Pills (Level 3 Important Dates)
+        const dateFilterBtns = document.querySelectorAll('.date-filter-btn');
+        const dateCards = document.querySelectorAll('.date-card');
+        function applyDateFilter(cat) {
+          dateFilterBtns.forEach((b) => {
+            const active = b.getAttribute('data-date-filter') === cat;
+            b.className = active
+              ? 'date-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-navy text-white shadow-sm transition-all'
+              : 'date-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-50 text-slate-600 border border-slate-200 hover:border-navy/40 transition-all';
+          });
+          dateCards.forEach((card) => {
+            const match = cat === 'all' || card.getAttribute('data-date-cat') === cat;
+            card.classList.toggle('hidden', !match);
+          });
+        }
+        dateFilterBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            applyDateFilter(btn.getAttribute('data-date-filter'));
+          });
+        });
 
         // Committee Tabs (Exposed helper for radial sub-menu rays)
         const commBtns = document.querySelectorAll('.comm-tab-btn');
@@ -4865,10 +4976,12 @@
             { id: 'topic-10', labelKey: 'sub.topics.t10', angle: 324, left: 23, top: 15, section: 'topics', onEnter: () => renderTopicDetail('topic-10') }
           ],
           dates: [
-            { id: 'abstracts', labelKey: 'sub.dates.abstracts', angle: 0, left: 50, top: 7, section: 'dates' },
-            { id: 'papers', labelKey: 'sub.dates.papers', angle: 90, left: 87, top: 50, section: 'dates' },
-            { id: 'congress', labelKey: 'sub.dates.congress', angle: 180, left: 50, top: 93, section: 'dates' },
-            { id: 'ics', labelKey: 'sub.dates.ics', angle: 270, left: 14, top: 50, action: () => downloadCalendarFile() }
+            { id: 'all-dates', labelKey: 'sub.dates.all', angle: 0, left: 50, top: 7, section: 'dates', onEnter: () => applyDateFilter('all') },
+            { id: 'abstracts', labelKey: 'sub.dates.abstracts', angle: 60, left: 84, top: 27, section: 'dates', onEnter: () => applyDateFilter('all'), focus: '#date-01' },
+            { id: 'early-bird', labelKey: 'sub.dates.earlybird', angle: 120, left: 84, top: 73, section: 'dates', onEnter: () => applyDateFilter('all'), focus: '#date-03' },
+            { id: 'congress', labelKey: 'sub.dates.congress', angle: 180, left: 50, top: 93, section: 'dates', onEnter: () => applyDateFilter('all'), focus: '#date-09' },
+            { id: 'papers', labelKey: 'sub.dates.papers', angle: 240, left: 16, top: 73, section: 'dates', onEnter: () => applyDateFilter('all'), focus: '#date-04' },
+            { id: 'ics', labelKey: 'sub.dates.ics', angle: 300, left: 16, top: 27, action: () => downloadCalendarFile() }
           ],
           authors: [
             { id: 'guidelines', labelKey: 'sub.authors.guide', angle: 0, left: 50, top: 7, section: 'authors' },
