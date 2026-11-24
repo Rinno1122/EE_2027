@@ -1426,13 +1426,13 @@
         <div class="max-w-3xl mb-10">
           <div class="flex flex-wrap items-center gap-2.5 mb-2">
             <span class="text-xs font-bold uppercase tracking-widest text-tealbrand" data-i18n="reg.eyebrow">Participation</span>
-            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-200" data-i18n="reg.draftBadge">Draft Fee Placeholders (EUR)</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-200" data-i18n="reg.draftBadge">2027 Registration Fees (EUR)</span>
           </div>
           <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-navy tracking-tight" data-i18n="reg.title">
             Registration &amp; Fees
           </h2>
           <p class="text-slate-600 mt-3 text-base" data-i18n="reg.subtitle">
-            All fees are indicative draft figures in Euros (EUR) and will be officially confirmed in the Second Announcement.
+            All fees are expressed in Euros (EUR). Each author may submit at most 2 articles; PhD students must provide a certificate of enrollment in a PhD programme.
           </p>
         </div>
 
@@ -1444,45 +1444,67 @@
                 <thead>
                   <tr class="bg-navy text-white text-xs sm:text-sm uppercase tracking-wider">
                     <th class="py-4 px-5 font-semibold" data-i18n="reg.colCategory">Registration Category</th>
-                    <th class="py-4 px-5 font-semibold text-right" data-i18n="reg.colEarly">Early-Bird<br /><span class="text-[11px] font-normal text-amber-300 normal-case">(until Sep 15, 2027)</span></th>
-                    <th class="py-4 px-5 font-semibold text-right" data-i18n="reg.colRegular">Regular / On-Site<br /><span class="text-[11px] font-normal text-slate-300 normal-case">(after Sep 15, 2027)</span></th>
+                    <th class="py-4 px-5 font-semibold" data-i18n="reg.colDeadline">Deadline</th>
+                    <th class="py-4 px-5 font-semibold text-right" data-i18n="reg.colFee">Fee (EUR)</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-200 bg-white text-sm sm:text-base">
-                  <tr class="hover:bg-slate-50 transition-colors">
+                  <tr class="hover:bg-amber-50/40 transition-colors">
                     <td class="py-4 px-5">
-                      <div class="font-semibold text-navy" data-i18n="reg.cat1">Regular Participant</div>
-                      <div class="text-xs text-slate-500" data-i18n="reg.cat1Sub">Academia, industry, public institutions</div>
+                      <div class="font-semibold text-navy" data-i18n="reg.cat1">Early Bird Registration</div>
+                      <div class="text-xs text-slate-500" data-i18n="reg.cat1Sub">Discounted full participation fee (in-person in Rijeka &amp; proceedings)</div>
                     </td>
-                    <td class="py-4 px-5 text-right font-display font-bold text-tealbrand">€350</td>
-                    <td class="py-4 px-5 text-right font-display font-semibold text-slate-700">€420</td>
+                    <td class="py-4 px-5 text-xs sm:text-sm font-medium text-slate-600" data-i18n="reg.cat1Date">Until July 23, 2027</td>
+                    <td class="py-4 px-5 text-right font-display text-lg font-extrabold text-tealbrand whitespace-nowrap">185,00 €</td>
                   </tr>
                   <tr class="hover:bg-slate-50 transition-colors">
                     <td class="py-4 px-5">
-                      <div class="font-semibold text-navy" data-i18n="reg.cat2">HSSE Member</div>
-                      <div class="text-xs text-slate-500" data-i18n="reg.cat2Sub">Valid membership ID required</div>
+                      <div class="font-semibold text-navy" data-i18n="reg.cat2">Full Registration</div>
+                      <div class="text-xs text-slate-500" data-i18n="reg.cat2Sub">Standard full participation fee (academia, industry &amp; public institutions)</div>
                     </td>
-                    <td class="py-4 px-5 text-right font-display font-bold text-tealbrand">€300</td>
-                    <td class="py-4 px-5 text-right font-display font-semibold text-slate-700">€360</td>
+                    <td class="py-4 px-5 text-xs sm:text-sm font-medium text-slate-600" data-i18n="reg.cat2Date">Until October 12, 2027</td>
+                    <td class="py-4 px-5 text-right font-display text-lg font-extrabold text-navy whitespace-nowrap">245,00 €</td>
                   </tr>
                   <tr class="hover:bg-slate-50 transition-colors">
                     <td class="py-4 px-5">
-                      <div class="font-semibold text-navy" data-i18n="reg.cat3">PhD Candidates &amp; Students</div>
-                      <div class="text-xs text-slate-500" data-i18n="reg.cat3Sub">Valid student status confirmation required</div>
+                      <div class="font-semibold text-navy" data-i18n="reg.cat3">Publication Only / Poster</div>
+                      <div class="text-xs text-slate-500" data-i18n="reg.cat3Sub">Peer-reviewed paper publication in digital proceedings (ISBN) or poster presentation</div>
                     </td>
-                    <td class="py-4 px-5 text-right font-display font-bold text-tealbrand">€180</td>
-                    <td class="py-4 px-5 text-right font-display font-semibold text-slate-700">€220</td>
+                    <td class="py-4 px-5 text-xs sm:text-sm font-medium text-slate-600" data-i18n="reg.cat3Date">Until September 24, 2027</td>
+                    <td class="py-4 px-5 text-right font-display text-lg font-extrabold text-solar whitespace-nowrap">135,00 €</td>
                   </tr>
-                  <tr class="hover:bg-slate-50 transition-colors">
+                  <tr class="hover:bg-teal-50/40 transition-colors">
                     <td class="py-4 px-5">
-                      <div class="font-semibold text-navy" data-i18n="reg.cat4">Accompanying Person</div>
-                      <div class="text-xs text-slate-500" data-i18n="reg.cat4Sub">Social program, welcome reception &amp; gala dinner</div>
+                      <div class="font-semibold text-navy" data-i18n="reg.cat4">PhD Students</div>
+                      <div class="text-xs text-slate-500" data-i18n="reg.cat4Sub">Certificate of enrollment in a PhD programme required</div>
                     </td>
-                    <td class="py-4 px-5 text-right font-display font-bold text-tealbrand">€120</td>
-                    <td class="py-4 px-5 text-right font-display font-semibold text-slate-700">€150</td>
+                    <td class="py-4 px-5 text-xs sm:text-sm font-medium text-slate-600" data-i18n="reg.cat4Date">Until October 12, 2027</td>
+                    <td class="py-4 px-5 text-right font-display text-lg font-extrabold text-tealbrand whitespace-nowrap">35,00 €</td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            <!-- Important Submission & Eligibility Rules -->
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="rounded-2xl bg-amber-50/75 border border-amber-200 p-4 flex items-start gap-3">
+                <svg class="w-5 h-5 text-solar shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <div class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  <strong class="block text-navy mb-0.5" data-i18n="reg.rule1Title">Article Submission Limit</strong>
+                  <span data-i18n="reg.rule1Desc">Each author can submit at most 2 articles.</span>
+                </div>
+              </div>
+              <div class="rounded-2xl bg-teal-50/75 border border-teal-200 p-4 flex items-start gap-3">
+                <svg class="w-5 h-5 text-tealbrand shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+                <div class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                  <strong class="block text-navy mb-0.5" data-i18n="reg.rule2Title">PhD Student Verification</strong>
+                  <span data-i18n="reg.rule2Desc">PhD students must send a certificate of enrollment in a PhD programme.</span>
+                </div>
+              </div>
             </div>
 
             <!-- Payment & Invoicing Note -->
@@ -2873,20 +2895,28 @@
           'authors.metaPubVal': 'ISBN & DOI (TBC)',
 
           'reg.eyebrow': 'Participation',
-          'reg.draftBadge': 'Draft Fee Placeholders (EUR)',
+          'reg.draftBadge': '2027 Registration Fees (EUR)',
           'reg.title': 'Registration & Fees',
-          'reg.subtitle': 'All fees are indicative draft figures in Euros (EUR) and will be officially confirmed in the Second Announcement.',
+          'reg.subtitle': 'All fees are expressed in Euros (EUR). Each author may submit at most 2 articles; PhD students must provide a certificate of enrollment in a PhD programme.',
           'reg.colCategory': 'Registration Category',
-          'reg.colEarly': 'Early-Bird (until Sep 15, 2027)',
-          'reg.colRegular': 'Regular / On-Site',
-          'reg.cat1': 'Regular Participant',
-          'reg.cat1Sub': 'Academia, industry, public institutions',
-          'reg.cat2': 'HSSE Member',
-          'reg.cat2Sub': 'Valid membership ID required',
-          'reg.cat3': 'PhD Candidates & Students',
-          'reg.cat3Sub': 'Valid student status confirmation required',
-          'reg.cat4': 'Accompanying Person',
-          'reg.cat4Sub': 'Social program, welcome reception & gala dinner',
+          'reg.colDeadline': 'Deadline',
+          'reg.colFee': 'Fee (EUR)',
+          'reg.cat1': 'Early Bird Registration',
+          'reg.cat1Sub': 'Discounted full participation fee (in-person in Rijeka & proceedings)',
+          'reg.cat1Date': 'Until July 23, 2027',
+          'reg.cat2': 'Full Registration',
+          'reg.cat2Sub': 'Standard full participation fee (academia, industry & public institutions)',
+          'reg.cat2Date': 'Until October 12, 2027',
+          'reg.cat3': 'Publication Only / Poster',
+          'reg.cat3Sub': 'Peer-reviewed paper publication in digital proceedings (ISBN) or poster presentation',
+          'reg.cat3Date': 'Until September 24, 2027',
+          'reg.cat4': 'PhD Students',
+          'reg.cat4Sub': 'Certificate of enrollment in a PhD programme required',
+          'reg.cat4Date': 'Until October 12, 2027',
+          'reg.rule1Title': 'Article Submission Limit',
+          'reg.rule1Desc': 'Each author can submit at most 2 articles.',
+          'reg.rule2Title': 'PhD Student Verification',
+          'reg.rule2Desc': 'PhD students must send a certificate of enrollment in a PhD programme.',
           'reg.payTitle': 'Payment & Proforma Invoices:',
           'reg.payDesc': ' Registration fees will be payable via bank transfer (IBAN / SWIFT) upon issuance of a formal proforma invoice suitable for university and corporate accounting. Online card payment options (TBC) will be announced when registration opens.',
           'reg.incTitle': "What's Included",
@@ -3283,20 +3313,28 @@
           'authors.metaPubVal': 'ISBN i DOI (TBC)',
 
           'reg.eyebrow': 'Sudjelovanje',
-          'reg.draftBadge': 'Okvirni iznosi kotizacija (EUR)',
+          'reg.draftBadge': 'Kotizacije za 2027. (EUR)',
           'reg.title': 'Registracija i kotizacije',
-          'reg.subtitle': 'Svi navedeni iznosi su okvirni radni prijedlozi u eurima (EUR) i bit će službeno potvrđeni u Drugoj obavijesti.',
-          'reg.colCategory': 'Kategorija sudionika',
-          'reg.colEarly': 'Rana prijava (do 15. rujna 2027.)',
-          'reg.colRegular': 'Redovna / Na licu mjesta',
-          'reg.cat1': 'Redovni sudionik',
-          'reg.cat1Sub': 'Akademska zajednica, industrija, javne ustanove',
-          'reg.cat2': 'Član HSSE-a',
-          'reg.cat2Sub': 'Potrebna važeća potvrda članstva',
-          'reg.cat3': 'Doktorandi i studenti',
-          'reg.cat3Sub': 'Potrebna važeća potvrda studentskog statusa',
-          'reg.cat4': 'Osoba u pratnji',
-          'reg.cat4Sub': 'Društveni program, domjenak dobrodošlice i svečana večera',
+          'reg.subtitle': 'Svi iznosi izraženi su u eurima (EUR). Svaki autor može prijaviti najviše 2 rada, a doktorandi moraju dostaviti potvrdu o upisu u doktorski studij.',
+          'reg.colCategory': 'Kategorija kotizacije',
+          'reg.colDeadline': 'Rok uplate',
+          'reg.colFee': 'Iznos (EUR)',
+          'reg.cat1': 'Early Bird kotizacija',
+          'reg.cat1Sub': 'Povlaštena puna kotizacija (sudjelovanje uživo u Rijeci i zbornik radova)',
+          'reg.cat1Date': 'Do 23. srpnja 2027.',
+          'reg.cat2': 'Puna kotizacija',
+          'reg.cat2Sub': 'Redovna puna kotizacija (akademska zajednica, industrija i javne ustanove)',
+          'reg.cat2Date': 'Do 12. listopada 2027.',
+          'reg.cat3': 'Samo objava / poster',
+          'reg.cat3Sub': 'Objava recenziranog rada u digitalnom zborniku (ISBN) ili postersko izlaganje',
+          'reg.cat3Date': 'Do 24. rujna 2027.',
+          'reg.cat4': 'Doktorandi (PhD studenti)',
+          'reg.cat4Sub': 'Potrebna potvrda o upisu u doktorski studij',
+          'reg.cat4Date': 'Do 12. listopada 2027.',
+          'reg.rule1Title': 'Ograničenje broja radova',
+          'reg.rule1Desc': 'Svaki autor može prijaviti najviše 2 rada.',
+          'reg.rule2Title': 'Potvrda za doktorande',
+          'reg.rule2Desc': 'Doktorandi moraju dostaviti potvrdu o upisu u doktorski studij.',
           'reg.payTitle': 'Plaćanje i predračuni:',
           'reg.payDesc': ' Kotizacije se uplaćuju bankovnom doznakom (IBAN / SWIFT) na temelju izdanog predračuna prilagođenog sveučilišnom i poslovnom računovodstvu. Mogućnost kartičnog plaćanja (TBC) bit će objavljena pri otvaranju prijava.',
           'reg.incTitle': 'Što je uključeno',
