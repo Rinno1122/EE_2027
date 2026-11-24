@@ -1,0 +1,5 @@
+[autorun]
+shellexecute=index.htm
+icon=data\EuroSun.ico
+action=Browse Eurosun 2012 Proceedings
+label=Eurosun 2012 Proceedings
