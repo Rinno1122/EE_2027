@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Topic 09: Digitalization, AI &amp; Digital Twins">
+
+  <defs>
+    <linearGradient id="bgSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#071930"/>
+      <stop offset="55%" stop-color="#0B2545"/>
+      <stop offset="100%" stop-color="#133763"/>
+    </linearGradient>
+    <pattern id="gridPat" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#93C5FD" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="540" fill="#0B2545"/>
+  <rect width="960" height="540" fill="url(#bgSky)"/>
+  <rect width="960" height="540" fill="url(#gridPat)"/>
+
+  <g transform="translate(70,100)">
+    <rect x="0" y="0" width="285" height="305" rx="22" fill="#0E2C52" stroke="#38BDF8" stroke-width="2.2"/>
+    <text x="142" y="34" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#7DD3FC">CFD THERMAL FIELD</text>
+    <path d="M28 100 C95 75 160 135 256 95" fill="none" stroke="#EF4444" stroke-width="4.2" stroke-linecap="round"/>
+    <path d="M28 138 C98 110 165 170 256 132" fill="none" stroke="#F97316" stroke-width="4.2" stroke-linecap="round"/>
+    <path d="M28 176 C100 150 165 205 256 172" fill="none" stroke="#F59E0B" stroke-width="4.2" stroke-linecap="round"/>
+    <path d="M28 214 C102 190 165 242 256 210" fill="none" stroke="#2DD4BF" stroke-width="4.2" stroke-linecap="round"/>
+    <path d="M28 252 C104 232 165 275 256 248" fill="none" stroke="#38BDF8" stroke-width="4.2" stroke-linecap="round"/>
+    <circle cx="128" cy="176" r="24" fill="#071930" stroke="#FDE047" stroke-width="2.4"/>
+    <text x="128" y="180" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10.5" font-weight="800" fill="#FEF08A">MESH</text>
+  </g>
+
+  <g transform="translate(388,100)">
+    <rect x="0" y="0" width="215" height="305" rx="22" fill="#071930" stroke="#F59E0B" stroke-width="2.4"/>
+    <text x="107" y="34" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#FDE68A">AI &amp; DIGITAL TWIN</text>
+    <g stroke="#2DD4BF" stroke-opacity="0.55" stroke-width="1.8">
+      <line x1="48" y1="100" x2="108" y2="88"/><line x1="48" y1="100" x2="108" y2="152"/><line x1="48" y1="100" x2="108" y2="216"/>
+      <line x1="48" y1="164" x2="108" y2="88"/><line x1="48" y1="164" x2="108" y2="152"/><line x1="48" y1="164" x2="108" y2="216"/>
+      <line x1="48" y1="228" x2="108" y2="152"/><line x1="48" y1="228" x2="108" y2="216"/>
+      <line x1="108" y1="88" x2="168" y2="128"/><line x1="108" y1="152" x2="168" y2="128"/>
+      <line x1="108" y1="152" x2="168" y2="196"/><line x1="108" y1="216" x2="168" y2="196"/>
+    </g>
+    <circle cx="48" cy="100" r="10" fill="#38BDF8"/><circle cx="48" cy="164" r="10" fill="#38BDF8"/><circle cx="48" cy="228" r="10" fill="#38BDF8"/>
+    <circle cx="108" cy="88" r="11" fill="#F59E0B"/><circle cx="108" cy="152" r="13" fill="#FDE047"/><circle cx="108" cy="216" r="11" fill="#F59E0B"/>
+    <circle cx="168" cy="128" r="11" fill="#2DD4BF"/><circle cx="168" cy="196" r="11" fill="#2DD4BF"/>
+    <text x="107" y="276" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11.5" font-weight="700" fill="#CBD5E1">Real-Time Optimization</text>
+  </g>
+
+  <g transform="translate(636,100)">
+    <rect x="0" y="0" width="255" height="305" rx="22" fill="#0E2C52" stroke="#2DD4BF" stroke-width="2.2"/>
+    <text x="127" y="34" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#5EEAD4">SMART BMS / BEMS</text>
+    <polyline points="26,158 58,158 76,112 98,195 122,92 146,164 176,136 202,148 228,122" fill="none" stroke="#2DD4BF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="24" y="214" width="96" height="58" rx="12" fill="#071930" stroke="#2DD4BF" stroke-width="1.6"/>
+    <text x="72" y="240" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="800" fill="#5EEAD4">99.4%</text>
+    <text x="72" y="258" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#CBD5E1">Uptime</text>
+    <rect x="134" y="214" width="96" height="58" rx="12" fill="#071930" stroke="#F59E0B" stroke-width="1.6"/>
+    <text x="182" y="240" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="800" fill="#FDE047">-24%</text>
+    <text x="182" y="258" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#CBD5E1">Peak Load</text>
+  </g>
+
+  <g transform="translate(85,466)">
+    <rect x="0" y="0" width="210" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#38BDF8" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#38BDF8"/>
+    <text x="111.0" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">CFD &amp; DIGITAL TWINS</text>
+  </g>
+  <g transform="translate(375,466)">
+    <rect x="0" y="0" width="210" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#F59E0B" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#F59E0B"/>
+    <text x="111.0" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">MACHINE LEARNING</text>
+  </g>
+  <g transform="translate(665,466)">
+    <rect x="0" y="0" width="210" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#2DD4BF" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#2DD4BF"/>
+    <text x="111.0" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">BMS &amp; PREDICTIVE OPS</text>
+  </g>
+  <g transform="translate(32,26)">
+    <rect x="0" y="0" width="54" height="30" rx="15" fill="#F59E0B" fill-opacity="0.22" stroke="#FDE68A" stroke-opacity="0.75" stroke-width="1.4"/>
+    <text x="27" y="20" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#FEF3C7">09</text>
+  </g>
+</svg>

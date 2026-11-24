@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Topic 10: Green Transport &amp; E-Mobility">
+
+  <defs>
+    <linearGradient id="bgSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#071930"/>
+      <stop offset="55%" stop-color="#0B2545"/>
+      <stop offset="100%" stop-color="#133763"/>
+    </linearGradient>
+    <pattern id="gridPat" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#93C5FD" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="540" fill="#0B2545"/>
+  <rect width="960" height="540" fill="url(#bgSky)"/>
+  <rect width="960" height="540" fill="url(#gridPat)"/>
+
+  <circle cx="180" cy="108" r="90" fill="#F59E0B" fill-opacity="0.08"/>
+  <circle cx="180" cy="108" r="60" fill="#F59E0B" fill-opacity="0.16"/>
+  <circle cx="180" cy="108" r="40" fill="#FDE047" fill-opacity="0.24"/>
+  <circle cx="180" cy="108" r="30" fill="#F59E0B" stroke="#FEF08A" stroke-width="2.5"/>
+  <circle cx="180" cy="108" r="20" fill="#FDE047" fill-opacity="0.7"/>
+  <rect x="0" y="388" width="960" height="152" fill="#071930"/>
+  <line x1="40" y1="388" x2="920" y2="388" stroke="#38BDF8" stroke-opacity="0.65" stroke-width="2.5"/>
+
+  <g transform="translate(650,152)">
+    <polygon points="-25,18 220,0 220,16 -25,34" fill="#0369A1" stroke="#7DD3FC" stroke-width="2.2"/>
+    <line x1="172" y1="20" x2="172" y2="236" stroke="#94A3B8" stroke-width="9"/>
+    <rect x="35" y="72" width="96" height="164" rx="14" fill="#0F3560" stroke="#2DD4BF" stroke-width="2.4"/>
+    <rect x="51" y="92" width="64" height="44" rx="8" fill="#071930" stroke="#5EEAD4" stroke-width="1.6"/>
+    <text x="83" y="119" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13.5" font-weight="800" fill="#FDE047">V2G</text>
+    <text x="83" y="166" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11.5" font-weight="700" fill="#5EEAD4">350 kW</text>
+    <text x="83" y="186" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="#CBD5E1">Bi-directional</text>
+  </g>
+
+  <path d="M685 288 C630 288 618 338 565 322" fill="none" stroke="#FDE047" stroke-width="4.2" stroke-dasharray="8 4"/>
+
+  <g transform="translate(135,222)">
+    <path d="M35 128 L72 68 C105 26 168 18 258 18 C328 18 380 44 418 76 L452 94 C465 102 470 116 470 132 L470 144 L20 144 L20 134 Z" fill="#133763" stroke="#38BDF8" stroke-width="2.8"/>
+    <path d="M115 74 L145 36 L262 36 C305 36 338 50 364 74 Z" fill="#071930" stroke="#7DD3FC" stroke-width="1.8"/>
+    <rect x="136" y="106" width="220" height="28" rx="8" fill="#0F766E" stroke="#5EEAD4" stroke-width="2"/>
+    <g fill="#2DD4BF">
+      <rect x="148" y="112" width="24" height="16" rx="3"/>
+      <rect x="178" y="112" width="24" height="16" rx="3"/>
+      <rect x="208" y="112" width="24" height="16" rx="3"/>
+      <rect x="238" y="112" width="24" height="16" rx="3"/>
+      <rect x="268" y="112" width="24" height="16" rx="3"/>
+      <rect x="298" y="112" width="24" height="16" rx="3"/>
+    </g>
+    <text x="246" y="96" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="800" fill="#FEF08A">BTMS BATTERY COOLING</text>
+    <circle cx="110" cy="146" r="32" fill="#071930" stroke="#94A3B8" stroke-width="4.5"/>
+    <circle cx="110" cy="146" r="14" fill="#38BDF8"/>
+    <circle cx="385" cy="146" r="32" fill="#071930" stroke="#94A3B8" stroke-width="4.5"/>
+    <circle cx="385" cy="146" r="14" fill="#38BDF8"/>
+  </g>
+
+  <g transform="translate(85,474)">
+    <rect x="0" y="0" width="210" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#2DD4BF" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#2DD4BF"/>
+    <text x="111.0" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">EV / H₂ &amp; BTMS</text>
+  </g>
+  <g transform="translate(375,474)">
+    <rect x="0" y="0" width="210" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#F59E0B" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#F59E0B"/>
+    <text x="111.0" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">V2G FAST CHARGING</text>
+  </g>
+  <g transform="translate(665,474)">
+    <rect x="0" y="0" width="210" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#38BDF8" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#38BDF8"/>
+    <text x="111.0" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">CLEAN FREIGHT &amp; TRANSIT</text>
+  </g>
+  <g transform="translate(32,26)">
+    <rect x="0" y="0" width="54" height="30" rx="15" fill="#F59E0B" fill-opacity="0.22" stroke="#FDE68A" stroke-opacity="0.75" stroke-width="1.4"/>
+    <text x="27" y="20" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#FEF3C7">10</text>
+  </g>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-label="Topic 03: Heat Pumps &amp; Waste Heat Recovery">
+
+  <defs>
+    <linearGradient id="bgSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#071930"/>
+      <stop offset="55%" stop-color="#0B2545"/>
+      <stop offset="100%" stop-color="#133763"/>
+    </linearGradient>
+    <pattern id="gridPat" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#93C5FD" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="540" fill="#0B2545"/>
+  <rect width="960" height="540" fill="url(#bgSky)"/>
+  <rect width="960" height="540" fill="url(#gridPat)"/>
+
+  <circle cx="480" cy="250" r="185" fill="#14B8A6" fill-opacity="0.08"/>
+  <g transform="translate(78,150)">
+    <rect x="0" y="0" width="188" height="202" rx="20" fill="#0E2C52" stroke="#38BDF8" stroke-width="2.2"/>
+    <text x="94" y="34" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#7DD3FC">WASTE HEAT</text>
+    <path d="M54 152 Q68 130 54 108 T54 68" fill="none" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+    <path d="M94 152 Q108 130 94 108 T94 68" fill="none" stroke="#2DD4BF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M134 152 Q148 130 134 108 T134 68" fill="none" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+    <text x="94" y="182" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#CBD5E1">35–70 °C Source</text>
+  </g>
+
+  <g transform="translate(325,95)">
+    <rect x="45" y="45" width="220" height="220" rx="48" fill="#071930" fill-opacity="0.55" stroke="#F59E0B" stroke-width="4.5" stroke-dasharray="12 6"/>
+    <rect x="82" y="16" width="146" height="58" rx="14" fill="#9A3412" stroke="#FB923C" stroke-width="2.4"/>
+    <text x="155" y="42" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="800" fill="#FFEDD5">CONDENSER</text>
+    <text x="155" y="60" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" fill="#FDBA74">High-T Output</text>
+    <rect x="82" y="236" width="146" height="58" rx="14" fill="#0C4A6E" stroke="#38BDF8" stroke-width="2.4"/>
+    <text x="155" y="262" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="800" fill="#E0F2FE">EVAPORATOR</text>
+    <text x="155" y="280" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" fill="#7DD3FC">Heat Intake</text>
+    <circle cx="45" cy="155" r="28" fill="#071930" stroke="#2DD4BF" stroke-width="2.4"/>
+    <polygon points="34,145 56,145 45,155 56,165 34,165 45,155" fill="#2DD4BF"/>
+    <circle cx="265" cy="155" r="32" fill="#071930" stroke="#F59E0B" stroke-width="2.4"/>
+    <polygon points="248,139 282,147 282,163 248,171" fill="#F59E0B" stroke="#FEF08A" stroke-width="1.5"/>
+    <text x="155" y="150" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="800" fill="#FEF08A">HP / ORC</text>
+    <text x="155" y="170" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="11.5" font-weight="700" fill="#5EEAD4">Low-GWP Cycle</text>
+  </g>
+
+  <g transform="translate(694,150)">
+    <rect x="0" y="0" width="188" height="202" rx="20" fill="#0E2C52" stroke="#F97316" stroke-width="2.2"/>
+    <text x="94" y="34" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#FED7AA">PROCESS HEAT</text>
+    <path d="M40 70 H148 C162 70 162 96 148 96 H40 C26 96 26 122 40 122 H148 C162 122 162 148 148 148 H40" fill="none" stroke="#F97316" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M40 70 H148 C162 70 162 96 148 96 H40 C26 96 26 122 40 122 H148 C162 122 162 148 148 148 H40" fill="none" stroke="#FDE047" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 10"/>
+    <text x="94" y="182" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#FDBA74">100–160 °C Upgrade</text>
+  </g>
+
+  <path d="M266 250 L325 250" stroke="#38BDF8" stroke-width="3.5" stroke-dasharray="6 4"/>
+  <path d="M635 250 L694 250" stroke="#F97316" stroke-width="3.5" stroke-dasharray="6 4"/>
+
+  <g transform="translate(90,474)">
+    <rect x="0" y="0" width="215" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#F59E0B" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#F59E0B"/>
+    <text x="113.5" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">INDUSTRIAL HEAT PUMPS</text>
+  </g>
+  <g transform="translate(372,474)">
+    <rect x="0" y="0" width="215" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#2DD4BF" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#2DD4BF"/>
+    <text x="113.5" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">LOW-GWP &amp; ORC CYCLES</text>
+  </g>
+  <g transform="translate(655,474)">
+    <rect x="0" y="0" width="215" height="32" rx="16" fill="#071930" fill-opacity="0.88" stroke="#F97316" stroke-opacity="0.8" stroke-width="1.4"/>
+    <circle cx="15" cy="16" r="4" fill="#F97316"/>
+    <text x="113.5" y="20.5" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#F8FAFC">WASTE HEAT RECOVERY</text>
+  </g>
+  <g transform="translate(32,26)">
+    <rect x="0" y="0" width="54" height="30" rx="15" fill="#F59E0B" fill-opacity="0.22" stroke="#FDE68A" stroke-opacity="0.75" stroke-width="1.4"/>
+    <text x="27" y="20" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="800" fill="#FEF3C7">03</text>
+  </g>
+</svg>

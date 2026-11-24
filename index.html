@@ -972,129 +972,136 @@
     </section>
 
     <!-- =================================================================== -->
-    <!-- CONFERENCE TOPICS (8 FILTERABLE CARDS WITH CUSTOM SVG ICONS)        -->
+    <!-- CONFERENCE TOPICS — LEVEL 3 DEDICATED TOPIC DETAIL VIEW (10 TOPICS) -->
     <!-- =================================================================== -->
-    <section id="topics" data-page-section="topics" class="hidden py-14 sm:py-20 bg-slate-50 animate-fade-in">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-          <div class="max-w-2xl">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest text-tealbrand mb-2" data-i18n="topics.eyebrow">
-              Scientific Tracks
+    <section id="topics" data-page-section="topics" class="hidden py-12 sm:py-16 bg-slate-50 animate-fade-in">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Dynamic Selected Topic Hero & Figure -->
+        <div class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden mb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <!-- Left: Representative Topic Figure -->
+            <div class="lg:col-span-6 bg-navy-dark flex items-center justify-center p-4 sm:p-6">
+              <img
+                id="topicDetailFigure"
+                src="assets/topics/topic-01.svg"
+                alt="Conference topic representative figure"
+                class="w-full h-auto rounded-2xl shadow-lg border border-white/10"
+              />
+            </div>
+
+            <!-- Right: Topic Metadata & Short Description -->
+            <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                  <span id="topicDetailNum" class="inline-flex items-center px-3 py-1 rounded-full bg-navy text-amber-300 text-xs font-extrabold tracking-wider">01 / 10</span>
+                  <span id="topicDetailDomain" class="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 text-tealbrand border border-tealbrand/20 text-xs font-bold">Green Energy</span>
+                  <span id="topicDetailSession" class="inline-flex items-center px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-semibold">Session 1 • 10:15–11:30</span>
+                </div>
+                <h2 id="topicDetailTitle" class="font-display text-2xl sm:text-3xl font-extrabold text-navy tracking-tight mb-4">
+                  Renewable Energy &amp; Hybrid Systems
+                </h2>
+                <p id="topicDetailDesc" class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6"></p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-100">
+                <button
+                  type="button"
+                  id="topicSubmitPreregBtn"
+                  class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-solar hover:bg-amber-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition-colors"
+                >
+                  <span data-i18n="topics.submitForTopic">Pre-Register / Submit for This Topic</span>
+                </button>
+                <div class="flex items-center gap-2 ml-auto">
+                  <button
+                    type="button"
+                    id="topicPrevBtn"
+                    class="inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy text-xs font-semibold transition-colors"
+                  >
+                    <span>←</span>
+                    <span data-i18n="topics.prevTopic">Prev</span>
+                  </button>
+                  <button
+                    type="button"
+                    id="topicNextBtn"
+                    class="inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy text-xs font-semibold transition-colors"
+                  >
+                    <span data-i18n="topics.nextTopic">Next</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What Is Included in This Topic (Science & Research + Industry & Practice) -->
+        <div class="mb-8">
+          <h3 class="font-display text-lg sm:text-xl font-extrabold text-navy mb-4" data-i18n="topics.includedHeading">
+            What Is Included in This Topic
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Card 1: Science / Research -->
+            <div class="rounded-3xl bg-white border border-slate-200 p-6 shadow-sm">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-10 h-10 rounded-xl bg-navy text-amber-300 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-tealbrand" data-i18n="topics.sciEyebrow">Scientific Track</div>
+                  <h4 class="font-display font-bold text-navy text-base sm:text-lg" data-i18n="topics.sciTitle">Science (Research)</h4>
+                </div>
+              </div>
+              <p id="topicScienceSummary" class="text-sm font-semibold text-navy/90 bg-slate-50 border border-slate-200/80 rounded-xl px-4 py-3 mb-4"></p>
+              <ul id="topicScienceList" class="space-y-2.5 text-sm text-slate-600"></ul>
+            </div>
+
+            <!-- Card 2: Industry / Practice -->
+            <div class="rounded-3xl bg-white border border-slate-200 p-6 shadow-sm">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-10 h-10 rounded-xl bg-amber-100 text-solar flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </span>
+                <div>
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-solar" data-i18n="topics.indEyebrow">Engineering &amp; Application</div>
+                  <h4 class="font-display font-bold text-navy text-base sm:text-lg" data-i18n="topics.indTitle">Profession (Practice &amp; Industry)</h4>
+                </div>
+              </div>
+              <p id="topicIndustrySummary" class="text-sm font-semibold text-navy/90 bg-amber-50/60 border border-amber-200/70 rounded-xl px-4 py-3 mb-4"></p>
+              <ul id="topicIndustryList" class="space-y-2.5 text-sm text-slate-600"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Switcher Across All 10 Topics -->
+        <div class="rounded-3xl bg-white border border-slate-200 p-5 sm:p-6 shadow-sm mb-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5">
+            <h3 class="font-display font-bold text-navy text-sm uppercase tracking-wider" data-i18n="topics.allTenHeading">
+              Explore All 10 Conference Topics
+            </h3>
+            <span class="text-xs text-slate-500" data-i18n="topics.allTenHint">Select any topic below or return to the Vitruvian wheel</span>
+          </div>
+          <div id="topicQuickNav" class="grid grid-cols-2 sm:grid-cols-5 gap-2"></div>
+        </div>
+
+        <!-- One-Day Program Sessions Overview -->
+        <div class="rounded-3xl bg-navy text-white p-6 sm:p-7 shadow-lg">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <h3 class="font-display font-bold text-amber-300 text-sm uppercase tracking-widest" data-i18n="topics.progHeading">
+              Program Sessions Overview
+            </h3>
+            <span class="text-xs text-slate-300" data-i18n="topics.progSub">
+              Oral Technical Sessions &amp; Poster Section (Topics 01–10)
             </span>
-            <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-navy tracking-tight" data-i18n="topics.title">
-              Conference Topics
-            </h2>
-            <p class="text-slate-600 mt-3 text-base" data-i18n="topics.subtitle">
-              Original research papers, case studies, and engineering reviews are invited across eight core thematic areas.
-            </p>
           </div>
-
-          <!-- Category Filter Pills -->
-          <div class="flex flex-wrap gap-2" role="group" aria-label="Filter topics">
-            <button type="button" data-topic-filter="all" class="topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-navy text-white shadow-sm transition-all" data-i18n="topics.filterAll">All Topics (8)</button>
-            <button type="button" data-topic-filter="renewables" class="topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all" data-i18n="topics.filterRenewables">Renewables</button>
-            <button type="button" data-topic-filter="systems" class="topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all" data-i18n="topics.filterSystems">Systems &amp; Grids</button>
-            <button type="button" data-topic-filter="environment" class="topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all" data-i18n="topics.filterEnv">Policy &amp; Environment</button>
-          </div>
+          <div id="topicSessionsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"></div>
         </div>
 
-        <!-- 8-Card Topics Grid -->
-        <div id="topicsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-          <!-- Topic 1: Solar Energy & Photovoltaics -->
-          <article data-topic-cat="renewables" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-solar/50 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 text-solar flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="4" />
-                <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t1Title">Solar Energy &amp; Photovoltaics</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t1Desc">PV systems, agrivoltaics, solar thermal collectors, BIPV, concentrating solar power, and performance modeling.</p>
-          </article>
-
-          <!-- Topic 2: Wind, Hydro & Marine Renewables -->
-          <article data-topic-cat="renewables" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-tealbrand/50 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 text-tealbrand flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12L12 3m0 9l7.5 4.5M12 12L4.5 16.5M12 12v9m-4 0h8" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t2Title">Wind, Hydro &amp; Marine Renewables</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t2Desc">Onshore &amp; offshore wind turbines, small hydropower, Adriatic wave/tidal energy, and hybrid renewable plants.</p>
-          </article>
-
-          <!-- Topic 3: Energy Efficiency in Buildings & Industry -->
-          <article data-topic-cat="systems" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-navy/40 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-slate-100 text-navy flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 10h2m2 0h2M9 14h2m2 0h2M10 21v-3h4v3" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t3Title">Energy Efficiency in Buildings &amp; Industry</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t3Desc">Nearly zero-energy buildings (nZEB), deep retrofits, waste-heat recovery, and industrial process optimization.</p>
-          </article>
-
-          <!-- Topic 4: Smart Grids, Microgrids & Energy Storage -->
-          <article data-topic-cat="systems" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-solar/50 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 text-solar flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t4Title">Smart Grids, Microgrids &amp; Energy Storage</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t4Desc">Battery and thermal storage, island &amp; coastal microgrids, demand-side flexibility, and AI forecasting.</p>
-          </article>
-
-          <!-- Topic 5: Hydrogen, E-Fuels & Sustainable Mobility -->
-          <article data-topic-cat="renewables" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-tealbrand/50 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 text-tealbrand flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z" />
-                <path stroke-linecap="round" d="M9.5 14.5h5M12 12v5" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t5Title">Hydrogen, E-Fuels &amp; Sustainable Mobility</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t5Desc">Green hydrogen electrolysis, fuel cells, maritime &amp; port decarbonization, EV charging infrastructure, and e-fuels.</p>
-          </article>
-
-          <!-- Topic 6: Thermodynamics, Heat Pumps & District Heating -->
-          <article data-topic-cat="systems" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-navy/40 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-slate-100 text-navy flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 14.76V5a2 2 0 10-4 0v9.76a4 4 0 104 0z" />
-                <path stroke-linecap="round" d="M12 11v6" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t6Title">Thermodynamics, Heat Pumps &amp; District Heating</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t6Desc">Seawater &amp; geothermal heat pumps, 4th/5th-generation district heating &amp; cooling, and exergy analysis.</p>
-          </article>
-
-          <!-- Topic 7: Climate Policy, Decarbonization & Circular Economy -->
-          <article data-topic-cat="environment" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-solar/50 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 text-solar flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" />
-                <path stroke-linecap="round" d="M3.6 9h16.8M3.6 15h16.8M12 3a14.5 14.5 0 000 18M12 3a14.5 14.5 0 010 18" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t7Title">Climate Policy, Decarbonization &amp; Circular Economy</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t7Desc">EU Green Deal implementation, energy communities, carbon markets, energy security, and circular resource flows.</p>
-          </article>
-
-          <!-- Topic 8: Environmental Protection & Life Cycle Assessment -->
-          <article data-topic-cat="environment" class="topic-card bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-tealbrand/50 transition-all flex flex-col">
-            <div class="w-12 h-12 rounded-xl bg-teal-50 text-tealbrand flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-2.5-8-6.5-8-12 3.5 0 6.5 1 8 3 1.5-2 4.5-3 8-3 0 5.5-3.5 9.5-8 12z" />
-                <path stroke-linecap="round" d="M12 21V12" />
-              </svg>
-            </div>
-            <h3 class="font-display font-bold text-navy text-lg mb-2" data-i18n="topics.t8Title">Environmental Protection &amp; Life Cycle Assessment</h3>
-            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="topics.t8Desc">LCA of energy technologies, emissions mitigation, air &amp; water protection, and end-of-life PV/battery recycling.</p>
-          </article>
-
-        </div>
       </div>
     </section>
 
@@ -2393,14 +2400,16 @@
             <div>
               <label for="pfTopic" class="block text-sm font-semibold text-navy mb-1" data-i18n="modal.topicLabel">Primary Topic</label>
               <select id="pfTopic" name="topic" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none text-sm bg-white">
-                <option value="Solar Energy & Photovoltaics" data-i18n="topics.t1Title">Solar Energy &amp; Photovoltaics</option>
-                <option value="Wind, Hydro & Marine Renewables" data-i18n="topics.t2Title">Wind, Hydro &amp; Marine Renewables</option>
-                <option value="Energy Efficiency in Buildings & Industry" data-i18n="topics.t3Title">Energy Efficiency in Buildings &amp; Industry</option>
-                <option value="Smart Grids, Microgrids & Energy Storage" data-i18n="topics.t4Title">Smart Grids, Microgrids &amp; Energy Storage</option>
-                <option value="Hydrogen, E-Fuels & Sustainable Mobility" data-i18n="topics.t5Title">Hydrogen, E-Fuels &amp; Sustainable Mobility</option>
-                <option value="Thermodynamics, Heat Pumps & District Heating" data-i18n="topics.t6Title">Thermodynamics, Heat Pumps &amp; District Heating</option>
-                <option value="Climate Policy, Decarbonization & Circular Economy" data-i18n="topics.t7Title">Climate Policy, Decarbonization &amp; Circular Economy</option>
-                <option value="Environmental Protection & Life Cycle Assessment" data-i18n="topics.t8Title">Environmental Protection &amp; Life Cycle Assessment</option>
+                <option value="01 Renewable Energy & Hybrid Systems" data-i18n="topics.t1Title">01 • Renewable Energy &amp; Hybrid Systems</option>
+                <option value="02 Zero-Emission Buildings (ZEB) & HVAC" data-i18n="topics.t2Title">02 • Zero-Emission Buildings (ZEB) &amp; HVAC</option>
+                <option value="03 Heat Pumps & Waste Heat Recovery" data-i18n="topics.t3Title">03 • Heat Pumps &amp; Waste Heat Recovery</option>
+                <option value="04 Green Marine Engineering & Maritime" data-i18n="topics.t4Title">04 • Green Marine Engineering &amp; Maritime</option>
+                <option value="05 Hydrogen, E-Fuels & Energy Storage" data-i18n="topics.t5Title">05 • Hydrogen, E-Fuels &amp; Energy Storage</option>
+                <option value="06 Process Industry Decarbonization" data-i18n="topics.t6Title">06 • Process Industry Decarbonization</option>
+                <option value="07 District Heating & Cooling (4th/5th Gen.)" data-i18n="topics.t7Title">07 • District Heating &amp; Cooling (4th/5th Gen.)</option>
+                <option value="08 Carbon Capture (CCUS) & LCA" data-i18n="topics.t8Title">08 • Carbon Capture (CCUS) &amp; LCA</option>
+                <option value="09 Digitalization, AI & Digital Twins" data-i18n="topics.t9Title">09 • Digitalization, AI &amp; Digital Twins</option>
+                <option value="10 Green Transport & E-Mobility" data-i18n="topics.t10Title">10 • Green Transport &amp; E-Mobility</option>
               </select>
             </div>
           </div>
@@ -2566,10 +2575,16 @@
           'sub.history.projects': 'Solar Projects (1984–89)',
           'sub.history.modern': 'Congresses (1998–2016)',
 
-          'sub.topics.all': 'All Topics (8)',
-          'sub.topics.renewables': 'Renewables',
-          'sub.topics.systems': 'Systems & Grids',
-          'sub.topics.environment': 'Policy & Env.',
+          'sub.topics.t01': '01 Renewables & Hybrids',
+          'sub.topics.t02': '02 ZEB & HVAC',
+          'sub.topics.t03': '03 Heat Pumps & Waste Heat',
+          'sub.topics.t04': '04 Green Marine Eng.',
+          'sub.topics.t05': '05 Hydrogen & Storage',
+          'sub.topics.t06': '06 Process Decarbonization',
+          'sub.topics.t07': '07 District Heating 4G/5G',
+          'sub.topics.t08': '08 CCUS & LCA',
+          'sub.topics.t09': '09 AI & Digital Twins',
+          'sub.topics.t10': '10 Green Mobility',
 
           'sub.dates.abstracts': 'Call & Abstracts',
           'sub.dates.papers': 'Full Papers',
@@ -2686,29 +2701,28 @@
           'hist.photosWord': 'archival photographs',
           'hist.enlargeHint': 'Click to enlarge',
 
-          'topics.eyebrow': 'Scientific Tracks',
-          'topics.title': 'Conference Topics',
-          'topics.subtitle': 'Original research papers, case studies, and engineering reviews are invited across eight core thematic areas.',
-          'topics.filterAll': 'All Topics (8)',
-          'topics.filterRenewables': 'Renewables',
-          'topics.filterSystems': 'Systems & Grids',
-          'topics.filterEnv': 'Policy & Environment',
-          'topics.t1Title': 'Solar Energy & Photovoltaics',
-          'topics.t1Desc': 'PV systems, agrivoltaics, solar thermal collectors, BIPV, concentrating solar power, and performance modeling.',
-          'topics.t2Title': 'Wind, Hydro & Marine Renewables',
-          'topics.t2Desc': 'Onshore & offshore wind turbines, small hydropower, Adriatic wave/tidal energy, and hybrid renewable plants.',
-          'topics.t3Title': 'Energy Efficiency in Buildings & Industry',
-          'topics.t3Desc': 'Nearly zero-energy buildings (nZEB), deep retrofits, waste-heat recovery, and industrial process optimization.',
-          'topics.t4Title': 'Smart Grids, Microgrids & Energy Storage',
-          'topics.t4Desc': 'Battery and thermal storage, island & coastal microgrids, demand-side flexibility, and AI forecasting.',
-          'topics.t5Title': 'Hydrogen, E-Fuels & Sustainable Mobility',
-          'topics.t5Desc': 'Green hydrogen electrolysis, fuel cells, maritime & port decarbonization, EV charging infrastructure, and e-fuels.',
-          'topics.t6Title': 'Thermodynamics, Heat Pumps & District Heating',
-          'topics.t6Desc': 'Seawater & geothermal heat pumps, 4th/5th-generation district heating & cooling, and exergy analysis.',
-          'topics.t7Title': 'Climate Policy, Decarbonization & Circular Economy',
-          'topics.t7Desc': 'EU Green Deal implementation, energy communities, carbon markets, energy security, and circular resource flows.',
-          'topics.t8Title': 'Environmental Protection & Life Cycle Assessment',
-          'topics.t8Desc': 'LCA of energy technologies, emissions mitigation, air & water protection, and end-of-life PV/battery recycling.',
+          'topics.submitForTopic': 'Pre-Register / Submit for This Topic',
+          'topics.prevTopic': 'Prev',
+          'topics.nextTopic': 'Next',
+          'topics.includedHeading': 'What Is Included in This Topic',
+          'topics.sciEyebrow': 'Scientific Track',
+          'topics.sciTitle': 'Science (Research)',
+          'topics.indEyebrow': 'Engineering & Application',
+          'topics.indTitle': 'Profession (Practice & Industry)',
+          'topics.allTenHeading': 'Explore All 10 Conference Topics',
+          'topics.allTenHint': 'Select any topic below or return to the Vitruvian wheel',
+          'topics.progHeading': 'Program Sessions Overview',
+          'topics.progSub': 'Oral Technical Sessions & Poster Section (Topics 01–10)',
+          'topics.t1Title': '01 • Renewable Energy & Hybrid Systems',
+          'topics.t2Title': '02 • Zero-Emission Buildings (ZEB) & HVAC',
+          'topics.t3Title': '03 • Heat Pumps & Waste Heat Recovery',
+          'topics.t4Title': '04 • Green Marine Engineering & Maritime',
+          'topics.t5Title': '05 • Hydrogen, E-Fuels & Energy Storage',
+          'topics.t6Title': '06 • Process Industry Decarbonization',
+          'topics.t7Title': '07 • District Heating & Cooling (4th/5th Gen.)',
+          'topics.t8Title': '08 • Carbon Capture (CCUS) & LCA',
+          'topics.t9Title': '09 • Digitalization, AI & Digital Twins',
+          'topics.t10Title': '10 • Green Transport & E-Mobility',
 
           'dates.eyebrow': 'Schedule & Deadlines',
           'dates.tentativeBadge': 'Tentative / Draft',
@@ -2954,10 +2968,16 @@
           'sub.history.projects': 'Solarni projekti (1984.–89.)',
           'sub.history.modern': 'Kongresi (1998.–2016.)',
 
-          'sub.topics.all': 'Sve teme (8)',
-          'sub.topics.renewables': 'Obnovljivi izvori',
-          'sub.topics.systems': 'Sustavi i mreže',
-          'sub.topics.environment': 'Politika i okoliš',
+          'sub.topics.t01': '01 Obnovljivi i hibridi',
+          'sub.topics.t02': '02 ZEB i KGH',
+          'sub.topics.t03': '03 Dizalice i otpadna toplina',
+          'sub.topics.t04': '04 Zeleno brodostrojarstvo',
+          'sub.topics.t05': '05 Vodik i pohrana',
+          'sub.topics.t06': '06 Dekarbonizacija procesa',
+          'sub.topics.t07': '07 Daljinsko grijanje 4./5. g.',
+          'sub.topics.t08': '08 CCUS i LCA',
+          'sub.topics.t09': '09 AI i digitalni blizanci',
+          'sub.topics.t10': '10 Zeleni promet',
 
           'sub.dates.abstracts': 'Poziv i sažetci',
           'sub.dates.papers': 'Cjeloviti radovi',
@@ -3074,29 +3094,28 @@
           'hist.photosWord': 'arhivskih fotografija',
           'hist.enlargeHint': 'Klikni za uvećanje',
 
-          'topics.eyebrow': 'Znanstvene sekcije',
-          'topics.title': 'Teme kongresa',
-          'topics.subtitle': 'Pozivamo autore da prijave izvorne znanstvene radove, studije slučaja i stručne preglede u osam tematskih područja.',
-          'topics.filterAll': 'Sve teme (8)',
-          'topics.filterRenewables': 'Obnovljivi izvori',
-          'topics.filterSystems': 'Sustavi i mreže',
-          'topics.filterEnv': 'Politika i okoliš',
-          'topics.t1Title': 'Sunčeva energija i fotonapon',
-          'topics.t1Desc': 'Fotonaponski sustavi, agrofotovoltaika, solarni toplinski kolektori, BIPV, koncentrirana sunčeva energija i modeliranje.',
-          'topics.t2Title': 'Energija vjetra, vode i mora',
-          'topics.t2Desc': 'Kopnene i priobalne vjetroelektrane, male hidroelektrane, energija valova i plime Jadrana te hibridna postrojenja.',
-          'topics.t3Title': 'Energetska učinkovitost u zgradarstvu i industriji',
-          'topics.t3Desc': 'Zgrade gotovo nulte energije (nZEB), dubinska obnova, korištenje otpadne topline i optimizacija industrijskih procesa.',
-          'topics.t4Title': 'Pametne mreže, mikromreže i pohrana energije',
-          'topics.t4Desc': 'Baterijska i toplinska pohrana, otočne i priobalne mikromreže, upravljanje potrošnjom i AI predviđanje.',
-          'topics.t5Title': 'Vodik, e-goriva i održiva mobilnost',
-          'topics.t5Desc': 'Elektroliza zelenog vodika, gorivni članci, dekarbonizacija pomorstva i luka, punionice za EV i sintetička goriva.',
-          'topics.t6Title': 'Termodinamika, dizalice topline i daljinsko grijanje',
-          'topics.t6Desc': 'Dizalice topline s morskom i geotermalnom energijom, 4./5. generacija toplinarstva i eksergijska analiza.',
-          'topics.t7Title': 'Klimatska politika, dekarbonizacija i kružno gospodarstvo',
-          'topics.t7Desc': 'Europski zeleni plan, energetske zajednice, tržišta ugljika, energetska sigurnost i kružni tokovi resursa.',
-          'topics.t8Title': 'Zaštita okoliša i procjena životnog ciklusa (LCA)',
-          'topics.t8Desc': 'LCA energetskih tehnologija, smanjenje emisija, zaštita zraka i voda te recikliranje FN panela i baterija.',
+          'topics.submitForTopic': 'Predbilježba / Prijava za ovu temu',
+          'topics.prevTopic': 'Prethodna',
+          'topics.nextTopic': 'Sljedeća',
+          'topics.includedHeading': 'Što je uključeno u ovu temu',
+          'topics.sciEyebrow': 'Znanstveni dio',
+          'topics.sciTitle': 'Znanost (istraživanje)',
+          'topics.indEyebrow': 'Inženjerstvo i primjena',
+          'topics.indTitle': 'Struka (praksa i industrija)',
+          'topics.allTenHeading': 'Istražite svih 10 tematskih cjelina',
+          'topics.allTenHint': 'Odaberite bilo koju temu ispod ili se vratite na Vitruvijev kotač',
+          'topics.progHeading': 'Raspored u jednodnevnom programu',
+          'topics.progSub': 'Usmena izlaganja po sesijama i poster sekcija (Teme 01–10)',
+          'topics.t1Title': '01 • Obnovljivi izvori i hibridni sustavi',
+          'topics.t2Title': '02 • Zgrade nultih emisija (ZEB) i KGH',
+          'topics.t3Title': '03 • Dizalice topline i otpadna toplina',
+          'topics.t4Title': '04 • Zeleno brodostrojarstvo i pomorstvo',
+          'topics.t5Title': '05 • Vodik, e-goriva i pohrana energije',
+          'topics.t6Title': '06 • Dekarbonizacija procesne industrije',
+          'topics.t7Title': '07 • Daljinsko grijanje i hlađenje (4./5. gen.)',
+          'topics.t8Title': '08 • Hvatanje ugljika (CCUS) i LCA',
+          'topics.t9Title': '09 • Digitalizacija, AI i digitalni blizanci',
+          'topics.t10Title': '10 • Zeleni promet i e-mobilnost',
 
           'dates.eyebrow': 'Raspored i rokovi',
           'dates.tentativeBadge': 'Okvirni datumi / Nacrt',
@@ -3512,27 +3531,576 @@
           }
         });
 
-        // Topic Filter Pills (Exposed helper for radial sub-menu rays)
-        const filterBtns = document.querySelectorAll('.topic-filter-btn');
-        const topicCards = document.querySelectorAll('.topic-card');
-        function applyTopicFilter(filter) {
-          filterBtns.forEach((b) => {
-            const active = b.getAttribute('data-topic-filter') === filter;
-            b.className = active
-              ? 'topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-navy text-white shadow-sm transition-all'
-              : 'topic-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-navy/40 transition-all';
-          });
-          topicCards.forEach((card) => {
-            const cat = card.getAttribute('data-topic-cat');
-            const show = filter === 'all' || cat === filter;
-            card.classList.toggle('hidden', !show);
+        // 10 Conference Topics Dataset & Level 3 Single-Topic Renderer
+        const conferenceTopicsData = [
+          {
+                    "id": "topic-01",
+                    "num": "01",
+                    "figure": "assets/topics/topic-01.svg",
+                    "sessionId": "s1",
+                    "selectVal": "01 Renewable Energy & Hybrid Systems",
+                    "enTitle": "Renewable Energy & Hybrid Systems",
+                    "hrTitle": "Obnovljivi izvori i hibridni sustavi",
+                    "enShort": "Renewables & Hybrids",
+                    "hrShort": "Obnovljivi i hibridi",
+                    "enDomain": "Green Energy",
+                    "hrDomain": "Zelena energija",
+                    "enSession": "Session 1 • 10:15–11:30",
+                    "hrSession": "Sesija 1 • 10:15–11:30",
+                    "enDesc": "Integrated multi-source renewable energy plants combining solar photovoltaics, wind energy, heat pumps, and battery energy storage systems (BESS) within resilient microgrids for buildings and industry.",
+                    "hrDesc": "Integrirani višestruki sustavi obnovljivih izvora energije koji povezuju fotonapon, energiju vjetra, dizalice topline i baterijske spremnike (BESS) u otporne mikromreže za zgrade i industriju.",
+                    "enSciSummary": "Hybrid modeling (PV, wind, heat pumps), microgrids",
+                    "hrSciSummary": "Modeliranje hibrida (FN, vjetar, dizalice topline), mikromreže",
+                    "enSciItems": [
+                              "Coupled thermodynamic and electrical modeling of hybrid PV–wind–heat pump systems",
+                              "Optimal sizing, dispatch, and control of islanded and grid-connected microgrids",
+                              "Multi-objective performance, reliability, and intermittency mitigation analyses"
+                    ],
+                    "hrSciItems": [
+                              "Spregnuto modeliranje hibridnih sustava (FN, vjetar, dizalice topline)",
+                              "Optimalno dimenzioniranje i upravljanje otočnim i mrežnim mikromrežama",
+                              "Višekriterijska optimizacija učinkovitosti i ublažavanja intermitentnosti OIE"
+                    ],
+                    "enIndSummary": "Designing RES in buildings & industry, BESS storage",
+                    "hrIndSummary": "Projektiranje OIE u zgradama i industriji, BESS spremnici",
+                    "enIndItems": [
+                              "Engineering design and integration of solar PV and renewable plants in commercial and industrial facilities",
+                              "Deployment and grid-code integration of Battery Energy Storage Systems (BESS)",
+                              "Self-consumption optimization, peak shaving, and techno-economic feasibility case studies"
+                    ],
+                    "hrIndItems": [
+                              "Projektiranje i integracija OIE postrojenja u zgradarstvu i industriji",
+                              "Primjena i priključak baterijskih spremnika energije (BESS) na mrežu",
+                              "Povećanje vlastite potrošnje, vršno rezanje opterećenja i studije isplativosti"
+                    ]
+          },
+          {
+                    "id": "topic-02",
+                    "num": "02",
+                    "figure": "assets/topics/topic-02.svg",
+                    "sessionId": "s2",
+                    "selectVal": "02 Zero-Emission Buildings (ZEB) & HVAC",
+                    "enTitle": "Zero-Emission Buildings (ZEB) & HVAC",
+                    "hrTitle": "Zgrade nultih emisija (ZEB) i KGH",
+                    "enShort": "ZEB & HVAC",
+                    "hrShort": "ZEB i KGH",
+                    "enDomain": "HVAC • Thermal Engineering",
+                    "hrDomain": "HVAC / KGH • Termotehnika",
+                    "enSession": "Session 2 • 12:30–13:45",
+                    "hrSession": "Sesija 2 • 12:30–13:45",
+                    "enDesc": "High-performance building envelopes, advanced heating, ventilation, and air-conditioning (HVAC) systems, indoor environmental quality, and compliance with the EU Energy Performance of Buildings Directive (EPBD).",
+                    "hrDesc": "Visokoučinkovite zgrade nultih emisija, napredni sustavi grijanja, hlađenja i klimatizacije (KGH/HVAC), kvaliteta unutarnjeg zraka te dubinska obnova prema Direktivi o energetskim svojstvima zgrada (EPBD).",
+                    "enSciSummary": "Dynamic simulations, MPC control, indoor environmental quality (IEQ)",
+                    "hrSciSummary": "Dinamičke simulacije, MPC upravljanje, kvaliteta zraka (IEQ)",
+                    "enSciItems": [
+                              "Dynamic whole-building energy and hygrothermal simulations across coastal and continental climates",
+                              "Model Predictive Control (MPC) for thermal comfort, load shifting, and demand flexibility",
+                              "Indoor Environmental Quality (IEQ), ventilation effectiveness, and thermal comfort assessment"
+                    ],
+                    "hrSciItems": [
+                              "Dinamičke energetske i toplinsko-vlažne simulacije zgrada",
+                              "Prediktivno upravljanje (MPC) za optimizaciju potrošnje i toplinske ugodnosti",
+                              "Ocjena kvalitete unutarnjeg okoliša (IEQ) i učinkovitosti ventilacije"
+                    ],
+                    "enIndSummary": "EPBD renovation, heat recovery, nZEB/ZEB system design",
+                    "hrIndSummary": "EPBD obnova, rekuperacija, projektiranje nZEB/ZEB sustava",
+                    "enIndItems": [
+                              "Deep energy renovation workflows aligned with revised EU EPBD zero-emission targets",
+                              "Ventilation heat recovery (HRV/ERV) and low-energy air-handling units",
+                              "Practical engineering design and commissioning of nZEB and ZEB building mechanical systems"
+                    ],
+                    "hrIndItems": [
+                              "Energetska obnova zgrada u skladu sa zahtjevima revidirane EU EPBD direktive",
+                              "Rekuperacija topline u ventilacijskim sustavima i niskoenergetski KGH uređaji",
+                              "Projektiranje, izvođenje i puštanje u pogon termotehničkih sustava nZEB/ZEB zgrada"
+                    ]
+          },
+          {
+                    "id": "topic-03",
+                    "num": "03",
+                    "figure": "assets/topics/topic-03.svg",
+                    "sessionId": "s3",
+                    "selectVal": "03 Heat Pumps & Waste Heat Recovery",
+                    "enTitle": "Heat Pumps & Waste Heat Recovery",
+                    "hrTitle": "Dizalice topline i otpadna toplina",
+                    "enShort": "Heat Pumps & Waste Heat",
+                    "hrShort": "Dizalice i otpadna toplina",
+                    "enDomain": "Thermal • Process Engineering",
+                    "hrDomain": "Termotehnika • Procesno",
+                    "enSession": "Session 3 • 14:45–16:00",
+                    "hrSession": "Sesija 3 • 14:45–16:00",
+                    "enDesc": "Upgrading low-grade ambient and industrial waste heat through high-temperature heat pumps, next-generation low-GWP refrigerants, Organic Rankine Cycles (ORC), and industrial heat recovery equipment.",
+                    "hrDesc": "Podizanje niskotemperaturne i industrijske otpadne topline primjenom visokotemperaturnih dizalica topline, radnih tvari niskog GWP-a, organskih Rankineovih ciklusa (ORC) i industrijskih rekuperatora.",
+                    "enSciSummary": "Advanced thermodynamic cycles, low-GWP refrigerants, ORC systems",
+                    "hrSciSummary": "Napredni kružni procesi, niski GWP, ORC sustavi",
+                    "enSciItems": [
+                              "Advanced compression, absorption, and cascade thermodynamic cycles for high temperature lift",
+                              "Natural and ultra-low-GWP working fluids (CO₂, hydrocarbons, HFOs, ammonia)",
+                              "Organic Rankine Cycle (ORC) modeling and waste-heat-to-power conversion"
+                    ],
+                    "hrSciItems": [
+                              "Napredni kompresijski, apsorpcijski i kaskadni kružni procesi",
+                              "Prirodne radne tvari i radni mediji niskog potencijala globalnog zagrijavanja (GWP)",
+                              "Modeliranje i eksperimentalna ispitivanja ORC sustava za proizvodnju električne energije"
+                    ],
+                    "enIndSummary": "Industrial heat pumps, recuperators, waste-heat recovery",
+                    "hrIndSummary": "Industrijske dizalice topline, rekuperatori, povrat topline",
+                    "enIndItems": [
+                              "High-temperature industrial heat pumps delivering 100–160 °C process heat and steam",
+                              "Flue-gas and process recuperators, economizers, and thermal upgrading skids",
+                              "Industrial case studies demonstrating fuel savings and rapid payback through waste-heat recovery"
+                    ],
+                    "hrIndItems": [
+                              "Industrijske dizalice topline za tehnološku toplinu i proizvodnju pare",
+                              "Rekuperatori, ekonomajzeri i sustavi iskorištavanja otpadne topline dimnih plinova",
+                              "Industrijske studije slučaja povrata topline i smanjenja potrošnje primarne energije"
+                    ]
+          },
+          {
+                    "id": "topic-04",
+                    "num": "04",
+                    "figure": "assets/topics/topic-04.svg",
+                    "sessionId": "s3",
+                    "selectVal": "04 Green Marine Engineering & Maritime",
+                    "enTitle": "Green Marine Engineering & Maritime",
+                    "hrTitle": "Zeleno brodostrojarstvo i pomorstvo",
+                    "enShort": "Green Marine Eng.",
+                    "hrShort": "Zeleno brodostrojarstvo",
+                    "enDomain": "Marine Engineering",
+                    "hrDomain": "Brodostrojarstvo",
+                    "enSession": "Session 3 • 14:45–16:00",
+                    "hrSession": "Sesija 3 • 14:45–16:00",
+                    "enDesc": "Decarbonizing maritime transport and Adriatic ports via zero-carbon marine fuels, hybrid-electric ship propulsion, engine-room energy optimization (EEXI/CII), and shore-to-ship power (cold ironing).",
+                    "hrDesc": "Dekarbonizacija pomorskog prometa i jadranskih luka putem alternativnih brodskih goriva, hibridne propulzije, energetske učinkovitosti strojarnica (EEXI/CII) i napajanja brodova s kopna (cold ironing).",
+                    "enSciSummary": "Alternative fuels (methanol, ammonia, H₂), hybrid propulsion",
+                    "hrSciSummary": "Alternativna goriva (metanol, amonijak, H₂), hibridna propulzija",
+                    "enSciItems": [
+                              "Combustion, emissions, and safety analysis of green methanol, ammonia, and hydrogen marine engines",
+                              "Hybrid diesel-electric, battery, and fuel-cell marine propulsion architectures",
+                              "Shipboard waste-heat recovery and dynamic energy management of marine power plants"
+                    ],
+                    "hrSciItems": [
+                              "Alternativna brodska goriva (metanol, amonijak, vodik) i smanjenje štetnih emisija",
+                              "Hibridni, baterijski i gorivno-člankovni brodski propulzijski sustavi",
+                              "Optimizacija i energetski učinkovito vođenje brodskih pogonskih postrojenja"
+                    ],
+                    "enIndSummary": "Engine-room efficiency (EEXI/CII), shore power (cold ironing)",
+                    "hrIndSummary": "Učinkovitost strojarnica (EEXI/CII), napajanje s kopna (cold ironing)",
+                    "enIndItems": [
+                              "Compliance engineering for IMO EEXI, CII ratings, and FuelEU Maritime requirements",
+                              "Port electrification and Onshore Power Supply (OPS / cold ironing) infrastructure",
+                              "Engine-room retrofits, auxiliary load optimization, and maritime emission monitoring"
+                    ],
+                    "hrIndItems": [
+                              "Povećanje učinkovitosti brodskih strojarnica i usklađivanje s IMO EEXI/CII pokazateljima",
+                              "Elektrifikacija luka i sustavi napajanja brodova s kopna (cold ironing / OPS)",
+                              "Rekonstrukcije brodskih postrojenja i smanjenje emisija u obalnom i lučkom području"
+                    ]
+          },
+          {
+                    "id": "topic-05",
+                    "num": "05",
+                    "figure": "assets/topics/topic-05.svg",
+                    "sessionId": "s1",
+                    "selectVal": "05 Hydrogen, E-Fuels & Energy Storage",
+                    "enTitle": "Hydrogen, E-Fuels & Energy Storage",
+                    "hrTitle": "Vodik, e-goriva i pohrana energije",
+                    "enShort": "Hydrogen & Storage",
+                    "hrShort": "Vodik i pohrana",
+                    "enDomain": "Green Energy • Low-Carbon",
+                    "hrDomain": "Zelena energija • Niskougljično",
+                    "enSession": "Session 1 • 10:15–11:30",
+                    "hrSession": "Sesija 1 • 10:15–11:30",
+                    "enDesc": "Green hydrogen production via renewable electrolysis, synthetic e-fuels, fuel cells, long-duration seasonal energy storage, and regional hydrogen valley ecosystems.",
+                    "hrDesc": "Proizvodnja zelenog vodika elektrolizom iz obnovljivih izvora, sintetička e-goriva, gorivni članci, sezonska pohrana energije te razvoj regionalnih vodikovih dolina i industrijske infrastrukture.",
+                    "enSciSummary": "Electrolysis, fuel cells, seasonal energy storage",
+                    "hrSciSummary": "Elektroliza, gorivni članci, sezonska pohrana energije",
+                    "enSciItems": [
+                              "PEM, alkaline, and solid-oxide (SOEC) electrolyzer modeling, efficiency, and degradation",
+                              "Fuel cell thermal integration (PEMFC/SOFC) and Power-to-X / synthetic e-fuel pathways",
+                              "Long-duration seasonal chemical, underground, and thermal energy storage systems"
+                    ],
+                    "hrSciItems": [
+                              "Modeliranje i optimizacija elektrolizatora (PEM, alkalni, SOEC) i gorivnih članaka",
+                              "Power-to-X procesi i sinteza niskougljičnih e-goriva",
+                              "Sezonska pohrana energije za uravnoteženje visokoobnovljivih elektroenergetskih sustava"
+                    ],
+                    "enIndSummary": "Hydrogen valleys, safety regulations, industrial distribution",
+                    "hrIndSummary": "Vodikove doline, sigurnosni propisi, distribucija u industriji",
+                    "enIndItems": [
+                              "Cross-border regional Hydrogen Valleys (such as North Adriatic Hydrogen Valley initiatives)",
+                              "Hydrogen compression, pipeline transport, blending, and industrial distribution networks",
+                              "Codes, standards, ATEX/safety regulations, and risk management for H₂ facilities"
+                    ],
+                    "hrIndItems": [
+                              "Razvoj regionalnih vodikovih dolina i pilot-projekata (npr. Sjevernojadranska vodikova dolina)",
+                              "Tlačenje, skladištenje, cjevovodni transport i distribucija vodika u industriji",
+                              "Sigurnosni propisi, norme, procjena rizika i certifikacija vodikovih postrojenja"
+                    ]
+          },
+          {
+                    "id": "topic-06",
+                    "num": "06",
+                    "figure": "assets/topics/topic-06.svg",
+                    "sessionId": "s3",
+                    "selectVal": "06 Process Industry Decarbonization",
+                    "enTitle": "Process Industry Decarbonization",
+                    "hrTitle": "Dekarbonizacija procesne industrije",
+                    "enShort": "Process Decarbonization",
+                    "hrShort": "Dekarbonizacija procesa",
+                    "enDomain": "Process & Energy Engineering",
+                    "hrDomain": "Procesno-energetsko strojarstvo",
+                    "enSession": "Session 3 • 14:45–16:00",
+                    "hrSession": "Sesija 3 • 14:45–16:00",
+                    "enDesc": "Cutting energy intensity and CO₂ emissions in manufacturing and process plants through pinch analysis, advanced heat exchangers, process heat electrification, cogeneration, and modernized steam networks.",
+                    "hrDesc": "Smanjenje energetske intenzivnosti i emisija CO₂ u procesnoj industriji putem pinch analize, naprednih izmjenjivača topline, elektrifikacije procesne topline, kogeneracije i modernizacije parnih sustava.",
+                    "enSciSummary": "Pinch analysis, heat & mass transfer, heat exchangers",
+                    "hrSciSummary": "Pinch analiza, prijenos topline i tvari, izmjenjivači",
+                    "enSciItems": [
+                              "Process integration, Pinch Analysis, and Heat Exchanger Network (HEN) synthesis",
+                              "Fundamental and applied heat and mass transfer enhancement, including phase-change processes",
+                              "Fin-and-tube, microchannel, compact, and regenerative heat exchanger design"
+                    ],
+                    "hrSciItems": [
+                              "Pinch analiza, procesna integracija i optimizacija mreža izmjenjivača topline",
+                              "Poboljšanje prijenosa topline i tvari, uključujući procese s promjenom agregatnog stanja",
+                              "Cijevni lamelni, mikrokanalni, kompaktni i regenerativni izmjenjivači topline"
+                    ],
+                    "enIndSummary": "Process heat electrification, cogeneration, steam systems",
+                    "hrIndSummary": "Elektrifikacija procesne topline, kogeneracija, parni sustavi",
+                    "enIndItems": [
+                              "Direct and indirect electrification of industrial heating (electric boilers, thermal storage, plasma/induction)",
+                              "High-efficiency cogeneration (CHP) and trigeneration in industrial facilities",
+                              "Steam system audits, condensate recovery, trap management, and thermal insulation retrofits"
+                    ],
+                    "hrIndItems": [
+                              "Elektrifikacija procesne topline (električni kotlovi, toplinski spremnici, hibridni sustavi)",
+                              "Visokoučinkovita kogeneracija (CHP) i trigeneracija u industrijskim pogonima",
+                              "Optimizacija parnih i kondenzatnih sustava te smanjenje toplinskih gubitaka"
+                    ]
+          },
+          {
+                    "id": "topic-07",
+                    "num": "07",
+                    "figure": "assets/topics/topic-07.svg",
+                    "sessionId": "s2",
+                    "selectVal": "07 District Heating & Cooling (4th/5th Gen.)",
+                    "enTitle": "District Heating & Cooling (4th/5th Gen.)",
+                    "hrTitle": "Daljinsko grijanje i hlađenje (4./5. gen.)",
+                    "enShort": "District Heating 4G/5G",
+                    "hrShort": "Daljinsko grijanje 4./5. g.",
+                    "enDomain": "Thermal Engineering • HVAC",
+                    "hrDomain": "Termotehnika • HVAC",
+                    "enSession": "Session 2 • 12:30–13:45",
+                    "hrSession": "Sesija 2 • 12:30–13:45",
+                    "enDesc": "Transitioning urban heating and cooling networks toward low-temperature 4th- and bidirectional 5th-generation grids powered by geothermal energy, solar thermal, large thermal storage, and urban waste heat.",
+                    "hrDesc": "Prijelaz gradskih toplinarskih mreža prema niskotemperaturnim mrežama 4. i dvosmjernim mrežama 5. generacije uz korištenje geotermalne energije, velikih spremnika topline i gradske otpadne topline.",
+                    "enSciSummary": "Low-temperature network modeling, geothermal, thermal storage",
+                    "hrSciSummary": "Modeliranje niskotemperaturnih mreža, geotermija, spremnici",
+                    "enSciItems": [
+                              "Thermo-hydraulic modeling of 4th-generation low-temperature and 5th-generation ambient DHC loops",
+                              "Geothermal, seawater, and solar-district thermal integration with prosumer substations",
+                              "Pit, tank, and borehole seasonal thermal energy storage (TES) modeling"
+                    ],
+                    "hrSciItems": [
+                              "Termohidrauličko modeliranje niskotemperaturnih (4G) i dvosmjernih (5G) toplinarskih mreža",
+                              "Integracija geotermalne, morske i sunčeve energije u sustave daljinskog grijanja i hlađenja",
+                              "Modeliranje velikih sezonskih i kratkoročnih spremnika topline"
+                    ],
+                    "enIndSummary": "Heating-plant modernization, waste heat in urban grids",
+                    "hrIndSummary": "Modernizacija toplana, otpadna toplina u gradskoj mreži",
+                    "enIndItems": [
+                              "Modernization and decarbonization of existing municipal heating plants and substations",
+                              "Feeding excess heat from data centers, wastewater treatment, supermarkets, and industry into city grids",
+                              "Reducing distribution heat losses, lowering return temperatures, and smart metering"
+                    ],
+                    "hrIndItems": [
+                              "Modernizacija postojećih toplana, toplinskih podstanica i distribucijskih cjevovoda",
+                              "Uključivanje otpadne topline iz industrije, podatkovnih centara i otpadnih voda u gradsku mrežu",
+                              "Smanjenje gubitaka distribucije, snižavanje povratne temperature i pametno mjerenje"
+                    ]
+          },
+          {
+                    "id": "topic-08",
+                    "num": "08",
+                    "figure": "assets/topics/topic-08.svg",
+                    "sessionId": "s3",
+                    "selectVal": "08 Carbon Capture (CCUS) & LCA",
+                    "enTitle": "Carbon Capture (CCUS) & LCA",
+                    "hrTitle": "Hvatanje ugljika (CCUS) i LCA",
+                    "enShort": "CCUS & LCA",
+                    "hrShort": "CCUS i LCA",
+                    "enDomain": "Low-Carbon • Process Engineering",
+                    "hrDomain": "Niskougljično • Procesno",
+                    "enSession": "Session 3 • 14:45–16:00",
+                    "hrSession": "Sesija 3 • 14:45–16:00",
+                    "enDesc": "Carbon capture, utilization, and storage (CCUS) for hard-to-abate sectors, combined with rigorous Life Cycle Assessment (LCA), exergy analysis, product carbon footprinting, and EU CBAM readiness.",
+                    "hrDesc": "Izdvajanje, oporaba i skladištenje ugljika (CCUS) za teško dekarbonizirajuće sektore, uz procjenu životnog ciklusa (LCA), eksergijske analize, proračun ugljičnog otiska proizvoda i prilagodbu EU CBAM-u.",
+                    "enSciSummary": "CO₂ capture & utilization, LCA and exergy analyses",
+                    "hrSciSummary": "Izdvajanje i oporaba CO₂, LCA i eksergijske analize",
+                    "enSciItems": [
+                              "Post-combustion, oxy-fuel, membrane, and adsorption CO₂ capture and chemical utilization",
+                              "Cradle-to-grave Life Cycle Assessment (LCA) of energy technologies, fuels, and materials",
+                              "Advanced exergy, exergoeconomic, and exergoenvironmental system analyses"
+                    ],
+                    "hrSciItems": [
+                              "Tehnologije izdvajanja (apsorpcija, adsorpcija, membrane) i oporabe CO₂",
+                              "Procjena životnog ciklusa (LCA) energetskih sustava, goriva i industrijskih proizvoda",
+                              "Eksergijske, eksergoekonomske i eksergookolišne analize energetskih postrojenja"
+                    ],
+                    "enIndSummary": "Heavy industry, product carbon footprint, EU CBAM",
+                    "hrIndSummary": "Teška industrija, ugljični otisak proizvoda, EU CBAM",
+                    "enIndItems": [
+                              "Decarbonization roadmaps for cement, steel, refining, and chemical heavy industries",
+                              "Product Carbon Footprint (PCF), EPD verification, and Scope 1–3 emissions accounting",
+                              "Practical industrial compliance and reporting under the EU Carbon Border Adjustment Mechanism (CBAM)"
+                    ],
+                    "hrIndItems": [
+                              "Primjena CCUS-a i mjera dekarbonizacije u cementnoj, metaloprerađivačkoj i teškoj industriji",
+                              "Izračun ugljičnog otiska proizvoda (PCF), EPD deklaracije i evidencija emisija",
+                              "Prilagodba industrije i izvještavanje prema EU mehanizmu za prilagodbu ugljika na granicama (CBAM)"
+                    ]
+          },
+          {
+                    "id": "topic-09",
+                    "num": "09",
+                    "figure": "assets/topics/topic-09.svg",
+                    "sessionId": "s2",
+                    "selectVal": "09 Digitalization, AI & Digital Twins",
+                    "enTitle": "Digitalization, AI & Digital Twins",
+                    "hrTitle": "Digitalizacija, AI i digitalni blizanci",
+                    "enShort": "AI & Digital Twins",
+                    "hrShort": "AI i digitalni blizanci",
+                    "enDomain": "HVAC • Thermal • Process",
+                    "hrDomain": "HVAC • Termotehnika • Procesno",
+                    "enSession": "Session 2 • 12:30–13:45",
+                    "hrSession": "Sesija 2 • 12:30–13:45",
+                    "enDesc": "Applying Computational Fluid Dynamics (CFD), machine learning, physics-informed AI, and real-time digital twins to optimize buildings, energy plants, BMS/BEMS operations, and predictive maintenance.",
+                    "hrDesc": "Primjena računalne dinamike fluida (CFD), strojnog učenja i digitalnih blizanaca u stvarnom vremenu za optimizaciju zgrada, energetskih postrojenja, pametnog upravljanja (BMS/BEMS) i prediktivnog održavanja.",
+                    "enSciSummary": "CFD simulations, machine learning, plant digital twins",
+                    "hrSciSummary": "CFD simulacije, strojno učenje, digitalni blizanci postrojenja",
+                    "enSciItems": [
+                              "High-fidelity CFD simulations of heat transfer, airflow, combustion, and turbomachinery",
+                              "Machine learning, surrogate modeling, and AI forecasting of loads and renewable generation",
+                              "Real-time Digital Twins coupling physical models with live IoT sensor streams"
+                    ],
+                    "hrSciItems": [
+                              "CFD simulacije strujanja fluida, prijelaza topline, izgaranja i turbostrojeva",
+                              "Strojno učenje i AI modeli za predviđanje opterećenja i proizvodnje iz OIE",
+                              "Razvoj digitalnih blizanaca energetskih i procesnih postrojenja u stvarnom vremenu"
+                    ],
+                    "enIndSummary": "Smart control (BMS/BEMS), predictive maintenance",
+                    "hrIndSummary": "Pametno upravljanje (BMS/BEMS), prediktivno održavanje",
+                    "enIndItems": [
+                              "Intelligent Building Management & Energy Management Systems (BMS / BEMS)",
+                              "Automated fault detection, diagnostics (FDD), and predictive maintenance of thermal assets",
+                              "Cloud/edge SCADA dashboards and digital commissioning in industrial plants"
+                    ],
+                    "hrIndItems": [
+                              "Napredni sustavi upravljanja zgradama i energijom (BMS / BEMS)",
+                              "Automatsko otkrivanje kvarova (FDD) i prediktivno održavanje opreme",
+                              "Digitalni nadzor, SCADA sustavi i optimizacija pogona u praksi"
+                    ]
+          },
+          {
+                    "id": "topic-10",
+                    "num": "10",
+                    "figure": "assets/topics/topic-10.svg",
+                    "sessionId": "s1",
+                    "selectVal": "10 Green Transport & E-Mobility",
+                    "enTitle": "Green Transport & E-Mobility",
+                    "hrTitle": "Zeleni promet i e-mobilnost",
+                    "enShort": "Green Mobility",
+                    "hrShort": "Zeleni promet",
+                    "enDomain": "Green Energy • Low-Carbon",
+                    "hrDomain": "Zelena energija • Niskougljično",
+                    "enSession": "Session 1 • 10:15–11:30",
+                    "hrSession": "Sesija 1 • 10:15–11:30",
+                    "enDesc": "Electrified and hydrogen-powered mobility — spanning battery thermal management systems (BTMS), EV/H₂ powertrains, Vehicle-to-Grid (V2G) charging, fast-charging hubs, and clean public and freight transport.",
+                    "hrDesc": "Elektrificirani i vodikovi pogoni u prometu — uključujući hlađenje baterija (BTMS), EV/H₂ pogone, dvosmjerno V2G punjenje, brze punionice te dekarbonizaciju javnog i teretnog prometa.",
+                    "enSciSummary": "Battery thermal management (BTMS), EV/H₂ powertrains, V2G charging",
+                    "hrSciSummary": "Hlađenje baterija (BTMS), EV/H₂ pogoni, V2G punjenje",
+                    "enSciItems": [
+                              "Liquid, immersion, and phase-change Battery Thermal Management Systems (BTMS) for EV safety and longevity",
+                              "Thermal and drivetrain optimization of battery-electric (BEV) and hydrogen fuel-cell (FCEV) vehicles",
+                              "Smart Vehicle-to-Grid (V2G) and Vehicle-to-Building (V2B) bidirectional energy exchange"
+                    ],
+                    "hrSciItems": [
+                              "Sustavi toplinskog upravljanja i hlađenja baterija (BTMS) za sigurnost i trajnost EV baterija",
+                              "Istraživanje i optimizacija električnih (EV) i vodikovih (H₂) pogonskih sklopova",
+                              "Dvosmjerno punjenje vozilo-mreža (V2G) i integracija s obnovljivim izvorima"
+                    ],
+                    "enIndSummary": "Fast-charging stations & grid, public & freight decarbonization",
+                    "hrIndSummary": "Brze punionice i mreža, dekarbonizacija javnog i teretnog prometa",
+                    "enIndItems": [
+                              "High-power DC fast-charging hubs, transformer capacity planning, and solar-plus-BESS charging canopies",
+                              "Electrification and H₂ transition of urban public buses, municipal fleets, and heavy freight corridors",
+                              "Charging load management, interoperability standards, and fleet TCO case studies"
+                    ],
+                    "hrIndItems": [
+                              "Projektiranje brzih DC punionica, integracija s elektroenergetskom mrežom i BESS potporom",
+                              "Dekarbonizacija javnog gradskog prijevoza, komunalnih flota i teretnog prometa",
+                              "Upravljanje opterećenjem punjenja i studije ukupnih troškova vlasništva (TCO)"
+                    ]
+          }
+];
+        const programSessionsData = [
+          {
+                    "id": "s1",
+                    "enTitle": "SESSION 1 • 10:15 – 11:30",
+                    "hrTitle": "SESIJA 1 • 10:15 – 11:30",
+                    "enTopics": "Topics 01, 05, 10",
+                    "hrTopics": "Teme 01, 05, 10",
+                    "enDesc": "Green energy, hydrogen & e-mobility",
+                    "hrDesc": "Zelena energija, vodik i e-mobilnost"
+          },
+          {
+                    "id": "s2",
+                    "enTitle": "SESSION 2 • 12:30 – 13:45",
+                    "hrTitle": "SESIJA 2 • 12:30 – 13:45",
+                    "enTopics": "Topics 02, 07, 09",
+                    "hrTopics": "Teme 02, 07, 09",
+                    "enDesc": "HVAC, ZEB, DHC & digitalization",
+                    "hrDesc": "KGH (HVAC), ZEB, DHC i digitalizacija"
+          },
+          {
+                    "id": "s3",
+                    "enTitle": "SESSION 3 • 14:45 – 16:00",
+                    "hrTitle": "SESIJA 3 • 14:45 – 16:00",
+                    "enTopics": "Topics 03, 04, 06, 08",
+                    "hrTopics": "Teme 03, 04, 06, 08",
+                    "enDesc": "Marine engineering, thermal & processes",
+                    "hrDesc": "Brodostrojarstvo, termotehnika i procesi"
+          },
+          {
+                    "id": "poster",
+                    "enTitle": "POSTER SECTION",
+                    "hrTitle": "POSTER SEKCIJA",
+                    "enTopics": "All Topics (01 – 10)",
+                    "hrTopics": "Sve teme (01 – 10)",
+                    "enDesc": "Researchers, PhD candidates & pilot projects",
+                    "hrDesc": "Istraživači, doktorandi i pilot-projekti"
+          }
+];
+
+        let activeTopicIdx = 0;
+
+        function renderTopicDetail(topicIdOrIdx) {
+          let idx = activeTopicIdx;
+          if (typeof topicIdOrIdx === 'number') {
+            idx = ((topicIdOrIdx % conferenceTopicsData.length) + conferenceTopicsData.length) % conferenceTopicsData.length;
+          } else if (typeof topicIdOrIdx === 'string') {
+            const found = conferenceTopicsData.findIndex((t) => t.id === topicIdOrIdx);
+            if (found >= 0) idx = found;
+          }
+          activeTopicIdx = idx;
+          const t = conferenceTopicsData[idx];
+          if (!t) return;
+          const isHr = currentLang === 'hr';
+
+          const figEl = document.getElementById('topicDetailFigure');
+          if (figEl) {
+            figEl.src = t.figure;
+            figEl.alt = `${t.num} — ${isHr ? t.hrTitle : t.enTitle}`;
+          }
+          const numEl = document.getElementById('topicDetailNum');
+          if (numEl) numEl.textContent = `${t.num} / 10`;
+          const domEl = document.getElementById('topicDetailDomain');
+          if (domEl) domEl.textContent = isHr ? t.hrDomain : t.enDomain;
+          const sesEl = document.getElementById('topicDetailSession');
+          if (sesEl) sesEl.textContent = isHr ? t.hrSession : t.enSession;
+          const titleEl = document.getElementById('topicDetailTitle');
+          if (titleEl) titleEl.textContent = `${t.num}. ${isHr ? t.hrTitle : t.enTitle}`;
+          const descEl = document.getElementById('topicDetailDesc');
+          if (descEl) descEl.textContent = isHr ? t.hrDesc : t.enDesc;
+
+          const sciSum = document.getElementById('topicScienceSummary');
+          if (sciSum) sciSum.textContent = isHr ? t.hrSciSummary : t.enSciSummary;
+          const sciList = document.getElementById('topicScienceList');
+          if (sciList) {
+            const items = isHr ? t.hrSciItems : t.enSciItems;
+            sciList.innerHTML = items.map((line) => `
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-tealbrand shrink-0"></span>
+                <span>${line}</span>
+              </li>
+            `).join('');
+          }
+
+          const indSum = document.getElementById('topicIndustrySummary');
+          if (indSum) indSum.textContent = isHr ? t.hrIndSummary : t.enIndSummary;
+          const indList = document.getElementById('topicIndustryList');
+          if (indList) {
+            const items = isHr ? t.hrIndItems : t.enIndItems;
+            indList.innerHTML = items.map((line) => `
+              <li class="flex items-start gap-2.5">
+                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-solar shrink-0"></span>
+                <span>${line}</span>
+              </li>
+            `).join('');
+          }
+
+          const quickNav = document.getElementById('topicQuickNav');
+          if (quickNav) {
+            quickNav.innerHTML = conferenceTopicsData.map((item, i) => {
+              const active = i === idx;
+              return `
+                <button type="button" data-jump-topic="${item.id}"
+                  class="text-left px-3 py-2 rounded-xl border text-xs font-semibold transition-all truncate ${active ? 'bg-navy text-amber-300 border-navy shadow-sm' : 'bg-slate-50 hover:bg-amber-50 text-navy border-slate-200 hover:border-solar/50'}">
+                  <span class="font-extrabold mr-1">${item.num}</span>
+                  <span>${isHr ? item.hrShort : item.enShort}</span>
+                </button>
+              `;
+            }).join('');
+            quickNav.querySelectorAll('[data-jump-topic]').forEach((btn) => {
+              btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-jump-topic');
+                const sub = subMenuConfig.topics.find((s) => s.id === targetId);
+                if (sub) openLevel3('topics', sub, { pushHash: true });
+              });
+            });
+          }
+
+          const sessionsGrid = document.getElementById('topicSessionsGrid');
+          if (sessionsGrid) {
+            sessionsGrid.innerHTML = programSessionsData.map((s) => {
+              const isMatch = s.id === t.sessionId;
+              return `
+                <div class="rounded-2xl p-4 border ${isMatch ? 'bg-solar/25 border-amber-300/70' : 'bg-white/8 border-white/10'}">
+                  <div class="text-[11px] font-extrabold uppercase tracking-wider ${isMatch ? 'text-amber-200' : 'text-amber-300/90'}">${isHr ? s.hrTitle : s.enTitle}</div>
+                  <div class="font-display font-bold text-white text-sm mt-1">${isHr ? s.hrTopics : s.enTopics}</div>
+                  <div class="text-xs text-slate-300 mt-1">${isHr ? s.hrDesc : s.enDesc}</div>
+                </div>
+              `;
+            }).join('');
+          }
+        }
+
+        const topicPrevBtn = document.getElementById('topicPrevBtn');
+        const topicNextBtn = document.getElementById('topicNextBtn');
+        const topicSubmitPreregBtn = document.getElementById('topicSubmitPreregBtn');
+        if (topicPrevBtn) {
+          topicPrevBtn.addEventListener('click', () => {
+            const nextIdx = (activeTopicIdx - 1 + conferenceTopicsData.length) % conferenceTopicsData.length;
+            const sub = subMenuConfig.topics[nextIdx];
+            if (sub) openLevel3('topics', sub, { pushHash: true });
           });
         }
-        filterBtns.forEach((btn) => {
-          btn.addEventListener('click', () => {
-            applyTopicFilter(btn.getAttribute('data-topic-filter'));
+        if (topicNextBtn) {
+          topicNextBtn.addEventListener('click', () => {
+            const nextIdx = (activeTopicIdx + 1) % conferenceTopicsData.length;
+            const sub = subMenuConfig.topics[nextIdx];
+            if (sub) openLevel3('topics', sub, { pushHash: true });
           });
-        });
+        }
+        if (topicSubmitPreregBtn) {
+          topicSubmitPreregBtn.addEventListener('click', () => {
+            const pfTopic = document.getElementById('pfTopic');
+            const cur = conferenceTopicsData[activeTopicIdx];
+            if (pfTopic && cur) pfTopic.value = cur.selectVal;
+            openModal('preregModal');
+          });
+        }
 
         // Committee Tabs (Exposed helper for radial sub-menu rays)
         const commBtns = document.querySelectorAll('.comm-tab-btn');
@@ -4218,6 +4786,7 @@
           }
         }
         renderZteSection();
+        renderTopicDetail(0);
 
         /* -------------------------------------------------------------------
          * 8. VITRUVIAN SOLAR ROUTER & ROTATING RAYS SUB-MENU ENGINE
@@ -4284,10 +4853,16 @@
             { id: 'prereg', labelKey: 'sub.about.prereg', angle: 309, left: 17, top: 24, action: () => openModal('preregModal') }
           ],
           topics: [
-            { id: 'all', labelKey: 'sub.topics.all', angle: 0, left: 50, top: 7, section: 'topics', onEnter: () => applyTopicFilter('all') },
-            { id: 'renewables', labelKey: 'sub.topics.renewables', angle: 90, left: 87, top: 50, section: 'topics', onEnter: () => applyTopicFilter('renewables') },
-            { id: 'systems', labelKey: 'sub.topics.systems', angle: 180, left: 50, top: 93, section: 'topics', onEnter: () => applyTopicFilter('systems') },
-            { id: 'environment', labelKey: 'sub.topics.environment', angle: 270, left: 13, top: 50, section: 'topics', onEnter: () => applyTopicFilter('environment') }
+            { id: 'topic-01', labelKey: 'sub.topics.t01', angle: 0, left: 50, top: 6, section: 'topics', onEnter: () => renderTopicDetail('topic-01') },
+            { id: 'topic-02', labelKey: 'sub.topics.t02', angle: 36, left: 77, top: 15, section: 'topics', onEnter: () => renderTopicDetail('topic-02') },
+            { id: 'topic-03', labelKey: 'sub.topics.t03', angle: 72, left: 92, top: 36, section: 'topics', onEnter: () => renderTopicDetail('topic-03') },
+            { id: 'topic-04', labelKey: 'sub.topics.t04', angle: 108, left: 92, top: 64, section: 'topics', onEnter: () => renderTopicDetail('topic-04') },
+            { id: 'topic-05', labelKey: 'sub.topics.t05', angle: 144, left: 77, top: 85, section: 'topics', onEnter: () => renderTopicDetail('topic-05') },
+            { id: 'topic-06', labelKey: 'sub.topics.t06', angle: 180, left: 50, top: 94, section: 'topics', onEnter: () => renderTopicDetail('topic-06') },
+            { id: 'topic-07', labelKey: 'sub.topics.t07', angle: 216, left: 23, top: 85, section: 'topics', onEnter: () => renderTopicDetail('topic-07') },
+            { id: 'topic-08', labelKey: 'sub.topics.t08', angle: 252, left: 8, top: 64, section: 'topics', onEnter: () => renderTopicDetail('topic-08') },
+            { id: 'topic-09', labelKey: 'sub.topics.t09', angle: 288, left: 8, top: 36, section: 'topics', onEnter: () => renderTopicDetail('topic-09') },
+            { id: 'topic-10', labelKey: 'sub.topics.t10', angle: 324, left: 23, top: 15, section: 'topics', onEnter: () => renderTopicDetail('topic-10') }
           ],
           dates: [
             { id: 'abstracts', labelKey: 'sub.dates.abstracts', angle: 0, left: 50, top: 7, section: 'dates' },
@@ -4864,7 +5439,11 @@
             el.style.left = `${item.left}%`;
             el.style.top = `${item.top}%`;
             const isActiveSub = pageId !== 'home' && idx === activeSubIndex;
-            el.className = `radial-menu-node px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/50 hover:border-amber-200 text-amber-50 hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-black/45 whitespace-nowrap cursor-pointer${isActiveSub ? ' radial-node-active' : ''}`;
+            const isDense = items.length >= 9;
+            const sizeClasses = isDense
+              ? 'px-2.5 py-1 sm:px-3.5 sm:py-1.5 text-[10px] sm:text-xs'
+              : 'px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs';
+            el.className = `radial-menu-node ${sizeClasses} rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/50 hover:border-amber-200 text-amber-50 hover:text-white font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-black/45 whitespace-nowrap cursor-pointer${isActiveSub ? ' radial-node-active' : ''}`;
             el.textContent = label;
 
             const setRayHover = (on) => {
@@ -4927,6 +5506,7 @@
           }
           renderHistoryGallery();
           renderZteSection();
+          renderTopicDetail(activeTopicIdx);
         }
 
         onLanguageChangedCallback = updateActivePageLabels;
