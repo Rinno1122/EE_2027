@@ -853,7 +853,7 @@
         <!-- Header + 100-word City Overview -->
         <div class="max-w-4xl mb-12">
           <span class="inline-block text-xs font-bold uppercase tracking-widest text-tealbrand mb-2" data-i18n="rijeka.eyebrow">
-            About • Host City
+            Venue • Host City
           </span>
           <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-navy tracking-tight mb-4" data-i18n="rijeka.title">
             City of Rijeka
@@ -3128,7 +3128,6 @@
 
           'sub.about.overview': 'Mission & Scope',
           'sub.about.heritage': '50 Years (1977–2027)',
-          'sub.about.rijeka': 'City of Rijeka',
           'sub.about.zte': 'ZTE — RITEH',
           'sub.about.committees': 'Committees',
           'sub.about.contact': 'Contact & Secretariat',
@@ -3180,6 +3179,7 @@
           'sub.venue.airports': 'Airports & Travel',
           'sub.venue.maps': 'Google Maps ↗',
           'sub.venue.hotels': 'Accommodation',
+          'sub.venue.rijeka': 'City of Rijeka',
 
           'sub.archive.overview': 'All Past Editions',
           'sub.archive.2016': 'EE 2016 (25th) ↗',
@@ -3434,7 +3434,7 @@
           'airports.railDesc': 'Frequent intercity coaches connect Rijeka Bus Station (Žabica) with Zagreb, Ljubljana, Trieste, and Venice. Rijeka Railway Station links directly to Zagreb and Ljubljana.',
           'airports.localTitle': 'Downtown to InnovaLab (Trsat Campus)',
           'airports.localDesc': 'From central Rijeka (Korzo / downtown hotels), Autotrolej city bus lines 2 and 8 climb directly to the Trsat Campus (~12–15 minutes), or take a 10-minute taxi ride up to Radmile Matejčić 10.',
-          'rijeka.eyebrow': 'About • Host City',
+          'rijeka.eyebrow': 'Venue • Host City',
           'rijeka.title': 'City of Rijeka',
           'rijeka.overview': "Rijeka is Croatia's third-largest city and principal seaport, nestled where the emerald Kvarner Bay meets the mountains of Gorski Kotar and the Istrian peninsula. Celebrated as the 2020 European Capital of Culture, the city blends Austro-Hungarian elegance, vibrant Mediterranean street life, and a rich maritime and industrial legacy spanning centuries. Home to the University of Rijeka and its renowned Faculty of Engineering (RITEH), Rijeka is a dynamic hub for energy science, naval architecture, and sustainable innovation. Compact, walkable, and welcoming, it offers delegates effortless access to historic fortresses, Adriatic promenades, island escapes, and authentic coastal cuisine.",
           'rijeka.sightsTitle': 'Top 10 Sightseeing Highlights in Rijeka & Nearby',
@@ -3621,7 +3621,6 @@
 
           'sub.about.overview': 'Misija i pregled',
           'sub.about.heritage': '50 godina (1977.–2027.)',
-          'sub.about.rijeka': 'Grad Rijeka',
           'sub.about.zte': 'ZTE — RITEH',
           'sub.about.committees': 'Odbori',
           'sub.about.contact': 'Kontakt i tajništvo',
@@ -3673,6 +3672,7 @@
           'sub.venue.airports': 'Zračne luke',
           'sub.venue.maps': 'Google karte ↗',
           'sub.venue.hotels': 'Smještaj',
+          'sub.venue.rijeka': 'Grad Rijeka',
 
           'sub.archive.overview': 'Sva prošla izdanja',
           'sub.archive.2016': 'EO 2016 (25.) ↗',
@@ -3927,7 +3927,7 @@
           'airports.railDesc': 'Česte autobusne linije povezuju riječki kolodvor Žabica sa Zagrebom, Ljubljanom, Trstom i Venecijom, dok željeznički kolodvor Rijeka ima izravne linije za Zagreb i Ljubljanu.',
           'airports.localTitle': 'Od centra grada do InnovaLaba (Kampus Trsat)',
           'airports.localDesc': 'Iz središta Rijeke (Korzo i hoteli u centru) gradske autobusne linije Autotroleja br. 2 i 8 voze izravno na Kampus Trsat (~12–15 min), a vožnja taksijem do adrese Radmile Matejčić 10 traje oko 10 minuta.',
-          'rijeka.eyebrow': 'O kongresu • Grad domaćin',
+          'rijeka.eyebrow': 'Lokacija • Grad domaćin',
           'rijeka.title': 'Grad Rijeka',
           'rijeka.overview': 'Rijeka je treći najveći grad i najvažnija morska luka u Hrvatskoj, smještena na spoju Kvarnerskog zaljeva, Gorskog kotara i istarskog poluotoka. Kao Europska prijestolnica kulture 2020., grad spaja austrougarsku arhitektonsku eleganciju, živahan mediteranski ritam te bogatu pomorsku i industrijsku baštinu. Sjedište Sveučilišta u Rijeci i uglednog Tehničkog fakulteta (RITEH), Rijeka je snažno središte energetske znanosti, brodogradnje i održivih inovacija. Pregledna, pristupačna i gostoljubiva, sudionicima kongresa nudi neposredan dodir s povijesnim utvrdama, jadranskim šetnicama, obližnjim otocima i vrhunskom kvarnerskom gastronomijom.',
           'rijeka.sightsTitle': '10 najpoznatijih znamenitosti u Rijeci i okolici',
@@ -5711,14 +5711,13 @@
         // Choosing an item opens its Level 3 content page (without the Vitruvian Man)
         const subMenuConfig = {
           about: [
-            { id: 'overview', labelKey: 'sub.about.overview', angle: 0, left: 50, top: 7, section: 'about', focus: '#about .lg\\:col-span-7' },
-            { id: 'since1977', labelKey: 'sub.about.heritage', angle: 45, left: 81, top: 19, section: 'about', focus: '#about .lg\\:col-span-5' },
-            { id: 'rijeka', labelKey: 'sub.about.rijeka', angle: 90, left: 91, top: 50, section: 'rijeka' },
-            { id: 'zte', labelKey: 'sub.about.zte', angle: 135, left: 81, top: 81, section: 'zte' },
-            { id: 'committees', labelKey: 'sub.about.committees', angle: 180, left: 50, top: 93, action: () => navigateToPage('committees', { spin: false }) },
-            { id: 'contact', labelKey: 'sub.about.contact', angle: 225, left: 19, top: 81, section: 'contact' },
-            { id: 'acknowledgments', labelKey: 'sub.about.ack', angle: 270, left: 9, top: 50, section: 'acknowledgments' },
-            { id: 'prereg', labelKey: 'sub.about.prereg', angle: 315, left: 19, top: 19, action: () => openModal('preregModal') }
+            { id: 'overview', labelKey: 'sub.about.overview', angle: 0, left: 50, top: 8, section: 'about', focus: '#about .lg\\:col-span-7' },
+            { id: 'since1977', labelKey: 'sub.about.heritage', angle: 51, left: 83, top: 24, section: 'about', focus: '#about .lg\\:col-span-5' },
+            { id: 'zte', labelKey: 'sub.about.zte', angle: 103, left: 91, top: 59, section: 'zte' },
+            { id: 'committees', labelKey: 'sub.about.committees', angle: 154, left: 68, top: 88, action: () => navigateToPage('committees', { spin: false }) },
+            { id: 'contact', labelKey: 'sub.about.contact', angle: 206, left: 32, top: 88, section: 'contact' },
+            { id: 'acknowledgments', labelKey: 'sub.about.ack', angle: 257, left: 9, top: 59, section: 'acknowledgments' },
+            { id: 'prereg', labelKey: 'sub.about.prereg', angle: 309, left: 17, top: 24, action: () => openModal('preregModal') }
           ],
           topics: [
             { id: 'topic-01', labelKey: 'sub.topics.t01', angle: 0, left: 50, top: 5, section: 'topics', onEnter: () => renderTopicDetail('topic-01') },
@@ -5763,9 +5762,10 @@
           ],
           venue: [
             { id: 'innovalab', labelKey: 'sub.venue.opatija', angle: 0, left: 50, top: 7, section: 'venue' },
-            { id: 'airports', labelKey: 'sub.venue.airports', angle: 90, left: 87, top: 50, section: 'airports' },
-            { id: 'maps', labelKey: 'sub.venue.maps', angle: 180, left: 50, top: 93, href: 'https://www.google.com/maps/search/?api=1&query=InnovaLab+Radmile+Matejcic+10+Rijeka+Croatia' },
-            { id: 'accommodation', labelKey: 'sub.venue.hotels', angle: 270, left: 14, top: 50, section: 'accommodation' }
+            { id: 'airports', labelKey: 'sub.venue.airports', angle: 72, left: 91, top: 37, section: 'airports' },
+            { id: 'maps', labelKey: 'sub.venue.maps', angle: 144, left: 75, top: 86, href: 'https://www.google.com/maps/search/?api=1&query=InnovaLab+Radmile+Matejcic+10+Rijeka+Croatia' },
+            { id: 'rijeka', labelKey: 'sub.venue.rijeka', angle: 216, left: 25, top: 86, section: 'rijeka' },
+            { id: 'accommodation', labelKey: 'sub.venue.hotels', angle: 288, left: 9, top: 37, section: 'accommodation' }
           ],
           archive: [
             { id: 'all-editions', labelKey: 'sub.archive.overview', angle: 0, left: 50, top: 7, section: 'archive' },
