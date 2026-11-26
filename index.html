@@ -1107,11 +1107,11 @@
         <div class="rounded-3xl bg-white border border-slate-200 p-5 sm:p-6 shadow-sm mb-8">
           <div class="flex flex-wrap items-center justify-between gap-2 mb-3.5">
             <h3 class="font-display font-bold text-navy text-sm uppercase tracking-wider" data-i18n="topics.allTenHeading">
-              Explore All 10 Conference Topics
+              Explore All 11 Conference Topics
             </h3>
             <span class="text-xs text-slate-500" data-i18n="topics.allTenHint">Select any topic below or return to the Vitruvian wheel</span>
           </div>
-          <div id="topicQuickNav" class="grid grid-cols-2 sm:grid-cols-5 gap-2"></div>
+          <div id="topicQuickNav" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2"></div>
         </div>
 
         <!-- One-Day Program Sessions Overview -->
@@ -2517,6 +2517,7 @@
                 <option value="Cooling & Refrigeration" data-i18n="topics.t8Title">◆ Cooling &amp; Refrigeration</option>
                 <option value="AI, CFD & Digital Twins" data-i18n="topics.t9Title">◆ AI, CFD &amp; Digital Twins</option>
                 <option value="Green Mobility" data-i18n="topics.t10Title">◆ Green Mobility</option>
+                <option value="Smart Grids & Virtual Power Plants" data-i18n="topics.t11Title">◆ Smart Grids &amp; Virtual Power Plants</option>
               </select>
             </div>
           </div>
@@ -2692,6 +2693,7 @@
           'sub.topics.t08': 'Cooling & Refrigeration',
           'sub.topics.t09': 'AI, CFD & Digital Twins',
           'sub.topics.t10': 'Green Mobility',
+          'sub.topics.t11': 'Smart Grids & Virtual Power Plants',
 
           'sub.dates.all': 'All Dates (11)',
           'sub.dates.abstracts': 'Jun 18 • Abstracts',
@@ -2820,7 +2822,7 @@
           'topics.sciTitle': 'Science (Research)',
           'topics.indEyebrow': 'Engineering & Application',
           'topics.indTitle': 'Profession (Practice & Industry)',
-          'topics.allTenHeading': 'Explore All 10 Conference Topics',
+          'topics.allTenHeading': 'Explore All 11 Conference Topics',
           'topics.allTenHint': 'Select any topic below or return to the Vitruvian wheel',
           'topics.progHeading': 'Program Sessions Overview',
           'topics.progSub': 'Oral Technical Sessions & Poster Section',
@@ -2834,6 +2836,7 @@
           'topics.t8Title': '◆ Cooling & Refrigeration',
           'topics.t9Title': '◆ AI, CFD & Digital Twins',
           'topics.t10Title': '◆ Green Mobility',
+          'topics.t11Title': '◆ Smart Grids & Virtual Power Plants',
 
           'dates.eyebrow': 'Schedule & Deadlines',
           'dates.yearBadge': '2027 Official Timeline',
@@ -3110,6 +3113,7 @@
           'sub.topics.t08': 'Tehnika hlađenja',
           'sub.topics.t09': 'AI, CFD i digitalni blizanci',
           'sub.topics.t10': 'Zeleni promet',
+          'sub.topics.t11': 'Pametne mreže i virtualne elektrane',
 
           'sub.dates.all': 'Svi datumi (11)',
           'sub.dates.abstracts': '18. lipnja • Sažeci',
@@ -3238,7 +3242,7 @@
           'topics.sciTitle': 'Znanost (istraživanje)',
           'topics.indEyebrow': 'Inženjerstvo i primjena',
           'topics.indTitle': 'Struka (praksa i industrija)',
-          'topics.allTenHeading': 'Istražite svih 10 tematskih cjelina',
+          'topics.allTenHeading': 'Istražite svih 11 tematskih cjelina',
           'topics.allTenHint': 'Odaberite bilo koju temu ispod ili se vratite na Vitruvijev kotač',
           'topics.progHeading': 'Raspored u jednodnevnom programu',
           'topics.progSub': 'Usmena izlaganja po sesijama i poster sekcija',
@@ -3252,6 +3256,7 @@
           'topics.t8Title': '◆ Tehnika hlađenja',
           'topics.t9Title': '◆ AI, CFD i digitalni blizanci',
           'topics.t10Title': '◆ Zeleni promet',
+          'topics.t11Title': '◆ Pametne mreže i virtualne elektrane',
 
           'dates.eyebrow': 'Raspored i rokovi',
           'dates.yearBadge': 'Službeni kalendar 2027.',
@@ -4099,6 +4104,47 @@
                               "Dekarbonizacija javnog gradskog prijevoza, komunalnih flota i teretnog prometa",
                               "Upravljanje opterećenjem punjenja i studije ukupnih troškova vlasništva (TCO)"
                     ]
+          },
+          {
+                    "id": "topic-11",
+                    "num": "11",
+                    "figure": "assets/topics/topic-11.svg",
+                    "sessionId": "s1",
+                    "selectVal": "Smart Grids & Virtual Power Plants",
+                    "enTitle": "Smart Grids & Virtual Power Plants",
+                    "hrTitle": "Pametne mreže i virtualne elektrane",
+                    "enShort": "Smart Grids & VPPs",
+                    "hrShort": "Pametne mreže i VPP",
+                    "enDomain": "Grid Flexibility • Aggregators",
+                    "hrDomain": "Fleksibilnost mreže • Agregator",
+                    "enSession": "Session 1 • 10:15–11:30",
+                    "hrSession": "Sesija 1 • 10:15–11:30",
+                    "enDesc": "Next-generation active distribution networks, Virtual Power Plants (VPPs), distributed energy resource aggregation, demand-side flexibility, frequency stabilization, and peer-to-peer local electricity markets.",
+                    "hrDesc": "Aktivne distribucijske mreže nove generacije, virtualne elektrane (VPP), agregacija distribuiranih izvora energije, upravljanje potrošnjom, regulacija frekvencije i lokalna tržišta električne energije.",
+                    "enSciSummary": "VPP dispatch optimization, grid stability, demand-response & sector coupling",
+                    "hrSciSummary": "Optimizacija dispečiranja VPP-a, stabilnost mreže, odziv potrošnje i sektorsko sprezanje",
+                    "enSciItems": [
+                              "Stochastic optimization and real-time dispatch of Virtual Power Plants (VPPs) aggregating PV, wind, BESS, and EVs",
+                              "Power quality, voltage/frequency control, and synthetic inertia in inverter-dominated smart grids",
+                              "Multi-energy sector coupling, microgrid resilience, and cyber-physical grid security"
+                    ],
+                    "hrSciItems": [
+                              "Stohastička optimizacija i dispečiranje virtualnih elektrana (VPP) koje objedinjuju FN, vjetar, BESS i EV",
+                              "Kvaliteta električne energije, regulacija napona/frekvencije i sintetička inercija u pametnim mrežama",
+                              "Sektorsko sprezanje, otpornost mikromreža i kibernetička sigurnost elektroenergetskih sustava"
+                    ],
+                    "enIndSummary": "DSO/TSO ancillary services, aggregators, smart metering & energy communities",
+                    "hrIndSummary": "Pomoćne usluge ODS/OPS-a, agregatori, napredno mjerenje i energetske zajednice",
+                    "enIndItems": [
+                              "Commercial VPP platforms participating in balancing, ancillary-service, and intraday power markets",
+                              "Advanced Metering Infrastructure (AMI), automated feeder reconfiguration, and DSO flexibility tenders",
+                              "Operational case studies of coastal/island microgrids, energy communities, and industrial demand response"
+                    ],
+                    "hrIndItems": [
+                              "Komercijalne VPP platforme i sudjelovanje agregatora na tržištima uravnoteženja i pomoćnih usluga",
+                              "Napredna mjerna infrastruktura (AMI), automatizacija distribucijske mreže i fleksibilnost ODS-a",
+                              "Primjeri iz prakse otočnih i priobalnih mikromreža, energetskih zajednica i industrijskog odziva potrošnje"
+                    ]
           }
 ];
         const programSessionsData = [
@@ -4108,8 +4154,8 @@
                     "hrTitle": "SESIJA 1 • 10:15 – 11:30",
                     "enTopics": "Green Energy, Hydrogen & Mobility",
                     "hrTopics": "Zelena energija, vodik i promet",
-                    "enDesc": "◆ Renewable Energy • ◆ Hydrogen & Storage • ◆ Green Mobility",
-                    "hrDesc": "◆ Obnovljivi izvori • ◆ Vodik i pohrana • ◆ Zeleni promet"
+                    "enDesc": "◆ Renewable Energy • ◆ Hydrogen & Storage • ◆ Green Mobility • ◆ Smart Grids & VPPs",
+                    "hrDesc": "◆ Obnovljivi izvori • ◆ Vodik i pohrana • ◆ Zeleni promet • ◆ Pametne mreže i VPP"
           },
           {
                     "id": "s2",
@@ -5030,15 +5076,16 @@
           ],
           topics: [
             { id: 'topic-01', labelKey: 'sub.topics.t01', angle: 0, left: 50, top: 6, section: 'topics', onEnter: () => renderTopicDetail('topic-01') },
-            { id: 'topic-02', labelKey: 'sub.topics.t02', angle: 36, left: 77, top: 15, section: 'topics', onEnter: () => renderTopicDetail('topic-02') },
-            { id: 'topic-03', labelKey: 'sub.topics.t03', angle: 72, left: 92, top: 36, section: 'topics', onEnter: () => renderTopicDetail('topic-03') },
-            { id: 'topic-04', labelKey: 'sub.topics.t04', angle: 108, left: 92, top: 64, section: 'topics', onEnter: () => renderTopicDetail('topic-04') },
-            { id: 'topic-05', labelKey: 'sub.topics.t05', angle: 144, left: 77, top: 85, section: 'topics', onEnter: () => renderTopicDetail('topic-05') },
-            { id: 'topic-06', labelKey: 'sub.topics.t06', angle: 180, left: 50, top: 94, section: 'topics', onEnter: () => renderTopicDetail('topic-06') },
-            { id: 'topic-07', labelKey: 'sub.topics.t07', angle: 216, left: 23, top: 85, section: 'topics', onEnter: () => renderTopicDetail('topic-07') },
-            { id: 'topic-08', labelKey: 'sub.topics.t08', angle: 252, left: 8, top: 64, section: 'topics', onEnter: () => renderTopicDetail('topic-08') },
-            { id: 'topic-09', labelKey: 'sub.topics.t09', angle: 288, left: 8, top: 36, section: 'topics', onEnter: () => renderTopicDetail('topic-09') },
-            { id: 'topic-10', labelKey: 'sub.topics.t10', angle: 324, left: 23, top: 15, section: 'topics', onEnter: () => renderTopicDetail('topic-10') }
+            { id: 'topic-02', labelKey: 'sub.topics.t02', angle: 33, left: 76, top: 14, section: 'topics', onEnter: () => renderTopicDetail('topic-02') },
+            { id: 'topic-03', labelKey: 'sub.topics.t03', angle: 65, left: 91, top: 32, section: 'topics', onEnter: () => renderTopicDetail('topic-03') },
+            { id: 'topic-04', labelKey: 'sub.topics.t04', angle: 98, left: 93, top: 56, section: 'topics', onEnter: () => renderTopicDetail('topic-04') },
+            { id: 'topic-05', labelKey: 'sub.topics.t05', angle: 131, left: 84, top: 79, section: 'topics', onEnter: () => renderTopicDetail('topic-05') },
+            { id: 'topic-06', labelKey: 'sub.topics.t06', angle: 164, left: 69, top: 93, section: 'topics', onEnter: () => renderTopicDetail('topic-06') },
+            { id: 'topic-07', labelKey: 'sub.topics.t07', angle: 196, left: 31, top: 93, section: 'topics', onEnter: () => renderTopicDetail('topic-07') },
+            { id: 'topic-08', labelKey: 'sub.topics.t08', angle: 229, left: 16, top: 79, section: 'topics', onEnter: () => renderTopicDetail('topic-08') },
+            { id: 'topic-09', labelKey: 'sub.topics.t09', angle: 262, left: 7, top: 56, section: 'topics', onEnter: () => renderTopicDetail('topic-09') },
+            { id: 'topic-10', labelKey: 'sub.topics.t10', angle: 295, left: 9, top: 32, section: 'topics', onEnter: () => renderTopicDetail('topic-10') },
+            { id: 'topic-11', labelKey: 'sub.topics.t11', angle: 327, left: 22, top: 14, section: 'topics', onEnter: () => renderTopicDetail('topic-11') }
           ],
           dates: [
             { id: 'all-dates', labelKey: 'sub.dates.all', angle: 0, left: 50, top: 7, section: 'dates', onEnter: () => applyDateFilter('all') },
