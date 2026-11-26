@@ -1019,12 +1019,12 @@
             <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between">
               <div>
                 <div class="flex flex-wrap items-center gap-2 mb-3">
-                  <span id="topicDetailNum" class="inline-flex items-center px-3 py-1 rounded-full bg-navy text-amber-300 text-xs font-extrabold tracking-wider">01 / 10</span>
                   <span id="topicDetailDomain" class="inline-flex items-center px-3 py-1 rounded-full bg-teal-50 text-tealbrand border border-tealbrand/20 text-xs font-bold">Green Energy</span>
                   <span id="topicDetailSession" class="inline-flex items-center px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-semibold">Session 1 • 10:15–11:30</span>
                 </div>
-                <h2 id="topicDetailTitle" class="font-display text-2xl sm:text-3xl font-extrabold text-navy tracking-tight mb-4">
-                  01. Renewable Energy
+                <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-navy tracking-tight mb-4 flex items-center gap-2.5">
+                  <span class="text-amber-400 text-xl sm:text-2xl leading-none shrink-0" aria-hidden="true">◆</span>
+                  <span id="topicDetailTitle">Renewable Energy</span>
                 </h2>
                 <p id="topicDetailDesc" class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6"></p>
               </div>
@@ -2507,16 +2507,16 @@
             <div>
               <label for="pfTopic" class="block text-sm font-semibold text-navy mb-1" data-i18n="modal.topicLabel">Primary Topic</label>
               <select id="pfTopic" name="topic" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-navy focus:ring-2 focus:ring-navy/20 outline-none text-sm bg-white">
-                <option value="01 Renewable Energy" data-i18n="topics.t1Title">01 • Renewable Energy</option>
-                <option value="02 Smart HVAC" data-i18n="topics.t2Title">02 • Smart HVAC</option>
-                <option value="03 Marine Engineering" data-i18n="topics.t3Title">03 • Marine Engineering</option>
-                <option value="04 Hydrogen & Energy Storage" data-i18n="topics.t4Title">04 • Hydrogen &amp; Energy Storage</option>
-                <option value="05 Thermodynamics" data-i18n="topics.t5Title">05 • Thermodynamics</option>
-                <option value="06 Environmental Engineering" data-i18n="topics.t6Title">06 • Environmental Engineering</option>
-                <option value="07 Sustainable Construction" data-i18n="topics.t7Title">07 • Sustainable Construction</option>
-                <option value="08 Cooling & Refrigeration" data-i18n="topics.t8Title">08 • Cooling &amp; Refrigeration</option>
-                <option value="09 AI, CFD & Digital Twins" data-i18n="topics.t9Title">09 • AI, CFD &amp; Digital Twins</option>
-                <option value="10 Green Mobility" data-i18n="topics.t10Title">10 • Green Mobility</option>
+                <option value="Renewable Energy" data-i18n="topics.t1Title">◆ Renewable Energy</option>
+                <option value="Smart HVAC" data-i18n="topics.t2Title">◆ Smart HVAC</option>
+                <option value="Marine Engineering" data-i18n="topics.t3Title">◆ Marine Engineering</option>
+                <option value="Hydrogen & Energy Storage" data-i18n="topics.t4Title">◆ Hydrogen &amp; Energy Storage</option>
+                <option value="Thermodynamics" data-i18n="topics.t5Title">◆ Thermodynamics</option>
+                <option value="Environmental Engineering" data-i18n="topics.t6Title">◆ Environmental Engineering</option>
+                <option value="Sustainable Construction" data-i18n="topics.t7Title">◆ Sustainable Construction</option>
+                <option value="Cooling & Refrigeration" data-i18n="topics.t8Title">◆ Cooling &amp; Refrigeration</option>
+                <option value="AI, CFD & Digital Twins" data-i18n="topics.t9Title">◆ AI, CFD &amp; Digital Twins</option>
+                <option value="Green Mobility" data-i18n="topics.t10Title">◆ Green Mobility</option>
               </select>
             </div>
           </div>
@@ -2682,16 +2682,16 @@
           'sub.history.projects': 'Solar Projects (1984–89)',
           'sub.history.modern': 'Congresses (1998–2016)',
 
-          'sub.topics.t01': '01 Renewable Energy',
-          'sub.topics.t02': '02 Smart HVAC',
-          'sub.topics.t03': '03 Marine Engineering',
-          'sub.topics.t04': '04 Hydrogen & Energy Storage',
-          'sub.topics.t05': '05 Thermodynamics',
-          'sub.topics.t06': '06 Environmental Engineering',
-          'sub.topics.t07': '07 Sustainable Construction',
-          'sub.topics.t08': '08 Cooling & Refrigeration',
-          'sub.topics.t09': '09 AI, CFD & Digital Twins',
-          'sub.topics.t10': '10 Green Mobility',
+          'sub.topics.t01': 'Renewable Energy',
+          'sub.topics.t02': 'Smart HVAC',
+          'sub.topics.t03': 'Marine Engineering',
+          'sub.topics.t04': 'Hydrogen & Energy Storage',
+          'sub.topics.t05': 'Thermodynamics',
+          'sub.topics.t06': 'Environmental Engineering',
+          'sub.topics.t07': 'Sustainable Construction',
+          'sub.topics.t08': 'Cooling & Refrigeration',
+          'sub.topics.t09': 'AI, CFD & Digital Twins',
+          'sub.topics.t10': 'Green Mobility',
 
           'sub.dates.all': 'All Dates (11)',
           'sub.dates.abstracts': 'Jun 18 • Abstracts',
@@ -2823,17 +2823,17 @@
           'topics.allTenHeading': 'Explore All 10 Conference Topics',
           'topics.allTenHint': 'Select any topic below or return to the Vitruvian wheel',
           'topics.progHeading': 'Program Sessions Overview',
-          'topics.progSub': 'Oral Technical Sessions & Poster Section (Topics 01–10)',
-          'topics.t1Title': '01 • Renewable Energy',
-          'topics.t2Title': '02 • Smart HVAC',
-          'topics.t3Title': '03 • Marine Engineering',
-          'topics.t4Title': '04 • Hydrogen & Energy Storage',
-          'topics.t5Title': '05 • Thermodynamics',
-          'topics.t6Title': '06 • Environmental Engineering',
-          'topics.t7Title': '07 • Sustainable Construction',
-          'topics.t8Title': '08 • Cooling & Refrigeration',
-          'topics.t9Title': '09 • AI, CFD & Digital Twins',
-          'topics.t10Title': '10 • Green Mobility',
+          'topics.progSub': 'Oral Technical Sessions & Poster Section',
+          'topics.t1Title': '◆ Renewable Energy',
+          'topics.t2Title': '◆ Smart HVAC',
+          'topics.t3Title': '◆ Marine Engineering',
+          'topics.t4Title': '◆ Hydrogen & Energy Storage',
+          'topics.t5Title': '◆ Thermodynamics',
+          'topics.t6Title': '◆ Environmental Engineering',
+          'topics.t7Title': '◆ Sustainable Construction',
+          'topics.t8Title': '◆ Cooling & Refrigeration',
+          'topics.t9Title': '◆ AI, CFD & Digital Twins',
+          'topics.t10Title': '◆ Green Mobility',
 
           'dates.eyebrow': 'Schedule & Deadlines',
           'dates.yearBadge': '2027 Official Timeline',
@@ -3100,16 +3100,16 @@
           'sub.history.projects': 'Solarni projekti (1984.–89.)',
           'sub.history.modern': 'Kongresi (1998.–2016.)',
 
-          'sub.topics.t01': '01 Obnovljivi izvori',
-          'sub.topics.t02': '02 Pametni KGH (HVAC)',
-          'sub.topics.t03': '03 Brodostrojarstvo',
-          'sub.topics.t04': '04 Vodik i pohrana energije',
-          'sub.topics.t05': '05 Termodinamika',
-          'sub.topics.t06': '06 Inženjerstvo okoliša',
-          'sub.topics.t07': '07 Održiva gradnja',
-          'sub.topics.t08': '08 Tehnika hlađenja',
-          'sub.topics.t09': '09 AI, CFD i digitalni blizanci',
-          'sub.topics.t10': '10 Zeleni promet',
+          'sub.topics.t01': 'Obnovljivi izvori',
+          'sub.topics.t02': 'Pametni KGH (HVAC)',
+          'sub.topics.t03': 'Brodostrojarstvo',
+          'sub.topics.t04': 'Vodik i pohrana energije',
+          'sub.topics.t05': 'Termodinamika',
+          'sub.topics.t06': 'Inženjerstvo okoliša',
+          'sub.topics.t07': 'Održiva gradnja',
+          'sub.topics.t08': 'Tehnika hlađenja',
+          'sub.topics.t09': 'AI, CFD i digitalni blizanci',
+          'sub.topics.t10': 'Zeleni promet',
 
           'sub.dates.all': 'Svi datumi (11)',
           'sub.dates.abstracts': '18. lipnja • Sažeci',
@@ -3241,17 +3241,17 @@
           'topics.allTenHeading': 'Istražite svih 10 tematskih cjelina',
           'topics.allTenHint': 'Odaberite bilo koju temu ispod ili se vratite na Vitruvijev kotač',
           'topics.progHeading': 'Raspored u jednodnevnom programu',
-          'topics.progSub': 'Usmena izlaganja po sesijama i poster sekcija (Teme 01–10)',
-          'topics.t1Title': '01 • Obnovljivi izvori energije',
-          'topics.t2Title': '02 • Pametni KGH (HVAC)',
-          'topics.t3Title': '03 • Brodostrojarstvo',
-          'topics.t4Title': '04 • Vodik i pohrana energije',
-          'topics.t5Title': '05 • Termodinamika',
-          'topics.t6Title': '06 • Inženjerstvo okoliša',
-          'topics.t7Title': '07 • Održiva gradnja',
-          'topics.t8Title': '08 • Tehnika hlađenja',
-          'topics.t9Title': '09 • AI, CFD i digitalni blizanci',
-          'topics.t10Title': '10 • Zeleni promet',
+          'topics.progSub': 'Usmena izlaganja po sesijama i poster sekcija',
+          'topics.t1Title': '◆ Obnovljivi izvori energije',
+          'topics.t2Title': '◆ Pametni KGH (HVAC)',
+          'topics.t3Title': '◆ Brodostrojarstvo',
+          'topics.t4Title': '◆ Vodik i pohrana energije',
+          'topics.t5Title': '◆ Termodinamika',
+          'topics.t6Title': '◆ Inženjerstvo okoliša',
+          'topics.t7Title': '◆ Održiva gradnja',
+          'topics.t8Title': '◆ Tehnika hlađenja',
+          'topics.t9Title': '◆ AI, CFD i digitalni blizanci',
+          'topics.t10Title': '◆ Zeleni promet',
 
           'dates.eyebrow': 'Raspored i rokovi',
           'dates.yearBadge': 'Službeni kalendar 2027.',
@@ -3695,7 +3695,7 @@
                     "num": "01",
                     "figure": "assets/topics/topic-01.svg",
                     "sessionId": "s1",
-                    "selectVal": "01 Renewable Energy",
+                    "selectVal": "Renewable Energy",
                     "enTitle": "Renewable Energy",
                     "hrTitle": "Obnovljivi izvori energije",
                     "enShort": "Renewable Energy",
@@ -3736,7 +3736,7 @@
                     "num": "02",
                     "figure": "assets/topics/topic-02.svg",
                     "sessionId": "s2",
-                    "selectVal": "02 Smart HVAC",
+                    "selectVal": "Smart HVAC",
                     "enTitle": "Smart HVAC",
                     "hrTitle": "Pametni KGH (HVAC)",
                     "enShort": "Smart HVAC",
@@ -3777,7 +3777,7 @@
                     "num": "03",
                     "figure": "assets/topics/topic-03.svg",
                     "sessionId": "s3",
-                    "selectVal": "03 Marine Engineering",
+                    "selectVal": "Marine Engineering",
                     "enTitle": "Marine Engineering",
                     "hrTitle": "Brodostrojarstvo",
                     "enShort": "Marine Engineering",
@@ -3818,7 +3818,7 @@
                     "num": "04",
                     "figure": "assets/topics/topic-04.svg",
                     "sessionId": "s1",
-                    "selectVal": "04 Hydrogen & Energy Storage",
+                    "selectVal": "Hydrogen & Energy Storage",
                     "enTitle": "Hydrogen & Energy Storage",
                     "hrTitle": "Vodik i pohrana energije",
                     "enShort": "Hydrogen & Storage",
@@ -3859,7 +3859,7 @@
                     "num": "05",
                     "figure": "assets/topics/topic-05.svg",
                     "sessionId": "s3",
-                    "selectVal": "05 Thermodynamics",
+                    "selectVal": "Thermodynamics",
                     "enTitle": "Thermodynamics",
                     "hrTitle": "Termodinamika",
                     "enShort": "Thermodynamics",
@@ -3900,7 +3900,7 @@
                     "num": "06",
                     "figure": "assets/topics/topic-06.svg",
                     "sessionId": "s3",
-                    "selectVal": "06 Environmental Engineering",
+                    "selectVal": "Environmental Engineering",
                     "enTitle": "Environmental Engineering",
                     "hrTitle": "Inženjerstvo okoliša",
                     "enShort": "Environmental Eng.",
@@ -3941,7 +3941,7 @@
                     "num": "07",
                     "figure": "assets/topics/topic-07.svg",
                     "sessionId": "s3",
-                    "selectVal": "07 Sustainable Construction",
+                    "selectVal": "Sustainable Construction",
                     "enTitle": "Sustainable Construction",
                     "hrTitle": "Održiva gradnja",
                     "enShort": "Sustainable Construction",
@@ -3982,7 +3982,7 @@
                     "num": "08",
                     "figure": "assets/topics/topic-08.svg",
                     "sessionId": "s2",
-                    "selectVal": "08 Cooling & Refrigeration",
+                    "selectVal": "Cooling & Refrigeration",
                     "enTitle": "Cooling & Refrigeration",
                     "hrTitle": "Tehnika hlađenja",
                     "enShort": "Cooling & Refrigeration",
@@ -4023,7 +4023,7 @@
                     "num": "09",
                     "figure": "assets/topics/topic-09.svg",
                     "sessionId": "s2",
-                    "selectVal": "09 AI, CFD & Digital Twins",
+                    "selectVal": "AI, CFD & Digital Twins",
                     "enTitle": "AI, CFD & Digital Twins",
                     "hrTitle": "AI, CFD i digitalni blizanci",
                     "enShort": "AI, CFD & Twins",
@@ -4064,7 +4064,7 @@
                     "num": "10",
                     "figure": "assets/topics/topic-10.svg",
                     "sessionId": "s1",
-                    "selectVal": "10 Green Mobility",
+                    "selectVal": "Green Mobility",
                     "enTitle": "Green Mobility",
                     "hrTitle": "Zeleni promet",
                     "enShort": "Green Mobility",
@@ -4106,35 +4106,35 @@
                     "id": "s1",
                     "enTitle": "SESSION 1 • 10:15 – 11:30",
                     "hrTitle": "SESIJA 1 • 10:15 – 11:30",
-                    "enTopics": "Topics 01, 04, 10",
-                    "hrTopics": "Teme 01, 04, 10",
-                    "enDesc": "Renewable energy, hydrogen, storage & green mobility",
-                    "hrDesc": "Obnovljivi izvori, vodik, pohrana i zeleni promet"
+                    "enTopics": "Green Energy, Hydrogen & Mobility",
+                    "hrTopics": "Zelena energija, vodik i promet",
+                    "enDesc": "◆ Renewable Energy • ◆ Hydrogen & Storage • ◆ Green Mobility",
+                    "hrDesc": "◆ Obnovljivi izvori • ◆ Vodik i pohrana • ◆ Zeleni promet"
           },
           {
                     "id": "s2",
                     "enTitle": "SESSION 2 • 12:30 – 13:45",
                     "hrTitle": "SESIJA 2 • 12:30 – 13:45",
-                    "enTopics": "Topics 02, 08, 09",
-                    "hrTopics": "Teme 02, 08, 09",
-                    "enDesc": "Smart HVAC, cooling & refrigeration, AI/CFD & twins",
-                    "hrDesc": "Pametni KGH, tehnika hlađenja, AI/CFD i digitalni blizanci"
+                    "enTopics": "HVAC, Cooling & Digitalization",
+                    "hrTopics": "KGH, hlađenje i digitalizacija",
+                    "enDesc": "◆ Smart HVAC • ◆ Cooling & Refrigeration • ◆ AI, CFD & Digital Twins",
+                    "hrDesc": "◆ Pametni KGH • ◆ Tehnika hlađenja • ◆ AI, CFD i blizanci"
           },
           {
                     "id": "s3",
                     "enTitle": "SESSION 3 • 14:45 – 16:00",
                     "hrTitle": "SESIJA 3 • 14:45 – 16:00",
-                    "enTopics": "Topics 03, 05, 06, 07",
-                    "hrTopics": "Teme 03, 05, 06, 07",
-                    "enDesc": "Marine eng., thermodynamics, environment & sustainable construction",
-                    "hrDesc": "Brodostrojarstvo, termodinamika, okoliš i održiva gradnja"
+                    "enTopics": "Marine, Thermal & Environment",
+                    "hrTopics": "Brodostrojarstvo, termodinamika i okoliš",
+                    "enDesc": "◆ Marine Eng. • ◆ Thermodynamics • ◆ Environment • ◆ Sustainable Construction",
+                    "hrDesc": "◆ Brodostrojarstvo • ◆ Termodinamika • ◆ Okoliš • ◆ Održiva gradnja"
           },
           {
                     "id": "poster",
                     "enTitle": "POSTER SECTION",
                     "hrTitle": "POSTER SEKCIJA",
-                    "enTopics": "All Topics (01 – 10)",
-                    "hrTopics": "Sve teme (01 – 10)",
+                    "enTopics": "All Conference Topics",
+                    "hrTopics": "Sve tematske cjeline",
                     "enDesc": "Researchers, PhD candidates & pilot projects",
                     "hrDesc": "Istraživači, doktorandi i pilot-projekti"
           }
@@ -4158,16 +4158,14 @@
           const figEl = document.getElementById('topicDetailFigure');
           if (figEl) {
             figEl.src = t.figure;
-            figEl.alt = `${t.num} — ${isHr ? t.hrTitle : t.enTitle}`;
+            figEl.alt = isHr ? t.hrTitle : t.enTitle;
           }
-          const numEl = document.getElementById('topicDetailNum');
-          if (numEl) numEl.textContent = `${t.num} / 10`;
           const domEl = document.getElementById('topicDetailDomain');
           if (domEl) domEl.textContent = isHr ? t.hrDomain : t.enDomain;
           const sesEl = document.getElementById('topicDetailSession');
           if (sesEl) sesEl.textContent = isHr ? t.hrSession : t.enSession;
           const titleEl = document.getElementById('topicDetailTitle');
-          if (titleEl) titleEl.textContent = `${t.num}. ${isHr ? t.hrTitle : t.enTitle}`;
+          if (titleEl) titleEl.textContent = isHr ? t.hrTitle : t.enTitle;
           const descEl = document.getElementById('topicDetailDesc');
           if (descEl) descEl.textContent = isHr ? t.hrDesc : t.enDesc;
 
@@ -4204,7 +4202,7 @@
               return `
                 <button type="button" data-jump-topic="${item.id}"
                   class="text-left px-3 py-2 rounded-xl border text-xs font-semibold transition-all truncate ${active ? 'bg-navy text-amber-300 border-navy shadow-sm' : 'bg-slate-50 hover:bg-amber-50 text-navy border-slate-200 hover:border-solar/50'}">
-                  <span class="font-extrabold mr-1">${item.num}</span>
+                  <span class="text-amber-400 mr-1.5" aria-hidden="true">◆</span>
                   <span>${isHr ? item.hrShort : item.enShort}</span>
                 </button>
               `;
@@ -5625,8 +5623,17 @@
             const sizeClasses = isDense
               ? 'px-2.5 py-1 sm:px-3.5 sm:py-1.5 text-[10px] sm:text-xs'
               : 'px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs';
-            el.className = `radial-menu-node ${sizeClasses} rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/50 hover:border-amber-200 text-amber-50 hover:text-white font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-black/45 whitespace-nowrap cursor-pointer${isActiveSub ? ' radial-node-active' : ''}`;
-            el.textContent = label;
+            el.className = `radial-menu-node ${sizeClasses} rounded-full bg-navy-dark/90 hover:bg-solar border border-amber-300/50 hover:border-amber-200 text-amber-50 hover:text-white font-semibold tracking-wide backdrop-blur-md shadow-lg shadow-black/45 whitespace-nowrap cursor-pointer inline-flex items-center gap-1.5${isActiveSub ? ' radial-node-active' : ''}`;
+            if (pageId === 'topics') {
+              const diamond = document.createElement('span');
+              diamond.setAttribute('aria-hidden', 'true');
+              diamond.className = 'text-yellow-300 text-[10px] sm:text-xs leading-none';
+              diamond.textContent = '◆';
+              el.appendChild(diamond);
+              el.appendChild(document.createTextNode(label));
+            } else {
+              el.textContent = label;
+            }
 
             const setRayHover = (on) => {
               document.body.classList.toggle('has-hovered-ray', on);
