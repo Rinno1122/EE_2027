@@ -2516,7 +2516,7 @@
                 <option value="Sustainable Construction" data-i18n="topics.t7Title">◆ Sustainable Construction</option>
                 <option value="Cooling & Refrigeration" data-i18n="topics.t8Title">◆ Cooling &amp; Refrigeration</option>
                 <option value="AI, CFD & Digital Twins" data-i18n="topics.t9Title">◆ AI, CFD &amp; Digital Twins</option>
-                <option value="Green Mobility" data-i18n="topics.t10Title">◆ Green Mobility</option>
+                <option value="Green Transportation" data-i18n="topics.t10Title">◆ Green Transportation</option>
                 <option value="Smart Grids & Virtual Power Plants" data-i18n="topics.t11Title">◆ Smart Grids &amp; Virtual Power Plants</option>
               </select>
             </div>
@@ -2692,7 +2692,7 @@
           'sub.topics.t07': 'Sustainable Construction',
           'sub.topics.t08': 'Cooling & Refrigeration',
           'sub.topics.t09': 'AI & CFD',
-          'sub.topics.t10': 'Green Mobility',
+          'sub.topics.t10': 'Green Transportation',
           'sub.topics.t11': 'Smart Grids & VPP',
 
           'sub.dates.all': 'All Dates (11)',
@@ -2835,7 +2835,7 @@
           'topics.t7Title': '◆ Sustainable Construction',
           'topics.t8Title': '◆ Cooling & Refrigeration',
           'topics.t9Title': '◆ AI, CFD & Digital Twins',
-          'topics.t10Title': '◆ Green Mobility',
+          'topics.t10Title': '◆ Green Transportation',
           'topics.t11Title': '◆ Smart Grids & Virtual Power Plants',
 
           'dates.eyebrow': 'Schedule & Deadlines',
@@ -4069,10 +4069,10 @@
                     "num": "10",
                     "figure": "assets/topics/topic-10.svg",
                     "sessionId": "s1",
-                    "selectVal": "Green Mobility",
-                    "enTitle": "Green Mobility",
+                    "selectVal": "Green Transportation",
+                    "enTitle": "Green Transportation",
                     "hrTitle": "Zeleni promet",
-                    "enShort": "Green Mobility",
+                    "enShort": "Green Transportation",
                     "hrShort": "Zeleni promet",
                     "enDomain": "E-Mobility • Low-Carbon",
                     "hrDomain": "E-mobilnost • Niskougljično",
@@ -4154,7 +4154,7 @@
                     "hrTitle": "SESIJA 1 • 10:15 – 11:30",
                     "enTopics": "Green Energy, Hydrogen & Mobility",
                     "hrTopics": "Zelena energija, vodik i promet",
-                    "enDesc": "◆ Renewable Energy • ◆ Hydrogen & Storage • ◆ Green Mobility • ◆ Smart Grids & VPPs",
+                    "enDesc": "◆ Renewable Energy • ◆ Hydrogen & Storage • ◆ Green Transportation • ◆ Smart Grids & VPPs",
                     "hrDesc": "◆ Obnovljivi izvori • ◆ Vodik i pohrana • ◆ Zeleni promet • ◆ Pametne mreže i VPP"
           },
           {
@@ -4283,14 +4283,16 @@
         if (topicPrevBtn) {
           topicPrevBtn.addEventListener('click', () => {
             const nextIdx = (activeTopicIdx - 1 + conferenceTopicsData.length) % conferenceTopicsData.length;
-            const sub = subMenuConfig.topics[nextIdx];
+            const targetId = conferenceTopicsData[nextIdx].id;
+            const sub = subMenuConfig.topics.find((s) => s.id === targetId);
             if (sub) openLevel3('topics', sub, { pushHash: true });
           });
         }
         if (topicNextBtn) {
           topicNextBtn.addEventListener('click', () => {
             const nextIdx = (activeTopicIdx + 1) % conferenceTopicsData.length;
-            const sub = subMenuConfig.topics[nextIdx];
+            const targetId = conferenceTopicsData[nextIdx].id;
+            const sub = subMenuConfig.topics.find((s) => s.id === targetId);
             if (sub) openLevel3('topics', sub, { pushHash: true });
           });
         }
@@ -5076,16 +5078,16 @@
           ],
           topics: [
             { id: 'topic-01', labelKey: 'sub.topics.t01', angle: 0, left: 50, top: 5, section: 'topics', onEnter: () => renderTopicDetail('topic-01') },
-            { id: 'topic-02', labelKey: 'sub.topics.t02', angle: 33, left: 78, top: 14, section: 'topics', onEnter: () => renderTopicDetail('topic-02') },
+            { id: 'topic-04', labelKey: 'sub.topics.t04', angle: 33, left: 78, top: 14, section: 'topics', onEnter: () => renderTopicDetail('topic-04') },
             { id: 'topic-03', labelKey: 'sub.topics.t03', angle: 65, left: 93, top: 33, section: 'topics', onEnter: () => renderTopicDetail('topic-03') },
-            { id: 'topic-04', labelKey: 'sub.topics.t04', angle: 98, left: 96, top: 56, section: 'topics', onEnter: () => renderTopicDetail('topic-04') },
+            { id: 'topic-02', labelKey: 'sub.topics.t02', angle: 98, left: 96, top: 56, section: 'topics', onEnter: () => renderTopicDetail('topic-02') },
             { id: 'topic-05', labelKey: 'sub.topics.t05', angle: 131, left: 89, top: 77, section: 'topics', onEnter: () => renderTopicDetail('topic-05') },
             { id: 'topic-06', labelKey: 'sub.topics.t06', angle: 156, left: 76, top: 94, section: 'topics', onEnter: () => renderTopicDetail('topic-06') },
             { id: 'topic-07', labelKey: 'sub.topics.t07', angle: 204, left: 24, top: 94, section: 'topics', onEnter: () => renderTopicDetail('topic-07') },
-            { id: 'topic-08', labelKey: 'sub.topics.t08', angle: 229, left: 11, top: 77, section: 'topics', onEnter: () => renderTopicDetail('topic-08') },
+            { id: 'topic-11', labelKey: 'sub.topics.t11', angle: 229, left: 11, top: 77, section: 'topics', onEnter: () => renderTopicDetail('topic-11') },
             { id: 'topic-09', labelKey: 'sub.topics.t09', angle: 262, left: 4, top: 56, section: 'topics', onEnter: () => renderTopicDetail('topic-09') },
             { id: 'topic-10', labelKey: 'sub.topics.t10', angle: 295, left: 7, top: 33, section: 'topics', onEnter: () => renderTopicDetail('topic-10') },
-            { id: 'topic-11', labelKey: 'sub.topics.t11', angle: 327, left: 22, top: 14, section: 'topics', onEnter: () => renderTopicDetail('topic-11') }
+            { id: 'topic-08', labelKey: 'sub.topics.t08', angle: 327, left: 22, top: 14, section: 'topics', onEnter: () => renderTopicDetail('topic-08') }
           ],
           dates: [
             { id: 'all-dates', labelKey: 'sub.dates.all', angle: 0, left: 50, top: 7, section: 'dates', onEnter: () => applyDateFilter('all') },
