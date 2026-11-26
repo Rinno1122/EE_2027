@@ -1368,20 +1368,20 @@
                   <span class="text-[11px] uppercase px-2 py-0.5 rounded-md bg-white/15">TBC</span>
                 </button>
 
-                <!-- Placeholder Word Template Button -->
-                <button
-                  type="button"
-                  data-placeholder-action="docx"
-                  class="w-full flex items-center justify-between gap-3 px-5 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-navy border border-slate-200 font-semibold text-sm transition-all"
+                <!-- Direct Download: Official Word Manuscript Template (.docx) -->
+                <a
+                  href="assets/EE2027_Word_Template.docx"
+                  download="EE2027_Word_Template.docx"
+                  class="w-full flex items-center justify-between gap-3 px-5 py-3.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-navy border border-amber-300 font-semibold text-sm shadow-sm transition-all"
                 >
                   <span class="flex items-center gap-2.5">
-                    <svg class="w-5 h-5 text-blue-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg class="w-5 h-5 text-solar shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
                     <span data-i18n="authors.btnDocx">Download Word Template (.docx)</span>
                   </span>
-                  <span class="text-xs text-slate-400">.docx</span>
-                </button>
+                  <span class="text-xs font-bold text-solar">.docx</span>
+                </a>
 
                 <!-- Placeholder LaTeX Template Button -->
                 <button
@@ -5149,7 +5149,7 @@
           authors: [
             { id: 'guidelines', labelKey: 'sub.authors.guide', angle: 0, left: 50, top: 7, section: 'authors' },
             { id: 'portal', labelKey: 'sub.authors.portal', angle: 90, left: 87, top: 50, section: 'authors', onEnter: () => showToast(translations[currentLang].toastPortal) },
-            { id: 'docx', labelKey: 'sub.authors.docx', angle: 180, left: 50, top: 93, section: 'authors', onEnter: () => showToast(translations[currentLang].toastDocx) },
+            { id: 'docx', labelKey: 'sub.authors.docx', angle: 180, left: 50, top: 93, href: 'assets/EE2027_Word_Template.docx' },
             { id: 'latex', labelKey: 'sub.authors.latex', angle: 270, left: 14, top: 50, section: 'authors', onEnter: () => showToast(translations[currentLang].toastLatex) }
           ],
           registration: [
