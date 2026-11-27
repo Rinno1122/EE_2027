@@ -1115,7 +1115,7 @@
               Topic &amp; City of Rijeka Photography (Creative Commons)
             </h3>
             <p class="text-sm text-slate-600 leading-relaxed" data-i18n="ack.ccPhotosBody">
-              Representative photographs for all 12 conference topics and City of Rijeka landmarks are sourced from Wikimedia Commons under free Creative Commons licenses (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0, and CC BY-SA 4.0). Individual author credits, license terms, and direct source links are displayed beneath each topic photograph.
+              Representative photographs for all 12 conference topics and City of Rijeka landmarks are sourced from Wikimedia Commons under free Creative Commons licenses (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0, and CC BY-SA 4.0). Individual author credits, license terms, and direct source links are displayed at the bottom of each topic page.
             </p>
           </div>
 
@@ -1185,9 +1185,9 @@
         <!-- Dynamic Selected Topic Hero & Figure -->
         <div class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden mb-8">
           <div class="grid grid-cols-1 lg:grid-cols-12">
-            <!-- Left: Representative Topic Photograph (CC-Licensed) -->
-            <div class="lg:col-span-6 bg-navy-dark flex flex-col justify-between p-4 sm:p-6">
-              <div class="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-navy">
+            <!-- Left: Representative Topic Photograph -->
+            <div class="lg:col-span-6 bg-navy-dark flex items-center justify-center p-4 sm:p-6">
+              <div class="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-white">
                 <img
                   id="topicDetailFigure"
                   src="assets/topics/topic-01.jpg"
@@ -1195,7 +1195,6 @@
                   class="w-full h-full object-cover"
                 />
               </div>
-              <p id="topicDetailCredit" class="mt-2.5 text-[11px] text-slate-300/85 text-right leading-snug"></p>
             </div>
 
             <!-- Right: Topic Metadata & Short Description -->
@@ -1309,6 +1308,9 @@
           </div>
           <div id="topicSessionsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"></div>
         </div>
+
+        <!-- Topic Photo Attribution / Copyright Owner (Bottom of Page) -->
+        <p id="topicDetailCredit" class="mt-5 text-xs text-slate-500 text-right leading-relaxed"></p>
 
       </div>
     </section>
@@ -3291,7 +3293,7 @@
           'ack.symbolTitle': 'Congress Symbol — Vitruvian Man & Sun Rays',
                     'ack.symbolBody': "Inspired by the traditional HSSE Energy and the Environment emblem combining Leonardo da Vinci's Vitruvian Man (c. 1490) with a 24-ray solar crown. Vector tracing adapted via Wikimedia Commons (CC BY-SA 4.0).",
           'ack.ccPhotosTitle': 'Topic & City of Rijeka Photography (Creative Commons)',
-          'ack.ccPhotosBody': 'Representative photographs for all 12 conference topics and City of Rijeka landmarks are sourced from Wikimedia Commons under free Creative Commons licenses (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0, and CC BY-SA 4.0). Individual author credits, license terms, and direct source links are displayed beneath each topic photograph.',
+          'ack.ccPhotosBody': 'Representative photographs for all 12 conference topics and City of Rijeka landmarks are sourced from Wikimedia Commons under free Creative Commons licenses (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0, and CC BY-SA 4.0). Individual author credits, license terms, and direct source links are displayed at the bottom of each topic page.',
           'ack.histTag': 'Historical Archive',
           'ack.histTitle': 'Historical Photography & Chronology (1975–2016)',
           'ack.histBody': 'Archival photographs and historical documentation in the History section are sourced from the 2016 RITEH undergraduate theses of Teodora Milošević ("Doprinos riječkih znanstvenika na području toplinske konverzije sunčeve energije i obnovljivih izvora energije") and Dora Burul ("Doprinos Frana Bošnjakovića u području toplinske konverzije sunčeve energije"), both supervised by Prof. dr. sc. Bernard Franković.',
@@ -3793,7 +3795,7 @@
           'ack.symbolTitle': 'Simbol kongresa — Vitruvijev čovjek i sunčeve zrake',
           'ack.symbolBody': 'Nadahnut tradicionalnim znakom kongresa Energija i okoliš koji spaja Vitruvijevog čovjeka Leonarda da Vincija (oko 1490.) sa sunčevom krunom od 24 zrake. Vektorska obrada prilagođena putem Wikimedia Commonsa (CC BY-SA 4.0).',
           'ack.ccPhotosTitle': 'Fotografije tema i grada Rijeke (Creative Commons)',
-          'ack.ccPhotosBody': 'Reprezentativne fotografije svih 12 kongresnih tema i znamenitosti grada Rijeke preuzete su s Wikimedia Commonsa pod slobodnim Creative Commons licencama (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0 i CC BY-SA 4.0). Pojedinačni podaci o autoru, licenci i izvornoj poveznici navedeni su ispod svake tematske fotografije.',
+          'ack.ccPhotosBody': 'Reprezentativne fotografije svih 12 kongresnih tema i znamenitosti grada Rijeke preuzete su s Wikimedia Commonsa pod slobodnim Creative Commons licencama (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0 i CC BY-SA 4.0). Pojedinačni podaci o autoru, licenci i izvornoj poveznici navedeni su na dnu svake tematske stranice.',
           'ack.histTag': 'Povijesna arhiva',
           'ack.histTitle': 'Povijesne fotografije i kronologija (1975.–2016.)',
           'ack.histBody': 'Arhivske fotografije i povijesni zapisi u rubrici Povijest preuzeti su iz završnih radova Teodore Milošević („Doprinos riječkih znanstvenika na području toplinske konverzije sunčeve energije i obnovljivih izvora energije“) i Dore Burul („Doprinos Frana Bošnjakovića u području toplinske konverzije sunčeve energije“), izrađenih na Tehničkom fakultetu Sveučilišta u Rijeci (RITEH, 2016.) pod mentorstvom prof. dr. sc. Bernarda Frankovića.',
@@ -4452,9 +4454,9 @@
                     "id": "topic-03",
                     "num": "03",
                     "figure": "assets/topics/topic-03.jpg",
-                    "photoAuthor": "Bo Randstedt",
+                    "photoAuthor": "Gwafton",
                     "photoLicense": "CC BY-SA 4.0",
-                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3AColumbine_maersk.jpg",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3AW%C3%A4rtsil%C3%A4_6L20.jpg",
                     "sessionId": "s3",
                     "selectVal": "Marine Engineering",
                     "enTitle": "Marine Engineering",
@@ -4496,9 +4498,9 @@
                     "id": "topic-04",
                     "num": "04",
                     "figure": "assets/topics/topic-04.jpg",
-                    "photoAuthor": "Tiia Monto",
-                    "photoLicense": "CC BY 4.0",
-                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3AHydrogen_station_in_Jyv%C3%A4skyl%C3%A4.jpg",
+                    "photoAuthor": "TomFawls",
+                    "photoLicense": "CC BY-SA 3.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3ALiquid_hydrogen_storage_tank_at_Launch_Pad_39B.jpg",
                     "sessionId": "s1",
                     "selectVal": "Hydrogen & Energy Storage",
                     "enTitle": "Hydrogen & Energy Storage",
@@ -4540,9 +4542,8 @@
                     "id": "topic-05",
                     "num": "05",
                     "figure": "assets/topics/topic-05.jpg",
-                    "photoAuthor": "Siarhei Besarab",
-                    "photoLicense": "CC BY-SA 4.0",
-                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3ALow-pressure_turbine_rotor_from_the_Greifswald_Nuclear_Power_Plant.jpg",
+                    "photoNoteEn": "Figure: T–s diagram of the Clausius–Rankine cycle (HSSE / RITEH)",
+                    "photoNoteHr": "Slika: T–s dijagram Clausius–Rankineovog procesa (HSSE / RITEH)",
                     "sessionId": "s3",
                     "selectVal": "Thermodynamics",
                     "enTitle": "Thermodynamics",
@@ -4951,8 +4952,10 @@
           const creditEl = document.getElementById('topicDetailCredit');
           if (creditEl) {
             if (t.photoAuthor && t.photoLicense && t.photoUrl) {
-              const prefix = isHr ? 'Fotografija' : 'Photo';
-              creditEl.innerHTML = `${prefix}: <a href="${t.photoUrl}" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:underline">${t.photoAuthor}</a> • ${t.photoLicense} (Wikimedia Commons)`;
+              const prefix = isHr ? 'Autor fotografije' : 'Photo copyright';
+              creditEl.innerHTML = `${prefix}: <a href="${t.photoUrl}" target="_blank" rel="noopener noreferrer" class="text-tealbrand hover:text-navy font-medium underline underline-offset-2">${t.photoAuthor}</a> • ${t.photoLicense} (Wikimedia Commons)`;
+            } else if (t.photoNoteEn || t.photoNoteHr) {
+              creditEl.textContent = isHr ? t.photoNoteHr : t.photoNoteEn;
             } else {
               creditEl.textContent = '';
             }
