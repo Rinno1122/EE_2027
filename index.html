@@ -1109,6 +1109,16 @@
             </div>
           </div>
 
+          <!-- Open-License Topic & Landmark Photography Attribution -->
+          <div class="md:col-span-2 rounded-3xl bg-slate-50 border border-slate-200 p-6 sm:p-7">
+            <h3 class="font-display text-lg font-bold text-navy mb-1" data-i18n="ack.ccPhotosTitle">
+              Topic &amp; City of Rijeka Photography (Creative Commons)
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="ack.ccPhotosBody">
+              Representative photographs for all 12 conference topics and City of Rijeka landmarks are sourced from Wikimedia Commons under free Creative Commons licenses (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0, and CC BY-SA 4.0). Individual author credits, license terms, and direct source links are displayed beneath each topic photograph.
+            </p>
+          </div>
+
           <!-- Historical Photography Archive Attribution (T. Milošević Thesis) -->
           <div class="md:col-span-2 rounded-3xl bg-amber-50/70 border border-amber-200/90 p-6 sm:p-7 flex flex-col justify-between gap-4">
             <div>
@@ -1175,14 +1185,17 @@
         <!-- Dynamic Selected Topic Hero & Figure -->
         <div class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden mb-8">
           <div class="grid grid-cols-1 lg:grid-cols-12">
-            <!-- Left: Representative Topic Figure -->
-            <div class="lg:col-span-6 bg-navy-dark flex items-center justify-center p-4 sm:p-6">
-              <img
-                id="topicDetailFigure"
-                src="assets/topics/topic-01.svg"
-                alt="Conference topic representative figure"
-                class="w-full h-auto rounded-2xl shadow-lg border border-white/10"
-              />
+            <!-- Left: Representative Topic Photograph (CC-Licensed) -->
+            <div class="lg:col-span-6 bg-navy-dark flex flex-col justify-between p-4 sm:p-6">
+              <div class="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-navy">
+                <img
+                  id="topicDetailFigure"
+                  src="assets/topics/topic-01.jpg"
+                  alt="Conference topic representative photograph"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <p id="topicDetailCredit" class="mt-2.5 text-[11px] text-slate-300/85 text-right leading-snug"></p>
             </div>
 
             <!-- Right: Topic Metadata & Short Description -->
@@ -3277,6 +3290,8 @@
           'ack.venueBody': 'InnovaLab venue photography courtesy of the University of Rijeka (UNIRI). Congress organized by the Croatian Solar Energy Association (HSSE) in cooperation with the Faculty of Engineering, University of Rijeka (RITEH).',
           'ack.symbolTitle': 'Congress Symbol — Vitruvian Man & Sun Rays',
                     'ack.symbolBody': "Inspired by the traditional HSSE Energy and the Environment emblem combining Leonardo da Vinci's Vitruvian Man (c. 1490) with a 24-ray solar crown. Vector tracing adapted via Wikimedia Commons (CC BY-SA 4.0).",
+          'ack.ccPhotosTitle': 'Topic & City of Rijeka Photography (Creative Commons)',
+          'ack.ccPhotosBody': 'Representative photographs for all 12 conference topics and City of Rijeka landmarks are sourced from Wikimedia Commons under free Creative Commons licenses (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0, and CC BY-SA 4.0). Individual author credits, license terms, and direct source links are displayed beneath each topic photograph.',
           'ack.histTag': 'Historical Archive',
           'ack.histTitle': 'Historical Photography & Chronology (1975–2016)',
           'ack.histBody': 'Archival photographs and historical documentation in the History section are sourced from the 2016 RITEH undergraduate theses of Teodora Milošević ("Doprinos riječkih znanstvenika na području toplinske konverzije sunčeve energije i obnovljivih izvora energije") and Dora Burul ("Doprinos Frana Bošnjakovića u području toplinske konverzije sunčeve energije"), both supervised by Prof. dr. sc. Bernard Franković.',
@@ -3777,6 +3792,8 @@
           'ack.venueBody': 'Fotografije paviljona InnovaLab ustupljene su ljubaznošću Sveučilišta u Rijeci (UNIRI). Kongres organizira Hrvatski savez za sunčevu energiju (HSSE) u suradnji s Tehničkim fakultetom Sveučilišta u Rijeci (RITEH).',
           'ack.symbolTitle': 'Simbol kongresa — Vitruvijev čovjek i sunčeve zrake',
           'ack.symbolBody': 'Nadahnut tradicionalnim znakom kongresa Energija i okoliš koji spaja Vitruvijevog čovjeka Leonarda da Vincija (oko 1490.) sa sunčevom krunom od 24 zrake. Vektorska obrada prilagođena putem Wikimedia Commonsa (CC BY-SA 4.0).',
+          'ack.ccPhotosTitle': 'Fotografije tema i grada Rijeke (Creative Commons)',
+          'ack.ccPhotosBody': 'Reprezentativne fotografije svih 12 kongresnih tema i znamenitosti grada Rijeke preuzete su s Wikimedia Commonsa pod slobodnim Creative Commons licencama (CC BY 2.0, CC BY 4.0, CC BY-SA 3.0 i CC BY-SA 4.0). Pojedinačni podaci o autoru, licenci i izvornoj poveznici navedeni su ispod svake tematske fotografije.',
           'ack.histTag': 'Povijesna arhiva',
           'ack.histTitle': 'Povijesne fotografije i kronologija (1975.–2016.)',
           'ack.histBody': 'Arhivske fotografije i povijesni zapisi u rubrici Povijest preuzeti su iz završnih radova Teodore Milošević („Doprinos riječkih znanstvenika na području toplinske konverzije sunčeve energije i obnovljivih izvora energije“) i Dore Burul („Doprinos Frana Bošnjakovića u području toplinske konverzije sunčeve energije“), izrađenih na Tehničkom fakultetu Sveučilišta u Rijeci (RITEH, 2016.) pod mentorstvom prof. dr. sc. Bernarda Frankovića.',
@@ -4346,7 +4363,10 @@
           {
                     "id": "topic-01",
                     "num": "01",
-                    "figure": "assets/topics/topic-01.svg",
+                    "figure": "assets/topics/topic-01.jpg",
+                    "photoAuthor": "Ceinturion",
+                    "photoLicense": "CC BY-SA 3.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3ASolarPowerPlantSerpa.jpg",
                     "sessionId": "s1",
                     "selectVal": "Renewable Energy",
                     "enTitle": "Renewable Energy",
@@ -4387,7 +4407,10 @@
           {
                     "id": "topic-02",
                     "num": "02",
-                    "figure": "assets/topics/topic-02.svg",
+                    "figure": "assets/topics/topic-02.jpg",
+                    "photoAuthor": "Kgbo",
+                    "photoLicense": "CC BY-SA 4.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3AAir_handling_units_in_large_commercial_building%2C_Brisbane.jpg",
                     "sessionId": "s2",
                     "selectVal": "Smart HVAC",
                     "enTitle": "Smart HVAC",
@@ -4428,7 +4451,10 @@
           {
                     "id": "topic-03",
                     "num": "03",
-                    "figure": "assets/topics/topic-03.svg",
+                    "figure": "assets/topics/topic-03.jpg",
+                    "photoAuthor": "Bo Randstedt",
+                    "photoLicense": "CC BY-SA 4.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3AColumbine_maersk.jpg",
                     "sessionId": "s3",
                     "selectVal": "Marine Engineering",
                     "enTitle": "Marine Engineering",
@@ -4469,7 +4495,10 @@
           {
                     "id": "topic-04",
                     "num": "04",
-                    "figure": "assets/topics/topic-04.svg",
+                    "figure": "assets/topics/topic-04.jpg",
+                    "photoAuthor": "Tiia Monto",
+                    "photoLicense": "CC BY 4.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3AHydrogen_station_in_Jyv%C3%A4skyl%C3%A4.jpg",
                     "sessionId": "s1",
                     "selectVal": "Hydrogen & Energy Storage",
                     "enTitle": "Hydrogen & Energy Storage",
@@ -4510,7 +4539,10 @@
           {
                     "id": "topic-05",
                     "num": "05",
-                    "figure": "assets/topics/topic-05.svg",
+                    "figure": "assets/topics/topic-05.jpg",
+                    "photoAuthor": "Siarhei Besarab",
+                    "photoLicense": "CC BY-SA 4.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3ALow-pressure_turbine_rotor_from_the_Greifswald_Nuclear_Power_Plant.jpg",
                     "sessionId": "s3",
                     "selectVal": "Thermodynamics",
                     "enTitle": "Thermodynamics",
@@ -4551,7 +4583,10 @@
           {
                     "id": "topic-06",
                     "num": "06",
-                    "figure": "assets/topics/topic-06.svg",
+                    "figure": "assets/topics/topic-06.jpg",
+                    "photoAuthor": "Martina Nolte",
+                    "photoLicense": "CC BY-SA 3.0 de",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3A2012-05-13_Nordsee-Luftbilder_DSCF8566.jpg",
                     "sessionId": "s3",
                     "selectVal": "Environmental Engineering",
                     "enTitle": "Environmental Engineering",
@@ -4592,7 +4627,10 @@
           {
                     "id": "topic-07",
                     "num": "07",
-                    "figure": "assets/topics/topic-07.svg",
+                    "figure": "assets/topics/topic-07.jpg",
+                    "photoAuthor": "TonyTheTiger",
+                    "photoLicense": "CC BY-SA 3.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3A20080708_Chicago_City_Hall_Green_Roof.JPG",
                     "sessionId": "s3",
                     "selectVal": "Sustainable Construction",
                     "enTitle": "Sustainable Construction",
@@ -4633,7 +4671,10 @@
           {
                     "id": "topic-08",
                     "num": "08",
-                    "figure": "assets/topics/topic-08.svg",
+                    "figure": "assets/topics/topic-08.jpg",
+                    "photoAuthor": "Steve Jurvetson",
+                    "photoLicense": "CC BY 2.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3ABig_Pipes_at_Stanford%27s_New_Central_Energy_Facility_%2837851013542%29.jpg",
                     "sessionId": "s2",
                     "selectVal": "Cooling & Refrigeration",
                     "enTitle": "Cooling & Refrigeration",
@@ -4674,7 +4715,10 @@
           {
                     "id": "topic-09",
                     "num": "09",
-                    "figure": "assets/topics/topic-09.svg",
+                    "figure": "assets/topics/topic-09.jpg",
+                    "photoAuthor": "BalticServers.com",
+                    "photoLicense": "CC BY-SA 3.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3ABalticServers_data_center.jpg",
                     "sessionId": "s2",
                     "selectVal": "AI-Energy-Climate Nexus",
                     "enTitle": "AI-Energy-Climate Nexus",
@@ -4715,7 +4759,10 @@
           {
                     "id": "topic-10",
                     "num": "10",
-                    "figure": "assets/topics/topic-10.svg",
+                    "figure": "assets/topics/topic-10.jpg",
+                    "photoAuthor": "Ivan Radic",
+                    "photoLicense": "CC BY 2.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3AClose-up_of_an_electric_car_charging._Traffic_lights_in_a_blurry_background.jpg",
                     "sessionId": "s1",
                     "selectVal": "Green Transport",
                     "enTitle": "Green Transport",
@@ -4756,7 +4803,10 @@
           {
                     "id": "topic-11",
                     "num": "11",
-                    "figure": "assets/topics/topic-11.svg",
+                    "figure": "assets/topics/topic-11.jpg",
+                    "photoAuthor": "Leninskiy",
+                    "photoLicense": "CC BY-SA 4.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3APower_lines_in_the_setting_sun_of_the_Russian_forest.jpg",
                     "sessionId": "s1",
                     "selectVal": "Smart Grids & Virtual Power Plants",
                     "enTitle": "Smart Grids & Virtual Power Plants",
@@ -4797,7 +4847,10 @@
           {
                     "id": "topic-12",
                     "num": "12",
-                    "figure": "assets/topics/topic-12.svg",
+                    "figure": "assets/topics/topic-12.jpg",
+                    "photoAuthor": "Harald the Bard",
+                    "photoLicense": "CC BY-SA 4.0",
+                    "photoUrl": "https://commons.wikimedia.org/wiki/File%3ATube_bundle_of_a_shell_%26_tube_heat_exchanger_%28before_assembly%29.jpg",
                     "sessionId": "s2",
                     "selectVal": "Heat Transfer & CFD",
                     "enTitle": "Heat Transfer & CFD",
@@ -4894,6 +4947,15 @@
           if (figEl) {
             figEl.src = t.figure;
             figEl.alt = isHr ? t.hrTitle : t.enTitle;
+          }
+          const creditEl = document.getElementById('topicDetailCredit');
+          if (creditEl) {
+            if (t.photoAuthor && t.photoLicense && t.photoUrl) {
+              const prefix = isHr ? 'Fotografija' : 'Photo';
+              creditEl.innerHTML = `${prefix}: <a href="${t.photoUrl}" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:underline">${t.photoAuthor}</a> • ${t.photoLicense} (Wikimedia Commons)`;
+            } else {
+              creditEl.textContent = '';
+            }
           }
           const domEl = document.getElementById('topicDetailDomain');
           if (domEl) domEl.textContent = isHr ? t.hrDomain : t.enDomain;
